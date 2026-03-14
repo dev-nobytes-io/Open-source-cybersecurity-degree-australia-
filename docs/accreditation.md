@@ -120,6 +120,23 @@ Key design decisions made with HESF compatibility in mind:
 
 ---
 
+## Supporting University Guide Documents
+
+The following documents provide the complete institutional reference for universities,
+delivery partners, and accreditation reviewers:
+
+| Document | Purpose |
+|---|---|
+| [Graduate Attributes](institutional/graduate-attributes.md) | 7 graduate attributes with AQF Level 7 alignment |
+| [Threshold Learning Outcomes](institutional/threshold-learning-outcomes.md) | 9 TLOs (8 universal + 1 pathway-specific) |
+| [External Benchmarking](institutional/external-benchmarking.md) | Comparison to UNSW, Deakin, RMIT, CS50, SANS STI, CyBOK |
+| [Equivalence Mapping](institutional/equivalence-mapping.md) | AQF, VET, and university credit recognition mapping |
+| [Pedagogy Statement](institutional/pedagogy-statement.md) | Teaching philosophy and instructional design rationale |
+| [Industry Advisory Board Charter](institutional/industry-advisory-board-charter.md) | IAB structure, functions, and membership criteria |
+| [Curriculum Map](../curriculum/curriculum-map.md) | Single-view degree map (AQF, NICE, SFIA, Bloom's, assessment) |
+
+---
+
 ## Pathway to Formal Recognition
 
 The following staged pathway is proposed for moving toward formal recognition:
