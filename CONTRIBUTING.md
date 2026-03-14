@@ -45,11 +45,30 @@ This project follows a standard Code of Conduct. Be respectful of other contribu
 
 ---
 
+## Governance & Standards Documents
+
+Before contributing content, read these documents:
+
+| Document | Purpose |
+|---|---|
+| [`docs/governance.md`](docs/governance.md) | Formal governance model: roles, content lifecycle, decision-making, versioning |
+| [`docs/content-standards.md`](docs/content-standards.md) | Full content standards: mandatory fields, Bloom's requirements, lab/assessment design |
+| [`docs/compliance/aqf-teqsa.md`](docs/compliance/aqf-teqsa.md) | AQF Level 7 + TEQSA compliance requirements |
+| [`docs/compliance/workforce-frameworks.md`](docs/compliance/workforce-frameworks.md) | NICE/DCWF, SFIA 9, ASD framework mapping requirements |
+| [`docs/compliance/program-delivery.md`](docs/compliance/program-delivery.md) | Accessibility, licensing, quality assurance, and version control standards |
+| [`templates/unit-template.md`](templates/unit-template.md) | **Mandatory unit template** — all unit content must use this template |
+| [`templates/review-checklist.md`](templates/review-checklist.md) | Practitioner review sign-off checklist — copy into your PR description |
+
+---
+
 ## Content Standards
 
 ### Unit Structure
 
-Every unit must follow this structure:
+Every unit must use the template at [`templates/unit-template.md`](templates/unit-template.md).
+The full field-by-field requirements are documented in [`docs/content-standards.md`](docs/content-standards.md).
+
+The minimum structure is:
 
 ```
 # Unit Title
@@ -185,7 +204,11 @@ flowchart TD
 
 ### Pull Request Template
 
-When opening a PR, use this template:
+When opening a PR for **new unit content**, copy the full
+[`templates/review-checklist.md`](templates/review-checklist.md) into your PR
+description and complete Section 0 (Contributor Self-Assessment).
+
+For **typo, formatting, or minor fixes**, use this abbreviated template:
 
 ```markdown
 ## What does this PR do?
@@ -193,7 +216,7 @@ When opening a PR, use this template:
 
 ## Type of change
 - [ ] Typo / formatting fix
-- [ ] New unit content
+- [ ] New unit content (use full review-checklist.md template)
 - [ ] Lab exercise
 - [ ] Framework mapping update
 - [ ] Structural / governance change
@@ -203,7 +226,7 @@ When opening a PR, use this template:
 - [ ] N/A — typo or formatting only
 
 ## Practitioner review (required for major content)
-- [ ] Reviewed by: [name / handle / LinkedIn]
+- [ ] Reviewed by: [name / handle]
 - [ ] N/A — not major content
 
 ## Australian context included where relevant?
@@ -211,10 +234,11 @@ When opening a PR, use this template:
 - [ ] N/A
 
 ## Checklist
-- [ ] Follows unit structure template
-- [ ] Learning outcomes use Bloom's Taxonomy verbs
+- [ ] Follows templates/unit-template.md
+- [ ] Learning outcomes use Bloom's Taxonomy verbs at the correct level
 - [ ] No proprietary tool dependencies in core content
 - [ ] Files named per naming conventions
+- [ ] All hyperlinks tested
 ```
 
 ---
@@ -239,6 +263,9 @@ When opening a PR, use this template:
 | `good first issue` | Suitable for first-time contributors |
 | `needs: practitioner-review` | Blocked on practitioner review |
 | `needs: framework-check` | Framework mapping needs verification |
+| `content-review` | Community-raised request for a currency review of existing content |
+| `dead-link` | A hyperlink in the content is broken or dead |
+| `framework-update` | A framework has a new version; affected units need remapping |
 
 ---
 
