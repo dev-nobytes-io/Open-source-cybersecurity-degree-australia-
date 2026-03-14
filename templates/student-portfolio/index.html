@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NICE DCWF Competency Portfolio</title>
+
+  <!-- Mermaid.js for diagram rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #0f1117;
+      --surface:     #1a1d27;
+      --surface2:    #22263a;
+      --border:      #2e3350;
+      --accent:      #4f8ef7;
+      --accent2:     #7c5cfc;
+      --green:       #3ecf8e;
+      --amber:       #f5a623;
+      --red:         #f56060;
+      --text:        #e8eaf0;
+      --text-muted:  #7b82a0;
+      --badge-bg:    #1e2640;
+      --radius:      10px;
+      --tab-h:       48px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ─── Header ───────────────────────────────────────────────────────── */
+    .header {
+      background: linear-gradient(135deg, #0f1117 0%, #1a1d27 50%, #1e2640 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem 1.5rem;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .header-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .header-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* TODO: Replace these values with your own details */
+    .header-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.75rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-chip .label { color: var(--text); font-weight: 500; }
+
+    .header-stats {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── Tab Navigation ───────────────────────────────────────────────── */
+    .tab-nav {
+      display: flex;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      scrollbar-width: none;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .tab-nav::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      flex-shrink: 0;
+      height: var(--tab-h);
+      padding: 0 1.5rem;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ─── Tab Panels ───────────────────────────────────────────────────── */
+    .tab-content { max-width: 1200px; margin: 0 auto; padding: 2rem 2.5rem; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ─── Section Headings ─────────────────────────────────────────────── */
+    .section-heading {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── Cards ────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ─── Mermaid Diagram Containers ───────────────────────────────────── */
+    .diagram-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .diagram-wrap .mermaid {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ─── Work Role Badge Cards ─────────────────────────────────────────── */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .role-badge {
+      background: var(--badge-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-badge::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .role-badge.demonstrated::before { background: var(--green); }
+    .role-badge.in-progress::before { background: var(--amber); }
+    .role-badge.planned::before { background: var(--border); }
+
+    .role-badge-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .role-badge-code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(79, 142, 247, 0.1);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .role-badge-category {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .role-badge-units {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.2rem;
+    }
+
+    .unit-tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      width: fit-content;
+      margin-top: auto;
+    }
+
+    .status-pill.demonstrated {
+      background: rgba(62, 207, 142, 0.15);
+      color: var(--green);
+    }
+
+    .status-pill.in-progress {
+      background: rgba(245, 166, 35, 0.15);
+      color: var(--amber);
+    }
+
+    .status-pill.planned {
+      background: rgba(46, 51, 80, 0.5);
+      color: var(--text-muted);
+    }
+
+    /* ─── Tables ───────────────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .data-table thead th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .data-table tbody td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    .data-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+    .t-code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: var(--accent2);
+      white-space: nowrap;
+    }
+
+    .evidence-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+
+    .evidence-link:hover { text-decoration: underline; }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    /* ─── Progress Bar ─────────────────────────────────────────────────── */
+    .progress-item {
+      margin-bottom: 1rem;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+      color: var(--text-muted);
+    }
+
+    .progress-label .name { color: var(--text); font-weight: 500; }
+
+    .progress-bar-track {
+      height: 6px;
+      background: var(--surface2);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.5s ease;
+    }
+
+    /* ─── Utility ──────────────────────────────────────────────────────── */
+    .spacer { height: 1rem; }
+    .spacer-lg { height: 2rem; }
+    .text-muted { color: var(--text-muted); font-size: 0.85rem; }
+    .text-accent { color: var(--accent); }
+    .text-green { color: var(--green); }
+    .todo-note {
+      background: rgba(245, 166, 35, 0.08);
+      border-left: 3px solid var(--amber);
+      padding: 0.75rem 1rem;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.8rem;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     HEADER — Edit your personal details here
+     ════════════════════════════════════════════════════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <!-- TODO: Replace with your name and degree details -->
+      <div class="header-title" id="student-name">Your Name</div>
+      <div class="header-subtitle">
+        Bachelor of Cybersecurity Operations — Threat Hunting Major
+        &nbsp;·&nbsp; Open-Source Cybersecurity Degree (Australia) 2026.1
+      </div>
+      <div class="header-meta">
+        <span class="meta-chip">
+          <span>GitHub</span>
+          <span class="label"><!-- TODO -->@your-handle</span>
+        </span>
+        <span class="meta-chip">
+          <span>Updated</span>
+          <span class="label"><!-- TODO -->2026-03-14</span>
+        </span>
+        <span class="meta-chip">
+          <span>NICE DCWF</span>
+          <span class="label">November 2023</span>
+        </span>
+        <span class="meta-chip">
+          <span>SFIA</span>
+          <span class="label">9 (2023)</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- TODO: Update these numbers to reflect your actual progress -->
+    <div class="header-stats">
+      <div class="stat">
+        <div class="stat-value" id="stat-units">0</div>
+        <div class="stat-label">Units complete</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="stat-roles">0</div>
+        <div class="stat-label">Work roles</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="stat-tcodes">0</div>
+        <div class="stat-label">T-codes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="stat-cp">0</div>
+        <div class="stat-label">Credit points</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     TAB NAVIGATION
+     ════════════════════════════════════════════════════════════════════════ -->
+<nav class="tab-nav" role="tablist" aria-label="Portfolio sections">
+  <button class="tab-btn active" role="tab" aria-selected="true"  onclick="switchTab(event, 'overview')">Competency Overview</button>
+  <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(event, 'coverage')">NICE DCWF Coverage Map</button>
+  <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(event, 'roles')">Work Role Profile</button>
+  <button class="tab-btn"        role="tab" aria-selected="false" onclick="switchTab(event, 'evidence')">Evidence Portfolio</button>
+</nav>
+
+<main class="tab-content">
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     TAB 1: COMPETENCY OVERVIEW
+     Shows: degree progress bars + mindmap of frameworks covered
+     ════════════════════════════════════════════════════════════════════════ -->
+<section id="tab-overview" class="tab-panel active" role="tabpanel">
+
+  <div class="todo-note">
+    TODO: Update the progress percentages, the mermaid mindmap nodes, and the
+    framework coverage numbers to reflect your actual completed units.
+  </div>
+
+  <div class="grid-2">
+
+    <!-- Degree Layer Progress -->
+    <div class="card">
+      <div class="card-title">Degree Layer Progress</div>
+      <div class="spacer"></div>
+
+      <!-- TODO: Set width="" to your % complete for each layer -->
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">Foundation Year (F01–F06)</span>
+          <span id="pct-foundation">0 / 6 units</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">Operational Core (OC01–OC06)</span>
+          <span>0 / 6 units</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">Major — Threat Hunting (TH01–TH06)</span>
+          <span>0 / 6 units</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">Capstone</span>
+          <span>0 / 1</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Framework Coverage Summary -->
+    <div class="card">
+      <div class="card-title">Framework Coverage</div>
+      <div class="spacer"></div>
+
+      <!-- TODO: Update numbers -->
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">NICE DCWF Work Roles demonstrated</span>
+          <span>0 / 15 applicable roles</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">NICE DCWF Task codes (T-codes) covered</span>
+          <span>0 T-codes</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">SFIA 9 Skills demonstrated</span>
+          <span>0 skills</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span class="name">ASD Cyber Skills Framework domains</span>
+          <span>0 domains</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Competency Mindmap -->
+  <div class="section-heading">Skills Mindmap</div>
+  <p class="section-desc">
+    This diagram shows your competency coverage across frameworks. Edit the mindmap
+    source below to add your demonstrated skills — replace "..." with your specific
+    capabilities and remove skills you have not yet demonstrated.
+  </p>
+
+  <div class="diagram-wrap">
+    <!--
+      TODO: Edit the mindmap nodes to reflect your actual demonstrated skills.
+      - Add skill names you have demonstrated under each framework branch.
+      - Remove placeholder "..." lines.
+      - Add more branches if you have additional SFIA skills, etc.
+    -->
+    <div class="mermaid">
+mindmap
+  root(("My Competency<br/>Profile"))
+    NICE DCWF
+      Protect and Defend
+        Cyber Defense Analyst
+        Incident Responder
+      Analyse
+        Threat Warning Analyst
+      Investigate
+        Digital Forensics Analyst
+    SFIA 9
+      SCTY Cyber Security
+      THIN Threat Intelligence
+      USUP Incident Management
+      INAS Information Security
+    ASD Cyber Skills
+      Defensive Operations
+      Threat Detection
+      Incident Response
+    Australian Frameworks
+      ASD Essential Eight
+      Privacy Act 1988
+      SOCI Act 2018
+    </div>
+  </div>
+
+  <!-- Degree Pathway Diagram -->
+  <div class="section-heading">Degree Pathway to NICE Roles</div>
+  <div class="diagram-wrap">
+    <!--
+      TODO: Highlight which boxes represent units you have completed.
+      You can add style fills, e.g.: style F01 fill:#3ecf8e,color:#000
+    -->
+    <div class="mermaid">
+flowchart LR
+    subgraph FOUND["Foundation Year"]
+      F01["F01\nNetworking"] --- F02["F02\nOS & Admin"]
+      F03["F03\nScripting"] --- F04["F04\nSecurity Concepts"]
+      F05["F05\nLegal & Ethics"] --- F06["F06\nLog Analysis"]
+    end
+
+    subgraph OPCORE["Operational Core"]
+      OC01["OC01\nAdversary TTPs"]
+      OC02["OC02\nSIEM & Monitoring"]
+      OC03["OC03\nMalware Analysis"]
+      OC04["OC04\nIncident Response"]
+      OC05["OC05\nThreat Intel"]
+      OC06["OC06\nOffensive Concepts"]
+    end
+
+    subgraph MAJOR["Major — Threat Hunting"]
+      TH01 --- TH02 --- TH03
+      TH04 --- TH05 --- TH06
+    end
+
+    subgraph ROLES["NICE Work Roles Achieved"]
+      direction TB
+      CDA["Cyber Defense Analyst\nPR-CDA-001"]
+      TWA["Threat Warning Analyst\nAN-TWA-001"]
+      CIR["Incident Responder\nPR-CIR-001"]
+    end
+
+    FOUND --> OPCORE
+    OPCORE --> MAJOR
+    MAJOR --> ROLES
+
+    style FOUND fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style OPCORE fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style MAJOR fill:#1e2640,stroke:#4f8ef7,color:#e8eaf0
+    style ROLES fill:#1a2e20,stroke:#3ecf8e,color:#e8eaf0
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     TAB 2: NICE DCWF COVERAGE MAP
+     Shows: DCWF category breakdown + work role heatmap
+     ════════════════════════════════════════════════════════════════════════ -->
+<section id="tab-coverage" class="tab-panel" role="tabpanel">
+
+  <div class="todo-note">
+    TODO: In the diagrams below, update the "Demonstrated ✓" / "In Progress ⟳" /
+    "Planned ○" labels to reflect your actual status for each work role.
+  </div>
+
+  <div class="section-heading">NICE DCWF Category Coverage</div>
+  <p class="section-desc">
+    The NICE DCWF organises work roles into 7 categories. This map shows which
+    categories this degree pathway covers and your progress within each.
+  </p>
+
+  <div class="diagram-wrap">
+    <!--
+      TODO: Update the status labels (✓ Demonstrated / ⟳ In Progress / ○ Planned)
+      for each work role to reflect your actual demonstrated status.
+    -->
+    <div class="mermaid">
+flowchart TD
+    DCWF(["NIST NICE DCWF<br/>Work Role Coverage"])
+
+    DCWF --> PR["🛡 Protect and Defend"]
+    DCWF --> IN["🔍 Investigate"]
+    DCWF --> AN["📊 Analyse"]
+    DCWF --> OP["⚙ Operate and Maintain"]
+    DCWF --> CO["📡 Collect and Operate"]
+    DCWF --> SP["🏗 Securely Provision"]
+    DCWF --> OV["🏛 Oversee and Govern"]
+
+    PR --> CDA["Cyber Defense Analyst\nPR-CDA-001\n○ Planned"]
+    PR --> CIR["Incident Responder\nPR-CIR-001\n○ Planned"]
+    PR --> VAM["Vulnerability Analyst\nPR-VAM-001\n○ Planned"]
+
+    IN --> FOR["Digital Forensics Analyst\nIN-FOR-001\n○ Planned"]
+    IN --> INV["Cyber Crime Investigator\nIN-INV-001\n○ Planned"]
+
+    AN --> TWA["Threat Warning Analyst\nAN-TWA-001\n○ Planned"]
+    AN --> ASA["All-Source Intel Analyst\nAN-ASA-001\n○ Planned"]
+
+    SP --> ARC["Security Architect\nSP-ARC-001\n○ Planned"]
+
+    OV --> MGT["IS Security Manager\nOV-MGT-001\n○ Planned"]
+    OV --> LGA["Privacy Officer\nOV-LGA-002\n○ Planned"]
+
+    style DCWF fill:#1e2640,stroke:#4f8ef7,color:#e8eaf0
+    style PR   fill:#1a2e20,stroke:#3ecf8e,color:#e8eaf0
+    style IN   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style AN   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style OP   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style CO   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style SP   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style OV   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    </div>
+  </div>
+
+  <div class="section-heading">T-Code Coverage by Unit Layer</div>
+  <p class="section-desc">
+    This diagram maps NICE task codes (T-codes) to the degree layer in which they
+    are primarily demonstrated. Each T-code should have corresponding lab or
+    assessment evidence in the Evidence Portfolio tab.
+  </p>
+
+  <div class="diagram-wrap">
+    <!--
+      TODO: Add or remove T-codes based on your completed units.
+      Format for each node: T["T0000\nShort description"]
+    -->
+    <div class="mermaid">
+flowchart LR
+    subgraph FY["Foundation Year"]
+      direction TB
+      T0001["T0001\nApply cybersecurity policies"]
+      T0002["T0002\nAnalyse network traffic"]
+      T0003["T0003\nAdminister authentication"]
+    end
+
+    subgraph CORE["Operational Core"]
+      direction TB
+      T0020["T0020\nDevelop defense tool content"]
+      T0023["T0023\nAnalyse network anomalies"]
+      T0166["T0166\nPerform event correlation"]
+      T0175["T0175\nHandle cyber incidents"]
+      T0258["T0258\nDetect possible attacks"]
+    end
+
+    subgraph MAJ["Major — Threat Hunting"]
+      direction TB
+      T0296["T0296\nIdentify collection requirements"]
+      T0582["T0582\nAnalyse enterprise threats"]
+      T0614["T0614\nDevelop hunting hypotheses"]
+    end
+
+    FY --> CORE --> MAJ
+
+    style FY   fill:#1a1d27,stroke:#2e3350,color:#e8eaf0
+    style CORE fill:#1e2640,stroke:#4f8ef7,color:#e8eaf0
+    style MAJ  fill:#1a2e20,stroke:#3ecf8e,color:#e8eaf0
+    </div>
+  </div>
+
+  <!-- ASD CSF Coverage -->
+  <div class="section-heading">ASD Cyber Skills Framework Coverage</div>
+  <div class="diagram-wrap">
+    <!--
+      TODO: Mark domains you have achieved. Change "○ Planned" to "✓ Demonstrated"
+      or "⟳ In Progress" as appropriate.
+    -->
+    <div class="mermaid">
+mindmap
+  root(("ASD Cyber Skills<br/>Framework"))
+    Governance and Risk
+      Risk Assessment ○
+      Policy Development ○
+      Compliance ○
+    Detection and Monitoring
+      Threat Detection ○
+      Log Analysis ○
+      SIEM Operations ○
+    Incident Response
+      Incident Handling ○
+      Forensic Analysis ○
+      Recovery Operations ○
+    Threat Intelligence
+      Intel Production ○
+      CTI Lifecycle ○
+      STIX TAXII ○
+    Penetration Testing
+      Recon and Enumeration ○
+      Exploitation ○
+      Reporting ○
+    Vulnerability Management
+      Detection Engineering ○
+      Vulnerability Assessment ○
+    Security Architecture
+      Architecture Design ○
+      Zero Trust ○
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     TAB 3: WORK ROLE PROFILE
+     Shows: badge-style cards for each NICE DCWF work role
+     ════════════════════════════════════════════════════════════════════════ -->
+<section id="tab-roles" class="tab-panel" role="tabpanel">
+
+  <div class="todo-note">
+    TODO: Update each badge's status class: "demonstrated", "in-progress", or "planned".
+    Add evidence links where available. Remove roles not applicable to your pathway.
+  </div>
+
+  <!-- Protect & Defend -->
+  <div class="section-heading">Protect &amp; Defend (PR)</div>
+  <div class="badge-grid">
+
+    <div class="role-badge planned">
+      <!-- TODO: Change class to "demonstrated" when achieved -->
+      <div class="role-badge-code">PR-CDA-001</div>
+      <div class="role-badge-title">Cyber Defense Analyst</div>
+      <div class="role-badge-category">Protect &amp; Defend</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">OC02</span>
+        <span class="unit-tag">TH01</span>
+        <span class="unit-tag">TH02</span>
+        <span class="unit-tag">DE01</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+      <!-- TODO: Add evidence link when demonstrated: <a href="#" class="evidence-link">View evidence →</a> -->
+    </div>
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">PR-CIR-001</div>
+      <div class="role-badge-title">Cyber Defense Incident Responder</div>
+      <div class="role-badge-category">Protect &amp; Defend</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">OC04</span>
+        <span class="unit-tag">DF01</span>
+        <span class="unit-tag">DF02</span>
+        <span class="unit-tag">DF03</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">PR-VAM-001</div>
+      <div class="role-badge-title">Vulnerability Assessment Analyst</div>
+      <div class="role-badge-category">Protect &amp; Defend</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">OC06</span>
+        <span class="unit-tag">CE01</span>
+        <span class="unit-tag">DE01</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+  </div>
+
+  <!-- Analyse -->
+  <div class="section-heading">Analyse (AN)</div>
+  <div class="badge-grid">
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">AN-TWA-001</div>
+      <div class="role-badge-title">Threat / Warning Analyst</div>
+      <div class="role-badge-category">Analyse</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">OC01</span>
+        <span class="unit-tag">OC05</span>
+        <span class="unit-tag">CT01</span>
+        <span class="unit-tag">TH01</span>
+        <span class="unit-tag">TH03</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">AN-ASA-001</div>
+      <div class="role-badge-title">All-Source Intelligence Analyst</div>
+      <div class="role-badge-category">Analyse</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">CT03</span>
+        <span class="unit-tag">CT04</span>
+        <span class="unit-tag">CT05</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+  </div>
+
+  <!-- Investigate -->
+  <div class="section-heading">Investigate (IN)</div>
+  <div class="badge-grid">
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">IN-FOR-001</div>
+      <div class="role-badge-title">Digital Forensics Analyst</div>
+      <div class="role-badge-category">Investigate</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">OC04</span>
+        <span class="unit-tag">DF01</span>
+        <span class="unit-tag">DF02</span>
+        <span class="unit-tag">DF03</span>
+        <span class="unit-tag">DF04</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+  </div>
+
+  <!-- Securely Provision -->
+  <div class="section-heading">Securely Provision (SP)</div>
+  <div class="badge-grid">
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">SP-ARC-001</div>
+      <div class="role-badge-title">Security Architect</div>
+      <div class="role-badge-category">Securely Provision</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">SC02</span>
+        <span class="unit-tag">SE01</span>
+        <span class="unit-tag">SE02</span>
+        <span class="unit-tag">SE03</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">SP-SSP-001</div>
+      <div class="role-badge-title">Systems Security Analyst</div>
+      <div class="role-badge-category">Securely Provision</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">SC02</span>
+        <span class="unit-tag">SE01</span>
+        <span class="unit-tag">SE02</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+  </div>
+
+  <!-- Oversee & Govern -->
+  <div class="section-heading">Oversee &amp; Govern (OV)</div>
+  <div class="badge-grid">
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">OV-MGT-001</div>
+      <div class="role-badge-title">Information Systems Security Manager</div>
+      <div class="role-badge-category">Oversee &amp; Govern</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">SC03</span>
+        <span class="unit-tag">LD01</span>
+        <span class="unit-tag">LD02</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">OV-LGA-002</div>
+      <div class="role-badge-title">Privacy Officer / Compliance Manager</div>
+      <div class="role-badge-category">Oversee &amp; Govern</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">F05</span>
+        <span class="unit-tag">SC03</span>
+        <span class="unit-tag">GR01</span>
+        <span class="unit-tag">GR06</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+    <div class="role-badge planned">
+      <div class="role-badge-code">OV-EXL-001</div>
+      <div class="role-badge-title">Executive Cyber Leadership (CISO)</div>
+      <div class="role-badge-category">Oversee &amp; Govern</div>
+      <div class="role-badge-units">
+        <span class="unit-tag">SC05</span>
+        <span class="unit-tag">SC06</span>
+        <span class="unit-tag">LD01</span>
+        <span class="unit-tag">LD06</span>
+      </div>
+      <span class="status-pill planned">○ Planned</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     TAB 4: EVIDENCE PORTFOLIO
+     Shows: T-code → Unit → Lab/Assessment evidence table
+     ════════════════════════════════════════════════════════════════════════ -->
+<section id="tab-evidence" class="tab-panel" role="tabpanel">
+
+  <div class="todo-note">
+    TODO: Fill in each row with your actual evidence. Link to your GitHub repository,
+    report PDFs, or lab writeups. Add rows for every T-code you have demonstrated.
+    Delete rows for T-codes you have not yet addressed.
+  </div>
+
+  <!-- NICE Task Evidence -->
+  <div class="section-heading">NICE DCWF Task Code Evidence</div>
+  <p class="section-desc">
+    Maps each NICE T-code to the unit(s) and specific evidence (lab or assessment)
+    where you demonstrated that competency. This table is the core of your employer-verifiable profile.
+  </p>
+
+  <table class="data-table" aria-label="NICE DCWF task code evidence table">
+    <thead>
+      <tr>
+        <th>T-Code</th>
+        <th>Task Description</th>
+        <th>Unit(s)</th>
+        <th>Evidence</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- TODO: Replace placeholder rows with your actual evidence -->
+      <tr>
+        <td><span class="t-code">T0020</span></td>
+        <td>Develop content for cyber defense tools</td>
+        <td><div class="tag-list"><span class="unit-tag">OC02</span><span class="unit-tag">DE02</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link to lab or report</a></td>
+        <td class="text-muted">Lab</td>
+      </tr>
+      <tr>
+        <td><span class="t-code">T0023</span></td>
+        <td>Characterize and analyze network traffic to identify anomalous activity</td>
+        <td><div class="tag-list"><span class="unit-tag">F06</span><span class="unit-tag">OC02</span><span class="unit-tag">TH02</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link to lab or report</a></td>
+        <td class="text-muted">Lab</td>
+      </tr>
+      <tr>
+        <td><span class="t-code">T0166</span></td>
+        <td>Perform event correlation using information gathered from various sources</td>
+        <td><div class="tag-list"><span class="unit-tag">F06</span><span class="unit-tag">OC02</span><span class="unit-tag">TH02</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link</a></td>
+        <td class="text-muted">Lab</td>
+      </tr>
+      <tr>
+        <td><span class="t-code">T0175</span></td>
+        <td>Perform real-time cyber defense incident handling tasks</td>
+        <td><div class="tag-list"><span class="unit-tag">OC04</span><span class="unit-tag">DF01</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link</a></td>
+        <td class="text-muted">Assessment</td>
+      </tr>
+      <tr>
+        <td><span class="t-code">T0258</span></td>
+        <td>Provide timely detection, identification, and alerting of possible attacks or intrusions</td>
+        <td><div class="tag-list"><span class="unit-tag">OC02</span><span class="unit-tag">TH01</span><span class="unit-tag">DE01</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link</a></td>
+        <td class="text-muted">Lab + Assessment</td>
+      </tr>
+      <tr>
+        <td><span class="t-code">T0296</span></td>
+        <td>Identify collection requirements based on available resources</td>
+        <td><div class="tag-list"><span class="unit-tag">OC05</span><span class="unit-tag">CT01</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link</a></td>
+        <td class="text-muted">Assessment</td>
+      </tr>
+      <tr>
+        <td><span class="t-code">T0582</span></td>
+        <td>Analyze threats to the enterprise and provide characterization reports</td>
+        <td><div class="tag-list"><span class="unit-tag">OC01</span><span class="unit-tag">CT03</span><span class="unit-tag">TH03</span></div></td>
+        <td><a href="#" class="evidence-link">TODO: Link</a></td>
+        <td class="text-muted">Assessment</td>
+      </tr>
+      <!-- Add more rows following the pattern above -->
+    </tbody>
+  </table>
+
+  <!-- Lab Evidence Summary -->
+  <div class="section-heading">Lab Evidence Summary</div>
+  <table class="data-table" aria-label="Lab evidence summary">
+    <thead>
+      <tr>
+        <th>Lab Name</th>
+        <th>Unit</th>
+        <th>Tools Used</th>
+        <th>T-Codes Demonstrated</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- TODO: Add one row per completed lab -->
+      <tr>
+        <td>TODO: Lab name</td>
+        <td><span class="unit-tag">TODO</span></td>
+        <td class="text-muted">TODO: e.g. Wireshark, Zeek</td>
+        <td><span class="t-code">TODO: T-codes</span></td>
+        <td><a href="#" class="evidence-link">View on GitHub →</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Assessment Evidence Summary -->
+  <div class="section-heading">Assessment Evidence Summary</div>
+  <table class="data-table" aria-label="Assessment evidence summary">
+    <thead>
+      <tr>
+        <th>Assessment Title</th>
+        <th>Unit</th>
+        <th>Skills Demonstrated</th>
+        <th>T-Codes</th>
+        <th>Format</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- TODO: Add one row per completed summative assessment -->
+      <tr>
+        <td>TODO: Assessment title</td>
+        <td><span class="unit-tag">TODO</span></td>
+        <td class="text-muted">TODO: Brief description</td>
+        <td><span class="t-code">TODO</span></td>
+        <td class="text-muted">Written report</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Capstone -->
+  <div class="section-heading">Capstone Project</div>
+  <div class="card">
+    <!-- TODO: Fill in your capstone details when complete -->
+    <div class="card-title">TODO: Capstone project title</div>
+    <div class="spacer"></div>
+    <p class="text-muted">TODO: 2–3 sentence summary of your capstone project.</p>
+    <div class="spacer"></div>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem;">
+      <div>
+        <span class="text-muted">Work roles: </span>
+        <span class="text-accent">TODO: PR-CDA-001, AN-TWA-001</span>
+      </div>
+      <div>
+        <span class="text-muted">T-codes: </span>
+        <span class="text-accent">TODO: T0020, T0258, T0582</span>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <a href="#" class="evidence-link">View capstone repository →</a>
+  </div>
+
+</section>
+
+</main><!-- /tab-content -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════════════════════════════════ -->
+<script>
+  // ── Tab switching ──────────────────────────────────────────────────────
+  function switchTab(event, tabId) {
+    // Deactivate all panels and buttons
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+
+    // Activate selected
+    document.getElementById('tab-' + tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+    event.currentTarget.setAttribute('aria-selected', 'true');
+
+    // Re-render mermaid diagrams in newly visible tab (they may not have
+    // rendered correctly while hidden)
+    mermaid.run({
+      querySelector: '#tab-' + tabId + ' .mermaid'
+    });
+  }
+
+  // ── Mermaid initialisation ─────────────────────────────────────────────
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    darkMode: true,
+    themeVariables: {
+      background:      '#1a1d27',
+      primaryColor:    '#1e2640',
+      primaryBorderColor: '#4f8ef7',
+      primaryTextColor:   '#e8eaf0',
+      secondaryColor:  '#22263a',
+      tertiaryColor:   '#1a2e20',
+      lineColor:       '#4f8ef7',
+      textColor:       '#e8eaf0',
+      fontSize:        '14px',
+    },
+    flowchart: { curve: 'basis', useMaxWidth: true },
+    mindmap:   { useMaxWidth: true },
+  });
+
+  // ── TODO: Update these counters with your actual numbers ──────────────
+  // When you complete more units, update these values:
+  document.getElementById('stat-units').textContent  = '0';   // units completed
+  document.getElementById('stat-roles').textContent  = '0';   // work roles demonstrated
+  document.getElementById('stat-tcodes').textContent = '0';   // T-codes covered
+  document.getElementById('stat-cp').textContent     = '0';   // credit points earned
+</script>
+
+</body>
+</html>

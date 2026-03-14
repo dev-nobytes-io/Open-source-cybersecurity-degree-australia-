@@ -106,14 +106,35 @@ Every unit must include a framework mapping table. Requirements:
 - Framework version must be specified
 - References must be specific — not just "NIST CSF" but the specific function/category/subcategory
 
+### Employer Visibility Requirement
+
+**This is a design requirement of the degree, not optional.**
+
+Units must be authored so that students can directly populate their NICE DCWF
+competency profile from the unit's framework mapping table. This means:
+
+- Every **NICE DCWF Work Role Code** listed in the mapping must be achievable
+  through the labs and assessments in this unit
+- Every **T-code** (task code) listed must correspond to a specific lab step or
+  assessment task — if you cannot point to the exact lab step, do not list the T-code
+- Students should be able to open `templates/student-portfolio/index.html` and
+  add entries directly from this unit's mapping table
+
+**A mapping table that lists T-codes with no corresponding lab or assessment evidence
+is invalid and will be rejected at the Framework Custodian sign-off stage.**
+
 ### Mapping Table Format
 
+The NICE DCWF mapping table must include a separate row for **each T-code**, with
+the column "Demonstrated In" pointing to the specific lab or assessment:
+
 ```markdown
-| Framework | Version | Element | Reference Code |
-|---|---|---|---|
-| NIST NICE DCWF | 2023 | Work Role: Cyber Defense Analyst | PR-CDA-001 |
-| SFIA 9 | 2023 | Information security | INAS — Level 3 |
-| ASD Cyber Skills Framework | 2024 | Defensive Operations | Threat Detection |
+| Framework | Version | Work Role | Code | T-Code | Task Description | Demonstrated In |
+|---|---|---|---|---|---|---|
+| NIST NICE DCWF | 2023 | Cyber Defense Analyst | PR-CDA-001 | T0023 | Characterize and analyze network traffic to identify anomalous activity | Lab 1 — Wireshark Traffic Analysis |
+| NIST NICE DCWF | 2023 | Cyber Defense Analyst | PR-CDA-001 | T0166 | Perform event correlation using information gathered from various sources | Lab 2 — SIEM Correlation Rules |
+| SFIA 9 | 2023 | Information security | INAS | Level 3 | — | Throughout |
+| ASD Cyber Skills Framework | 2024 | Defensive Operations | Threat Detection | Practitioner | — | Lab 1, Lab 2 |
 ```
 
 ### Minimum Framework Coverage by Unit Type

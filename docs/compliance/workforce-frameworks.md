@@ -8,6 +8,38 @@ Workforce framework alignment ensures:
 1. Graduates can articulate their skills in terms employers and certifying bodies recognise
 2. Content remains current and relevant to the cybersecurity workforce
 3. The degree provides a credible bridge to industry certifications and job roles
+4. **Students can visually demonstrate their NICE DCWF capabilities to employers** —
+   every unit must contribute to a student-facing, employer-readable competency profile
+
+---
+
+## Student-Facing Competency Visibility — Design Requirement
+
+This is a core design requirement of the degree, not an afterthought.
+
+Every unit **must** be authored so that a student can answer the question:
+> *"What specific NICE DCWF task codes did I demonstrate in this unit, and where is my evidence?"*
+
+### Unit Authoring Requirements for Competency Visibility
+
+Every unit must include, in its framework mapping table:
+- **Work Role Code** — the DCWF work role code (e.g., `PR-CDA-001`)
+- **Task Codes (T-codes)** — the specific T-codes demonstrated in labs or assessments
+- **Evidence type** — whether each T-code is demonstrated via a lab, assessment, or both
+
+T-codes must be traceable directly to a lab exercise or assessment task in the unit.
+A T-code listed in the mapping table with no corresponding lab or assessment is invalid.
+
+### Student Portfolio
+
+Students use two templates to compile their employer-facing competency profile:
+- `templates/competency-profile-template.md` — the human-readable skills passport
+- `templates/student-portfolio/index.html` — the visual, multi-tab HTML portfolio
+  with mermaid diagrams showing NICE DCWF coverage, work role profile, and evidence index
+
+Unit authors must write content that feeds directly into these templates.
+Specifically, the T-codes and work role codes documented in each unit's framework
+mapping table must be directly usable by students when populating their portfolio.
 
 ---
 

@@ -78,16 +78,36 @@ practical application — lab scenarios, assessments, case studies].
 
 <!-- REQUIRED. Minimum 2 frameworks. At least 1 must be Australian (ASD CSF preferred).
      All framework references must specify version.
+
+     IMPORTANT — EMPLOYER VISIBILITY REQUIREMENT:
+     Every NICE DCWF T-code you list MUST correspond to a specific lab step or
+     assessment task in this unit. Do not list a T-code without linking it to evidence.
+     Students use this table to populate their competency profile in
+     templates/student-portfolio/index.html — it must be directly usable.
+
      See docs/compliance/workforce-frameworks.md for valid codes and format.
 -->
 
-| Framework | Version | Element | Reference Code |
-|---|---|---|---|
-| NIST NICE DCWF | 2023 | [Work Role Name] | [PR-XXX-001] |
-| SFIA 9 | 2023 | [Skill Name] | [CODE] — Level [N] |
-| ASD Cyber Skills Framework | 2024 | [Domain] | [Sub-domain] |
+### NIST NICE DCWF
 
-<!-- Add additional rows as needed. Remove placeholder rows before submitting. -->
+| Work Role | Code | T-Code | Task Description | Demonstrated In |
+|---|---|---|---|---|
+| [e.g., Cyber Defense Analyst] | [PR-CDA-001] | [T0023] | [Task description from DCWF] | [Lab N — Lab Title / Assessment title] |
+| [Same work role or different] | [PR-CDA-001] | [T0166] | [Task description] | [Lab N or Assessment title] |
+
+<!-- Add one row per T-code. Each T-code must be traceable to a lab or assessment below. -->
+
+### SFIA 9
+
+| Skill | Code | Level | Demonstrated In |
+|---|---|---|---|
+| [e.g., Information security] | [INAS] | [Level 3] | [Throughout / Lab N / Assessment] |
+
+### ASD Cyber Skills Framework
+
+| Domain | Sub-domain | Proficiency | Demonstrated In |
+|---|---|---|---|
+| [e.g., Defensive Operations] | [e.g., Threat Detection] | [Practitioner] | [Lab N, Lab N] |
 
 ---
 
