@@ -1169,48 +1169,65 @@ mindmap
      ════════════════════════════════════════════════════════════════════════ -->
 <script>
   // ── Tab switching ──────────────────────────────────────────────────────
+  // Diagrams are all pre-rendered at load time, so switching is just a CSS swap.
   function switchTab(event, tabId) {
-    // Deactivate all panels and buttons
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => {
       b.classList.remove('active');
       b.setAttribute('aria-selected', 'false');
     });
-
-    // Activate selected
     document.getElementById('tab-' + tabId).classList.add('active');
     event.currentTarget.classList.add('active');
     event.currentTarget.setAttribute('aria-selected', 'true');
-
-    // Re-render mermaid diagrams in newly visible tab (they may not have
-    // rendered correctly while hidden)
-    mermaid.run({
-      querySelector: '#tab-' + tabId + ' .mermaid'
-    });
   }
 
-  // ── Mermaid initialisation ─────────────────────────────────────────────
+  // ── Mermaid initialisation & rendering ────────────────────────────────
+  // startOnLoad: false so we control exactly when rendering happens.
+  // We briefly expose all hidden panels (off-screen, invisible to user) so
+  // Mermaid can calculate SVG dimensions correctly, then restore tab state.
   mermaid.initialize({
-    startOnLoad: true,
+    startOnLoad: false,
     theme: 'dark',
     darkMode: true,
     themeVariables: {
-      background:      '#1a1d27',
-      primaryColor:    '#1e2640',
+      background:         '#1a1d27',
+      primaryColor:       '#1e2640',
       primaryBorderColor: '#4f8ef7',
       primaryTextColor:   '#e8eaf0',
-      secondaryColor:  '#22263a',
-      tertiaryColor:   '#1a2e20',
-      lineColor:       '#4f8ef7',
-      textColor:       '#e8eaf0',
-      fontSize:        '14px',
+      secondaryColor:     '#22263a',
+      tertiaryColor:      '#1a2e20',
+      lineColor:          '#4f8ef7',
+      textColor:          '#e8eaf0',
+      fontSize:           '14px',
     },
     flowchart: { curve: 'basis', useMaxWidth: true },
     mindmap:   { useMaxWidth: true },
   });
 
+  document.addEventListener('DOMContentLoaded', async () => {
+    const panels = document.querySelectorAll('.tab-panel');
+
+    // Temporarily make every panel visible but hidden from the user so Mermaid
+    // can measure and render SVG elements that would otherwise have zero dimensions.
+    panels.forEach(p => {
+      p.style.display    = 'block';
+      p.style.visibility = 'hidden';
+      p.style.position   = 'absolute';
+      p.style.pointerEvents = 'none';
+    });
+
+    await mermaid.run({ querySelector: '.mermaid' });
+
+    // Restore panels: clear the inline overrides and let CSS take over again.
+    panels.forEach(p => {
+      p.style.display       = '';
+      p.style.visibility    = '';
+      p.style.position      = '';
+      p.style.pointerEvents = '';
+    });
+  });
+
   // ── TODO: Update these counters with your actual numbers ──────────────
-  // When you complete more units, update these values:
   document.getElementById('stat-units').textContent  = '0';   // units completed
   document.getElementById('stat-roles').textContent  = '0';   // work roles demonstrated
   document.getElementById('stat-tcodes').textContent = '0';   // T-codes covered
