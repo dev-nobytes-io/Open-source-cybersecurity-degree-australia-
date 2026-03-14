@@ -154,12 +154,21 @@ mindmap
 ```
 📁 Open-source-cybersecurity-degree-australia/
 ├── README.md                        ← This file
-├── CONTRIBUTING.md                  ← Rules and contribution guide
+├── CONTRIBUTING.md                  ← Contribution rules and PR process
 ├── docs/
 │   ├── goals.md                     ← Vision, objectives, and success criteria
 │   ├── structure.md                 ← Full degree architecture & unit design
 │   ├── frameworks.md                ← Framework-to-unit mapping tables
-│   └── accreditation.md             ← TEQSA/AQF alignment strategy
+│   ├── accreditation.md             ← TEQSA/AQF alignment strategy
+│   ├── governance.md                ← Governance model: roles, lifecycle, decisions
+│   ├── content-standards.md         ← Mandatory content standards for all units
+│   └── compliance/
+│       ├── aqf-teqsa.md             ← AQF Level 7 + TEQSA HESF compliance
+│       ├── workforce-frameworks.md  ← NICE/DCWF, SFIA 9, ASD mapping requirements
+│       └── program-delivery.md      ← Delivery: accessibility, licensing, QA, versioning
+├── templates/
+│   ├── unit-template.md             ← Mandatory unit content template
+│   └── review-checklist.md          ← Practitioner review sign-off checklist
 ├── core/
 │   └── units/                       ← Shared foundation and core units
 ├── degrees/
@@ -189,13 +198,41 @@ mindmap
 
 ---
 
-## Governance
+## Governance & Compliance
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution rules, content standards, and the review process.
+This degree operates under a formal governance model with compliance requirements
+for both educational standards (AQF/TEQSA) and workforce framework alignment (NICE, SFIA, ASD).
 
-See [docs/goals.md](docs/goals.md) for the full statement of goals, objectives, and success criteria.
+### Key Documents
 
-See [docs/accreditation.md](docs/accreditation.md) for the TEQSA/AQF alignment strategy.
+| Document | Purpose |
+|---|---|
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution rules, content standards, review process |
+| [docs/governance.md](docs/governance.md) | Governance model: roles, content lifecycle, decision-making |
+| [docs/content-standards.md](docs/content-standards.md) | Mandatory content standards for all units |
+| [docs/compliance/aqf-teqsa.md](docs/compliance/aqf-teqsa.md) | AQF Level 7 + TEQSA HESF compliance requirements |
+| [docs/compliance/workforce-frameworks.md](docs/compliance/workforce-frameworks.md) | NICE/DCWF, SFIA 9, ASD framework mapping compliance |
+| [docs/compliance/program-delivery.md](docs/compliance/program-delivery.md) | Delivery standards: accessibility, licensing, QA cycles |
+| [docs/goals.md](docs/goals.md) | Vision, objectives, and success criteria |
+| [docs/accreditation.md](docs/accreditation.md) | TEQSA/AQF alignment strategy |
+
+### Content Lifecycle
+
+All unit content moves through a mandatory review lifecycle before publication:
+
+```
+Draft → Under Review → Practitioner Approved → Framework Verified → Published
+```
+
+Every unit requires sign-off from a **Domain Expert** (technical accuracy),
+**Practitioner Reviewer** (workforce relevance), and **Framework Custodian**
+(framework mapping accuracy) before it can be published.
+
+### Templates
+
+Contributors must use the templates in the `templates/` directory:
+- [templates/unit-template.md](templates/unit-template.md) — mandatory unit content template
+- [templates/review-checklist.md](templates/review-checklist.md) — PR review sign-off checklist
 
 ---
 
