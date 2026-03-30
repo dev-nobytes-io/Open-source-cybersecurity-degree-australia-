@@ -198,6 +198,22 @@ mindmap
 
 ---
 
+## University & Institutional Guide
+
+For universities, delivery partners, and institutions seeking to adopt, recognise,
+or benchmark this degree, the following documents provide the complete institutional
+reference:
+
+| Category | Documents |
+|---|---|
+| **Student-facing** | [Student Handbook](docs/student/handbook.md) · [Prospectus](docs/student/prospectus.md) · [Academic Integrity](docs/student/academic-integrity.md) · [Recognition of Prior Learning](docs/student/recognition-of-prior-learning.md) |
+| **Educator-facing** | [Facilitator Guide](docs/educator/facilitator-guide.md) · [Assessment Moderation](docs/educator/assessment-moderation-guide.md) · [Capstone Supervision](docs/educator/capstone-supervision-guide.md) |
+| **Institutional** | [Graduate Attributes](docs/institutional/graduate-attributes.md) · [Threshold Learning Outcomes](docs/institutional/threshold-learning-outcomes.md) · [External Benchmarking](docs/institutional/external-benchmarking.md) · [Equivalence Mapping](docs/institutional/equivalence-mapping.md) · [Pedagogy Statement](docs/institutional/pedagogy-statement.md) · [Industry Advisory Board Charter](docs/institutional/industry-advisory-board-charter.md) |
+| **Curriculum** | [Curriculum Map](docs/curriculum/curriculum-map.md) · [Delivery Modes](docs/curriculum/delivery-modes.md) · [Micro-Credentials](docs/curriculum/micro-credentials-framework.md) · [Work-Integrated Learning](docs/curriculum/work-integrated-learning.md) |
+| **Quality** | [Annual Review Schedule](docs/quality/annual-review-schedule.md) · [Equity & Inclusion](docs/quality/equity-and-inclusion.md) |
+
+---
+
 ## Governance & Compliance
 
 This degree operates under a formal governance model with compliance requirements
