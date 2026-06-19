@@ -1,0 +1,183 @@
+site_name: Open Source Cybersecurity Degree — Australia
+site_description: A free, open-source cybersecurity education pathway aligned to Australian tertiary education standards (TEQSA/AQF) and recognised industry frameworks.
+site_url: https://dev-nobytes-io.github.io/Open-source-cybersecurity-degree-australia-/
+repo_url: https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-
+repo_name: GitHub
+edit_uri: edit/claude/define-degree-structure-p78Ru/
+
+docs_dir: wiki_src
+site_dir: site
+
+
+theme:
+  name: material
+  favicon: https://upload.wikimedia.org/wikipedia/commons/b/b0/Australian_Signals_Directorate_logo.svg
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-
+  generator: false
+
+nav:
+  - Home: README.md
+  - Contributing: CONTRIBUTING.md
+  - Project TODO: TODO.md
+
+  - Documentation:
+    - Goals & Vision: docs/goals.md
+    - Degree Structure: docs/structure.md
+    - Framework Alignment: docs/frameworks.md
+    - Accreditation: docs/accreditation.md
+    - Governance: docs/governance.md
+    - Content Standards: docs/content-standards.md
+    - docs/TODO.md
+
+    - Compliance:
+      - docs/compliance/aqf-teqsa.md
+      - docs/compliance/workforce-frameworks.md
+      - docs/compliance/program-delivery.md
+      - docs/compliance/TODO.md
+
+    - Curriculum:
+      - docs/curriculum/curriculum-map.md
+      - docs/curriculum/delivery-modes.md
+      - docs/curriculum/micro-credentials-framework.md
+      - docs/curriculum/work-integrated-learning.md
+      - docs/curriculum/TODO.md
+
+    - For Educators:
+      - docs/educator/facilitator-guide.md
+      - docs/educator/assessment-moderation-guide.md
+      - docs/educator/capstone-supervision-guide.md
+      - docs/educator/TODO.md
+
+    - Institutional:
+      - docs/institutional/graduate-attributes.md
+      - docs/institutional/threshold-learning-outcomes.md
+      - docs/institutional/external-benchmarking.md
+      - docs/institutional/equivalence-mapping.md
+      - docs/institutional/pedagogy-statement.md
+      - docs/institutional/industry-advisory-board-charter.md
+      - docs/institutional/TODO.md
+
+    - Quality:
+      - docs/quality/annual-review-schedule.md
+      - docs/quality/equity-and-inclusion.md
+      - docs/quality/TODO.md
+
+    - For Students:
+      - docs/student/handbook.md
+      - docs/student/prospectus.md
+      - docs/student/academic-integrity.md
+      - docs/student/recognition-of-prior-learning.md
+      - docs/student/TODO.md
+
+  - Core Units:
+    - Overview: core/units/README.md
+    - TODO: core/units/TODO.md
+    - core/TODO.md
+
+  - Operational Degree:
+    - Overview: degrees/TODO.md
+    - degrees/operational/TODO.md
+
+    - Threat Hunting:
+      - Overview: degrees/operational/threat-hunting/README.md
+      - TODO: degrees/operational/threat-hunting/TODO.md
+
+    - DFIR:
+      - Overview: degrees/operational/dfir/README.md
+      - TODO: degrees/operational/dfir/TODO.md
+
+    - Cyber Threat Intelligence:
+      - Overview: degrees/operational/cti/README.md
+      - TODO: degrees/operational/cti/TODO.md
+
+    - Detection Engineering:
+      - Overview: degrees/operational/detection-engineering/README.md
+      - TODO: degrees/operational/detection-engineering/TODO.md
+
+    - Cyber Threat Emulation:
+      - Overview: degrees/operational/cte/README.md
+      - TODO: degrees/operational/cte/TODO.md
+
+  - Strategic Degree:
+    - Overview: degrees/strategic/TODO.md
+
+    - Security Engineering:
+      - Overview: degrees/strategic/security-engineering/README.md
+      - TODO: degrees/strategic/security-engineering/TODO.md
+
+    - Leadership & CISO:
+      - Overview: degrees/strategic/leadership/README.md
+      - TODO: degrees/strategic/leadership/TODO.md
+
+    - GRC:
+      - Overview: degrees/strategic/grc/README.md
+      - TODO: degrees/strategic/grc/TODO.md
+
+  - Templates:
+    - Unit Template: resources/unit-template.md
+    - Review Checklist: resources/review-checklist.md
+    - Competency Profile: resources/competency-profile-template.md
+    - resources/TODO.md
+    - Student Portfolio: resources/student-portfolio/TODO.md
