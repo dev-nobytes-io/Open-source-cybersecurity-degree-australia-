@@ -133,7 +133,7 @@ delivery partners, and accreditation reviewers:
 | [Equivalence Mapping](institutional/equivalence-mapping.md) | AQF, VET, and university credit recognition mapping |
 | [Pedagogy Statement](institutional/pedagogy-statement.md) | Teaching philosophy and instructional design rationale |
 | [Industry Advisory Board Charter](institutional/industry-advisory-board-charter.md) | IAB structure, functions, and membership criteria |
-| [Curriculum Map](../curriculum/curriculum-map.md) | Single-view degree map (AQF, NICE, SFIA, Bloom's, assessment) |
+| [Curriculum Map](curriculum/curriculum-map.md) | Single-view degree map (AQF, NICE, SFIA, Bloom's, assessment) |
 
 ---
 
