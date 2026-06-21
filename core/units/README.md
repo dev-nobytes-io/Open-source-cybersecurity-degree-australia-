@@ -36,12 +36,12 @@ These units are completed before learners enter their chosen major.
 
 | Code | Title | Status |
 |---|---|---|
-| SC01 | Risk Management Frameworks | Planned |
-| SC02 | Security Architecture Principles | Planned |
-| SC03 | Governance, Policy & Compliance | Planned |
-| SC04 | Vendor & Supply Chain Risk | Planned |
-| SC05 | Security Program Management | Planned |
-| SC06 | Stakeholder Communication | Planned |
+| SC01 | [Risk Management Frameworks](SC01-risk-management-frameworks.md) | Draft |
+| SC02 | [Security Architecture Principles](SC02-security-architecture.md) | Draft |
+| SC03 | [Governance, Policy & Compliance](SC03-governance-policy-compliance.md) | Draft |
+| SC04 | [Vendor & Supply Chain Risk](SC04-vendor-supply-chain-risk.md) | Draft |
+| SC05 | [Security Program Management](SC05-security-program-management.md) | Draft |
+| SC06 | [Stakeholder Communication](SC06-stakeholder-communication.md) | Draft |
 
 ---
 
