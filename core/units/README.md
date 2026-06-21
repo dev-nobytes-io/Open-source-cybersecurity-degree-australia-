@@ -23,12 +23,12 @@ These units are completed before learners enter their chosen major.
 
 | Code | Title | Status |
 |---|---|---|
-| OC01 | Adversary Tradecraft & TTPs | Planned |
-| OC02 | Security Monitoring & SIEM | Planned |
-| OC03 | Malware Analysis Fundamentals | Planned |
-| OC04 | Incident Response Lifecycle | Planned |
-| OC05 | Threat Intelligence Fundamentals | Planned |
-| OC06 | Offensive Security Concepts | Planned |
+| OC01 | [Adversary Tradecraft & TTPs](OC01-adversary-tradecraft.md) | Draft |
+| OC02 | [Security Monitoring & SIEM](OC02-security-monitoring-siem.md) | Draft |
+| OC03 | [Malware Analysis Fundamentals](OC03-malware-analysis.md) | Draft |
+| OC04 | [Incident Response Lifecycle](OC04-incident-response-lifecycle.md) | Draft |
+| OC05 | [Threat Intelligence Fundamentals](OC05-threat-intelligence-fundamentals.md) | Draft |
+| OC06 | [Offensive Security Concepts](OC06-offensive-security-concepts.md) | Draft |
 
 ---
 

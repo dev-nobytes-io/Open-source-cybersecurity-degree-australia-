@@ -44,16 +44,20 @@ half of Year 2.
 **Source TODOs:** root `TODO.md` §2, `core/units/TODO.md`.
 
 **Deliverables**
-- [ ] `core/units/OC01-adversary-tradecraft.md`
-- [ ] `core/units/OC02-security-monitoring-siem.md`
-- [ ] `core/units/OC03-malware-analysis.md`
-- [ ] `core/units/OC04-incident-response-lifecycle.md` *(uses practitioner PIR process — see resources)*
-- [ ] `core/units/OC05-threat-intelligence-fundamentals.md`
-- [ ] `core/units/OC06-offensive-security-concepts.md`
-- [ ] `core/units/README.md` status table updated
+- [x] `core/units/OC01-adversary-tradecraft.md`
+- [x] `core/units/OC02-security-monitoring-siem.md`
+- [x] `core/units/OC03-malware-analysis.md`
+- [x] `core/units/OC04-incident-response-lifecycle.md`
+- [x] `core/units/OC05-threat-intelligence-fundamentals.md` *(Priority Intelligence Requirements — Red Hat PIR process per SANS CTI material)*
+- [x] `core/units/OC06-offensive-security-concepts.md`
+- [x] `core/units/README.md` status table updated
 
 **Definition of done:** As Sprint 1, but Bloom's levels 3–4 (Apply/Analyse) and
 framework coverage incl. NICE DCWF Protect & Defend / Investigate + SFIA 9.
+
+**Status:** ✅ Complete — all six Operational Core units authored to Draft
+(2026-06-21). Threat-informed defense (MITRE ATT&CK + CTID) is the connective
+thread across all six units per practitioner direction.
 
 ---
 
@@ -125,6 +129,8 @@ rather than reinvented.
 
 | Topic / Unit | Practitioner-supplied resource | Status |
 |---|---|---|
-| Post-incident review (OC04, DFIR) | Red Hat PIR process, as referenced by the relevant SANS guide | To incorporate in Sprint 2 |
+| Threat-informed defense (all OC units) | MITRE ATT&CK + MITRE CTID body of work as the organising philosophy; defence as a living system that adapts to changing adversary behaviour | ✅ Incorporated across OC01–OC06 |
+| Priority Intelligence Requirements (OC05) | Red Hat **Priority Intelligence Requirements** (PIR) process, as referenced in the SANS CTI body of knowledge (FOR578) | ✅ Incorporated in OC05 — exact SANS guide citation to confirm at review |
+| Blameless post-incident review (OC04) | Covered within OC04's lessons-learned topic (per maintainer scope) | ✅ Incorporated in OC04 |
 
 *(Add rows as resources are supplied.)*
