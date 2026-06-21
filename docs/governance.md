@@ -132,7 +132,7 @@ Draft → Under Review → Practitioner Approved → Framework Verified → Publ
 
 ### Framework Reference Versioning
 - All framework references must specify the version used
-  - Example: `SFIA 9 (2023)`, `NIST NICE DCWF (November 2023)`, `MITRE ATT&CK v15`
+  - Example: `SFIA 9 (2023)`, `NIST NICE DCWF (November 2023)`, `MITRE ATT&CK v19`
 - When a new framework version is released, the Framework Custodian initiates a review
   cycle; units are updated and version references incremented accordingly
 

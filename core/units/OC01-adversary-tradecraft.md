@@ -366,7 +366,7 @@ This unit incorporates the following Australian context:
 
 ## Further Reading
 
-**MITRE ATT&CK (2024).** *ATT&CK for Enterprise.* The MITRE Corporation. https://attack.mitre.org
+**MITRE ATT&CK (v19, 2026).** *ATT&CK for Enterprise.* The MITRE Corporation. https://attack.mitre.org
 > Relevance: The core knowledge base used throughout this unit; CC BY 4.0, freely usable.
 
 **MITRE Center for Threat-Informed Defense (2024).** *Adversary Emulation Library, Attack Flow, Summiting the Pyramid, Top ATT&CK Techniques, M3TID.* CTID. https://ctid.mitre.org / https://github.com/center-for-threat-informed-defense

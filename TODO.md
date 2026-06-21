@@ -75,6 +75,7 @@ All 6 foundation units must be authored using `templates/unit-template.md`. Each
 - [x] `docs/accreditation.md` — expanded TEQSA pathway (routes, HESF evidence mapping, provider-readiness checklist, dependencies)
 - [x] `docs/governance.md` — defined disputed-content & framework-mapping escalation process (§5.1)
 - [x] Root `README.md` — added a live curriculum status summary linking to `STATUS.md`
+- [ ] **MITRE ATT&CK v19 mapping audit (repo-wide)** — version pointers updated to v19; now re-verify every ATT&CK tactic/technique reference and mapping across all units against v19's significant structural changes. Track via a "Framework Mapping Error" issue per affected unit. Existing technique IDs are provisional until audited.
 
 ---
 
