@@ -2,6 +2,8 @@
 
 > A free, open-source cybersecurity education pathway aligned to Australian tertiary education standards (TEQSA/AQF) and recognised industry frameworks.
 
+**[View the full wiki →](https://dev-nobytes-io.github.io/Open-source-cybersecurity-degree-australia-/)**
+
 ---
 
 ## Vision
