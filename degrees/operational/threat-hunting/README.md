@@ -32,12 +32,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| TH01 | Hunting Methodology & Process | Planned |
-| TH02 | ATT&CK for Hunters | Planned |
-| TH03 | Host-Based Hunting | Planned |
-| TH04 | Network-Based Hunting | Planned |
-| TH05 | Hunt Operations & Tooling | Planned |
-| TH06 | Capstone — Hunt Operation | Planned |
+| TH01 | [Hunting Methodology & Process](TH01-hunting-methodology-process.md) | Draft |
+| TH02 | [ATT&CK for Hunters](TH02-attack-for-hunters.md) | Draft |
+| TH03 | [Host-Based Hunting](TH03-host-based-hunting.md) | Draft |
+| TH04 | [Network-Based Hunting](TH04-network-based-hunting.md) | Draft |
+| TH05 | [Hunt Operations & Tooling](TH05-hunt-operations-tooling.md) | Draft |
+| TH06 | [Capstone — Hunt Operation](TH06-capstone-hunt-operation.md) | Draft |
 
 ---
 
