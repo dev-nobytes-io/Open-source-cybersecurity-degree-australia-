@@ -256,7 +256,13 @@ Contributors must use the templates in the `templates/` directory:
 
 ## Status
 
-> This project is in active development. Structure and content are being defined. See [CONTRIBUTING.md](CONTRIBUTING.md) to get involved.
+> This project is in active development. The 18 shared core units (Foundation,
+> Operational Core, and Strategic Core) are authored to Draft; major units are
+> next. See the **[live unit status dashboard](STATUS.md)** for per-unit status.
+
+**Want to contribute?** Start with the [contributor onboarding checklist](docs/contributor-onboarding.md),
+check the [unit assignment register](docs/unit-assignments.md) for open work, and
+read [CONTRIBUTING.md](CONTRIBUTING.md) for the rules.
 
 ---
 
