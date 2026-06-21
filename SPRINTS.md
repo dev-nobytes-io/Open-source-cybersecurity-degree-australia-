@@ -118,10 +118,12 @@ placeholders) and runs on every PR touching unit files.
 **Source TODOs:** root `TODO.md` "Documentation Gaps", `docs/*/TODO.md`.
 
 **Deliverables**
-- [ ] Verify `docs/frameworks.md` tables against latest versions (SFIA 9, NICE DCWF 2023, ASD CSF 2024)
-- [ ] Expand `docs/accreditation.md` TEQSA pathway section
-- [ ] Define disputed-content escalation process in `docs/governance.md`
-- [ ] Live unit status dashboard in root `README.md`
+- [x] Verify `docs/frameworks.md` tables against latest versions — currency table + review log; ATT&CK flagged as likely superseded
+- [x] Expand `docs/accreditation.md` TEQSA pathway section — routes, HESF evidence mapping, provider-readiness checklist
+- [x] Define disputed-content escalation process in `docs/governance.md` (§5.1)
+- [x] Live unit status dashboard in root `README.md` (summary table → `STATUS.md`)
+
+**Status:** ✅ Complete (2026-06-21).
 
 ---
 

@@ -71,10 +71,10 @@ All 6 foundation units must be authored using `templates/unit-template.md`. Each
 
 ## Documentation Gaps
 
-- [ ] `docs/frameworks.md` — verify all framework mapping tables are current against latest versions (SFIA 9, NIST NICE DCWF 2023, ASD CSF 2024)
-- [ ] `docs/accreditation.md` — expand TEQSA pathway section once Phase 3 content is drafted
-- [ ] `docs/governance.md` — define escalation process for disputed content or framework mappings
-- [ ] Root `README.md` — add a live unit status dashboard once units begin being authored
+- [x] `docs/frameworks.md` — verified framework versions against a currency table + review log; flagged MITRE ATT&CK as likely superseded and DCWF/NICE codes for live re-verification
+- [x] `docs/accreditation.md` — expanded TEQSA pathway (routes, HESF evidence mapping, provider-readiness checklist, dependencies)
+- [x] `docs/governance.md` — defined disputed-content & framework-mapping escalation process (§5.1)
+- [x] Root `README.md` — added a live curriculum status summary linking to `STATUS.md`
 
 ---
 

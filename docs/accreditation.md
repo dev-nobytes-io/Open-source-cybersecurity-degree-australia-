@@ -168,6 +168,101 @@ timeline
 
 ---
 
+## TEQSA Pathway in Detail
+
+The Stage 5 timeline above is deliberately high-level. This section expands it into
+the concrete routes, evidence, and decisions a partnering provider would face. It is
+written as practical guidance for a registered (or aspiring) provider that wishes to
+deliver this curriculum as an AQF Level 7 award — **not** a claim that this repository
+is or will be TEQSA-registered.
+
+### Who can award an AQF qualification
+
+Only a TEQSA-registered higher education provider can confer an AQF Level 7 award.
+Providers fall into two relevant categories:
+
+| Provider type | Course accreditation | Implication for this curriculum |
+|---|---|---|
+| **Self-accrediting authority** (most universities) | Accredits its own courses internally; TEQSA registers the provider | Fastest route — a partner university can map and approve this curriculum through its own academic governance |
+| **Non-self-accrediting provider** | Must have each course **accredited by TEQSA** before delivery | Requires a formal TEQSA course-accreditation application with full evidence |
+
+### Two viable routes
+
+```mermaid
+flowchart TD
+    A[This open curriculum<br/>AQF Level 7 designed] --> B{Partner provider type?}
+    B -->|Self-accrediting university| C[Internal course approval<br/>via academic board]
+    B -->|Non-self-accrediting provider| D[TEQSA course accreditation<br/>application]
+    C --> E[Delivered as an accredited award]
+    D --> E
+    E --> F[Credit recognition / articulation<br/>for prior open-study completers]
+```
+
+- **Route A — Deliver through a self-accrediting university.** The partner maps this
+  curriculum to its own course-approval processes. TEQSA does not accredit the course
+  directly; the university's authority does. This is the most achievable route.
+- **Route B — TEQSA course accreditation by a non-self-accrediting provider.** The
+  provider submits a course-accreditation application; TEQSA assesses it against the
+  Higher Education Standards Framework (HESF) 2021. Slower and evidence-intensive, but
+  open to specialist/independent providers.
+
+### Evidence a provider must assemble (mapped to HESF 2021)
+
+The repository is designed so a provider can reuse much of this evidence directly:
+
+| HESF 2021 domain | Evidence required | What this repo already supplies |
+|---|---|---|
+| 1. Student Participation & Attainment | Entry requirements, progression rules, award requirements | Degree structure, prerequisites per unit, volume-of-learning mapping (`docs/structure.md`) |
+| 2. Learning Environment | Defined learning outcomes, resources | Unit-level learning outcomes; lab specs with free/OSS tooling and minimum hardware |
+| 3. Teaching | Qualified staff, content currency, assessment integrity | Practitioner-review model (`docs/governance.md`); framework currency log (`docs/frameworks.md`); academic-integrity guidance (`docs/student/academic-integrity.md`) |
+| 4. Research & Research Training | Generally N/A at coursework Level 7 | Not applicable for a coursework award |
+| 5. Institutional Quality Assurance | Review and improvement processes | Annual review schedule (`docs/quality/annual-review-schedule.md`); content lifecycle |
+| 6. Governance & Accountability | Governance structures, sustainability | Governance model (`docs/governance.md`) — provider supplies its own corporate/financial governance |
+| 7. Representation & Information Management | Accurate public information; student records | Public, versioned curriculum; the provider supplies student-records systems |
+
+The provider must supply what an open repository inherently cannot: a registered legal
+entity, financial sustainability, teaching staff and their qualifications, student
+admission and records systems, grievance/appeals processes, and physical/virtual
+learning infrastructure.
+
+### Provider-readiness checklist
+
+A partner provider can use this as a gap list before approaching TEQSA or its own
+academic board:
+
+- [ ] Curriculum mapped to the provider's award structure and credit-point model
+- [ ] Volume of learning confirmed against AQF Level 7 (3 yrs FTE / 144–192 CP)
+- [ ] Teaching staff identified with qualifications meeting HESF Standard 3.2
+- [ ] Assessment moderation process adopted (see `docs/educator/assessment-moderation-guide.md`)
+- [ ] Academic integrity and RPL policies in place (`docs/student/`)
+- [ ] Student grievance, progression, and award-conferral policies in place
+- [ ] Framework mappings independently verified (Framework Custodian sign-off)
+- [ ] All units at **Published** status in the content lifecycle
+- [ ] Independent benchmarking completed (`docs/institutional/external-benchmarking.md`)
+
+### Dependencies and sequencing
+
+TEQSA work cannot meaningfully begin until the curriculum is complete and reviewed.
+The hard dependencies are:
+
+1. **All units Published** — Phase 3 (48 major units) and practitioner review complete.
+2. **Framework mappings verified** — Framework Custodian sign-off across the degree.
+3. **AQF Level 7 gap analysis completed** — the Phase 4 item in the root `TODO.md`.
+4. **A willing registered provider** — without a provider there is no TEQSA applicant;
+   the repository itself cannot apply.
+
+### Indicative effort (planning only)
+
+These are planning estimates, not commitments; actual timeframes depend on the provider:
+
+| Activity | Indicative duration |
+|---|---|
+| Curriculum mapping to a self-accrediting university's processes | 3–6 months |
+| TEQSA course-accreditation application (non-self-accrediting) | 12+ months |
+| AQF Level 7 gap analysis (Phase 4) | 2–3 months |
+
+---
+
 ## Informal Recognition Pathway (Near-Term)
 
 Formal TEQSA registration is a long-term goal. In the near term, the following recognition mechanisms are more achievable and valuable to learners:
