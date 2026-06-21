@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contribution guide
+    url: https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/CONTRIBUTING.md
+    about: Read the contribution rules, content standards, and PR process first.
+  - name: Contributor onboarding checklist
+    url: https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/docs/contributor-onboarding.md
+    about: Step-by-step path from "I want to help" to your first merged unit.
+  - name: Unit status dashboard
+    url: https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/STATUS.md
+    about: See which units are Planned / Draft / Under Review / Published before claiming one.

@@ -98,11 +98,16 @@ scale beyond the maintainers.
 **Source TODOs:** root `TODO.md` "Contributing Infrastructure".
 
 **Deliverables**
-- [ ] Issue templates: "New Unit Draft", "Unit Review Request", "Framework Mapping Error"
-- [ ] `STATUS.md` (or README dashboard) showing every unit's lifecycle status
-- [ ] Contributor onboarding checklist
-- [ ] Unit-assignment system (so contributors don't duplicate work)
-- [ ] GitHub Actions CI to lint unit files against required template sections
+- [x] Issue templates: "New Unit Draft", "Unit Review Request", "Framework Mapping Error" (+ `config.yml`)
+- [x] `STATUS.md` dashboard showing every unit's lifecycle status (linked from README)
+- [x] Contributor onboarding checklist (`docs/contributor-onboarding.md`)
+- [x] Unit-assignment register (`docs/unit-assignments.md`)
+- [x] GitHub Actions CI to lint unit files against required template sections (`.github/scripts/lint_units.py` + `.github/workflows/lint-units.yml`)
+
+**Status:** ✅ Complete (2026-06-21). The unit linter validates all 18 existing
+units (required sections, ≥6 topics, ≥2 labs, 4-level rubric, ≥5 annotated refs
+incl. an Australian source, ASD mapping, metadata fields, no leftover
+placeholders) and runs on every PR touching unit files.
 
 ---
 

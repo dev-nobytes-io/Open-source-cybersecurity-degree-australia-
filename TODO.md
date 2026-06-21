@@ -60,12 +60,12 @@ All 6 foundation units must be authored using `templates/unit-template.md`. Each
 
 ## Contributing Infrastructure
 
-- [ ] Set up GitHub Discussions or issue templates for practitioner review volunteers
-- [ ] Create a contributor onboarding checklist (beyond `CONTRIBUTING.md`)
-- [ ] Establish a unit assignment system so contributors don't duplicate work
-- [ ] Add a status dashboard (table in README or separate `STATUS.md`) showing which units are Draft / In Review / Published
-- [ ] Define a CI/CD check (GitHub Actions) to lint unit files against `templates/unit-template.md` required sections
-- [ ] Add issue templates: "New Unit Draft", "Unit Review Request", "Framework Mapping Error"
+- [x] Set up issue templates for practitioner review volunteers (`.github/ISSUE_TEMPLATE/`)
+- [x] Create a contributor onboarding checklist (beyond `CONTRIBUTING.md`) — `docs/contributor-onboarding.md`
+- [x] Establish a unit assignment system so contributors don't duplicate work — `docs/unit-assignments.md`
+- [x] Add a status dashboard (`STATUS.md`) showing which units are Draft / In Review / Published
+- [x] Define a CI/CD check (GitHub Actions) to lint unit files against `templates/unit-template.md` required sections
+- [x] Add issue templates: "New Unit Draft", "Unit Review Request", "Framework Mapping Error"
 
 ---
 
