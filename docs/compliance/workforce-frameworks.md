@@ -224,7 +224,7 @@ The following table lists current versions and review triggers:
 | NIST NICE DCWF | November 2023 | New NIST SP 800-181 revision or DCWF update |
 | SFIA | SFIA 9 (2023) | New SFIA release |
 | ASD Cyber Skills Framework | 2024 | ASD releases updated version |
-| MITRE ATT&CK | v15 (April 2024) | New ATT&CK version release |
+| MITRE ATT&CK | v19 (2026) | New ATT&CK version release |
 | NIST CSF | CSF 2.0 (2024) | New NIST CSF revision |
 | ISO 27001/27002 | 2022 editions | New ISO edition |
 | ASD Essential Eight | Current (check asd.gov.au) | ASD updates maturity model |

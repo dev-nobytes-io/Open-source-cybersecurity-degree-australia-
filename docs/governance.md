@@ -132,7 +132,7 @@ Draft → Under Review → Practitioner Approved → Framework Verified → Publ
 
 ### Framework Reference Versioning
 - All framework references must specify the version used
-  - Example: `SFIA 9 (2023)`, `NIST NICE DCWF (November 2023)`, `MITRE ATT&CK v15`
+  - Example: `SFIA 9 (2023)`, `NIST NICE DCWF (November 2023)`, `MITRE ATT&CK v19`
 - When a new framework version is released, the Framework Custodian initiates a review
   cycle; units are updated and version references incremented accordingly
 
@@ -158,6 +158,55 @@ If there is disagreement between contributors or reviewers:
    an independent Domain Expert may be consulted
 
 All decisions are documented publicly in the relevant PR or Issue thread.
+
+### 5.1 Disputed Content & Framework Mappings — Escalation
+
+Section 5 covers general disagreement. Disputes about **content accuracy** or
+**framework-mapping correctness** carry extra weight because they affect the
+credibility of the degree and the "employer visibility" guarantee (every T-code must
+trace to real evidence). They follow this dedicated, time-boxed escalation ladder.
+
+**What counts as a disputed-content matter**
+
+- A factual/technical claim in a unit is challenged as inaccurate or unsafe
+- A framework mapping (NICE DCWF T-code, SFIA level, ASD/ATT&CK reference) is
+  challenged as wrong, retired, mis-versioned, or unsupported by a lab/assessment
+- Two reviewers reach incompatible conclusions on technical accuracy
+
+**Escalation ladder**
+
+| Step | Action | Owner | Target time |
+|---|---|---|---|
+| 1. Raise | Open an issue (use **Framework Mapping Error** for mappings) or comment on the PR, citing the specific claim/mapping and a primary source | Anyone | — |
+| 2. Author response | The unit author responds with evidence or accepts the correction | Author | 7 days |
+| 3. Expert review | If unresolved, the relevant **Domain Expert** (content) or **Framework Custodian** (mappings) adjudicates against primary sources | Domain Expert / Framework Custodian | 14 days |
+| 4. Maintainer decision | If still contested, a **Maintainer** decides on the documented evidence | Maintainer | 7 days |
+| 5. Independent expert | For deep technical splits, an **independent Domain Expert** (not previously involved) is consulted; their finding is decisive for the technical question | Maintainers (appoint) | as needed |
+
+**Evidence standard**
+
+- Technical claims must be supported by a **primary source** (vendor/standards-body
+  documentation, the framework's own publication, peer-reviewed work). Blog posts and
+  secondary summaries may inform but do not by themselves settle a dispute.
+- For framework mappings, the authoritative version is the one recorded in the
+  currency table in [`docs/frameworks.md`](frameworks.md). A mapping is only valid if
+  the cited code exists in that version **and** traces to a specific lab/assessment.
+
+**Status of content while disputed**
+
+- A **Published** unit under an open accuracy/mapping dispute is labelled
+  **`Framework Review Required`** (mappings) or flagged in its metadata (content) until
+  resolved; it remains available but carries the notice.
+- A unit **in review** does not advance to `Practitioner Approved` or
+  `Framework Verified` while a relevant dispute is open.
+- Resolutions are recorded in the originating issue/PR and, for mappings, as a row in
+  the Currency Review Log in `docs/frameworks.md`.
+
+**Conflicts of interest**
+
+Anyone with a conflict (e.g. a vendor relationship affecting a tool/mapping
+recommendation, or authorship of the disputed content) must disclose it and recuse
+from adjudicating that dispute.
 
 ---
 

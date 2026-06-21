@@ -257,16 +257,31 @@ graph TD
 
 ## Framework Currency & Maintenance
 
-Industry frameworks are living documents. This repo must track version currency:
+Industry frameworks are living documents. This repo must track version currency.
+The table below is the canonical version reference; every unit's framework
+mappings must use these versions until the Framework Custodian updates them.
 
-| Framework | Current Version | Review Frequency |
+| Framework | Version used in this repo | Last verified | Review frequency | Currency note |
+|---|---|---|---|---|
+| NIST CSF | 2.0 (2024) | 2026-06-21 | Major version change | Current. 2.0 introduced the **Govern** function (used in SC03/SC05). |
+| NIST NICE | SP 800-181r1 (2020) + 2025 components data | 2026-06-21 | Major version change | NICE now maintains Tasks/Knowledge/Skills as versioned component data — re-verify against the live NICE site. |
+| DCWF | 2023 | 2026-06-21 | Annual | DCWF work-role/T-code IDs in unit mappings must be re-confirmed against the current release at Framework Custodian sign-off. |
+| SFIA | Version 9 (2023) | 2026-06-21 | Major version change | Current — SFIA 9 is the latest major version. |
+| ASD Cyber Skills Framework | 2024 | 2026-06-21 | ASD revision | Used for the ASD CSF mapping in every unit. Re-verify domain/sub-domain labels against the current ASD publication. |
+| ASD Essential Eight | November 2023 maturity model | 2026-06-21 | Quarterly ASD review | Confirm against the latest ACSC Essential Eight Maturity Model. |
+| MITRE ATT&CK | **v19 (2026)** | 2026-06-21 | Bi-annual (April, October) | **Current is v19, which introduced significant structural changes.** A repo-wide audit of every ATT&CK technique/tactic reference and mapping is required — see the audit task in the root `TODO.md`. Treat existing technique IDs as provisional until re-verified against v19. |
+| ISO/IEC 27001 | 2022 edition | 2026-06-21 | Major version change | Current. Paywalled standard — referenced, not reproduced. |
+| NIST SP 800-61 | Rev. 2 (with Rev. 3 in progress) | 2026-06-21 | Major version change | OC04 cites 800-61; check whether Rev. 3 has finalised and update if so. |
+
+### Currency Review Log
+
+| Date | Reviewer | Outcome |
 |---|---|---|
-| NIST CSF | 2.0 (2024) | Major version change |
-| MITRE ATT&CK | v16 (2024) | Bi-annual (April, October) |
-| NIST NICE | NIST SP 800-181r1 (2020) | Major version change |
-| DCWF | 2023 | Annual |
-| SFIA | Version 9 (2023) | Major version change |
-| ASD Essential Eight | November 2023 | Quarterly ASD review |
-| ISO 27001 | 2022 edition | Major version change |
+| 2026-06-21 | _initial structural review_ | Versions reconciled across `docs/frameworks.md` and all 18 core units. Flagged NICE/DCWF T-codes as requiring live re-verification at Framework Custodian sign-off. |
+| 2026-06-21 | _maintainer note_ | **MITRE ATT&CK confirmed current at v19** (significant structural changes vs v16). Version pointers updated repo-wide; full technique/tactic **mapping audit raised as a tracked task** — existing technique IDs are provisional until re-verified against v19. |
 
-> When a framework releases a new major version, a GitHub Issue should be raised to audit and update affected units. See [CONTRIBUTING.md](../CONTRIBUTING.md) for the process.
+> When a framework releases a new major version, a GitHub Issue should be raised
+> (use the **Framework Mapping Error** issue template) to audit and update affected
+> units. The Framework Custodian initiates this within 90 days of release per
+> [`docs/governance.md`](governance.md) §3. Record each review as a row in the
+> log above.

@@ -357,7 +357,7 @@ This unit incorporates the following Australian context:
 **Caltagirone, S., Pendergast, A. & Betz, C. (2013).** *The Diamond Model of Intrusion Analysis.* https://www.activeresponse.org/the-diamond-model/
 > Relevance: The intrusion-analysis model applied in Topic 4 and Lab 2; freely available.
 
-**MITRE ATT&CK & CTID (2024).** *ATT&CK, Attack Flow, actor profiles.* https://attack.mitre.org / https://github.com/center-for-threat-informed-defense
+**MITRE ATT&CK & CTID (v19, 2026).** *ATT&CK, Attack Flow, actor profiles.* https://attack.mitre.org / https://github.com/center-for-threat-informed-defense
 > Relevance: The behavioural backbone and campaign-modelling tooling for CTI analysis.
 
 **Australian Cyber Security Centre (2024).** *Annual Cyber Threat Report & advisories.* ACSC. https://www.cyber.gov.au
