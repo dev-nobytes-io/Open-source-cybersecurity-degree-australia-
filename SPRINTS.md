@@ -132,5 +132,9 @@ rather than reinvented.
 | Threat-informed defense (all OC units) | MITRE ATT&CK + MITRE CTID body of work as the organising philosophy; defence as a living system that adapts to changing adversary behaviour | ✅ Incorporated across OC01–OC06 |
 | Priority Intelligence Requirements (OC05) | Red Hat **Priority Intelligence Requirements** (PIR) process, as referenced in the SANS CTI body of knowledge (FOR578) | ✅ Incorporated in OC05 — exact SANS guide citation to confirm at review |
 | Blameless post-incident review (OC04) | Covered within OC04's lessons-learned topic (per maintainer scope) | ✅ Incorporated in OC04 |
+| Strategic Core control backbones (SC01, SC03) | NIST CSF 2.0 (Govern/Identify) + ISO 27001:2022 | 🔜 Sprint 3 |
+| Security architecture (SC02) | SABSA + Zero Trust (NIST SP 800-207) + NIST SP 800-160 | 🔜 Sprint 3 |
+| Australian regulatory regimes (SC03, SC04, SC05) | APRA CPS 234 + SOCI risk-management program + Australian Government ISM / IRAP | 🔜 Sprint 3 |
+| Compliance-as-revenue framing (SC03, SC05) | Position compliance as a commercial/market-access enabler ("frameworks that make money"); map framework choice to industry — **IRAP** for government, **SOC 2** and **APRA CPS 234** for finance/other industries, ISO 27001 broadly | 🔜 Sprint 3 — distinctive angle to weave through governance/program units |
 
 *(Add rows as resources are supplied.)*
