@@ -150,10 +150,24 @@ paid tools provided a free alternative is documented.
 Free/OSS tooling throughout; threat-informed-defense spine continued; ATT&CK
 **v19** used (technique IDs provisional pending the repo-wide v19 audit).
 
+### Sprint 7 — DFIR major ✅ Complete (2026-06-21)
+
+- [x] `DF01-dfir-process-legal-foundations.md` (PICERL/800-61, Evidence Act 1995)
+- [x] `DF02-host-forensics.md` (Autopsy/Sleuth Kit, MFT/registry, Plaso timelines)
+- [x] `DF03-memory-forensics.md` (Volatility 3, injection, credentials)
+- [x] `DF04-network-forensics.md` (Wireshark/Zeek, C2, DNS exfil)
+- [x] `DF05-incident-response-operations.md` (PICERL ops, NDB/APRA/SOCI, TheHive)
+- [x] `DF06-capstone-ir-simulation.md` (end-to-end IR, Bloom's 5–6, 24 CP)
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+Strongest AU-legal major: Evidence Act 1995 admissibility throughout, full
+NDB/APRA CPS 234/SOCI notification coverage, and Optus/Medibank/Latitude case
+studies. Free/OSS tooling; ATT&CK v19 (technique IDs provisional pending audit).
+
 ### Remaining majors (Planned)
 
-Operational: DFIR, CTI, Detection Engineering, CTE. Strategic: Security
-Engineering, Leadership & CISO, GRC. (7 majors × 6 = 42 units.)
+Operational: CTI, Detection Engineering, CTE. Strategic: Security Engineering,
+Leadership & CISO, GRC. (6 majors × 6 = 36 units.)
 
 ---
 

@@ -32,12 +32,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| DF01 | DFIR Process & Legal Foundations | Planned |
-| DF02 | Host Forensics | Planned |
-| DF03 | Memory Forensics | Planned |
-| DF04 | Network Forensics | Planned |
-| DF05 | Incident Response Operations | Planned |
-| DF06 | Capstone — IR Simulation | Planned |
+| DF01 | [DFIR Process & Legal Foundations](DF01-dfir-process-legal-foundations.md) | Draft |
+| DF02 | [Host Forensics](DF02-host-forensics.md) | Draft |
+| DF03 | [Memory Forensics](DF03-memory-forensics.md) | Draft |
+| DF04 | [Network Forensics](DF04-network-forensics.md) | Draft |
+| DF05 | [Incident Response Operations](DF05-incident-response-operations.md) | Draft |
+| DF06 | [Capstone — IR Simulation](DF06-capstone-ir-simulation.md) | Draft |
 
 ---
 

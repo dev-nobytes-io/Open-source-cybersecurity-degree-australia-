@@ -5,7 +5,10 @@
 **Year:** 3
 **Units:** DF01–DF06
 
-All units are currently **Planned**. No unit files have been authored yet.
+**Update (2026-06-21):** All six units (DF01–DF06) have been authored to **Draft**
+and pass the unit linter. They now await practitioner review (Domain Expert +
+Practitioner Reviewer with active DFIR experience, plus an AU legal/compliance
+check of the legislative references) per the sign-off requirements below.
 
 ---
 
