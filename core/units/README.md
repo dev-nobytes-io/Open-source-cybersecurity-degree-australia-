@@ -10,12 +10,12 @@ These units are completed before learners enter their chosen major.
 
 | Code | Title | Status |
 |---|---|---|
-| F01 | Networking Fundamentals | Planned |
-| F02 | Operating Systems & Administration | Planned |
-| F03 | Scripting & Automation | Planned |
-| F04 | Security Concepts & Principles | Planned |
-| F05 | Legal, Ethics & Australian Compliance | Planned |
-| F06 | Data & Log Analysis | Planned |
+| F01 | [Networking Fundamentals](F01-networking-fundamentals.md) | Draft |
+| F02 | [Operating Systems & Administration](F02-operating-systems.md) | Draft |
+| F03 | [Scripting & Automation](F03-scripting-automation.md) | Draft |
+| F04 | [Security Concepts & Principles](F04-security-concepts.md) | Draft |
+| F05 | [Legal, Ethics & Australian Compliance](F05-legal-ethics-compliance.md) | Draft |
+| F06 | [Data & Log Analysis](F06-data-log-analysis.md) | Draft |
 
 ---
 
