@@ -66,7 +66,17 @@ PLACEHOLDER_TOKENS = [
 
 def find_unit_files(paths: list[str]) -> list[Path]:
     if paths:
-        return [Path(p) for p in paths]
+        # Filter explicitly-passed paths to those that look like unit files, so
+        # running the linter on a glob (e.g. a whole major directory) does not
+        # fail on README.md / TODO.md.
+        selected: list[Path] = []
+        for p in paths:
+            path = Path(p)
+            if UNIT_FILE_RE.match(path.name):
+                selected.append(path)
+            else:
+                print(f"SKIP {path} (not a unit file)")
+        return selected
     roots = [Path("core/units"), Path("degrees")]
     files: list[Path] = []
     for root in roots:

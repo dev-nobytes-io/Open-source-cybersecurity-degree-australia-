@@ -5,7 +5,10 @@
 **Year:** 3
 **Units:** TH01–TH06
 
-All units are currently **Planned**. No unit files have been authored yet.
+**Update (2026-06-21):** All six units (TH01–TH06) have been authored to **Draft**
+and pass the unit linter. They now await practitioner review (Domain Expert +
+Practitioner Reviewer with active threat-hunting experience) per the sign-off
+requirements below.
 
 ---
 

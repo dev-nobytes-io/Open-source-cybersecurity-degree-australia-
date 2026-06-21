@@ -134,8 +134,26 @@ placeholders) and runs on every PR touching unit files.
 **Source TODOs:** `degrees/**/TODO.md`.
 
 Sequenced one major per sprint after the shared core is complete. Bloom's levels
-4–5 (Analyse/Evaluate); major units may reference paid tools provided a free
-alternative is documented.
+4–5 (Analyse/Evaluate), capstones 5–6 (Evaluate/Create); major units may reference
+paid tools provided a free alternative is documented.
+
+### Sprint 6 — Threat Hunting major ✅ Complete (2026-06-21)
+
+- [x] `TH01-hunting-methodology-process.md` (TaHiTI, hypothesis design, maturity)
+- [x] `TH02-attack-for-hunters.md` (ATT&CK v19, Navigator, CTID prioritisation)
+- [x] `TH03-host-based-hunting.md` (Velociraptor VQL, Volatility 3)
+- [x] `TH04-network-based-hunting.md` (Zeek/Wireshark, beaconing, DNS exfil)
+- [x] `TH05-hunt-operations-tooling.md` (Jupyter/Pandas, fleet VQL, Sigma)
+- [x] `TH06-capstone-hunt-operation.md` (end-to-end capstone, Bloom's 5–6, 24 CP)
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+Free/OSS tooling throughout; threat-informed-defense spine continued; ATT&CK
+**v19** used (technique IDs provisional pending the repo-wide v19 audit).
+
+### Remaining majors (Planned)
+
+Operational: DFIR, CTI, Detection Engineering, CTE. Strategic: Security
+Engineering, Leadership & CISO, GRC. (7 majors × 6 = 42 units.)
 
 ---
 

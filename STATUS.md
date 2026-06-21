@@ -19,8 +19,8 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 0 | 0 |
-| **Total** | **66** | **18** | **0** |
+| Major units (8 majors × 6) | 48 | 6 | 0 |
+| **Total** | **66** | **24** | **0** |
 
 ---
 
@@ -61,14 +61,24 @@ _Last updated: 2026-06-21_
 
 ## Major Units (Phase 3 — 6 units per major)
 
-Major-unit files are not yet authored. As each major's units are created, replace
-its row below with a per-unit table (same format as the core tables above).
+As each major's units are created, its row below is replaced with a per-unit table
+(same format as the core tables above).
 
-### Operational Degree
+### Threat Hunting (Operational) — authored
+
+| Code | Title | Status |
+|---|---|---|
+| TH01 | [Hunting Methodology & Process](degrees/operational/threat-hunting/TH01-hunting-methodology-process.md) | 🟡 Draft |
+| TH02 | [ATT&CK for Hunters](degrees/operational/threat-hunting/TH02-attack-for-hunters.md) | 🟡 Draft |
+| TH03 | [Host-Based Hunting](degrees/operational/threat-hunting/TH03-host-based-hunting.md) | 🟡 Draft |
+| TH04 | [Network-Based Hunting](degrees/operational/threat-hunting/TH04-network-based-hunting.md) | 🟡 Draft |
+| TH05 | [Hunt Operations & Tooling](degrees/operational/threat-hunting/TH05-hunt-operations-tooling.md) | 🟡 Draft |
+| TH06 | [Capstone — Hunt Operation](degrees/operational/threat-hunting/TH06-capstone-hunt-operation.md) | 🟡 Draft |
+
+### Operational Degree (remaining — Planned)
 
 | Major | Units | Status |
 |---|---|---|
-| [Threat Hunting](degrees/operational/threat-hunting/) | 6 | ⬜ Planned |
 | [DFIR](degrees/operational/dfir/) | 6 | ⬜ Planned |
 | [Cyber Threat Intelligence](degrees/operational/cti/) | 6 | ⬜ Planned |
 | [Detection Engineering](degrees/operational/detection-engineering/) | 6 | ⬜ Planned |
