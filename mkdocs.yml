@@ -3,7 +3,7 @@ site_description: A free, open-source cybersecurity education pathway aligned to
 site_url: https://dev-nobytes-io.github.io/Open-source-cybersecurity-degree-australia-/
 repo_url: https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-
 repo_name: GitHub
-edit_uri: edit/claude/define-degree-structure-p78Ru/
+edit_uri: edit/main/
 
 docs_dir: wiki_src
 site_dir: site
