@@ -69,13 +69,24 @@ of Year 2.
 **Source TODOs:** root `TODO.md` §3, `core/units/TODO.md`.
 
 **Deliverables**
-- [ ] `core/units/SC01-risk-management-frameworks.md`
-- [ ] `core/units/SC02-security-architecture.md`
-- [ ] `core/units/SC03-governance-policy-compliance.md`
-- [ ] `core/units/SC04-vendor-supply-chain-risk.md`
-- [ ] `core/units/SC05-security-program-management.md`
-- [ ] `core/units/SC06-stakeholder-communication.md`
-- [ ] `core/units/README.md` status table updated
+- [x] `core/units/SC01-risk-management-frameworks.md`
+- [x] `core/units/SC02-security-architecture.md`
+- [x] `core/units/SC03-governance-policy-compliance.md`
+- [x] `core/units/SC04-vendor-supply-chain-risk.md`
+- [x] `core/units/SC05-security-program-management.md`
+- [x] `core/units/SC06-stakeholder-communication.md`
+- [x] `core/units/README.md` status table updated
+
+**Status:** ✅ Complete — all six Strategic Core units authored to Draft
+(2026-06-21). Frameworks per practitioner direction: NIST CSF 2.0 + ISO 27001
+backbones, SABSA/Zero Trust/SP 800-160 for SC02, APRA CPS 234/CPS 230 + SOCI +
+ISM/IRAP, and a **compliance-as-revenue** thread (IRAP→gov, SOC 2/APRA→finance,
+ISO 27001 broad) woven through SC01, SC03, SC05, and SC06.
+
+> **Milestone:** All 18 shared core units (Foundation + Operational + Strategic)
+> are now authored to Draft. The shared curriculum spine of both degrees is
+> complete. Remaining: Sprint 4 (infrastructure), Sprint 5 (docs), Sprint 6+
+> (48 major units).
 
 ---
 
@@ -132,9 +143,9 @@ rather than reinvented.
 | Threat-informed defense (all OC units) | MITRE ATT&CK + MITRE CTID body of work as the organising philosophy; defence as a living system that adapts to changing adversary behaviour | ✅ Incorporated across OC01–OC06 |
 | Priority Intelligence Requirements (OC05) | Red Hat **Priority Intelligence Requirements** (PIR) process, as referenced in the SANS CTI body of knowledge (FOR578) | ✅ Incorporated in OC05 — exact SANS guide citation to confirm at review |
 | Blameless post-incident review (OC04) | Covered within OC04's lessons-learned topic (per maintainer scope) | ✅ Incorporated in OC04 |
-| Strategic Core control backbones (SC01, SC03) | NIST CSF 2.0 (Govern/Identify) + ISO 27001:2022 | 🔜 Sprint 3 |
-| Security architecture (SC02) | SABSA + Zero Trust (NIST SP 800-207) + NIST SP 800-160 | 🔜 Sprint 3 |
-| Australian regulatory regimes (SC03, SC04, SC05) | APRA CPS 234 + SOCI risk-management program + Australian Government ISM / IRAP | 🔜 Sprint 3 |
-| Compliance-as-revenue framing (SC03, SC05) | Position compliance as a commercial/market-access enabler ("frameworks that make money"); map framework choice to industry — **IRAP** for government, **SOC 2** and **APRA CPS 234** for finance/other industries, ISO 27001 broadly | 🔜 Sprint 3 — distinctive angle to weave through governance/program units |
+| Strategic Core control backbones (SC01, SC03) | NIST CSF 2.0 (Govern/Identify) + ISO 27001:2022 | ✅ Incorporated in SC01–SC06 |
+| Security architecture (SC02) | SABSA + Zero Trust (NIST SP 800-207) + NIST SP 800-160 | ✅ Incorporated in SC01–SC06 |
+| Australian regulatory regimes (SC03, SC04, SC05) | APRA CPS 234 + SOCI risk-management program + Australian Government ISM / IRAP | ✅ Incorporated in SC01–SC06 |
+| Compliance-as-revenue framing (SC03, SC05) | Position compliance as a commercial/market-access enabler ("frameworks that make money"); map framework choice to industry — **IRAP** for government, **SOC 2** and **APRA CPS 234** for finance/other industries, ISO 27001 broadly | ✅ Incorporated in SC01–SC06 — distinctive angle to weave through governance/program units |
 
 *(Add rows as resources are supplied.)*

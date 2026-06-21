@@ -11,7 +11,7 @@ This is the top-level tracking file for the Open Source Cybersecurity Degree Aus
 - [x] Phase 1 — Framework mapping tables created in `docs/frameworks.md`
 - [x] Phase 2 — Foundation year units authored (F01–F06) _(Draft — pending practitioner review)_
 - [x] Phase 2 — Operational core units authored (OC01–OC06) _(Draft — pending practitioner review)_
-- [ ] Phase 2 — Strategic core units authored (SC01–SC06)
+- [x] Phase 2 — Strategic core units authored (SC01–SC06) _(Draft — pending practitioner review)_
 - [ ] Phase 3 — All major unit content written (8 majors × 6 units = 48 unit files)
 - [ ] Phase 4 — Practitioner review of each major completed
 - [ ] Phase 4 — Framework mappings independently verified
