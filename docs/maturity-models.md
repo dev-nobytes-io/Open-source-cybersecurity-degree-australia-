@@ -145,6 +145,6 @@ This is the mechanism that keeps operational and strategic development aligned.
 ## 6. Maintenance
 
 Maturity models evolve. Track currency in the
-[framework currency table](frameworks.md#framework-currency--maintenance) and raise
+[framework currency table](frameworks.md#framework-currency-maintenance) and raise
 a *Framework Mapping Error* issue when a model releases a new version (e.g. a new
 SOC-CMM or CTI-CMM release). Confirm the **DF-C2M2** reference (see §2 flag).

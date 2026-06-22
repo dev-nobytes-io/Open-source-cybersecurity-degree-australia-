@@ -79,13 +79,19 @@ extra:
 
 nav:
   - Home: README.md
-  - Contributing: CONTRIBUTING.md
-  - Project TODO: TODO.md
+  - Status Dashboard: STATUS.md
+  - Contributing:
+    - Contribution Guide: CONTRIBUTING.md
+    - Contributor Onboarding: docs/contributor-onboarding.md
+    - Unit Assignments: docs/unit-assignments.md
+    - Sprint Plan: SPRINTS.md
+    - Project TODO: TODO.md
 
   - Documentation:
     - Goals & Vision: docs/goals.md
     - Degree Structure: docs/structure.md
     - Framework Alignment: docs/frameworks.md
+    - Capability Maturity Models: docs/maturity-models.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
@@ -133,47 +139,110 @@ nav:
 
   - Core Units:
     - Overview: core/units/README.md
-    - TODO: core/units/TODO.md
-    - core/TODO.md
+
+    - Foundation Year:
+      - F01 — Networking Fundamentals: core/units/F01-networking-fundamentals.md
+      - F02 — Operating Systems & Administration: core/units/F02-operating-systems.md
+      - F03 — Scripting & Automation: core/units/F03-scripting-automation.md
+      - F04 — Security Concepts & Principles: core/units/F04-security-concepts.md
+      - F05 — Legal, Ethics & Australian Compliance: core/units/F05-legal-ethics-compliance.md
+      - F06 — Data & Log Analysis: core/units/F06-data-log-analysis.md
+
+    - Operational Core:
+      - OC01 — Adversary Tradecraft & TTPs: core/units/OC01-adversary-tradecraft.md
+      - OC02 — Security Monitoring & SIEM: core/units/OC02-security-monitoring-siem.md
+      - OC03 — Malware Analysis Fundamentals: core/units/OC03-malware-analysis.md
+      - OC04 — Incident Response Lifecycle: core/units/OC04-incident-response-lifecycle.md
+      - OC05 — Threat Intelligence Fundamentals: core/units/OC05-threat-intelligence-fundamentals.md
+      - OC06 — Offensive Security Concepts: core/units/OC06-offensive-security-concepts.md
+
+    - Strategic Core:
+      - SC01 — Risk Management Frameworks: core/units/SC01-risk-management-frameworks.md
+      - SC02 — Security Architecture Principles: core/units/SC02-security-architecture.md
+      - SC03 — Governance, Policy & Compliance: core/units/SC03-governance-policy-compliance.md
+      - SC04 — Vendor & Supply Chain Risk: core/units/SC04-vendor-supply-chain-risk.md
+      - SC05 — Security Program Management: core/units/SC05-security-program-management.md
+      - SC06 — Stakeholder Communication: core/units/SC06-stakeholder-communication.md
+
+    - Status & TODO: core/units/TODO.md
 
   - Operational Degree:
-    - Overview: degrees/TODO.md
-    - degrees/operational/TODO.md
+    - Overview: degrees/operational/TODO.md
 
     - Threat Hunting:
       - Overview: degrees/operational/threat-hunting/README.md
-      - TODO: degrees/operational/threat-hunting/TODO.md
+      - TH01 — Hunting Methodology & Process: degrees/operational/threat-hunting/TH01-hunting-methodology-process.md
+      - TH02 — ATT&CK for Hunters: degrees/operational/threat-hunting/TH02-attack-for-hunters.md
+      - TH03 — Host-Based Hunting: degrees/operational/threat-hunting/TH03-host-based-hunting.md
+      - TH04 — Network-Based Hunting: degrees/operational/threat-hunting/TH04-network-based-hunting.md
+      - TH05 — Hunt Operations & Tooling: degrees/operational/threat-hunting/TH05-hunt-operations-tooling.md
+      - TH06 — Capstone — Hunt Operation: degrees/operational/threat-hunting/TH06-capstone-hunt-operation.md
 
     - DFIR:
       - Overview: degrees/operational/dfir/README.md
-      - TODO: degrees/operational/dfir/TODO.md
+      - DF01 — DFIR Process & Legal Foundations: degrees/operational/dfir/DF01-dfir-process-legal-foundations.md
+      - DF02 — Host Forensics: degrees/operational/dfir/DF02-host-forensics.md
+      - DF03 — Memory Forensics: degrees/operational/dfir/DF03-memory-forensics.md
+      - DF04 — Network Forensics: degrees/operational/dfir/DF04-network-forensics.md
+      - DF05 — Incident Response Operations: degrees/operational/dfir/DF05-incident-response-operations.md
+      - DF06 — Capstone — IR Simulation: degrees/operational/dfir/DF06-capstone-ir-simulation.md
 
     - Cyber Threat Intelligence:
       - Overview: degrees/operational/cti/README.md
-      - TODO: degrees/operational/cti/TODO.md
+      - CT01 — Intelligence Tradecraft: degrees/operational/cti/CT01-intelligence-tradecraft.md
+      - CT02 — Threat Actor Research & Profiling: degrees/operational/cti/CT02-threat-actor-research-profiling.md
+      - CT03 — Technical Intelligence: degrees/operational/cti/CT03-technical-intelligence.md
+      - CT04 — Strategic Intelligence: degrees/operational/cti/CT04-strategic-intelligence.md
+      - CT05 — CTI Platforms & Sharing: degrees/operational/cti/CT05-cti-platforms-sharing.md
+      - CT06 — Capstone — Intelligence Product: degrees/operational/cti/CT06-capstone-intelligence-product.md
 
     - Detection Engineering:
       - Overview: degrees/operational/detection-engineering/README.md
-      - TODO: degrees/operational/detection-engineering/TODO.md
+      - DE01 — Detection Theory & Philosophy: degrees/operational/detection-engineering/DE01-detection-theory-philosophy.md
+      - DE02 — Data Sources & Log Engineering: degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md
+      - DE03 — Writing Detection Logic: degrees/operational/detection-engineering/DE03-writing-detection-logic.md
+      - DE04 — Adversary Simulation for Detection: degrees/operational/detection-engineering/DE04-adversary-simulation-detection.md
+      - DE05 — Detection Operations & Management: degrees/operational/detection-engineering/DE05-detection-operations-management.md
+      - DE06 — Capstone — Detection Library: degrees/operational/detection-engineering/DE06-capstone-detection-library.md
 
     - Cyber Threat Emulation:
       - Overview: degrees/operational/cte/README.md
-      - TODO: degrees/operational/cte/TODO.md
+      - CE01 — Offensive Foundations & Ethics: degrees/operational/cte/CE01-offensive-foundations-ethics.md
+      - CE02 — Red Team Operations: degrees/operational/cte/CE02-red-team-operations.md
+      - CE03 — ATT&CK-Based Emulation: degrees/operational/cte/CE03-attack-based-emulation.md
+      - CE04 — Purple Team Operations: degrees/operational/cte/CE04-purple-team-operations.md
+      - CE05 — Reporting & Debrief: degrees/operational/cte/CE05-reporting-debrief.md
+      - CE06 — Capstone — Emulation Exercise: degrees/operational/cte/CE06-capstone-emulation-exercise.md
 
   - Strategic Degree:
     - Overview: degrees/strategic/TODO.md
 
     - Security Engineering:
       - Overview: degrees/strategic/security-engineering/README.md
-      - TODO: degrees/strategic/security-engineering/TODO.md
+      - SE01 — Secure System Design: degrees/strategic/security-engineering/SE01-secure-system-design.md
+      - SE02 — Security Architecture: degrees/strategic/security-engineering/SE02-security-architecture.md
+      - SE03 — Identity & Access Management: degrees/strategic/security-engineering/SE03-identity-access-management.md
+      - SE04 — Detection & Response Engineering: degrees/strategic/security-engineering/SE04-detection-response-engineering.md
+      - SE05 — Security in Cloud & DevSecOps: degrees/strategic/security-engineering/SE05-security-cloud-devsecops.md
+      - SE06 — Capstone — Architecture Design: degrees/strategic/security-engineering/SE06-capstone-architecture-design.md
 
     - Leadership & CISO:
       - Overview: degrees/strategic/leadership/README.md
-      - TODO: degrees/strategic/leadership/TODO.md
+      - LD01 — CISO Role & Function: degrees/strategic/leadership/LD01-ciso-role-function.md
+      - LD02 — Security Strategy & Roadmapping: degrees/strategic/leadership/LD02-security-strategy-roadmapping.md
+      - LD03 — Communicating Risk to Executives: degrees/strategic/leadership/LD03-communicating-risk-to-executives.md
+      - LD04 — Building & Leading Security Teams: degrees/strategic/leadership/LD04-building-leading-security-teams.md
+      - LD05 — Crisis Management & Communications: degrees/strategic/leadership/LD05-crisis-management-comms.md
+      - LD06 — Capstone — CISO Simulation: degrees/strategic/leadership/LD06-capstone-ciso-simulation.md
 
     - GRC:
       - Overview: degrees/strategic/grc/README.md
-      - TODO: degrees/strategic/grc/TODO.md
+      - GR01 — Security Governance Design: degrees/strategic/grc/GR01-security-governance-design.md
+      - GR02 — Risk Management in Practice: degrees/strategic/grc/GR02-risk-management-in-practice.md
+      - GR03 — Compliance Frameworks: degrees/strategic/grc/GR03-compliance-frameworks.md
+      - GR04 — Australian Regulatory Environment: degrees/strategic/grc/GR04-australian-regulatory-environment.md
+      - GR05 — Audit & Assurance: degrees/strategic/grc/GR05-audit-assurance.md
+      - GR06 — Capstone — GRC Program Design: degrees/strategic/grc/GR06-capstone-grc-program-design.md
 
   - Templates:
     - Unit Template: resources/unit-template.md
