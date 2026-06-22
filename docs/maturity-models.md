@@ -51,6 +51,9 @@ This degree resolves that by:
 | **M3TID** | Threat-informed defense | MITRE CTID | Measure / Maximize / Mature TID | Free | OC01/OC02, DE, CTE |
 | **C2M2** | Cybersecurity program (enterprise) | US DOE | 10 domains; MIL 0–3 | Free | SC03/SC05 |
 | **O-ISM3** | Information security management (ISMS) | The Open Group | Process maturity for the ISMS | Standard (paid) | SC03/SC05 |
+| **SSE-CMM (ISO/IEC 21827)** | Systems security engineering | ISO/IEC | 5 capability levels | Standard (paid) | Security Engineering major (SE01/SE02) |
+| **BSIMM** | Software security (observed) | Synopsys/community | Observation-based, 12 practices | Free | Security Engineering (SE01/SE05) |
+| **OWASP SAMM** | Software assurance (prescriptive) | OWASP | 5 business functions, maturity 1–3 | Free | Security Engineering (SE01/SE05) |
 | **NIST CSF 2.0 Tiers** | Program / risk governance posture | NIST | Tiers 1–4 (Partial → Adaptive) | Free | SC01/SC05; LD02 |
 | **ASD Essential Eight Maturity Model** | Baseline mitigations | ACSC | Maturity Level 0–3 | Free | F04, SC05, LD02 |
 | **CMMI** | Process maturity (general) | ISACA/CMMI Institute | Levels 1–5 | Paid | SC05; LD02 (reference) |
@@ -91,7 +94,10 @@ column.
 | Security program management | C2M2 + CMMI + **aggregates SOC-CMM/CTI-CMM/SIM3/HMM/DML** | GV.OC, GV.RM, PR.* | ISSM (OV-MGT-001 / 722) | K: program mgmt; S: roadmap/budget; T: resource allocation; A: portfolio judgement | SC05, LD02 |
 | Security leadership / CISO | C2M2 + CSF Tiers + capability maturities | GV.* | Executive Cyber Leadership (OV-EXL-001 / 901) | K: governance, risk; S: strategy/communication; T: program leadership; A: executive judgement | LD01–LD06 |
 | Vendor / supply-chain risk | SIG/maturity + CSF | GV.SC, ID.RA | Security Control Assessor (SP-RSK-002) | K: TPRM, SBOM; S: assurance review; T: vendor assessment; A: third-party judgement | SC04 |
-| Security architecture | (SABSA maturity) + CSF | PR.*, ID.AM | Security Architect (SP-ARC-002 / 652) | K: architecture, Zero Trust; S: design; T: architecture review; A: trade-off judgement | SC02 |
+| Security architecture | SABSA maturity + **SSE-CMM (ISO/IEC 21827)** + CSF | PR.*, ID.AM | Security Architect (SP-ARC-002 / 652) | K: architecture, Zero Trust; S: design; T: architecture review; A: trade-off judgement | SC02; SE02 |
+| Secure systems / software engineering | **SSE-CMM + BSIMM + OWASP SAMM** | PR.PS, PR.* | Security Architect (SP-ARC-002 / 652); Secure Software Assessor (SP-DEV-002) | K: secure SDLC, threat modelling; S: secure design, IaC/pipeline security; T: design audit, AST integration; A: build-time risk judgement | SE01, SE05 |
+| Identity & access engineering | (IAM maturity) + CSF | PR.AA | Security Architect (SP-ARC-002 / 652) | K: IAM/PAM, federation; S: IAM design; T: access architecture; A: least-privilege judgement | SE03 |
+| Detection & response engineering | SOC-CMM + DML/M3TID | DE.*, RS.* | Security Architect (SP-ARC-002 / 652); Cyber Defense Analyst (511) | K: SIEM/SOAR/XDR; S: platform design; T: pipeline/automation engineering; A: scaling judgement | SE04 |
 
 ---
 

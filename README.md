@@ -267,10 +267,10 @@ Contributors must use the templates in the `templates/` directory:
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 × 6) | 48 | 36 | 0 |
-| **Total** | **66** | **54** | **0** |
+| Major units (8 × 6) | 48 | 42 | 0 |
+| **Total** | **66** | **60** | **0** |
 
-_The **Operational degree is fully drafted** (Threat Hunting, DFIR, CTI, Detection Engineering, Cyber Threat Emulation), plus Leadership & CISO. Remaining: Security Engineering and GRC (strategic)._
+_7 of 8 majors drafted (all 5 operational + Leadership & CISO + Security Engineering). Only **GRC** remains._
 
 **Want to contribute?** Start with the [contributor onboarding checklist](docs/contributor-onboarding.md),
 check the [unit assignment register](docs/unit-assignments.md) for open work, and

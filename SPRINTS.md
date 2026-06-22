@@ -272,11 +272,23 @@ rules (highest dual-use sensitivity):
 Free/OSS tooling; NICE DCWF 711/511 + SFIA PENT L4–5 + ASD CSF; ties into M3TID/
 SOC-CMM maturity (`docs/maturity-models.md`). Flagged for dual-use review.
 
-### Remaining majors (Planned)
+### Sprint 13 — Security Engineering major ✅ Complete (2026-06-21)
 
-Strategic: **Security Engineering** (will add SSE-CMM / BSIMM / OWASP SAMM to the
-maturity cross-walk) and **GRC** (will add GRC-level maturity). (2 majors × 6 = 12
-units.)
+- [x] `SE01-secure-system-design.md` (secure SDLC, threat modelling, SP 800-160)
+- [x] `SE02-security-architecture.md` (applied SABSA, Zero Trust, cloud, ISM/IRAP)
+- [x] `SE03-identity-access-management.md` (IAM/PAM, federation, MFA, Keycloak)
+- [x] `SE04-detection-response-engineering.md` (SIEM/SOAR/XDR platform engineering)
+- [x] `SE05-security-cloud-devsecops.md` (IaC/Checkov, containers, CI/CD, Semgrep)
+- [x] `SE06-capstone-architecture-design.md` (secure architecture, Bloom's 5–6)
+- [x] **Closed the Security-Engineering maturity gap:** added **SSE-CMM (ISO/IEC
+  21827) + BSIMM + OWASP SAMM** to the units and `docs/maturity-models.md` +
+  `docs/frameworks.md`
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+### Remaining major (Planned)
+
+**GRC** (will add GRC-level maturity to the cross-walk). After GRC, all 66 units are
+drafted → Phase 4 (practitioner review, framework verification, AQF gap analysis).
 
 ---
 
