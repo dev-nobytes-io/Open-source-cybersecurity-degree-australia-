@@ -12,7 +12,7 @@ This is the top-level tracking file for the Open Source Cybersecurity Degree Aus
 - [x] Phase 2 — Foundation year units authored (F01–F06) _(Draft — pending practitioner review)_
 - [x] Phase 2 — Operational core units authored (OC01–OC06) _(Draft — pending practitioner review)_
 - [x] Phase 2 — Strategic core units authored (SC01–SC06) _(Draft — pending practitioner review)_
-- [ ] Phase 3 — All major unit content written (8 majors × 6 units = 48 unit files) _(in progress: 7 of 8 majors drafted (42 units); only GRC remaining)_
+- [x] Phase 3 — All major unit content written (8 majors × 6 units = 48 unit files) _(Draft — all 8 majors authored; pending practitioner review)_
 - [ ] Phase 4 — Practitioner review of each major completed
 - [ ] Phase 4 — Framework mappings independently verified
 - [ ] Phase 4 — AQF Level 7 gap analysis completed

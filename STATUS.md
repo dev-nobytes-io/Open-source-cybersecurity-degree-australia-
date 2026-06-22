@@ -19,8 +19,11 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 42 | 0 |
-| **Total** | **66** | **60** | **0** |
+| Major units (8 majors × 6) | 48 | 48 | 0 |
+| **Total** | **66** | **66** | **0** |
+
+> ✅ **All 66 units authored to Draft** — both degrees fully drafted. Next phase:
+> practitioner review → Practitioner Approved → Framework Verified → Published.
 
 ---
 
@@ -144,8 +147,16 @@ As each major's units are created, its row below is replaced with a per-unit tab
 | SE05 | [Security in Cloud & DevSecOps](degrees/strategic/security-engineering/SE05-security-cloud-devsecops.md) | 🟡 Draft |
 | SE06 | [Capstone — Architecture Design](degrees/strategic/security-engineering/SE06-capstone-architecture-design.md) | 🟡 Draft |
 
-### Strategic Degree (remaining — Planned)
+### GRC (Strategic) — authored
 
-| Major | Units | Status |
+| Code | Title | Status |
 |---|---|---|
-| [GRC](degrees/strategic/grc/) | 6 | ⬜ Planned |
+| GR01 | [Security Governance Design](degrees/strategic/grc/GR01-security-governance-design.md) | 🟡 Draft |
+| GR02 | [Risk Management in Practice](degrees/strategic/grc/GR02-risk-management-in-practice.md) | 🟡 Draft |
+| GR03 | [Compliance Frameworks](degrees/strategic/grc/GR03-compliance-frameworks.md) | 🟡 Draft |
+| GR04 | [Australian Regulatory Environment](degrees/strategic/grc/GR04-australian-regulatory-environment.md) | 🟡 Draft |
+| GR05 | [Audit & Assurance](degrees/strategic/grc/GR05-audit-assurance.md) | 🟡 Draft |
+| GR06 | [Capstone — GRC Program Design](degrees/strategic/grc/GR06-capstone-grc-program-design.md) | 🟡 Draft |
+
+> ✅ **Strategic degree complete** — all 3 strategic majors (Security Engineering,
+> Leadership & CISO, GRC) authored to Draft.

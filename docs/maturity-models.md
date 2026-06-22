@@ -54,6 +54,8 @@ This degree resolves that by:
 | **SSE-CMM (ISO/IEC 21827)** | Systems security engineering | ISO/IEC | 5 capability levels | Standard (paid) | Security Engineering major (SE01/SE02) |
 | **BSIMM** | Software security (observed) | Synopsys/community | Observation-based, 12 practices | Free | Security Engineering (SE01/SE05) |
 | **OWASP SAMM** | Software assurance (prescriptive) | OWASP | 5 business functions, maturity 1–3 | Free | Security Engineering (SE01/SE05) |
+| **OCEG GRC Capability Model** | Governance, risk & compliance | OCEG ("Red Book") | Learn–Align–Perform–Review components | Free (registration) | GRC major (GR01/GR06) |
+| **RIMS Risk Maturity Model** | Risk management | RIMS | 7 attributes, 5 maturity levels | Free | GRC major (GR02) |
 | **NIST CSF 2.0 Tiers** | Program / risk governance posture | NIST | Tiers 1–4 (Partial → Adaptive) | Free | SC01/SC05; LD02 |
 | **ASD Essential Eight Maturity Model** | Baseline mitigations | ACSC | Maturity Level 0–3 | Free | F04, SC05, LD02 |
 | **CMMI** | Process maturity (general) | ISACA/CMMI Institute | Levels 1–5 | Paid | SC05; LD02 (reference) |
@@ -90,7 +92,8 @@ column.
 | Capability | Maturity model | NIST CSF 2.0 | NICE/DCWF role (code) | KSAT focus | Degree unit(s) |
 |---|---|---|---|---|---|
 | Risk management | CSF Tiers + (consumes operational maturity) | GV.RM, ID.RA | Security Control Assessor (SP-RSK-002) | K: risk frameworks; S: quantification; T: risk assessment; A: prioritisation | SC01 |
-| Governance & compliance | C2M2 + O-ISM3 + CSF (Govern) | GV.* | Cyber Policy & Strategy Planner (OV-SPP-001 / 752); ISSM (OV-MGT-001 / 722) | K: governance, regimes; S: policy; T: control assessment; A: assurance judgement | SC03 |
+| Governance & compliance | C2M2 + O-ISM3 + **OCEG GRC Capability Model** + CSF (Govern) | GV.* | Cyber Policy & Strategy Planner (OV-SPP-001 / 752); ISSM (OV-MGT-001 / 722) | K: governance, regimes; S: policy; T: control assessment; A: assurance judgement | SC03; GR01, GR03, GR05, GR06 |
+| GRC risk management | **RIMS Risk Maturity Model** + ISO 27005 + CSF | GV.RM, ID.RA | Security Control Assessor (SP-RSK-002) | K: risk frameworks, bow-tie; S: register/appetite; T: risk assessment; A: treatment judgement | GR02 |
 | Security program management | C2M2 + CMMI + **aggregates SOC-CMM/CTI-CMM/SIM3/HMM/DML** | GV.OC, GV.RM, PR.* | ISSM (OV-MGT-001 / 722) | K: program mgmt; S: roadmap/budget; T: resource allocation; A: portfolio judgement | SC05, LD02 |
 | Security leadership / CISO | C2M2 + CSF Tiers + capability maturities | GV.* | Executive Cyber Leadership (OV-EXL-001 / 901) | K: governance, risk; S: strategy/communication; T: program leadership; A: executive judgement | LD01–LD06 |
 | Vendor / supply-chain risk | SIG/maturity + CSF | GV.SC, ID.RA | Security Control Assessor (SP-RSK-002) | K: TPRM, SBOM; S: assurance review; T: vendor assessment; A: third-party judgement | SC04 |

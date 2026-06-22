@@ -267,10 +267,10 @@ Contributors must use the templates in the `templates/` directory:
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 × 6) | 48 | 42 | 0 |
-| **Total** | **66** | **60** | **0** |
+| Major units (8 × 6) | 48 | 48 | 0 |
+| **Total** | **66** | **66** | **0** |
 
-_7 of 8 majors drafted (all 5 operational + Leadership & CISO + Security Engineering). Only **GRC** remains._
+_✅ **All 66 units across both degrees are authored to Draft.** Next: practitioner review, framework verification, and the AQF Level 7 gap analysis (Phase 4)._
 
 **Want to contribute?** Start with the [contributor onboarding checklist](docs/contributor-onboarding.md),
 check the [unit assignment register](docs/unit-assignments.md) for open work, and
