@@ -43,7 +43,15 @@ by giving you an ordered, practical path. If anything here conflicts with
 ## 5. Self-check before opening a PR
 
 - [ ] Run the linter locally: `python3 .github/scripts/lint_units.py core/units/<your-file>.md`
-- [ ] Fix every issue it reports (the same check runs in CI on your PR)
+- [ ] Fix every **ERROR** it reports — errors fail CI (warnings are advisory and do not)
+- [ ] The linter checks: required sections, ≥6 topics / ≥2 labs, 4-level rubric, ≥5
+  refs (incl. an Australian source), an ASD framework mapping, metadata fields, no
+  leftover placeholders, **every NICE DCWF T-code traceable to a named lab/activity/
+  assessment**, and (across the full set) that **prerequisites exist and form an
+  acyclic graph**. Advisory warnings cover Bloom's-verb level, framework-version
+  consistency, and internal-link resolution.
+- [ ] Run the full set too (`python3 .github/scripts/lint_units.py`) so the
+  prerequisite-graph check runs — the same as CI
 - [ ] Update the unit's row in [`STATUS.md`](../STATUS.md) to 🟡 Draft
 
 ## 6. Open the PR and request review
