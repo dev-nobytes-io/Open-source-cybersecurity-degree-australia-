@@ -19,8 +19,8 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 30 | 0 |
-| **Total** | **66** | **48** | **0** |
+| Major units (8 majors × 6) | 48 | 36 | 0 |
+| **Total** | **66** | **54** | **0** |
 
 ---
 
@@ -108,11 +108,19 @@ As each major's units are created, its row below is replaced with a per-unit tab
 | DE05 | [Detection Operations & Management](degrees/operational/detection-engineering/DE05-detection-operations-management.md) | 🟡 Draft |
 | DE06 | [Capstone — Detection Library](degrees/operational/detection-engineering/DE06-capstone-detection-library.md) | 🟡 Draft |
 
-### Operational Degree (remaining — Planned)
+### Cyber Threat Emulation (Operational) — authored
 
-| Major | Units | Status |
+| Code | Title | Status |
 |---|---|---|
-| [Cyber Threat Emulation](degrees/operational/cte/) | 6 | ⬜ Planned |
+| CE01 | [Offensive Foundations & Ethics](degrees/operational/cte/CE01-offensive-foundations-ethics.md) | 🟡 Draft |
+| CE02 | [Red Team Operations](degrees/operational/cte/CE02-red-team-operations.md) | 🟡 Draft |
+| CE03 | [ATT&CK-Based Emulation](degrees/operational/cte/CE03-attack-based-emulation.md) | 🟡 Draft |
+| CE04 | [Purple Team Operations](degrees/operational/cte/CE04-purple-team-operations.md) | 🟡 Draft |
+| CE05 | [Reporting & Debrief](degrees/operational/cte/CE05-reporting-debrief.md) | 🟡 Draft |
+| CE06 | [Capstone — Emulation Exercise](degrees/operational/cte/CE06-capstone-emulation-exercise.md) | 🟡 Draft |
+
+> ✅ **Operational degree complete** — all 5 operational majors (Threat Hunting,
+> DFIR, CTI, Detection Engineering, Cyber Threat Emulation) authored to Draft.
 
 ### Leadership & CISO (Strategic) — authored
 
