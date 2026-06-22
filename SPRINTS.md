@@ -164,10 +164,23 @@ Strongest AU-legal major: Evidence Act 1995 admissibility throughout, full
 NDB/APRA CPS 234/SOCI notification coverage, and Optus/Medibank/Latitude case
 studies. Free/OSS tooling; ATT&CK v19 (technique IDs provisional pending audit).
 
+### Sprint 8 — CTI major ✅ Complete (2026-06-21)
+
+- [x] `CT01-intelligence-tradecraft.md` (intelligence cycle, PIRs, OPSEC)
+- [x] `CT02-threat-actor-research-profiling.md` (Diamond Model, ATT&CK, attribution method)
+- [x] `CT03-technical-intelligence.md` (IOC enrichment, infrastructure pivoting)
+- [x] `CT04-strategic-intelligence.md` (geopolitics, sector risk, exec briefings)
+- [x] `CT05-cti-platforms-sharing.md` (STIX 2.1/TAXII, MISP/OpenCTI, CTID)
+- [x] `CT06-capstone-intelligence-product.md` (full cycle, Bloom's 5–6, 24 CP)
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+Builds on OC05 PIR work; teaches attribution **methodology, not verdicts**; AU
+context via ASD reports, QUAD, TISN. Free/OSS tooling; ATT&CK v19 (provisional).
+
 ### Remaining majors (Planned)
 
-Operational: CTI, Detection Engineering, CTE. Strategic: Security Engineering,
-Leadership & CISO, GRC. (6 majors × 6 = 36 units.)
+Operational: Detection Engineering, CTE. Strategic: Security Engineering,
+Leadership & CISO, GRC. (5 majors × 6 = 30 units.)
 
 ---
 

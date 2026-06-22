@@ -32,12 +32,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| CT01 | Intelligence Tradecraft | Planned |
-| CT02 | Threat Actor Research & Profiling | Planned |
-| CT03 | Technical Intelligence | Planned |
-| CT04 | Strategic Intelligence | Planned |
-| CT05 | CTI Platforms & Sharing | Planned |
-| CT06 | Capstone — Intelligence Product | Planned |
+| CT01 | [Intelligence Tradecraft](CT01-intelligence-tradecraft.md) | Draft |
+| CT02 | [Threat Actor Research & Profiling](CT02-threat-actor-research-profiling.md) | Draft |
+| CT03 | [Technical Intelligence](CT03-technical-intelligence.md) | Draft |
+| CT04 | [Strategic Intelligence](CT04-strategic-intelligence.md) | Draft |
+| CT05 | [CTI Platforms & Sharing](CT05-cti-platforms-sharing.md) | Draft |
+| CT06 | [Capstone — Intelligence Product](CT06-capstone-intelligence-product.md) | Draft |
 
 ---
 

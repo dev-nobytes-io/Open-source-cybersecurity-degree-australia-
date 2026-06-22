@@ -266,10 +266,10 @@ Contributors must use the templates in the `templates/` directory:
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 × 6) | 48 | 12 | 0 |
-| **Total** | **66** | **30** | **0** |
+| Major units (8 × 6) | 48 | 18 | 0 |
+| **Total** | **66** | **36** | **0** |
 
-_Threat Hunting and DFIR are the first majors authored (TH01–TH06, DF01–DF06, Draft)._
+_Operational majors authored so far: Threat Hunting, DFIR, and CTI (Draft)._
 
 **Want to contribute?** Start with the [contributor onboarding checklist](docs/contributor-onboarding.md),
 check the [unit assignment register](docs/unit-assignments.md) for open work, and

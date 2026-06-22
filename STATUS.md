@@ -19,8 +19,8 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 12 | 0 |
-| **Total** | **66** | **30** | **0** |
+| Major units (8 majors × 6) | 48 | 18 | 0 |
+| **Total** | **66** | **36** | **0** |
 
 ---
 
@@ -86,11 +86,21 @@ As each major's units are created, its row below is replaced with a per-unit tab
 | DF05 | [Incident Response Operations](degrees/operational/dfir/DF05-incident-response-operations.md) | 🟡 Draft |
 | DF06 | [Capstone — IR Simulation](degrees/operational/dfir/DF06-capstone-ir-simulation.md) | 🟡 Draft |
 
+### Cyber Threat Intelligence (Operational) — authored
+
+| Code | Title | Status |
+|---|---|---|
+| CT01 | [Intelligence Tradecraft](degrees/operational/cti/CT01-intelligence-tradecraft.md) | 🟡 Draft |
+| CT02 | [Threat Actor Research & Profiling](degrees/operational/cti/CT02-threat-actor-research-profiling.md) | 🟡 Draft |
+| CT03 | [Technical Intelligence](degrees/operational/cti/CT03-technical-intelligence.md) | 🟡 Draft |
+| CT04 | [Strategic Intelligence](degrees/operational/cti/CT04-strategic-intelligence.md) | 🟡 Draft |
+| CT05 | [CTI Platforms & Sharing](degrees/operational/cti/CT05-cti-platforms-sharing.md) | 🟡 Draft |
+| CT06 | [Capstone — Intelligence Product](degrees/operational/cti/CT06-capstone-intelligence-product.md) | 🟡 Draft |
+
 ### Operational Degree (remaining — Planned)
 
 | Major | Units | Status |
 |---|---|---|
-| [Cyber Threat Intelligence](degrees/operational/cti/) | 6 | ⬜ Planned |
 | [Detection Engineering](degrees/operational/detection-engineering/) | 6 | ⬜ Planned |
 | [Cyber Threat Emulation](degrees/operational/cte/) | 6 | ⬜ Planned |
 
