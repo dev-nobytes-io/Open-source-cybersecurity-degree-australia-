@@ -358,6 +358,9 @@ This unit incorporates the following Australian context:
 **Freund, J. & Jones, J. (2014).** *Measuring and Managing Information Risk: A FAIR Approach.* Butterworth-Heinemann.
 > Relevance: The quantification approach applied in Topic 4 and Lab 2.
 
+**Open Source Cybersecurity Degree (2026).** *Capability Maturity Model Alignment.* `docs/maturity-models.md` (this repository).
+> Relevance: Capability maturity gaps (SOC-CMM, CTI-CMM, SIM3, HMM, DML) are treated as **risk inputs** here — a weak operational capability raises risk in the register, keeping operational and strategic development aligned.
+
 ---
 
 ## Unit Metadata

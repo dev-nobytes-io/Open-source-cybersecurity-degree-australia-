@@ -367,6 +367,9 @@ This unit incorporates the following Australian context:
 **Luttgens, J., Pepe, M. & Mandia, K. (2014).** *Incident Response & Computer Forensics (3rd ed.).* McGraw-Hill.
 > Relevance: Deep practitioner reference for scoping, evidence handling, and timelines (Lab 2).
 
+**Open CSIRT Foundation (2024).** *SIM3 — Security Incident Management Maturity Model.* https://opencsirt.org/csirt-maturity/sim3-and-references/
+> Relevance: The incident-management/CSIRT maturity model (used by FIRST/ENISA/TF-CSIRT) for benchmarking IR capability; feeds the program maturity cross-walk in `docs/maturity-models.md`.
+
 ---
 
 ## Unit Metadata

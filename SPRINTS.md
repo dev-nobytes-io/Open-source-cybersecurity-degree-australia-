@@ -209,7 +209,31 @@ L6–7 + ASD CSF; extensive AU regulatory context (APRA, ASX CGP, OAIC, SOCI).
 Flagged for review by current/former CISOs per the major's high practitioner
 dependency.
 
-### Sprint 11 — SOC-CMM integration (NEXT, expanded scope)
+### Sprint 11 — Capability Maturity Integration ✅ Complete (2026-06-21)
+
+Broadened from SOC-CMM alone to **all the operational capability maturity models**,
+integrated across operations **and** strategy so operational and strategic
+development stay aligned (no mismatch). Per maintainer direction, includes SOC-CMM,
+CTI-CMM, SIM3 (IR/DFIR), Hunting Maturity Model/PEAK, DML/M3TID, and program models
+C2M2/O-ISM3/CMMI — tied **service/capability → maturity model → NIST CSF 2.0 →
+NICE/DCWF role → KSATs**.
+
+- [x] `docs/maturity-models.md` — NEW canonical cross-walk (operational + strategic
+  capabilities → model → CSF → role → KSATs; §4 wires operational maturity into
+  SC01 risk, SC03 governance, SC05 program management, LD02 strategy)
+- [x] `docs/frameworks.md` — maturity models added to index, a Capability Maturity
+  Models section, and the currency table
+- [x] Operational anchors cite their model: OC02 (SOC-CMM), OC04 (SIM3), OC05
+  (CTI-CMM), DE01 (DML/M3TID)
+- [x] Strategic anti-mismatch wiring: SC01 (maturity gaps as risk inputs), SC03
+  (C2M2/O-ISM3 governance), SC05 (program maturity aggregates capability maturity),
+  LD02 (roadmap targets named operational maturity)
+- [x] README governance table links the new doc; all 48 units still pass the linter
+
+> **Confirmation flag:** no canonical **"DF-C2M2"** found; SIM3 used as the IR/DFIR
+> maturity model. Maintainer to confirm the intended "DF-C2M2" source.
+
+### (superseded) original SOC-CMM-only scope
 
 **Goal:** Integrate the **SOC-CMM** (SOC Capability Maturity Model) across the
 **whole project — every relevant section**, not just the framework docs. Per
@@ -251,5 +275,7 @@ rather than reinvented.
 | Security architecture (SC02) | SABSA + Zero Trust (NIST SP 800-207) + NIST SP 800-160 | ✅ Incorporated in SC01–SC06 |
 | Australian regulatory regimes (SC03, SC04, SC05) | APRA CPS 234 + SOCI risk-management program + Australian Government ISM / IRAP | ✅ Incorporated in SC01–SC06 |
 | Compliance-as-revenue framing (SC03, SC05) | Position compliance as a commercial/market-access enabler ("frameworks that make money"); map framework choice to industry — **IRAP** for government, **SOC 2** and **APRA CPS 234** for finance/other industries, ISO 27001 broadly | ✅ Incorporated in SC01–SC06 — distinctive angle to weave through governance/program units |
+
+| Capability maturity (all units) | Integrate **all** operational + program maturity models (SOC-CMM, CTI-CMM, SIM3, HMM/PEAK, DML/M3TID, C2M2, O-ISM3) across operations **and** strategy; tie service→capability→NIST CSF→NICE/DCWF role→KSATs; wire operational maturity into governance/program/risk to avoid development mismatch | ✅ Sprint 11 — `docs/maturity-models.md` ("DF-C2M2" name pending confirmation) |
 
 *(Add rows as resources are supplied.)*

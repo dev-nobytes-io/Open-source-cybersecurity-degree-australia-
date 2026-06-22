@@ -319,6 +319,9 @@ This unit incorporates the following Australian context:
 **APRA (2019).** *Prudential Standard CPS 234.* APRA. https://www.apra.gov.au
 > Relevance: The Australian obligation to demonstrate risk-driven security management (Australian source).
 
+**Open Source Cybersecurity Degree (2026).** *Capability Maturity Model Alignment.* `docs/maturity-models.md` (this repository).
+> Relevance: The roadmap targets **named operational maturity improvements** (e.g. SOC-CMM Services L2→L3, CTI-CMM stakeholder alignment, SIM3 IR maturity), so the CISO strategy is expressed in the same maturity terms as the capabilities it funds.
+
 ---
 
 ## Unit Metadata
