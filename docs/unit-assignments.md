@@ -40,7 +40,7 @@ by opening a "Unit Review Request" issue.
 | DFIR | 6 | **Drafted (DF01–DF06)** — review slots open |
 | Cyber Threat Intelligence | 6 | **Drafted (CT01–CT06)** — review slots open |
 | Detection Engineering | 6 | **Drafted (DE01–DE06)** — review slots open |
-| Cyber Threat Emulation | 6 | Unassigned |
+| Cyber Threat Emulation | 6 | **Drafted (CE01–CE06)** — review slots open (dual-use review required) |
 
 ### Strategic Degree
 

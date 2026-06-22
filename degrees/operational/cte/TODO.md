@@ -7,6 +7,13 @@
 
 All units are currently **Planned**. No unit files have been authored yet.
 
+**Update (2026-06-21):** All six units (CE01–CE06) have been authored to **Draft**
+(authorisation-first, isolated-lab-only, detection-outcome-focused) and pass the
+unit linter. Per the major's content-safety rules they await review by a Domain
+Expert with red team/emulation experience, a Practitioner Reviewer who has checked
+**dual-use risk**, an AU computer-crime-law check of CE01, and TIBER-AU
+verification.
+
 **Important:** This major must not be started until OC06 (Offensive Security Concepts) is at least **Practitioner Approved**, as CTE builds directly on offensive tradecraft concepts.
 
 ---

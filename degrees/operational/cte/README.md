@@ -34,12 +34,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| CE01 | Offensive Foundations & Ethics | Planned |
-| CE02 | Red Team Operations | Planned |
-| CE03 | ATT&CK-Based Emulation | Planned |
-| CE04 | Purple Team Operations | Planned |
-| CE05 | Reporting & Debrief | Planned |
-| CE06 | Capstone — Emulation Exercise | Planned |
+| CE01 | [Offensive Foundations & Ethics](CE01-offensive-foundations-ethics.md) | Draft |
+| CE02 | [Red Team Operations](CE02-red-team-operations.md) | Draft |
+| CE03 | [ATT&CK-Based Emulation](CE03-attack-based-emulation.md) | Draft |
+| CE04 | [Purple Team Operations](CE04-purple-team-operations.md) | Draft |
+| CE05 | [Reporting & Debrief](CE05-reporting-debrief.md) | Draft |
+| CE06 | [Capstone — Emulation Exercise](CE06-capstone-emulation-exercise.md) | Draft |
 
 ---
 

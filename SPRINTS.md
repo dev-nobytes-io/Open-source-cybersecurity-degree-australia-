@@ -253,10 +253,30 @@ Planned deliverables:
   (OC02, OC04, OC05, DE05, SC05, and the operational majors' service-aligned units).
 - Update README framework section and link the alignment doc.
 
-### Remaining majors (Planned, after Sprint 11)
+### Sprint 12 — Cyber Threat Emulation major ✅ Complete (2026-06-21)
 
-Operational: Cyber Threat Emulation. Strategic: Security Engineering, GRC.
-(3 majors × 6 = 18 units.)
+Completes the **Operational degree** (5/5 majors). Authored authorisation-first,
+isolated-lab-only, and detection-outcome-focused per the major's content-safety
+rules (highest dual-use sensitivity):
+
+- [x] `CE01-offensive-foundations-ethics.md` (authorised testing, Criminal Code Act
+  1995 Part 10.7, RoE, TIBER-AU)
+- [x] `CE02-red-team-operations.md` (C2 concepts via OSS Sliver/Havoc, OPSEC,
+  detection-aware tradecraft)
+- [x] `CE03-attack-based-emulation.md` (CTID emulation plans, ATT&CK v19, M3TID)
+- [x] `CE04-purple-team-operations.md` (collaborative testing, detection-gap analysis)
+- [x] `CE05-reporting-debrief.md` (technical + executive reporting, TIBER-AU)
+- [x] `CE06-capstone-emulation-exercise.md` (full emulation op w/ detection team, Bloom's 5–6)
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+Free/OSS tooling; NICE DCWF 711/511 + SFIA PENT L4–5 + ASD CSF; ties into M3TID/
+SOC-CMM maturity (`docs/maturity-models.md`). Flagged for dual-use review.
+
+### Remaining majors (Planned)
+
+Strategic: **Security Engineering** (will add SSE-CMM / BSIMM / OWASP SAMM to the
+maturity cross-walk) and **GRC** (will add GRC-level maturity). (2 majors × 6 = 12
+units.)
 
 ---
 
