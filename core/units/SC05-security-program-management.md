@@ -345,6 +345,9 @@ This unit incorporates the following Australian context:
 **AISA (2024).** *Australian Cyber Security Skills & workforce material.* AISA. https://www.aisa.org.au
 > Relevance: Australian workforce context for the resourcing decisions in Topic 6 (Australian source).
 
+**Open Source Cybersecurity Degree (2026).** *Capability Maturity Model Alignment.* `docs/maturity-models.md` (this repository).
+> Relevance: **Program maturity here aggregates operational capability maturity** — SOC-CMM (OC02), CTI-CMM (OC05), SIM3 (OC04/DFIR), HMM (TH), DML/M3TID (DE) — on top of C2M2/CMMI. This is the anti-mismatch wiring that keeps the program built on measured operational capability.
+
 ---
 
 ## Unit Metadata

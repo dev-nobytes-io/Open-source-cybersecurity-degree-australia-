@@ -359,6 +359,9 @@ This unit incorporates the following Australian context:
 **ISO/IEC (2022).** *ISO/IEC 27001:2022 Information Security Management Systems.* ISO.
 > Relevance: The certifiable ISMS used as the broad commercial enabler (note: paywalled standard).
 
+**US DOE & The Open Group (2024).** *C2M2 (Cybersecurity Capability Maturity Model) & O-ISM3.* https://www.energy.gov/ceser/cybersecurity-capability-maturity-model-c2m2 / https://www.opengroup.org
+> Relevance: The program/ISMS maturity models for governance; governance assertions are evidenced *beneath* by the operational maturity scores in `docs/maturity-models.md`.
+
 ---
 
 ## Unit Metadata

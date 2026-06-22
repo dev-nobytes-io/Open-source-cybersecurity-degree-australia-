@@ -364,6 +364,9 @@ This unit incorporates the following Australian context:
 **Bianco, D. & Cole, C. / Elastic & community (2023).** *Detection Engineering practices and the Detection Maturity Model.* (Freely available community resources.)
 > Relevance: Practical grounding in the detection lifecycle and maturity discussed in Topic 6.
 
+**Rob van Os (2024).** *SOC-CMM — SOC Capability Maturity Model.* https://www.soc-cmm.com
+> Relevance: The maturity model used to assess and mature security-monitoring capability; this unit's SOC services feed the program-level maturity aggregation in `docs/maturity-models.md` (capability → CSF → NICE/DCWF role → KSATs).
+
 ---
 
 ## Unit Metadata

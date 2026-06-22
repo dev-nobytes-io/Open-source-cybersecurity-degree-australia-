@@ -233,6 +233,7 @@ for both educational standards (AQF/TEQSA) and workforce framework alignment (NI
 | [docs/compliance/program-delivery.md](docs/compliance/program-delivery.md) | Delivery standards: accessibility, licensing, QA cycles |
 | [docs/goals.md](docs/goals.md) | Vision, objectives, and success criteria |
 | [docs/accreditation.md](docs/accreditation.md) | TEQSA/AQF alignment strategy |
+| [docs/maturity-models.md](docs/maturity-models.md) | Capability maturity cross-walk (SOC-CMM, CTI-CMM, SIM3, HMM, DML/M3TID, C2M2…) → capability → NIST CSF → NICE/DCWF role → KSATs, across both degrees |
 
 ### Content Lifecycle
 

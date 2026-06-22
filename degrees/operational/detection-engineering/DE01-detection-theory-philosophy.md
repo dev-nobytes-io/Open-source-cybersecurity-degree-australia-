@@ -322,6 +322,9 @@ This unit incorporates the following Australian context:
 **MITRE ATT&CK (v19, 2026).** *ATT&CK for Enterprise.* https://attack.mitre.org
 > Relevance: The technique taxonomy used for coverage mapping.
 
+**Stillions, R. (2014) & MITRE CTID (2024–2026).** *Detection Maturity Level (DML) Model; M3TID.* http://ryanstillions.blogspot.com/2014/04/the-dml-model_21.html / https://github.com/center-for-threat-informed-defense
+> Relevance: The detection-maturity models for benchmarking detection capability; feed the capability-maturity cross-walk in `docs/maturity-models.md`.
+
 ---
 
 ## Unit Metadata

@@ -363,6 +363,9 @@ This unit incorporates the following Australian context:
 **Australian Cyber Security Centre (2024).** *Annual Cyber Threat Report & advisories.* ACSC. https://www.cyber.gov.au
 > Relevance: The primary Australian collection source and the model for contributing intelligence (Australian source).
 
+**CTI-CMM community (2024).** *CTI-CMM — Cyber Threat Intelligence Capability Maturity Model.* https://cti-cmm.org
+> Relevance: The stakeholder-aligned CTI maturity model for benchmarking intelligence capability; feeds the capability-maturity cross-walk in `docs/maturity-models.md`.
+
 ---
 
 ## Unit Metadata

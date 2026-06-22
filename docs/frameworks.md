@@ -23,6 +23,16 @@
 | **ISO 27001/27002** | Security standard | International information security management standard |
 | **ASD Essential Eight** | Security controls | Australian Government baseline security controls |
 | **APRA CPS 234** | Regulatory | Australian Prudential Regulation Authority — information security standard |
+| **SOC-CMM** | Capability maturity | SOC Capability Maturity Model (security operations) |
+| **CTI-CMM** | Capability maturity | Cyber Threat Intelligence Capability Maturity Model |
+| **SIM3** | Capability maturity | Security Incident Management Maturity Model (IR/CSIRT/DFIR) |
+| **Hunting Maturity Model / PEAK** | Capability maturity | Threat-hunting maturity and process |
+| **Detection Maturity Level (DML) / M3TID** | Capability maturity | Detection maturity; Measure/Maximize/Mature Threat-Informed Defense (CTID) |
+| **C2M2 / O-ISM3 / CMMI** | Program maturity | Enterprise cyber program, ISMS, and process maturity |
+
+> See [`docs/maturity-models.md`](maturity-models.md) for the full capability-maturity
+> cross-walk (model → capability/service → NIST CSF 2.0 → NICE/DCWF role → KSATs),
+> spanning both the Operational and Strategic degrees.
 
 ---
 
@@ -255,6 +265,33 @@ graph TD
 
 ---
 
+## Capability Maturity Models
+
+Capability maturity models are integrated across **both** degrees so that
+operational capability development and strategic program/governance/risk
+development stay aligned (see [`docs/maturity-models.md`](maturity-models.md) for
+the full cross-walk).
+
+| Model | Capability assessed | Degree home |
+|---|---|---|
+| SOC-CMM | Security operations / SOC (incl. Services) | OC02; operational majors |
+| CTI-CMM | Cyber threat intelligence | OC05; CTI major |
+| SIM3 | Incident management / DFIR (CSIRT) | OC04; DFIR major |
+| Hunting Maturity Model + PEAK | Threat hunting | Threat Hunting major |
+| Detection Maturity Level (DML) + M3TID | Detection engineering / TID | Detection Engineering major |
+| C2M2 | Enterprise cyber program | SC03, SC05 |
+| O-ISM3 | Information security management system | SC03, SC05 |
+| CMMI | General process maturity | SC05; LD02 (reference) |
+| NIST CSF 2.0 Tiers | Program/risk governance posture | SC01, SC05; LD02 |
+| ASD Essential Eight Maturity Model | Baseline mitigations | F04, SC05, LD02 |
+
+> The strategic program units (SC01 risk, SC03 governance, SC05 program management)
+> and the Leadership major **consume the operational maturity scores as inputs** —
+> program maturity aggregates capability maturity. This is the mechanism that
+> prevents an operational/strategic development mismatch.
+
+---
+
 ## Framework Currency & Maintenance
 
 Industry frameworks are living documents. This repo must track version currency.
@@ -272,6 +309,7 @@ mappings must use these versions until the Framework Custodian updates them.
 | MITRE ATT&CK | **v19 (2026)** | 2026-06-21 | Bi-annual (April, October) | **Current is v19, which introduced significant structural changes.** A repo-wide audit of every ATT&CK technique/tactic reference and mapping is required — see the audit task in the root `TODO.md`. Treat existing technique IDs as provisional until re-verified against v19. |
 | ISO/IEC 27001 | 2022 edition | 2026-06-21 | Major version change | Current. Paywalled standard — referenced, not reproduced. |
 | NIST SP 800-61 | Rev. 2 (with Rev. 3 in progress) | 2026-06-21 | Major version change | OC04 cites 800-61; check whether Rev. 3 has finalised and update if so. |
+| Capability maturity models (SOC-CMM, CTI-CMM, SIM3, HMM, DML, M3TID, C2M2, O-ISM3) | current editions | 2026-06-21 | Per model release | Integrated via `docs/maturity-models.md`. Re-verify on each model's new release. **"DF-C2M2"** name to be confirmed (SIM3 used as the IR/DFIR maturity model). |
 
 ### Currency Review Log
 
