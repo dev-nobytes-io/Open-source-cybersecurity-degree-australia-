@@ -285,10 +285,31 @@ SOC-CMM maturity (`docs/maturity-models.md`). Flagged for dual-use review.
   `docs/frameworks.md`
 - [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
 
-### Remaining major (Planned)
+### Sprint 14 — GRC major ✅ Complete (2026-06-21)
 
-**GRC** (will add GRC-level maturity to the cross-walk). After GRC, all 66 units are
-drafted → Phase 4 (practitioner review, framework verification, AQF gap analysis).
+- [x] `GR01-security-governance-design.md` (policy hierarchy, RACI, CSF Govern, APRA)
+- [x] `GR02-risk-management-in-practice.md` (register, bow-tie, appetite, ISO 27005)
+- [x] `GR03-compliance-frameworks.md` (ISO 27001:2022, NIST CSF 2.0, Essential Eight)
+- [x] `GR04-australian-regulatory-environment.md` (Privacy/NDB, APRA, SOCI, regulators)
+- [x] `GR05-audit-assurance.md` (control testing, internal audit, IRAP, ASAE 3402)
+- [x] `GR06-capstone-grc-program-design.md` (full GRC program, Bloom's 5–6)
+- [x] Added GRC maturity (OCEG GRC Capability Model, RIMS RMM) to the cross-walk
+- [x] README/STATUS/assignments/TODO updated; all 66 units pass the CI linter
+
+> 🎓 **MILESTONE: All 66 units across both degrees authored to Draft.** Phase 3
+> complete. The project now moves to **Phase 4**: practitioner review (Domain Expert
+> + Practitioner Reviewer + Framework Custodian sign-off), independent framework
+> verification, and the AQF Level 7 gap analysis — work that needs real practitioners
+> rather than authoring.
+
+### Phase 4 (next — not authoring)
+
+- Practitioner review of each major (root `TODO.md` Phase 4)
+- Framework mappings independently verified — including the **ATT&CK v19 audit** and
+  NICE/DCWF T-code confirmation already tracked in `TODO.md`
+- AQF Level 7 gap analysis
+- Confirm flagged items: exact SANS PIR-guide citation (OC05) and the "DF-C2M2"
+  reference (`docs/maturity-models.md`)
 
 ---
 

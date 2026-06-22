@@ -33,12 +33,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| GR01 | Security Governance Design | Planned |
-| GR02 | Risk Management in Practice | Planned |
-| GR03 | Compliance Frameworks | Planned |
-| GR04 | Australian Regulatory Environment | Planned |
-| GR05 | Audit & Assurance | Planned |
-| GR06 | Capstone — GRC Program Design | Planned |
+| GR01 | [Security Governance Design](GR01-security-governance-design.md) | Draft |
+| GR02 | [Risk Management in Practice](GR02-risk-management-in-practice.md) | Draft |
+| GR03 | [Compliance Frameworks](GR03-compliance-frameworks.md) | Draft |
+| GR04 | [Australian Regulatory Environment](GR04-australian-regulatory-environment.md) | Draft |
+| GR05 | [Audit & Assurance](GR05-audit-assurance.md) | Draft |
+| GR06 | [Capstone — GRC Program Design](GR06-capstone-grc-program-design.md) | Draft |
 
 ---
 

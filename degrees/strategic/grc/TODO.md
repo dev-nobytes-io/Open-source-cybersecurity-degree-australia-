@@ -7,6 +7,13 @@
 
 All units are currently **Planned**. No unit files have been authored yet.
 
+**Update (2026-06-21):** All six units (GR01–GR06) authored to **Draft** and pass the
+unit linter. GRC-level maturity (OCEG GRC Capability Model, RIMS Risk Maturity Model)
+added to `docs/maturity-models.md`. **This completes all 66 units of the degree.**
+GR04 in particular must be reviewed by someone with direct AU regulatory knowledge
+(APRA/OAIC/ASD), and ISO 27001:2022 / current Essential Eight content verified at
+sign-off.
+
 GRC has the richest Australian regulatory content of any major. It maps directly to real Australian compliance obligations (APRA CPS 234, Privacy Act 1988, SOCI Act 2018) and the frameworks employers use to evaluate GRC practitioners (ISO 27001, NIST CSF 2.0, Essential Eight).
 
 ---

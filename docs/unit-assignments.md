@@ -48,7 +48,7 @@ by opening a "Unit Review Request" issue.
 |---|---|---|
 | Security Engineering | 6 | **Drafted (SE01–SE06)** — review slots open |
 | Leadership & CISO | 6 | **Drafted (LD01–LD06)** — review slots open (CISO-level) |
-| GRC | 6 | Unassigned |
+| GRC | 6 | **Drafted (GR01–GR06)** — review slots open |
 
 ---
 

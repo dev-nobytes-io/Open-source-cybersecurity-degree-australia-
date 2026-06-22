@@ -283,6 +283,8 @@ the full cross-walk).
 | O-ISM3 | Information security management system | SC03, SC05 |
 | SSE-CMM (ISO/IEC 21827) | Systems security engineering | Security Engineering major (SE01/SE02) |
 | BSIMM + OWASP SAMM | Software security / assurance | Security Engineering major (SE01/SE05) |
+| OCEG GRC Capability Model | Governance, risk & compliance | GRC major (GR01/GR06) |
+| RIMS Risk Maturity Model | Risk management | GRC major (GR02) |
 | CMMI | General process maturity | SC05; LD02 (reference) |
 | NIST CSF 2.0 Tiers | Program/risk governance posture | SC01, SC05; LD02 |
 | ASD Essential Eight Maturity Model | Baseline mitigations | F04, SC05, LD02 |
