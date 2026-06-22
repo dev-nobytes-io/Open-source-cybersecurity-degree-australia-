@@ -177,10 +177,24 @@ studies. Free/OSS tooling; ATT&CK v19 (technique IDs provisional pending audit).
 Builds on OC05 PIR work; teaches attribution **methodology, not verdicts**; AU
 context via ASD reports, QUAD, TISN. Free/OSS tooling; ATT&CK v19 (provisional).
 
+### Sprint 9 — Detection Engineering major ✅ Complete (2026-06-21)
+
+- [x] `DE01-detection-theory-philosophy.md` (Pyramid of Pain, detection-as-code)
+- [x] `DE02-data-sources-log-engineering.md` (data modelling, coverage audit)
+- [x] `DE03-writing-detection-logic.md` (Sigma, SPL, KQL, YARA)
+- [x] `DE04-adversary-simulation-detection.md` (Atomic Red Team, testing pipeline)
+- [x] `DE05-detection-operations-management.md` (metrics, tuning, lifecycle)
+- [x] `DE06-capstone-detection-library.md` (tested 10+ rule library, Bloom's 5–6)
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+Completes the operational "detect" triad with TH and CTI; builds on OC02 Sigma/
+ATT&CK work. NIST CSF 2.0 Detect mapping; Essential Eight logging; ATT&CK v19
+(provisional). Free/OSS tooling throughout.
+
 ### Remaining majors (Planned)
 
-Operational: Detection Engineering, CTE. Strategic: Security Engineering,
-Leadership & CISO, GRC. (5 majors × 6 = 30 units.)
+Operational: Cyber Threat Emulation. Strategic: Security Engineering,
+Leadership & CISO, GRC. (4 majors × 6 = 24 units.)
 
 ---
 
