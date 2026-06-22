@@ -7,6 +7,12 @@
 
 All units are currently **Planned**. No unit files have been authored yet.
 
+**Update (2026-06-21):** All six units (CT01–CT06) have been authored to **Draft**
+and pass the unit linter. They await practitioner review (Domain Expert +
+Practitioner Reviewer with active CTI experience; Diamond Model and STIX 2.1
+schema compliance verified; attribution guidance reviewed to ensure method is
+taught, not specific actor attributions).
+
 ---
 
 ## Files to Create
