@@ -32,12 +32,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| DE01 | Detection Theory & Philosophy | Planned |
-| DE02 | Data Sources & Log Engineering | Planned |
-| DE03 | Writing Detection Logic | Planned |
-| DE04 | Adversary Simulation for Detection | Planned |
-| DE05 | Detection Operations & Management | Planned |
-| DE06 | Capstone — Detection Library | Planned |
+| DE01 | [Detection Theory & Philosophy](DE01-detection-theory-philosophy.md) | Draft |
+| DE02 | [Data Sources & Log Engineering](DE02-data-sources-log-engineering.md) | Draft |
+| DE03 | [Writing Detection Logic](DE03-writing-detection-logic.md) | Draft |
+| DE04 | [Adversary Simulation for Detection](DE04-adversary-simulation-detection.md) | Draft |
+| DE05 | [Detection Operations & Management](DE05-detection-operations-management.md) | Draft |
+| DE06 | [Capstone — Detection Library](DE06-capstone-detection-library.md) | Draft |
 
 ---
 

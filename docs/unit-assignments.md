@@ -39,7 +39,7 @@ by opening a "Unit Review Request" issue.
 | Threat Hunting | 6 | **Drafted (TH01–TH06)** — review slots open |
 | DFIR | 6 | **Drafted (DF01–DF06)** — review slots open |
 | Cyber Threat Intelligence | 6 | **Drafted (CT01–CT06)** — review slots open |
-| Detection Engineering | 6 | Unassigned |
+| Detection Engineering | 6 | **Drafted (DE01–DE06)** — review slots open |
 | Cyber Threat Emulation | 6 | Unassigned |
 
 ### Strategic Degree

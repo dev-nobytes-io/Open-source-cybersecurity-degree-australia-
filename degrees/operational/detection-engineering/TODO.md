@@ -7,6 +7,11 @@
 
 All units are currently **Planned**. No unit files have been authored yet.
 
+**Update (2026-06-21):** All six units (DE01–DE06) have been authored to **Draft**
+and pass the unit linter. They await practitioner review (Domain Expert +
+Practitioner Reviewer with active detection-engineering experience; Sigma rules and
+ATT&CK references verified; Atomic Red Team test IDs verified as current).
+
 ---
 
 ## Files to Create

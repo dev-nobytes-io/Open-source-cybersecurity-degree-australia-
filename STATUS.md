@@ -19,8 +19,8 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 18 | 0 |
-| **Total** | **66** | **36** | **0** |
+| Major units (8 majors × 6) | 48 | 24 | 0 |
+| **Total** | **66** | **42** | **0** |
 
 ---
 
@@ -97,11 +97,21 @@ As each major's units are created, its row below is replaced with a per-unit tab
 | CT05 | [CTI Platforms & Sharing](degrees/operational/cti/CT05-cti-platforms-sharing.md) | 🟡 Draft |
 | CT06 | [Capstone — Intelligence Product](degrees/operational/cti/CT06-capstone-intelligence-product.md) | 🟡 Draft |
 
+### Detection Engineering (Operational) — authored
+
+| Code | Title | Status |
+|---|---|---|
+| DE01 | [Detection Theory & Philosophy](degrees/operational/detection-engineering/DE01-detection-theory-philosophy.md) | 🟡 Draft |
+| DE02 | [Data Sources & Log Engineering](degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | 🟡 Draft |
+| DE03 | [Writing Detection Logic](degrees/operational/detection-engineering/DE03-writing-detection-logic.md) | 🟡 Draft |
+| DE04 | [Adversary Simulation for Detection](degrees/operational/detection-engineering/DE04-adversary-simulation-detection.md) | 🟡 Draft |
+| DE05 | [Detection Operations & Management](degrees/operational/detection-engineering/DE05-detection-operations-management.md) | 🟡 Draft |
+| DE06 | [Capstone — Detection Library](degrees/operational/detection-engineering/DE06-capstone-detection-library.md) | 🟡 Draft |
+
 ### Operational Degree (remaining — Planned)
 
 | Major | Units | Status |
 |---|---|---|
-| [Detection Engineering](degrees/operational/detection-engineering/) | 6 | ⬜ Planned |
 | [Cyber Threat Emulation](degrees/operational/cte/) | 6 | ⬜ Planned |
 
 ### Strategic Degree
