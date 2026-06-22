@@ -19,8 +19,8 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 24 | 0 |
-| **Total** | **66** | **42** | **0** |
+| Major units (8 majors × 6) | 48 | 30 | 0 |
+| **Total** | **66** | **48** | **0** |
 
 ---
 
@@ -114,10 +114,20 @@ As each major's units are created, its row below is replaced with a per-unit tab
 |---|---|---|
 | [Cyber Threat Emulation](degrees/operational/cte/) | 6 | ⬜ Planned |
 
-### Strategic Degree
+### Leadership & CISO (Strategic) — authored
+
+| Code | Title | Status |
+|---|---|---|
+| LD01 | [CISO Role & Function](degrees/strategic/leadership/LD01-ciso-role-function.md) | 🟡 Draft |
+| LD02 | [Security Strategy & Roadmapping](degrees/strategic/leadership/LD02-security-strategy-roadmapping.md) | 🟡 Draft |
+| LD03 | [Communicating Risk to Executives](degrees/strategic/leadership/LD03-communicating-risk-to-executives.md) | 🟡 Draft |
+| LD04 | [Building & Leading Security Teams](degrees/strategic/leadership/LD04-building-leading-security-teams.md) | 🟡 Draft |
+| LD05 | [Crisis Management & Communications](degrees/strategic/leadership/LD05-crisis-management-comms.md) | 🟡 Draft |
+| LD06 | [Capstone — CISO Simulation](degrees/strategic/leadership/LD06-capstone-ciso-simulation.md) | 🟡 Draft |
+
+### Strategic Degree (remaining — Planned)
 
 | Major | Units | Status |
 |---|---|---|
 | [Security Engineering](degrees/strategic/security-engineering/) | 6 | ⬜ Planned |
-| [Leadership & CISO](degrees/strategic/leadership/) | 6 | ⬜ Planned |
 | [GRC](degrees/strategic/grc/) | 6 | ⬜ Planned |

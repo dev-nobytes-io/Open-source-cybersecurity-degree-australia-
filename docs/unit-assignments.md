@@ -47,7 +47,7 @@ by opening a "Unit Review Request" issue.
 | Major | Unit slots | Assigned to |
 |---|---|---|
 | Security Engineering | 6 | Unassigned |
-| Leadership & CISO | 6 | Unassigned |
+| Leadership & CISO | 6 | **Drafted (LD01–LD06)** — review slots open (CISO-level) |
 | GRC | 6 | Unassigned |
 
 ---

@@ -32,12 +32,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| LD01 | The CISO Role & Function | Planned |
-| LD02 | Security Strategy & Roadmapping | Planned |
-| LD03 | Communicating Risk to Executives | Planned |
-| LD04 | Building & Leading Security Teams | Planned |
-| LD05 | Crisis Management & Communications | Planned |
-| LD06 | Capstone — CISO Simulation | Planned |
+| LD01 | [CISO Role & Function](LD01-ciso-role-function.md) | Draft |
+| LD02 | [Security Strategy & Roadmapping](LD02-security-strategy-roadmapping.md) | Draft |
+| LD03 | [Communicating Risk to Executives](LD03-communicating-risk-to-executives.md) | Draft |
+| LD04 | [Building & Leading Security Teams](LD04-building-leading-security-teams.md) | Draft |
+| LD05 | [Crisis Management & Communications](LD05-crisis-management-comms.md) | Draft |
+| LD06 | [Capstone — CISO Simulation](LD06-capstone-ciso-simulation.md) | Draft |
 
 ---
 

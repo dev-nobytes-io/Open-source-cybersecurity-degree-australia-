@@ -266,10 +266,10 @@ Contributors must use the templates in the `templates/` directory:
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 × 6) | 48 | 24 | 0 |
-| **Total** | **66** | **42** | **0** |
+| Major units (8 × 6) | 48 | 30 | 0 |
+| **Total** | **66** | **48** | **0** |
 
-_Operational majors authored: Threat Hunting, DFIR, CTI, Detection Engineering (Draft). Cyber Threat Emulation (operational) and the three strategic majors remain._
+_Majors authored (Draft): Threat Hunting, DFIR, CTI, Detection Engineering, and Leadership & CISO. Cyber Threat Emulation, Security Engineering, and GRC remain._
 
 **Want to contribute?** Start with the [contributor onboarding checklist](docs/contributor-onboarding.md),
 check the [unit assignment register](docs/unit-assignments.md) for open work, and

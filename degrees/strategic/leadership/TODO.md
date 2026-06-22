@@ -7,6 +7,12 @@
 
 All units are currently **Planned**. No unit files have been authored yet.
 
+**Update (2026-06-21):** All six units (LD01–LD06) have been authored to **Draft**
+(with a deliberate emphasis on security program management and risk) and pass the
+unit linter. Per this major's high practitioner dependency, they await review by a
+current/former CISO (LD01/LD02/LD06), an experienced security leader (LD03/LD04),
+and someone with AU breach-notification experience (LD05).
+
 **Note:** This major has the highest practitioner dependency of all 8 majors. Content should be authored or co-authored by people with actual CISO, Security Director, or VP-level experience. Prioritise recruiting experienced contributors before starting authoring.
 
 ---

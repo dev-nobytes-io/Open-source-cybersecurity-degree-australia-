@@ -191,10 +191,48 @@ Completes the operational "detect" triad with TH and CTI; builds on OC02 Sigma/
 ATT&CK work. NIST CSF 2.0 Detect mapping; Essential Eight logging; ATT&CK v19
 (provisional). Free/OSS tooling throughout.
 
-### Remaining majors (Planned)
+### Sprint 10 — Leadership & CISO major ✅ Complete (2026-06-21)
 
-Operational: Cyber Threat Emulation. Strategic: Security Engineering,
-Leadership & CISO, GRC. (4 majors × 6 = 24 units.)
+Authored ahead of CTE/SOC-CMM at maintainer direction, with a deliberate **full
+emphasis on security program management and risk**.
+
+- [x] `LD01-ciso-role-function.md` (mandate, reporting, risk ownership, APRA CPS 234)
+- [x] `LD02-security-strategy-roadmapping.md` (maturity, roadmap, investment case)
+- [x] `LD03-communicating-risk-to-executives.md` (board risk narrative, dashboards)
+- [x] `LD04-building-leading-security-teams.md` (team design, AU talent, retention)
+- [x] `LD05-crisis-management-comms.md` (NDB/APRA/SOCI/ASX notification, media)
+- [x] `LD06-capstone-ciso-simulation.md` (board strategy + budget, Bloom's 5–6)
+- [x] README/STATUS/assignments/TODO updated; all six pass the CI linter
+
+Bloom's 4–6 (activity-based, not lab-heavy); NICE DCWF 901/722/752 + SFIA MANA
+L6–7 + ASD CSF; extensive AU regulatory context (APRA, ASX CGP, OAIC, SOCI).
+Flagged for review by current/former CISOs per the major's high practitioner
+dependency.
+
+### Sprint 11 — SOC-CMM integration (NEXT, expanded scope)
+
+**Goal:** Integrate the **SOC-CMM** (SOC Capability Maturity Model) across the
+**whole project — every relevant section**, not just the framework docs. Per
+maintainer direction, explicitly tie:
+
+- SOC-CMM **service offerings** → **capabilities** →
+- **NIST CSF 2.0** functions →
+- **NIST NICE / DCWF** work roles and **KSATs** (Knowledge, Skills, Tasks,
+  Abilities).
+
+Planned deliverables:
+- Add SOC-CMM to `docs/frameworks.md` (index, mapping section, currency table).
+- New `docs/soc-cmm-alignment.md`: degree-wide map of SOC-CMM domains
+  (Business/People/Process/Technology) and **Services** → degree units/majors →
+  NIST CSF functions → NICE/DCWF roles + KSATs.
+- Weave SOC-CMM service→capability→role/KSAT references into the relevant units
+  (OC02, OC04, OC05, DE05, SC05, and the operational majors' service-aligned units).
+- Update README framework section and link the alignment doc.
+
+### Remaining majors (Planned, after Sprint 11)
+
+Operational: Cyber Threat Emulation. Strategic: Security Engineering, GRC.
+(3 majors × 6 = 18 units.)
 
 ---
 
