@@ -19,8 +19,8 @@ _Last updated: 2026-06-21_
 | Foundation Year | 6 | 6 | 0 |
 | Operational Core | 6 | 6 | 0 |
 | Strategic Core | 6 | 6 | 0 |
-| Major units (8 majors × 6) | 48 | 36 | 0 |
-| **Total** | **66** | **54** | **0** |
+| Major units (8 majors × 6) | 48 | 42 | 0 |
+| **Total** | **66** | **60** | **0** |
 
 ---
 
@@ -133,9 +133,19 @@ As each major's units are created, its row below is replaced with a per-unit tab
 | LD05 | [Crisis Management & Communications](degrees/strategic/leadership/LD05-crisis-management-comms.md) | 🟡 Draft |
 | LD06 | [Capstone — CISO Simulation](degrees/strategic/leadership/LD06-capstone-ciso-simulation.md) | 🟡 Draft |
 
+### Security Engineering (Strategic) — authored
+
+| Code | Title | Status |
+|---|---|---|
+| SE01 | [Secure System Design](degrees/strategic/security-engineering/SE01-secure-system-design.md) | 🟡 Draft |
+| SE02 | [Security Architecture](degrees/strategic/security-engineering/SE02-security-architecture.md) | 🟡 Draft |
+| SE03 | [Identity & Access Management](degrees/strategic/security-engineering/SE03-identity-access-management.md) | 🟡 Draft |
+| SE04 | [Detection & Response Engineering](degrees/strategic/security-engineering/SE04-detection-response-engineering.md) | 🟡 Draft |
+| SE05 | [Security in Cloud & DevSecOps](degrees/strategic/security-engineering/SE05-security-cloud-devsecops.md) | 🟡 Draft |
+| SE06 | [Capstone — Architecture Design](degrees/strategic/security-engineering/SE06-capstone-architecture-design.md) | 🟡 Draft |
+
 ### Strategic Degree (remaining — Planned)
 
 | Major | Units | Status |
 |---|---|---|
-| [Security Engineering](degrees/strategic/security-engineering/) | 6 | ⬜ Planned |
 | [GRC](degrees/strategic/grc/) | 6 | ⬜ Planned |

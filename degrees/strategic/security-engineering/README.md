@@ -32,12 +32,12 @@ graph LR
 
 | Code | Title | Status |
 |---|---|---|
-| SE01 | Secure System Design | Planned |
-| SE02 | Security Architecture | Planned |
-| SE03 | Identity & Access Management | Planned |
-| SE04 | Detection & Response Engineering | Planned |
-| SE05 | Security in Cloud & DevSecOps | Planned |
-| SE06 | Capstone — Architecture Design | Planned |
+| SE01 | [Secure System Design](SE01-secure-system-design.md) | Draft |
+| SE02 | [Security Architecture](SE02-security-architecture.md) | Draft |
+| SE03 | [Identity & Access Management](SE03-identity-access-management.md) | Draft |
+| SE04 | [Detection & Response Engineering](SE04-detection-response-engineering.md) | Draft |
+| SE05 | [Security in Cloud & DevSecOps](SE05-security-cloud-devsecops.md) | Draft |
+| SE06 | [Capstone — Architecture Design](SE06-capstone-architecture-design.md) | Draft |
 
 ---
 

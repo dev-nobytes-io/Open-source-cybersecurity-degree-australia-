@@ -7,6 +7,12 @@
 
 All units are currently **Planned**. No unit files have been authored yet.
 
+**Update (2026-06-21):** All six units (SE01–SE06) authored to **Draft** and pass the
+unit linter. This major also closed the Security-Engineering maturity gap by wiring
+**SSE-CMM (ISO/IEC 21827) + BSIMM + OWASP SAMM** into the units and
+`docs/maturity-models.md`. Awaiting review by a Domain Expert with security
+architecture/engineering experience (SABSA and Zero Trust/SP 800-207 verification).
+
 ---
 
 ## Files to Create
