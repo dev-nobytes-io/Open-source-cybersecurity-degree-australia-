@@ -29,10 +29,10 @@ _Last updated: 2026-06-21_
 > items enumerated and tied to evidence. See [`docs/ksat-coverage.md`](docs/ksat-coverage.md).
 > K/S/A IDs are project-local and provisional pending Framework Custodian mapping.
 >
-> ✅ **Program Builder** — compose a degree/major/course selection and visualise
-> the education gained (work-role completion + KSAT radar charts). See
-> [`docs/program-builder/`](docs/program-builder/index.md) or run
-> `python3 .github/scripts/program_builder.py --help`.
+> ✅ **Program Builder** — an interactive page: search and tick courses (grouped
+> by degree / year / major) and the NICE/DCWF work-role bars and KSAT radar
+> charts update live in the browser. See
+> [`docs/program-builder/`](docs/program-builder/index.md).
 
 ---
 

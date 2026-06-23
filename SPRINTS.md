@@ -377,6 +377,30 @@ data.
 > data legible regardless. Regenerate examples with
 > `python3 .github/scripts/program_builder.py --build-docs`.
 
+### Sprint 19 — Program Builder goes live (interactive) ✅ Complete (2026-06-23)
+
+Goal: replace the per-preset **static generated pages** with a single
+**interactive page** — tick courses and watch the KSAT coverage diagrams update
+in real time, with no per-selection tooling or rebuild.
+
+- [x] `.github/scripts/program_builder_app.js` — dependency-free vanilla-JS app:
+      searchable course picker grouped **degree → year → major** (select-all per
+      group, presets, search), live SVG charts
+- [x] Live **NICE/DCWF work-role completion** bars + **four radar/"spider web"
+      charts** (K/S/A/T, Selected vs Catalogue) + composition donut + summary
+- [x] `program_builder.py` reduced to a one-shot **dataset embedder**: parses the
+      units and writes a self-contained `docs/program-builder/index.md` (data +
+      app inlined) — refreshed only when unit content changes
+- [x] Removed the six static preset pages; nav collapsed to one page
+- [x] Confirmed raw `<script>`/`<div>` survive the MkDocs build; verified the
+      embedded JSON parses and the render path runs without error (DOM-shim smoke
+      test); `mkdocs build --strict` passes
+
+> Self-contained and offline-friendly: no CDN, no external JS, no asset-staging
+> changes (charts are hand-drawn SVG). Loads showing the Operations degree by
+> default. Refresh the embedded dataset with
+> `python3 .github/scripts/program_builder.py`.
+
 ---
 
 ## Resource Inputs from Practitioners
