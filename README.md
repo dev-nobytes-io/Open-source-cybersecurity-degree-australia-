@@ -235,6 +235,7 @@ for both educational standards (AQF/TEQSA) and workforce framework alignment (NI
 | [docs/accreditation.md](docs/accreditation.md) | TEQSA/AQF alignment strategy |
 | [docs/maturity-models.md](docs/maturity-models.md) | Capability maturity cross-walk (SOC-CMM, CTI-CMM, SIM3, HMM, DML/M3TID, C2M2…) → capability → NIST CSF → NICE/DCWF role → KSATs, across both degrees |
 | [docs/program-builder/index.md](docs/program-builder/index.md) | **Interactive** — tick any mix of courses (grouped by degree/year/major) and watch the NICE/DCWF work-role and KSAT coverage charts update live in your browser. No scripts. |
+| [docs/program-builder/team.md](docs/program-builder/team.md) | **Interactive** — overlay several members' capability radars to check team coverage; overlap shows as opacity, gaps are flagged. Save / load / print the team. |
 | [docs/ksat-coverage.md](docs/ksat-coverage.md) | Full text index of every unit's Knowledge/Skills/Abilities/Tasks and per-work-role coverage (the data behind the Program Builder) |
 
 > **Build your own pathway and see what it teaches:** open the
