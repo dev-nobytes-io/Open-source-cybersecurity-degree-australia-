@@ -91,6 +91,25 @@ used in professional practice.
 |---|---|---|---|
 | Cyber Governance | Risk Management | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SC01-K01 | Knowledge of the major risk frameworks (NIST CSF, ISO 27005, NIST RMF) and their structure | Topic 2 |
+| Knowledge | SC01-K02 | Knowledge of the risk-assessment process (identify, analyse, evaluate) | Topic 3 |
+| Knowledge | SC01-K03 | Knowledge of qualitative and quantitative risk-analysis methods | Topic 4 |
+| Knowledge | SC01-K04 | Knowledge of Australian regulatory risk obligations (APRA CPS 234, SOCI) | Topic 6 |
+| Skill | SC01-S01 | Skill in performing a risk assessment and maintaining a risk register | Lab 1 |
+| Skill | SC01-S02 | Skill in quantifying risk and selecting risk-treatment options | Lab 2 |
+| Ability | SC01-A01 | Ability to make and justify risk-treatment decisions (mitigate, transfer, avoid, accept) | Lab 2; Topic 5 |
+| Ability | SC01-A02 | Ability to argue a credible risk posture as a commercial enabler | Topic 6; Summative |
+| Task | T0177 | Perform risk assessments and identify gaps in security posture | Lab 1 |
+| Task | T0149 | Recommend resource allocations to mitigate identified risks | Lab 2 |
+
 ---
 
 ## Topics

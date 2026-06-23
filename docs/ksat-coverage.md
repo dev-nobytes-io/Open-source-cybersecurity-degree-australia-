@@ -5,17 +5,17 @@
 > project-local (provisional) pending Framework Custodian mapping to official
 > NICE/DCWF identifiers. See [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 21 Knowledge · 12 Skills · 12 Abilities · 12 Tasks across 6/66 units with KSATs authored.
+**Totals:** 69 Knowledge · 36 Skills · 36 Abilities · 36 Tasks across 18/66 units with KSATs authored.
 
-**KSATs pending (60):** CE01, CE02, CE03, CE04, CE05, CE06, CT01, CT02, CT03, CT04, CT05, CT06, DE01, DE02, DE03, DE04, DE05, DE06, DF01, DF02, DF03, DF04, DF05, DF06, GR01, GR02, GR03, GR04, GR05, GR06, LD01, LD02, LD03, LD04, LD05, LD06, OC01, OC02, OC03, OC04, OC05, OC06, SC01, SC02, SC03, SC04, SC05, SC06, SE01, SE02, SE03, SE04, SE05, SE06, TH01, TH02, TH03, TH04, TH05, TH06
+**KSATs pending (48):** CE01, CE02, CE03, CE04, CE05, CE06, CT01, CT02, CT03, CT04, CT05, CT06, DE01, DE02, DE03, DE04, DE05, DE06, DF01, DF02, DF03, DF04, DF05, DF06, GR01, GR02, GR03, GR04, GR05, GR06, LD01, LD02, LD03, LD04, LD05, LD06, SE01, SE02, SE03, SE04, SE05, SE06, TH01, TH02, TH03, TH04, TH05, TH06
 
 ## Coverage by degree layer
 
 | Layer | Knowledge | Skills | Abilities | Tasks |
 |---|---|---|---|---|
 | Foundation | 21 | 12 | 12 | 12 |
-| Operational Core | 0 | 0 | 0 | 0 |
-| Strategic Core | 0 | 0 | 0 | 0 |
+| Operational Core | 24 | 12 | 12 | 12 |
+| Strategic Core | 24 | 12 | 12 | 12 |
 | Major | 0 | 0 | 0 | 0 |
 | Capstone | 0 | 0 | 0 | 0 |
 
@@ -29,18 +29,18 @@
 | F04 | Security Concepts & Principles | Foundation | 4 | 2 | 2 | 2 |
 | F05 | Legal, Ethics & Australian Compliance | Foundation | 4 | 2 | 2 | 2 |
 | F06 | Data & Log Analysis | Foundation | 3 | 2 | 2 | 2 |
-| OC01 | Adversary Tradecraft & TTPs | Operational Core | 0 | 0 | 0 | 0 |
-| OC02 | Security Monitoring & SIEM | Operational Core | 0 | 0 | 0 | 0 |
-| OC03 | Malware Analysis Fundamentals | Operational Core | 0 | 0 | 0 | 0 |
-| OC04 | Incident Response Lifecycle | Operational Core | 0 | 0 | 0 | 0 |
-| OC05 | Threat Intelligence Fundamentals | Operational Core | 0 | 0 | 0 | 0 |
-| OC06 | Offensive Security Concepts | Operational Core | 0 | 0 | 0 | 0 |
-| SC01 | Risk Management Frameworks | Strategic Core | 0 | 0 | 0 | 0 |
-| SC02 | Security Architecture Principles | Strategic Core | 0 | 0 | 0 | 0 |
-| SC03 | Governance, Policy & Compliance | Strategic Core | 0 | 0 | 0 | 0 |
-| SC04 | Vendor & Supply Chain Risk | Strategic Core | 0 | 0 | 0 | 0 |
-| SC05 | Security Program Management | Strategic Core | 0 | 0 | 0 | 0 |
-| SC06 | Stakeholder Communication | Strategic Core | 0 | 0 | 0 | 0 |
+| OC01 | Adversary Tradecraft & TTPs | Operational Core | 4 | 2 | 2 | 2 |
+| OC02 | Security Monitoring & SIEM | Operational Core | 4 | 2 | 2 | 2 |
+| OC03 | Malware Analysis Fundamentals | Operational Core | 4 | 2 | 2 | 2 |
+| OC04 | Incident Response Lifecycle | Operational Core | 4 | 2 | 2 | 2 |
+| OC05 | Threat Intelligence Fundamentals | Operational Core | 4 | 2 | 2 | 2 |
+| OC06 | Offensive Security Concepts | Operational Core | 4 | 2 | 2 | 2 |
+| SC01 | Risk Management Frameworks | Strategic Core | 4 | 2 | 2 | 2 |
+| SC02 | Security Architecture Principles | Strategic Core | 4 | 2 | 2 | 2 |
+| SC03 | Governance, Policy & Compliance | Strategic Core | 4 | 2 | 2 | 2 |
+| SC04 | Vendor & Supply Chain Risk | Strategic Core | 4 | 2 | 2 | 2 |
+| SC05 | Security Program Management | Strategic Core | 4 | 2 | 2 | 2 |
+| SC06 | Stakeholder Communication | Strategic Core | 4 | 2 | 2 | 2 |
 | CE01 | Offensive Foundations & Ethics | Major | 0 | 0 | 0 | 0 |
 | CE02 | Red Team Operations | Major | 0 | 0 | 0 | 0 |
 | CE03 | ATT&CK-Based Emulation | Major | 0 | 0 | 0 | 0 |
@@ -125,7 +125,7 @@
 
 ## KSAT index
 
-57 KSAT items authored. Each is identifiable for coverage
+177 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -187,4 +187,124 @@ metrics; statements are derived from unit content.
 | F06-S02 | Skill | F06 | Skill in reconstructing an event timeline across multiple sources |
 | T0166 | Task | F06 | Perform event correlation using information from multiple sources |
 | T0259 | Task | F06 | Identify and analyse anomalous activity in log and event data |
+| OC01-A01 | Ability | OC01 | Ability to prioritise defensive effort against the TTPs most relevant to an organisation |
+| OC01-A02 | Ability | OC01 | Ability to identify gaps between current visibility and adversary behaviour |
+| OC01-K01 | Knowledge | OC01 | Knowledge of MITRE ATT&CK as a common language for adversary tactics, techniques, and procedures |
+| OC01-K02 | Knowledge | OC01 | Knowledge of the intrusion lifecycle and how procedures realise techniques |
+| OC01-K03 | Knowledge | OC01 | Knowledge of the Pyramid of Pain and what makes a detection durable |
+| OC01-K04 | Knowledge | OC01 | Knowledge of threat-informed defense and CTID tooling (emulation library, sensor mappings, M3TID) |
+| OC01-S01 | Skill | OC01 | Skill in extracting TTPs from an intrusion narrative and mapping them to ATT&CK |
+| OC01-S02 | Skill | OC01 | Skill in visualising and prioritising coverage with ATT&CK Navigator |
+| T0569 | Task | OC01 | Apply cyber threat frameworks (e.g. MITRE ATT&CK) to characterise adversary behaviour |
+| T0707 | Task | OC01 | Analyse threat information to identify adversary tactics, techniques, and procedures |
+| OC02-A01 | Ability | OC02 | Ability to measure and improve detection coverage using threat-informed defense |
+| OC02-A02 | Ability | OC02 | Ability to recommend logging or detection changes to close a detection gap |
+| OC02-K01 | Knowledge | OC02 | Knowledge of SIEM architecture and the collection→parse→normalise→store→detect pipeline |
+| OC02-K02 | Knowledge | OC02 | Knowledge of detection engineering and detection-as-code (e.g. Sigma) |
+| OC02-K03 | Knowledge | OC02 | Knowledge of behaviour-based detection and how to measure coverage |
+| OC02-K04 | Knowledge | OC02 | Knowledge of the SOC operating model — alert pipeline, severity, and escalation |
+| OC02-S01 | Skill | OC02 | Skill in authoring SIEM detection rules mapped to ATT&CK techniques |
+| OC02-S02 | Skill | OC02 | Skill in triaging alerts and tuning detections to reduce false positives |
+| T0166 | Task | OC02 | Perform event correlation to gain situational awareness and detect threats |
+| T0259 | Task | OC02 | Identify and analyse anomalous network/host activity and tune detections |
+| OC03-A01 | Ability | OC03 | Ability to determine malware functionality and impact from analysis |
+| OC03-A02 | Ability | OC03 | Ability to feed analysis findings into the threat-informed defense loop |
+| OC03-K01 | Knowledge | OC03 | Knowledge of safe, isolated malware-analysis environment design |
+| OC03-K02 | Knowledge | OC03 | Knowledge of malware types and their characteristic behaviours |
+| OC03-K03 | Knowledge | OC03 | Knowledge of static analysis techniques (hashing, strings, file structure, YARA) |
+| OC03-K04 | Knowledge | OC03 | Knowledge of dynamic analysis techniques for observing runtime behaviour |
+| OC03-S01 | Skill | OC03 | Skill in performing static triage of a malware sample |
+| OC03-S02 | Skill | OC03 | Skill in mapping observed behaviour to ATT&CK and authoring detections (YARA/Sigma) |
+| T0294 | Task | OC03 | Conduct analysis and correlation to develop detection content from malware behaviour |
+| T0432 | Task | OC03 | Perform static and dynamic malware analysis to determine functionality and impact |
+| OC04-A01 | Ability | OC04 | Ability to select containment/eradication/recovery actions appropriate to an incident |
+| OC04-A02 | Ability | OC04 | Ability to derive improvements from a blameless post-incident review |
+| OC04-K01 | Knowledge | OC04 | Knowledge of the IR lifecycle (NIST SP 800-61 / PICERL) and preparation |
+| OC04-K02 | Knowledge | OC04 | Knowledge of containment, eradication, and recovery options |
+| OC04-K03 | Knowledge | OC04 | Knowledge of evidence handling and chain of custody |
+| OC04-K04 | Knowledge | OC04 | Knowledge of Australian legal/regulatory obligations triggered by an incident |
+| OC04-S01 | Skill | OC04 | Skill in coordinating incident handling through a tabletop exercise |
+| OC04-S02 | Skill | OC04 | Skill in scoping an incident and building a timeline with chain of custody |
+| T0041 | Task | OC04 | Coordinate and perform incident handling across the response lifecycle |
+| T0278 | Task | OC04 | Collect and preserve evidence and establish an incident timeline |
+| OC05-A01 | Ability | OC05 | Ability to assess source reliability and analytic confidence |
+| OC05-A02 | Ability | OC05 | Ability to feed PIR-driven CTI into the threat-informed defense loop |
+| OC05-K01 | Knowledge | OC05 | Knowledge of the CTI lifecycle and the role of each phase |
+| OC05-K02 | Knowledge | OC05 | Knowledge of the Priority Intelligence Requirements (PIR) process |
+| OC05-K03 | Knowledge | OC05 | Knowledge of strategic, operational, and tactical intelligence and their consumers |
+| OC05-K04 | Knowledge | OC05 | Knowledge of analytic models and structured analytic techniques (Diamond Model, ATT&CK) |
+| OC05-S01 | Skill | OC05 | Skill in defining Priority Intelligence Requirements |
+| OC05-S02 | Skill | OC05 | Skill in producing finished intelligence with stated source reliability and confidence |
+| T0569 | Task | OC05 | Apply threat frameworks to develop and answer intelligence requirements |
+| T0707 | Task | OC05 | Analyse and report adversary activity against intelligence requirements |
+| OC06-A01 | Ability | OC06 | Ability to analyse offensive results to validate defensive coverage |
+| OC06-A02 | Ability | OC06 | Ability to recommend defensive improvements from emulation findings |
+| OC06-K01 | Knowledge | OC06 | Knowledge of the legal/ethical framework and rules of engagement for authorised offensive security in Australia |
+| OC06-K02 | Knowledge | OC06 | Knowledge of penetration-test / adversary-emulation engagement methodology |
+| OC06-K03 | Knowledge | OC06 | Knowledge of reconnaissance, exploitation, and post-exploitation techniques |
+| OC06-K04 | Knowledge | OC06 | Knowledge of the purple-team model as a continuous improvement loop |
+| OC06-S01 | Skill | OC06 | Skill in conducting an authorised engagement in an isolated lab |
+| OC06-S02 | Skill | OC06 | Skill in planning and running ATT&CK-based emulation and purple teaming |
+| T0028 | Task | OC06 | Conduct authorised assessments to identify and exploit vulnerabilities |
+| T0591 | Task | OC06 | Apply adversary emulation to validate defensive coverage |
+| SC01-A01 | Ability | SC01 | Ability to make and justify risk-treatment decisions (mitigate, transfer, avoid, accept) |
+| SC01-A02 | Ability | SC01 | Ability to argue a credible risk posture as a commercial enabler |
+| SC01-K01 | Knowledge | SC01 | Knowledge of the major risk frameworks (NIST CSF, ISO 27005, NIST RMF) and their structure |
+| SC01-K02 | Knowledge | SC01 | Knowledge of the risk-assessment process (identify, analyse, evaluate) |
+| SC01-K03 | Knowledge | SC01 | Knowledge of qualitative and quantitative risk-analysis methods |
+| SC01-K04 | Knowledge | SC01 | Knowledge of Australian regulatory risk obligations (APRA CPS 234, SOCI) |
+| SC01-S01 | Skill | SC01 | Skill in performing a risk assessment and maintaining a risk register |
+| SC01-S02 | Skill | SC01 | Skill in quantifying risk and selecting risk-treatment options |
+| T0149 | Task | SC01 | Recommend resource allocations to mitigate identified risks |
+| T0177 | Task | SC01 | Perform risk assessments and identify gaps in security posture |
+| SC02-A01 | Ability | SC02 | Ability to evaluate a system design against architectural principles |
+| SC02-A02 | Ability | SC02 | Ability to assess an architecture for alignment with Australian standards (ISM) |
+| SC02-K01 | Knowledge | SC02 | Knowledge of the role and layers of security architecture |
+| SC02-K02 | Knowledge | SC02 | Knowledge of the SABSA business-driven architecture approach |
+| SC02-K03 | Knowledge | SC02 | Knowledge of architectural principles and patterns (defence in depth, least privilege) |
+| SC02-K04 | Knowledge | SC02 | Knowledge of Zero Trust (NIST SP 800-207) and secure systems engineering (NIST SP 800-160) |
+| SC02-S01 | Skill | SC02 | Skill in deriving security requirements from business goals with SABSA |
+| SC02-S02 | Skill | SC02 | Skill in redesigning a network/identity model to Zero Trust principles |
+| T0050 | Task | SC02 | Define and document security architecture and design requirements |
+| T0473 | Task | SC02 | Apply secure design and Zero Trust principles to system architecture |
+| SC03-A01 | Ability | SC03 | Ability to rationalise controls so a single control satisfies multiple obligations |
+| SC03-A02 | Ability | SC03 | Ability to prepare an organisation for assurance and audit |
+| SC03-K01 | Knowledge | SC03 | Knowledge of security governance structures and the NIST CSF 2.0 Govern function |
+| SC03-K02 | Knowledge | SC03 | Knowledge of the policy hierarchy (policy, standard, procedure, guideline) |
+| SC03-K03 | Knowledge | SC03 | Knowledge of the major compliance regimes (ISO 27001, SOC 2, APRA CPS 234, Essential Eight) |
+| SC03-K04 | Knowledge | SC03 | Knowledge of compliance as a commercial enabler and the related business case |
+| SC03-S01 | Skill | SC03 | Skill in drafting fit-for-purpose security policies and governance artefacts |
+| SC03-S02 | Skill | SC03 | Skill in mapping one control set across multiple compliance frameworks |
+| T0177 | Task | SC03 | Assess compliance posture and map controls to multiple frameworks |
+| T0226 | Task | SC03 | Develop and maintain security policies, standards, and governance artefacts |
+| SC04-A01 | Ability | SC04 | Ability to interpret third-party assurance artefacts (SOC 2 reports, ISO 27001 certificates) |
+| SC04-A02 | Ability | SC04 | Ability to specify contractual and procurement controls that manage supplier risk |
+| SC04-K01 | Knowledge | SC04 | Knowledge of the sources and significance of third-party and supply-chain risk |
+| SC04-K02 | Knowledge | SC04 | Knowledge of the vendor risk lifecycle across the supplier relationship |
+| SC04-K03 | Knowledge | SC04 | Knowledge of software-supply-chain risk practices (dependencies, SBOM, NIST SP 800-161) |
+| SC04-K04 | Knowledge | SC04 | Knowledge of Australian regulation governing third-party risk (APRA CPS 234/CPS 230, SOCI) |
+| SC04-S01 | Skill | SC04 | Skill in performing a vendor risk assessment |
+| SC04-S02 | Skill | SC04 | Skill in evaluating supply-chain risk and contractual controls |
+| T0177 | Task | SC04 | Assess third-party security posture against requirements |
+| T0226 | Task | SC04 | Develop supply-chain risk and procurement security requirements |
+| SC05-A01 | Ability | SC05 | Ability to prioritise and sequence security initiatives under constraints |
+| SC05-A02 | Ability | SC05 | Ability to design team structure, roles, and resourcing for a security function |
+| SC05-K01 | Knowledge | SC05 | Knowledge of the components of a security program and how it delivers strategy |
+| SC05-K02 | Knowledge | SC05 | Knowledge of capability/maturity models (NIST CSF tiers, SOC-CMM) for assessment |
+| SC05-K03 | Knowledge | SC05 | Knowledge of budgeting and building a risk-based business case |
+| SC05-K04 | Knowledge | SC05 | Knowledge of security metrics and reporting (KPIs/KRIs) |
+| SC05-S01 | Skill | SC05 | Skill in conducting a maturity assessment and building a roadmap |
+| SC05-S02 | Skill | SC05 | Skill in constructing a budget business case with supporting metrics |
+| T0149 | Task | SC05 | Recommend resource allocations and manage the security program |
+| T0445 | Task | SC05 | Develop security strategy, metrics, and reporting |
+| SC06-A01 | Ability | SC06 | Ability to translate technical findings into business-relevant language |
+| SC06-A02 | Ability | SC06 | Ability to apply influence and persuasion to secure support and funding |
+| SC06-K01 | Knowledge | SC06 | Knowledge of audience analysis and message framing for security communication |
+| SC06-K02 | Knowledge | SC06 | Knowledge of risk and security reporting techniques |
+| SC06-K03 | Knowledge | SC06 | Knowledge of board/executive communication expectations |
+| SC06-K04 | Knowledge | SC06 | Knowledge of crisis and incident communication, including Australian notification duties |
+| SC06-S01 | Skill | SC06 | Skill in delivering a board-level security briefing |
+| SC06-S02 | Skill | SC06 | Skill in producing crisis communications and breach notifications |
+| T0041 | Task | SC06 | Coordinate incident communication and notifications |
+| T0445 | Task | SC06 | Communicate security posture, risk, and strategy to stakeholders |
 

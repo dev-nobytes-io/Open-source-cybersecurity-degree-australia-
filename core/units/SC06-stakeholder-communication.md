@@ -89,6 +89,25 @@ scenarios, meeting notification obligations and driving security decisions.
 |---|---|---|---|
 | Cyber Governance | Communication & Influence | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SC06-K01 | Knowledge of audience analysis and message framing for security communication | Topic 1 |
+| Knowledge | SC06-K02 | Knowledge of risk and security reporting techniques | Topic 2 |
+| Knowledge | SC06-K03 | Knowledge of board/executive communication expectations | Topic 3 |
+| Knowledge | SC06-K04 | Knowledge of crisis and incident communication, including Australian notification duties | Topic 4 |
+| Skill | SC06-S01 | Skill in delivering a board-level security briefing | Lab 1 |
+| Skill | SC06-S02 | Skill in producing crisis communications and breach notifications | Lab 2 |
+| Ability | SC06-A01 | Ability to translate technical findings into business-relevant language | Lab 1; Topic 3 |
+| Ability | SC06-A02 | Ability to apply influence and persuasion to secure support and funding | Topic 5; Summative |
+| Task | T0445 | Communicate security posture, risk, and strategy to stakeholders | Lab 1 |
+| Task | T0041 | Coordinate incident communication and notifications | Lab 2 |
+
 ---
 
 ## Topics

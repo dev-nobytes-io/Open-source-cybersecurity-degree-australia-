@@ -90,6 +90,25 @@ Australian-legal framework to validate and improve real defences.
 |---|---|---|---|
 | Offensive Cyber | Authorised Testing & Emulation | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | OC06-K01 | Knowledge of the legal/ethical framework and rules of engagement for authorised offensive security in Australia | Topic 1 |
+| Knowledge | OC06-K02 | Knowledge of penetration-test / adversary-emulation engagement methodology | Topic 2 |
+| Knowledge | OC06-K03 | Knowledge of reconnaissance, exploitation, and post-exploitation techniques | Topic 3; Topic 4 |
+| Knowledge | OC06-K04 | Knowledge of the purple-team model as a continuous improvement loop | Topic 6 |
+| Skill | OC06-S01 | Skill in conducting an authorised engagement in an isolated lab | Lab 1 |
+| Skill | OC06-S02 | Skill in planning and running ATT&CK-based emulation and purple teaming | Lab 2 |
+| Ability | OC06-A01 | Ability to analyse offensive results to validate defensive coverage | Lab 2; Topic 5 |
+| Ability | OC06-A02 | Ability to recommend defensive improvements from emulation findings | Summative |
+| Task | T0028 | Conduct authorised assessments to identify and exploit vulnerabilities | Lab 1 |
+| Task | T0591 | Apply adversary emulation to validate defensive coverage | Lab 2 |
+
 ---
 
 ## Topics

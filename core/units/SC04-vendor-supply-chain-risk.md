@@ -88,6 +88,25 @@ Australian scenarios, aligning with regulatory and contractual obligations.
 |---|---|---|---|
 | Cyber Governance | Third-Party Risk | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SC04-K01 | Knowledge of the sources and significance of third-party and supply-chain risk | Topic 1 |
+| Knowledge | SC04-K02 | Knowledge of the vendor risk lifecycle across the supplier relationship | Topic 2 |
+| Knowledge | SC04-K03 | Knowledge of software-supply-chain risk practices (dependencies, SBOM, NIST SP 800-161) | Topic 4 |
+| Knowledge | SC04-K04 | Knowledge of Australian regulation governing third-party risk (APRA CPS 234/CPS 230, SOCI) | Topic 5 |
+| Skill | SC04-S01 | Skill in performing a vendor risk assessment | Lab 1 |
+| Skill | SC04-S02 | Skill in evaluating supply-chain risk and contractual controls | Lab 2 |
+| Ability | SC04-A01 | Ability to interpret third-party assurance artefacts (SOC 2 reports, ISO 27001 certificates) | Topic 3; Lab 1 |
+| Ability | SC04-A02 | Ability to specify contractual and procurement controls that manage supplier risk | Lab 2; Topic 6 |
+| Task | T0177 | Assess third-party security posture against requirements | Lab 1 |
+| Task | T0226 | Develop supply-chain risk and procurement security requirements | Lab 2 |
+
 ---
 
 ## Topics

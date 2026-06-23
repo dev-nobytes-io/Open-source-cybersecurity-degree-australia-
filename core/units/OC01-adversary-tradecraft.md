@@ -95,6 +95,25 @@ using ATT&CK and CTID tooling as a professional would.
 |---|---|---|---|
 | Cyber Defence | Threat Analysis | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | OC01-K01 | Knowledge of MITRE ATT&CK as a common language for adversary tactics, techniques, and procedures | Topic 2 |
+| Knowledge | OC01-K02 | Knowledge of the intrusion lifecycle and how procedures realise techniques | Topic 3 |
+| Knowledge | OC01-K03 | Knowledge of the Pyramid of Pain and what makes a detection durable | Topic 4 |
+| Knowledge | OC01-K04 | Knowledge of threat-informed defense and CTID tooling (emulation library, sensor mappings, M3TID) | Topic 1; Topic 5 |
+| Skill | OC01-S01 | Skill in extracting TTPs from an intrusion narrative and mapping them to ATT&CK | Lab 1 |
+| Skill | OC01-S02 | Skill in visualising and prioritising coverage with ATT&CK Navigator | Lab 2 |
+| Ability | OC01-A01 | Ability to prioritise defensive effort against the TTPs most relevant to an organisation | Lab 2; Topic 6 |
+| Ability | OC01-A02 | Ability to identify gaps between current visibility and adversary behaviour | Topic 6; Summative |
+| Task | T0569 | Apply cyber threat frameworks (e.g. MITRE ATT&CK) to characterise adversary behaviour | Lab 1 |
+| Task | T0707 | Analyse threat information to identify adversary tactics, techniques, and procedures | Lab 2 |
+
 ---
 
 ## Topics
