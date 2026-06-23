@@ -24,6 +24,9 @@ _Last updated: 2026-06-21_
 
 > ✅ **All 66 units authored to Draft** — both degrees fully drafted. Next phase:
 > practitioner review → Practitioner Approved → Framework Verified → Published.
+> Phase 4 is now scaffolded — see the [review hub](docs/review/index.md), the
+> live [review dashboard](docs/review/dashboard.md), and the
+> [framework verification tracker](docs/review/framework-verification.md).
 >
 > ✅ **NICE/DCWF KSAT coverage: 66/66 units** — 655 Knowledge/Skill/Ability/Task
 > items enumerated and tied to evidence. See [`docs/ksat-coverage.md`](docs/ksat-coverage.md).
