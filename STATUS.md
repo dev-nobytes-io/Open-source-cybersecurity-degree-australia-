@@ -32,7 +32,9 @@ _Last updated: 2026-06-21_
 > ✅ **Program Builder** — an interactive page: search and tick courses (grouped
 > by degree / year / major) and the NICE/DCWF work-role bars and KSAT radar
 > charts update live in the browser. See
-> [`docs/program-builder/`](docs/program-builder/index.md).
+> [`docs/program-builder/`](docs/program-builder/index.md). A companion
+> [**Team Builder**](docs/program-builder/team.md) overlays several members'
+> radars to check team coverage (overlap shown as opacity, gaps flagged).
 
 ---
 

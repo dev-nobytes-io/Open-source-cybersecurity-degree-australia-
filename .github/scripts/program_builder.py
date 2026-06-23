@@ -33,7 +33,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 APP_JS = Path(__file__).resolve().parent / "program_builder_app.js"
+TEAM_APP_JS = Path(__file__).resolve().parent / "program_builder_team_app.js"
 OUT = ROOT / "docs/program-builder/index.md"
+TEAM_OUT = ROOT / "docs/program-builder/team.md"
 
 UNIT_FILE_RE = re.compile(r"^(F|OC|SC|TH|DF|CT|DE|CE|SE|LD|GR|CAP)\d{2}-.*\.md$")
 TYPE_LETTER = {"knowledge": "K", "skill": "S", "ability": "A", "task": "T"}
@@ -290,6 +292,58 @@ CONTAINER = """<div class="pb-app" markdown="0">
 </div>"""
 
 
+TEAM_STYLE = """<style>
+.pb-team .pb-members{display:flex;flex-direction:column;gap:.25rem;margin:.3rem 0 .6rem;}
+.pb-member{display:flex;align-items:center;gap:.4rem;padding:.2rem .4rem;border:1px solid #e3e6ea;border-radius:6px;font-size:.8rem;}
+.pb-member.pb-active{border-color:#7e57c2;background:rgba(126,87,194,.08);}
+.pb-mdot{width:.7em;height:.7em;border-radius:50%;background:#7e57c2;flex:0 0 auto;}
+.pb-mname-btn{flex:1 1 auto;text-align:left;background:none;border:none;cursor:pointer;font-size:.8rem;color:inherit;padding:0;}
+.pb-mdel{background:none;border:none;color:#b0bec5;cursor:pointer;font-size:.85rem;}
+.pb-mdel:hover{color:#e53935;}
+.pb-team .pb-mname{width:100%;padding:.35rem .5rem;margin:.1rem 0 .5rem;border:1px solid #cfd4da;border-radius:6px;font-size:.82rem;}
+.pb-cov{border-collapse:collapse;width:100%;font-size:.78rem;margin-top:.3rem;}
+.pb-cov th,.pb-cov td{border:1px solid #e3e6ea;padding:.25rem .45rem;text-align:left;}
+.pb-cov tr.pb-gap td{background:rgba(229,57,53,.12);}
+[data-md-color-scheme=slate] .pb-member{border-color:#37474f;}
+[data-md-color-scheme=slate] .pb-cov th,[data-md-color-scheme=slate] .pb-cov td{border-color:#37474f;}
+</style>"""
+
+TEAM_CONTAINER = """<div class="pb-app pb-team" id="pb-team" markdown="0">
+<div class="pb-topbar">
+<input id="pb-team-name" class="pb-name" type="text" placeholder="Name this team (e.g. Incident Response squad)…" aria-label="Team name">
+<div class="pb-actions">
+<button id="pb-team-save" class="pb-act pb-ghost" type="button">Save team</button>
+<button id="pb-team-load" class="pb-act pb-ghost" type="button">Load team</button>
+<button id="pb-team-print" class="pb-act" type="button">Print report</button>
+<input id="pb-team-file" type="file" accept="application/json,.json" hidden>
+</div>
+</div>
+<div class="pb-grid">
+<div class="pb-controls">
+<div class="pb-actions" style="margin-bottom:.4rem">
+<button id="pb-add" class="pb-act pb-ghost" type="button">+ Add member</button>
+<button id="pb-loadmember" class="pb-act pb-ghost" type="button">Load member(s)…</button>
+<input id="pb-memberfile" type="file" accept="application/json,.json" multiple hidden>
+</div>
+<div id="pb-members" class="pb-members"></div>
+<input id="pb-mname" class="pb-mname" type="text" placeholder="Selected member's name…" aria-label="Member name">
+<div class="pb-help">Edit the selected member below; presets fill the selected member.</div>
+<input id="pb-search" type="search" placeholder="Search courses by code or title…" aria-label="Search courses">
+<div id="pb-presets" class="pb-presets"></div>
+<div id="pb-tree" class="pb-tree"></div>
+</div>
+<div class="pb-output">
+<div id="pb-summary" class="pb-summary"></div>
+<h3>Team coverage overlay</h3>
+<p class="pb-help">Each member is a translucent layer in the same colour, so where many coincide (the shared core) the fill is deep and opaque, and where only a specialist reaches out it stays faint. The dashed line is the team's total reach; each axis is labelled with how many members cover it (<span style="color:#e53935">red ·0 = gap</span>).</p>
+<div id="pb-radars" class="pb-radars"></div>
+<h3>Operational capability coverage</h3>
+<div id="pb-coverage"></div>
+</div>
+</div>
+</div>"""
+
+
 def main() -> int:
     units = parse_units()
     nice_present = [c for c in NICE_ORDER if any(
@@ -322,6 +376,9 @@ def main() -> int:
         "- **Save / Load** a selection as JSON, or **Print** a full program report "
         "(courses, coverage, and every KSAT).",
         "",
+        "Building a team? The **[Team Builder](team.md)** overlays several members' "
+        "radars to check coverage — load the JSON you save here as team members.",
+        "",
         "Courses are grouped by **degree → year → major**; each group has a "
         "select-all checkbox. The full text index lives at "
         "[`../ksat-coverage.md`](../ksat-coverage.md).",
@@ -345,6 +402,39 @@ def main() -> int:
     OUT.write_text(page, encoding="utf-8")
     print(f"Wrote {OUT.relative_to(ROOT)} — {len(units)} units embedded "
           f"({len(data_json)} bytes data, {len(app_js)} bytes app).")
+
+    # --- Team overlay page ---
+    team_js = TEAM_APP_JS.read_text(encoding="utf-8")
+    team_intro = [
+        "# Team Builder — coverage overlay",
+        "",
+        "**Assemble a team and overlay their capability radars to check coverage.** "
+        "Add members and build each one's program below, or **Load member(s)** from "
+        "the JSON you saved in the [Program Builder](index.md). Then read the "
+        "overlay: it answers *does this team, together, cover what we need — and "
+        "where are we thin or doubled-up?*",
+        "",
+        "- Each member is drawn as a translucent layer, so **overlap shows as "
+        "opacity** — the shared core goes deep and opaque (everyone has it), while "
+        "lone specialist areas stay faint. A genuinely diverse team fills more of "
+        "the web, more evenly.",
+        "- Every axis is annotated with **how many members cover it**; a red `·0` "
+        "marks a gap, and the capability table flags gaps, solo cover, and "
+        "redundancy.",
+        "- **Save / Load / Print** the whole team (the member format is the same "
+        "JSON the Program Builder saves).",
+        "",
+        "!!! note \"Viewing this on the published docs site\"",
+        "    The live overlay runs in your browser — use the published documentation "
+        "site (GitHub Pages); GitHub's raw file view will not run the JavaScript.",
+        "",
+    ]
+    team_page = "\n".join(team_intro) + STYLE + "\n" + TEAM_STYLE + "\n" + TEAM_CONTAINER + "\n"
+    team_page += '<script>window.PROGRAM_DATA=' + data_json + ';</script>\n'
+    team_page += "<script>\n" + team_js + "\n</script>\n"
+    TEAM_OUT.write_text(team_page, encoding="utf-8")
+    print(f"Wrote {TEAM_OUT.relative_to(ROOT)} — team overlay "
+          f"({len(team_js)} bytes app).")
     return 0
 
 

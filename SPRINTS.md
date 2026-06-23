@@ -456,6 +456,26 @@ four KSAT dimensions as an **employability profile** that actually varies.
 > the pre-Sprint-20 "KSAT coverage by domain" radars prompted this further
 > sharpening of the K/S/A/T story.
 
+### Sprint 22 — Team coverage overlay ✅ Complete (2026-06-23)
+
+Goal: extend the builder from one person to a whole **team**, overlaying members'
+radars to check coverage — with overlap shown as opacity.
+
+- [x] New page `docs/program-builder/team.md` + `program_builder_team_app.js`:
+      add members and build each one's program, or **Load member(s)** from the
+      individual Program Builder's saved JSON.
+- [x] **Overlay radars** (all four lenses): each member is a translucent same-colour
+      layer, so **overlap composites to opacity** — the shared core goes deep/opaque
+      (everyone has it) and lone specialist areas stay faint; a dashed union outline
+      shows the team's total reach, and each axis is annotated with how many members
+      cover it (red `·0` = gap).
+- [x] **Operational capability coverage table** flagging gaps / solo / redundant,
+      plus a team summary (members, union catalogue %, capability gaps).
+- [x] **Save / Load / Print** the whole team (`format: program-builder-team`); the
+      member format is the same JSON the Program Builder saves.
+- [x] Seeds an illustrative 3-member team on first view; JS syntax-checked, render
+      path verified under a DOM shim; `mkdocs build --strict` passes.
+
 ---
 
 ## Resource Inputs from Practitioners

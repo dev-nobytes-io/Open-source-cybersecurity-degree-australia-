@@ -94,6 +94,7 @@ nav:
     - Capability Maturity Models: docs/maturity-models.md
     - KSAT Coverage Map: docs/ksat-coverage.md
     - Program Builder: docs/program-builder/index.md
+    - Team Builder: docs/program-builder/team.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
