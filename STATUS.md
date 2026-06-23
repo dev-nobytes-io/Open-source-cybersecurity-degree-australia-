@@ -28,6 +28,11 @@ _Last updated: 2026-06-21_
 > ✅ **NICE/DCWF KSAT coverage: 66/66 units** — 655 Knowledge/Skill/Ability/Task
 > items enumerated and tied to evidence. See [`docs/ksat-coverage.md`](docs/ksat-coverage.md).
 > K/S/A IDs are project-local and provisional pending Framework Custodian mapping.
+>
+> ✅ **Program Builder** — compose a degree/major/course selection and visualise
+> the education gained (work-role completion + KSAT radar charts). See
+> [`docs/program-builder/`](docs/program-builder/index.md) or run
+> `python3 .github/scripts/program_builder.py --help`.
 
 ---
 

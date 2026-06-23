@@ -354,6 +354,29 @@ metrics on the education delivered.
 > Framework Custodian mapping to official NICE/DCWF identifiers (tracked for
 > Phase 4 verification). Coverage map: `docs/ksat-coverage.md`.
 
+### Sprint 18 — Program Builder ✅ Complete (2026-06-23)
+
+Goal: let a student or designer compose a program — from a designed-degree
+preset, one or more majors, or arbitrary individual courses — and see the
+education it delivers as Mermaid visualisations, building on the Sprint 17 KSAT
+data.
+
+- [x] `.github/scripts/program_builder.py` — selection engine (presets,
+      `--degree`, `--major`, `--units`, `--core/--no-core`) over the live KSAT data
+- [x] Horizontal bar chart of **NICE/DCWF work-role completion %** per selection
+- [x] **Four radar ("spider web") charts** — Knowledge, Skills, Abilities, Tasks —
+      Selected vs Catalogue across every degree domain
+- [x] Extra diagrams: KSAT-composition pie + program-structure flowchart
+- [x] Every chart backed by a plain table (survives non-rendering viewers)
+- [x] All four Mermaid types validated (`xychart-beta horizontal`, `radar-beta`,
+      `pie`, `flowchart`)
+- [x] Six example programs generated under `docs/program-builder/` + an index;
+      wired into the MkDocs nav; `mkdocs build --strict` passes
+
+> Mermaid radar requires v11.6+ and xychart v10.3+; the backing tables make the
+> data legible regardless. Regenerate examples with
+> `python3 .github/scripts/program_builder.py --build-docs`.
+
 ---
 
 ## Resource Inputs from Practitioners
