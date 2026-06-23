@@ -89,6 +89,25 @@ systems, aligning designs with Australian standards and risk obligations.
 |---|---|---|---|
 | Security Architecture | Secure Design | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SC02-K01 | Knowledge of the role and layers of security architecture | Topic 1 |
+| Knowledge | SC02-K02 | Knowledge of the SABSA business-driven architecture approach | Topic 2 |
+| Knowledge | SC02-K03 | Knowledge of architectural principles and patterns (defence in depth, least privilege) | Topic 3 |
+| Knowledge | SC02-K04 | Knowledge of Zero Trust (NIST SP 800-207) and secure systems engineering (NIST SP 800-160) | Topic 4; Topic 5 |
+| Skill | SC02-S01 | Skill in deriving security requirements from business goals with SABSA | Lab 1 |
+| Skill | SC02-S02 | Skill in redesigning a network/identity model to Zero Trust principles | Lab 2 |
+| Ability | SC02-A01 | Ability to evaluate a system design against architectural principles | Lab 1; Topic 3 |
+| Ability | SC02-A02 | Ability to assess an architecture for alignment with Australian standards (ISM) | Topic 6; Summative |
+| Task | T0050 | Define and document security architecture and design requirements | Lab 1 |
+| Task | T0473 | Apply secure design and Zero Trust principles to system architecture | Lab 2 |
+
 ---
 
 ## Topics

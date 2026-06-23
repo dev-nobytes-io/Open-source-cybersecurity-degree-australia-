@@ -91,6 +91,25 @@ commercial strategy.
 |---|---|---|---|
 | Cyber Governance | Governance & Compliance | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SC03-K01 | Knowledge of security governance structures and the NIST CSF 2.0 Govern function | Topic 1 |
+| Knowledge | SC03-K02 | Knowledge of the policy hierarchy (policy, standard, procedure, guideline) | Topic 2 |
+| Knowledge | SC03-K03 | Knowledge of the major compliance regimes (ISO 27001, SOC 2, APRA CPS 234, Essential Eight) | Topic 3 |
+| Knowledge | SC03-K04 | Knowledge of compliance as a commercial enabler and the related business case | Topic 5 |
+| Skill | SC03-S01 | Skill in drafting fit-for-purpose security policies and governance artefacts | Lab 1 |
+| Skill | SC03-S02 | Skill in mapping one control set across multiple compliance frameworks | Lab 2 |
+| Ability | SC03-A01 | Ability to rationalise controls so a single control satisfies multiple obligations | Lab 2; Topic 4 |
+| Ability | SC03-A02 | Ability to prepare an organisation for assurance and audit | Topic 6; Summative |
+| Task | T0226 | Develop and maintain security policies, standards, and governance artefacts | Lab 1 |
+| Task | T0177 | Assess compliance posture and map controls to multiple frameworks | Lab 2 |
+
 ---
 
 ## Topics

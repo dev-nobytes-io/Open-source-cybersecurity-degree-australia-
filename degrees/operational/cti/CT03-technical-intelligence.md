@@ -82,6 +82,25 @@ and produce actionable outputs for operational consumers.
 |---|---|---|---|
 | Threat Intelligence | Technical Analysis | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CT03-K01 | Knowledge of indicators of compromise and their value | Topic 1 |
+| Knowledge | CT03-K02 | Knowledge of OSINT enrichment | Topic 2 |
+| Knowledge | CT03-K03 | Knowledge of infrastructure analysis and pivoting | Topic 3 |
+| Knowledge | CT03-K04 | Knowledge of malware-derived intelligence and source reliability | Topic 4; Topic 5 |
+| Skill | CT03-S01 | Skill in enriching IOCs | Lab 1 |
+| Skill | CT03-S02 | Skill in pivoting across adversary infrastructure | Lab 2 |
+| Ability | CT03-A01 | Ability to produce actionable technical intelligence | Topic 6; Summative |
+| Ability | CT03-A02 | Ability to assess the reliability of technical sources | Topic 5; Lab 1 |
+| Task | T0751 | Analyse and enrich technical indicators to produce intelligence | Lab 1 |
+| Task | T0708 | Analyse infrastructure and pivot to related adversary artefacts | Lab 2 |
+
 ---
 
 ## Topics

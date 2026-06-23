@@ -80,6 +80,25 @@ realistic Australian organisations.
 |---|---|---|---|
 | Cyber Governance | Compliance & Assessment | Practitioner–Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | GR03-K01 | Knowledge of the compliance landscape | Topic 1 |
+| Knowledge | GR03-K02 | Knowledge of implementing ISO/IEC 27001:2022 | Topic 2 |
+| Knowledge | GR03-K03 | Knowledge of applying NIST CSF 2.0 | Topic 3 |
+| Knowledge | GR03-K04 | Knowledge of assessing the Essential Eight and control mapping/crosswalks | Topic 4; Topic 5 |
+| Skill | GR03-S01 | Skill in performing an ISO 27001 gap analysis | Lab 1 |
+| Skill | GR03-S02 | Skill in assessing the Essential Eight | Lab 2 |
+| Ability | GR03-A01 | Ability to map one control set across multiple frameworks | Lab 1; Topic 5 |
+| Ability | GR03-A02 | Ability to choose and sequence compliance for an organisation | Topic 6; Summative |
+| Task | T0177 | Assess controls against frameworks and identify gaps | Lab 1 |
+| Task | T0226 | Develop compliance and control requirements | Lab 2 |
+
 ---
 
 ## Topics

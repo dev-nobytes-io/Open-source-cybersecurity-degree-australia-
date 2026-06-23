@@ -87,6 +87,25 @@ Australian organisation, producing a funded, measured, maturity-driven plan.
 |---|---|---|---|
 | Cyber Governance | Program Management | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SC05-K01 | Knowledge of the components of a security program and how it delivers strategy | Topic 1 |
+| Knowledge | SC05-K02 | Knowledge of capability/maturity models (NIST CSF tiers, SOC-CMM) for assessment | Topic 2 |
+| Knowledge | SC05-K03 | Knowledge of budgeting and building a risk-based business case | Topic 4 |
+| Knowledge | SC05-K04 | Knowledge of security metrics and reporting (KPIs/KRIs) | Topic 5 |
+| Skill | SC05-S01 | Skill in conducting a maturity assessment and building a roadmap | Lab 1 |
+| Skill | SC05-S02 | Skill in constructing a budget business case with supporting metrics | Lab 2 |
+| Ability | SC05-A01 | Ability to prioritise and sequence security initiatives under constraints | Lab 1; Topic 3 |
+| Ability | SC05-A02 | Ability to design team structure, roles, and resourcing for a security function | Topic 6; Summative |
+| Task | T0149 | Recommend resource allocations and manage the security program | Lab 1 |
+| Task | T0445 | Develop security strategy, metrics, and reporting | Lab 2 |
+
 ---
 
 ## Topics

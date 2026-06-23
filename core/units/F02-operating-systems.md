@@ -92,6 +92,24 @@ Essential Eight and ACSC ISM host controls.
 |---|---|---|---|
 | Technical Foundations | Systems Administration | Foundational | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F02-K01 | Knowledge of operating-system architecture (kernel, processes, memory, file systems) | Topic 1 |
+| Knowledge | F02-K02 | Knowledge of Linux and Windows administration and the user/group/privilege models | Topic 2; Topic 3; Topic 4 |
+| Knowledge | F02-K03 | Knowledge of host logging/auditing subsystems and persistence locations | Topic 5; Topic 6 |
+| Skill | F02-S01 | Skill in performing administrative tasks across Linux and Windows | Lab 1 |
+| Skill | F02-S02 | Skill in inspecting a host for compromise indicators | Lab 2 |
+| Ability | F02-A01 | Ability to apply baseline host hardening mapped to the Essential Eight | Lab 2; Summative |
+| Ability | F02-A02 | Ability to distinguish benign from suspicious host state | Lab 2; Summative |
+| Task | T0431 | Perform system administration on specialized cyber defense systems | Lab 1 |
+| Task | T0163 | Perform cyber defense trend analysis and reporting using host data | Lab 2 |
+
 ---
 
 ## Topics

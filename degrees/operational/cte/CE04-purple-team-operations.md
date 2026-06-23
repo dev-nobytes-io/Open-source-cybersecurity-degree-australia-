@@ -83,6 +83,25 @@ detection capability against Australian-relevant threats.
 |---|---|---|---|
 | Offensive Cyber | Purple Team Operations | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CE04-K01 | Knowledge of the purple-team model | Topic 1 |
+| Knowledge | CE04-K02 | Knowledge of running a collaborative exercise | Topic 2 |
+| Knowledge | CE04-K03 | Knowledge of detection gap analysis and exercise design | Topic 3; Topic 4 |
+| Knowledge | CE04-K04 | Knowledge of turning gaps into improvements and continuous maturity | Topic 5; Topic 6 |
+| Skill | CE04-S01 | Skill in running a collaborative purple-team exercise | Lab 1 |
+| Skill | CE04-S02 | Skill in performing detection gap analysis | Lab 2 |
+| Ability | CE04-A01 | Ability to design a purple-team exercise that closes gaps | Lab 1; Topic 4 |
+| Ability | CE04-A02 | Ability to drive continuous improvement through purple teaming | Topic 6; Summative |
+| Task | T0259 | Validate and improve detections through collaborative testing | Lab 1 |
+| Task | T0591 | Execute techniques jointly to reveal detection gaps | Lab 2 |
+
 ---
 
 ## Topics

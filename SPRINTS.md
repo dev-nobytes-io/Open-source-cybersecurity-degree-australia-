@@ -313,6 +313,49 @@ SOC-CMM maturity (`docs/maturity-models.md`). Flagged for dual-use review.
 
 ---
 
+## Phase 4 — Infrastructure & Review Scaffolding
+
+These post-authoring sprints harden the project for practitioner review and
+future metrics. They do not author new units.
+
+### Sprint 15 — MkDocs publishing ✅ Complete (2026-06-22)
+
+- [x] All 66 units + new docs added to `mkdocs.yml` explicit nav
+- [x] `.github/prepare_wiki.py` staging into `wiki_src/`; deploy workflow to Pages
+- [x] Verified with `mkdocs build --strict` (exit 0); fixed a broken anchor
+
+### Sprint 16 — Deepen quality automation ✅ Complete (2026-06-22)
+
+- [x] Rewrote `.github/scripts/lint_units.py` with ERROR/WARNING severity split
+- [x] NICE T-code traceability errors; cross-file prerequisite existence + acyclic graph
+- [x] Advisory warnings: Bloom's verb level (one-level tolerance), framework-version
+      consistency, internal-link resolution
+- [x] `contributor-onboarding.md` updated to describe the checks
+
+### Sprint 17 — NICE/DCWF KSAT mapping ✅ Complete (2026-06-23)
+
+Goal: enumerate the **Knowledge, Skills, Abilities, and Tasks** developed in
+*every* unit, each tied to evidence, so coverage maps can be generated for future
+metrics on the education delivered.
+
+- [x] `### NICE/DCWF KSATs` subsection spec added to `docs/content-standards.md`
+- [x] `.github/scripts/ksat_coverage.py` — generates `docs/ksat-coverage.md`
+      (totals, by-layer, by-unit, work-role, full KSAT index)
+- [x] Linter advisory WARNING for a missing/empty KSAT subsection
+- [x] `docs/ksat-coverage.md` added to the MkDocs nav
+- [x] **Foundation tranche** — KSATs authored for F01–F06
+- [x] **Operational Core tranche** — OC01–OC06
+- [x] **Strategic Core tranche** — SC01–SC06
+- [x] **Major tranches** — TH, DF, CT, DE, CE, SE, LD, GR (48 units)
+
+> **655 KSAT items across 66/66 units** (261 Knowledge · 132 Skills ·
+> 132 Abilities · 130 Tasks). Task rows reuse each unit's existing NICE/DCWF
+> T-codes. Knowledge/Skill/Ability IDs are project-local and provisional pending
+> Framework Custodian mapping to official NICE/DCWF identifiers (tracked for
+> Phase 4 verification). Coverage map: `docs/ksat-coverage.md`.
+
+---
+
 ## Resource Inputs from Practitioners
 
 This project is practitioner-led. Where a maintainer has a preferred real-world

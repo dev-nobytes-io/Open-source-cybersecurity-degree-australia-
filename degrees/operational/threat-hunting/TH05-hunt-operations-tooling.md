@@ -87,6 +87,25 @@ realistic environments and demonstrate value through metrics.
 |---|---|---|---|
 | Cyber Defence | Threat Hunting | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | TH05-K01 | Knowledge of the hunt operations model | Topic 1 |
+| Knowledge | TH05-K02 | Knowledge of notebooks for reproducible hunting | Topic 2 |
+| Knowledge | TH05-K03 | Knowledge of fleet collection and VQL at scale | Topic 3 |
+| Knowledge | TH05-K04 | Knowledge of automation, detection hand-off, and hunt metrics | Topic 5; Topic 6 |
+| Skill | TH05-S01 | Skill in building a reproducible hunt notebook in Jupyter | Lab 1 |
+| Skill | TH05-S02 | Skill in running a fleet hunt with Velociraptor VQL | Lab 2 |
+| Ability | TH05-A01 | Ability to operate hunts repeatably across a fleet | Lab 2; Topic 3 |
+| Ability | TH05-A02 | Ability to demonstrate hunt program value through metrics | Topic 6; Summative |
+| Task | T0166 | Perform correlation and analysis across data sets to detect threats | Lab 1 |
+| Task | T0259 | Execute fleet-scale hunts and identify anomalous activity | Lab 2 |
+
 ---
 
 ## Topics

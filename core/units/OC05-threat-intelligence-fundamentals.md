@@ -91,6 +91,25 @@ context.
 |---|---|---|---|
 | Threat Intelligence | Intelligence Production | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | OC05-K01 | Knowledge of the CTI lifecycle and the role of each phase | Topic 1 |
+| Knowledge | OC05-K02 | Knowledge of the Priority Intelligence Requirements (PIR) process | Topic 2 |
+| Knowledge | OC05-K03 | Knowledge of strategic, operational, and tactical intelligence and their consumers | Topic 3 |
+| Knowledge | OC05-K04 | Knowledge of analytic models and structured analytic techniques (Diamond Model, ATT&CK) | Topic 4 |
+| Skill | OC05-S01 | Skill in defining Priority Intelligence Requirements | Lab 1 |
+| Skill | OC05-S02 | Skill in producing finished intelligence with stated source reliability and confidence | Lab 2 |
+| Ability | OC05-A01 | Ability to assess source reliability and analytic confidence | Topic 5; Lab 2 |
+| Ability | OC05-A02 | Ability to feed PIR-driven CTI into the threat-informed defense loop | Topic 6; Summative |
+| Task | T0707 | Analyse and report adversary activity against intelligence requirements | Lab 2 |
+| Task | T0569 | Apply threat frameworks to develop and answer intelligence requirements | Lab 1 |
+
 ---
 
 ## Topics

@@ -84,6 +84,25 @@ organisations, producing notification and compliance-mapping artefacts.
 |---|---|---|---|
 | Cyber Governance | Legal & Regulatory | Practitioner–Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | GR04-K01 | Knowledge of the Privacy Act 1988 and the APPs | Topic 1 |
+| Knowledge | GR04-K02 | Knowledge of the Notifiable Data Breaches scheme | Topic 2 |
+| Knowledge | GR04-K03 | Knowledge of APRA CPS 234 and CPS 230 | Topic 3 |
+| Knowledge | GR04-K04 | Knowledge of the SOCI Act 2018 and Australian regulators/enforcement | Topic 4; Topic 5 |
+| Skill | GR04-S01 | Skill in producing an NDB notification | Lab 1 |
+| Skill | GR04-S02 | Skill in mapping APRA CPS 234 to controls | Lab 2 |
+| Ability | GR04-A01 | Ability to determine which regulatory obligations apply | Lab 2; Topic 6 |
+| Ability | GR04-A02 | Ability to evidence compliance with Australian obligations | Lab 1; Topic 6 |
+| Task | T0863 | Ensure compliance with privacy and breach-notification obligations | Lab 1 |
+| Task | T0098 | Map regulatory requirements to organisational controls | Lab 2 |
+
 ---
 
 ## Topics

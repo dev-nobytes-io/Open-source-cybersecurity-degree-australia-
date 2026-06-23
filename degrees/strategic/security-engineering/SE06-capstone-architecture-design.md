@@ -87,6 +87,25 @@ accountability for an Australian regulated organisation.
 |---|---|---|---|
 | Security Architecture | Architecture Design | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SE06-K01 | Knowledge of scoping an architecture to requirements | Topic 1 |
+| Knowledge | SE06-K02 | Knowledge of architecture artefacts | Topic 2 |
+| Knowledge | SE06-K03 | Knowledge of threat modelling and control selection | Topic 3 |
+| Knowledge | SE06-K04 | Knowledge of Zero Trust, IAM, regulatory mapping, and residual risk | Topic 4; Topic 5 |
+| Skill | SE06-S01 | Skill in producing an architecture and threat model | Lab 1 |
+| Skill | SE06-S02 | Skill in selecting controls and justifying residual risk | Lab 2 |
+| Ability | SE06-A01 | Ability to design a complete, defensible security architecture | Lab 1; Lab 2 |
+| Ability | SE06-A02 | Ability to justify control selection and regulatory alignment | Topic 6; Summative |
+| Task | T0050 | Design and document a complete security architecture | Lab 1 |
+| Task | T0473 | Justify control selection and regulatory alignment | Lab 2 |
+
 ---
 
 ## Topics

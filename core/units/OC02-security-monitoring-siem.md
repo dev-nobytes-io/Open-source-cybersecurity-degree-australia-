@@ -89,6 +89,25 @@ obligations.
 |---|---|---|---|
 | Cyber Defence | Security Monitoring | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | OC02-K01 | Knowledge of SIEM architecture and the collection→parse→normalise→store→detect pipeline | Topic 1 |
+| Knowledge | OC02-K02 | Knowledge of detection engineering and detection-as-code (e.g. Sigma) | Topic 2 |
+| Knowledge | OC02-K03 | Knowledge of behaviour-based detection and how to measure coverage | Topic 3; Topic 5 |
+| Knowledge | OC02-K04 | Knowledge of the SOC operating model — alert pipeline, severity, and escalation | Topic 6 |
+| Skill | OC02-S01 | Skill in authoring SIEM detection rules mapped to ATT&CK techniques | Lab 1 |
+| Skill | OC02-S02 | Skill in triaging alerts and tuning detections to reduce false positives | Lab 2 |
+| Ability | OC02-A01 | Ability to measure and improve detection coverage using threat-informed defense | Lab 2; Topic 5 |
+| Ability | OC02-A02 | Ability to recommend logging or detection changes to close a detection gap | Summative |
+| Task | T0166 | Perform event correlation to gain situational awareness and detect threats | Lab 1 |
+| Task | T0259 | Identify and analyse anomalous network/host activity and tune detections | Lab 2 |
+
 ---
 
 ## Topics

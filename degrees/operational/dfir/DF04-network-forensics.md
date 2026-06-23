@@ -84,6 +84,25 @@ and produce defensible, admissibility-aware findings.
 |---|---|---|---|
 | Incident Management | Digital Forensics | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DF04-K01 | Knowledge of network evidence sources and integrity | Topic 1 |
+| Knowledge | DF04-K02 | Knowledge of session reconstruction | Topic 2 |
+| Knowledge | DF04-K03 | Knowledge of identifying command-and-control | Topic 3 |
+| Knowledge | DF04-K04 | Knowledge of detecting and scoping data exfiltration | Topic 4; Topic 5 |
+| Skill | DF04-S01 | Skill in reconstructing C2 from PCAP | Lab 1 |
+| Skill | DF04-S02 | Skill in analysing DNS exfiltration | Lab 2 |
+| Ability | DF04-A01 | Ability to scope data movement across the network | Lab 2; Topic 5 |
+| Ability | DF04-A02 | Ability to produce network IOCs and defensible findings | Topic 6; Summative |
+| Task | T0432 | Perform network forensic analysis to determine adversary activity | Lab 1 |
+| Task | T0294 | Correlate network data to identify exfiltration and scope | Lab 2 |
+
 ---
 
 ## Topics

@@ -82,6 +82,25 @@ Australian organisations with logging/reporting alignment.
 |---|---|---|---|
 | Security Architecture | Detection & Response Engineering | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SE04-K01 | Knowledge of detection-and-response platform architecture | Topic 1 |
+| Knowledge | SE04-K02 | Knowledge of SIEM architecture | Topic 2 |
+| Knowledge | SE04-K03 | Knowledge of data-pipeline engineering and SOAR automation | Topic 3; Topic 4 |
+| Knowledge | SE04-K04 | Knowledge of XDR and integrated architectures aligned with Australian needs | Topic 5; Topic 6 |
+| Skill | SE04-S01 | Skill in designing a SIEM architecture | Lab 1 |
+| Skill | SE04-S02 | Skill in building a SOAR playbook | Lab 2 |
+| Ability | SE04-A01 | Ability to engineer a scalable detection-and-response platform | Lab 1; Topic 3 |
+| Ability | SE04-A02 | Ability to automate correlation and response | Lab 2; Topic 4 |
+| Task | T0050 | Design detection-and-response platform architecture | Lab 1 |
+| Task | T0166 | Engineer correlation and automated response | Lab 2 |
+
 ---
 
 ## Topics

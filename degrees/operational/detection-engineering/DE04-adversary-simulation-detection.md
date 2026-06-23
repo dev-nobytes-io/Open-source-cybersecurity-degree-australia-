@@ -83,6 +83,25 @@ detections against Australian-relevant behaviours.
 |---|---|---|---|
 | Cyber Defence | Detection Engineering | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DE04-K01 | Knowledge of why detections must be validated | Topic 1 |
+| Knowledge | DE04-K02 | Knowledge of Atomic Red Team | Topic 2 |
+| Knowledge | DE04-K03 | Knowledge of verifying detections fire and building a testing pipeline | Topic 3; Topic 4 |
+| Knowledge | DE04-K04 | Knowledge of gap analysis, root cause, and purple teaming for detection | Topic 5; Topic 6 |
+| Skill | DE04-S01 | Skill in validating detections with Atomic Red Team | Lab 1 |
+| Skill | DE04-S02 | Skill in building a detection-testing pipeline | Lab 2 |
+| Ability | DE04-A01 | Ability to confirm a detection fires against real behaviour | Lab 1; Topic 3 |
+| Ability | DE04-A02 | Ability to diagnose and remediate detection gaps | Lab 2; Topic 5 |
+| Task | T0259 | Validate detections by simulating adversary behaviour | Lab 1 |
+| Task | T0294 | Build pipelines to test and correlate detection coverage | Lab 2 |
+
 ---
 
 ## Topics

@@ -90,6 +90,25 @@ plans for realistic Australian organisations and recommend maturity improvements
 |---|---|---|---|
 | Cyber Defence | Threat Hunting | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | TH01-K01 | Knowledge of what threat hunting is and how it differs from monitoring | Topic 1 |
+| Knowledge | TH01-K02 | Knowledge of the TaHiTI hunting methodology | Topic 2 |
+| Knowledge | TH01-K03 | Knowledge of hunt-hypothesis design and the hunt loop's data requirements | Topic 3; Topic 4 |
+| Knowledge | TH01-K04 | Knowledge of hunt documentation, metrics, and program maturity | Topic 5 |
+| Skill | TH01-S01 | Skill in forming an intelligence-led hunt hypothesis with TaHiTI | Lab 1 |
+| Skill | TH01-S02 | Skill in assessing hunt-program maturity | Lab 2 |
+| Ability | TH01-A01 | Ability to scope a hypothesis-driven hunt to available data | Lab 1; Topic 4 |
+| Ability | TH01-A02 | Ability to close the loop from hunt findings to detections and intelligence | Topic 6; Summative |
+| Task | T0569 | Apply cyber threat frameworks to drive hunting against adversary behaviour | Lab 1 |
+| Task | T0707 | Analyse threat information to plan and prioritise hunts | Lab 2 |
+
 ---
 
 ## Topics

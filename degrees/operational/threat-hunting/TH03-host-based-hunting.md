@@ -87,6 +87,25 @@ convert findings into defensive improvements.
 |---|---|---|---|
 | Cyber Defence | Threat Hunting | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | TH03-K01 | Knowledge of the host as a hunting ground and its key artefacts | Topic 1 |
+| Knowledge | TH03-K02 | Knowledge of hunting execution and living-off-the-land behaviour | Topic 2 |
+| Knowledge | TH03-K03 | Knowledge of persistence mechanisms and how to hunt them | Topic 3 |
+| Knowledge | TH03-K04 | Knowledge of memory forensics and fleet-scale hunting techniques | Topic 4; Topic 5 |
+| Skill | TH03-S01 | Skill in hunting host artefacts and persistence | Lab 1 |
+| Skill | TH03-S02 | Skill in performing a memory hunt with Volatility 3 | Lab 2 |
+| Ability | TH03-A01 | Ability to distinguish benign from malicious host activity at scale | Lab 1; Topic 2 |
+| Ability | TH03-A02 | Ability to convert host findings into detections | Topic 6; Summative |
+| Task | T0259 | Analyse host/endpoint data to identify anomalous and malicious activity | Lab 1 |
+| Task | T0432 | Perform memory analysis to identify injection and hidden artefacts | Lab 2 |
+
 ---
 
 ## Topics

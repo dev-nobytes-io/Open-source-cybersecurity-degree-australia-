@@ -86,6 +86,25 @@ Australian organisation and produce an employer-grade deliverable.
 |---|---|---|---|
 | Threat Intelligence | Intelligence Production | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CT06-K01 | Knowledge of scoping a capstone product around a PIR | Topic 1 |
+| Knowledge | CT06-K02 | Knowledge of collection planning and execution | Topic 2 |
+| Knowledge | CT06-K03 | Knowledge of processing and structured analysis | Topic 3 |
+| Knowledge | CT06-K04 | Knowledge of producing, representing, and disseminating finished intelligence | Topic 4; Topic 5 |
+| Skill | CT06-S01 | Skill in collecting and analysing against a requirement | Lab 1 |
+| Skill | CT06-S02 | Skill in producing and disseminating a finished product | Lab 2 |
+| Ability | CT06-A01 | Ability to answer an intelligence requirement end to end | Lab 1; Lab 2 |
+| Ability | CT06-A02 | Ability to evaluate a product's decision-support value | Topic 6; Summative |
+| Task | T0751 | Produce finished all-source intelligence answering a requirement | Lab 1 |
+| Task | T0710 | Disseminate finished intelligence to consumers | Lab 2 |
+
 ---
 
 ## Topics

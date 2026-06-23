@@ -85,6 +85,25 @@ hybrid-cloud Australian scenarios with regulatory alignment.
 |---|---|---|---|
 | Security Architecture | Architecture Design | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SE02-K01 | Knowledge of applied SABSA | Topic 1 |
+| Knowledge | SE02-K02 | Knowledge of applied Zero Trust architecture | Topic 2 |
+| Knowledge | SE02-K03 | Knowledge of cloud security architecture and reference patterns | Topic 3; Topic 4 |
+| Knowledge | SE02-K04 | Knowledge of architecture in the Australian regulatory context and its maturity | Topic 5; Topic 6 |
+| Skill | SE02-S01 | Skill in producing a SABSA-driven architecture | Lab 1 |
+| Skill | SE02-S02 | Skill in designing Zero Trust for hybrid cloud | Lab 2 |
+| Ability | SE02-A01 | Ability to apply reference patterns to a concrete architecture | Lab 2; Topic 4 |
+| Ability | SE02-A02 | Ability to align an architecture with Australian regulation | Lab 1; Topic 5 |
+| Task | T0050 | Develop and document security architecture | Lab 1 |
+| Task | T0473 | Apply Zero Trust and cloud patterns to architecture | Lab 2 |
+
 ---
 
 ## Topics

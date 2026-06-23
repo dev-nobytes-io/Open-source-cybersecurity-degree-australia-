@@ -179,6 +179,27 @@ def lint_file(path: Path) -> tuple[list[str], list[str]]:
                 f"NICE DCWF 'Demonstrated In' does not reference a lab/activity/assessment: {demonstrated_in!r}"
             )
 
+    # --- NICE/DCWF KSAT coverage (WARNING) ---
+    # Each unit should enumerate the Knowledge/Skills/Abilities/Tasks it develops,
+    # tied to evidence, so coverage maps (docs/ksat-coverage.md) can be generated.
+    ksat_rows = subsection_table_rows(text, "NICE/DCWF KSATs")
+    if not ksat_rows:
+        warnings.append(
+            "missing '### NICE/DCWF KSATs' subsection (needed for the coverage map)"
+        )
+    else:
+        types_seen = set()
+        for row in ksat_rows:
+            if len(row) < 4:
+                continue
+            rtype, rid, statement, demonstrated_in = row[0], row[1], row[2], row[-1]
+            types_seen.add(rtype.strip().lower())
+            if not demonstrated_in or demonstrated_in.strip() in {"—", "-", ""}:
+                warnings.append(f"KSAT {rid!r} has an empty 'Demonstrated In' (not traceable)")
+        for needed in ("knowledge", "skill", "ability", "task"):
+            if needed not in types_seen:
+                warnings.append(f"NICE/DCWF KSATs missing a '{needed.title()}' row")
+
     # --- Framework-version consistency (WARNING) ---
     for label, expect in VERSION_EXPECT.items():
         val = metadata_value(text, f"Framework Version — {label}")

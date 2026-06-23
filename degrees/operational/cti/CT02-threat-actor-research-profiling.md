@@ -83,6 +83,25 @@ producing operationally useful, appropriately-caveated intelligence.
 |---|---|---|---|
 | Threat Intelligence | Threat Analysis | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CT02-K01 | Knowledge of the Diamond Model | Topic 1 |
+| Knowledge | CT02-K02 | Knowledge of ATT&CK actor profiling | Topic 2 |
+| Knowledge | CT02-K03 | Knowledge of campaign and group tracking | Topic 3 |
+| Knowledge | CT02-K04 | Knowledge of attribution methodology as method, not verdict | Topic 4 |
+| Skill | CT02-S01 | Skill in building a Diamond Model of an intrusion | Lab 1 |
+| Skill | CT02-S02 | Skill in producing an ATT&CK actor profile | Lab 2 |
+| Ability | CT02-A01 | Ability to turn an actor profile into a defensive priority | Lab 2; Topic 5 |
+| Ability | CT02-A02 | Ability to reason about attribution confidence | Topic 4; Summative |
+| Task | T0707 | Analyse adversary activity to produce actor/campaign intelligence | Lab 1 |
+| Task | T0751 | Synthesise multi-source reporting into finished actor profiles | Lab 2 |
+
 ---
 
 ## Topics

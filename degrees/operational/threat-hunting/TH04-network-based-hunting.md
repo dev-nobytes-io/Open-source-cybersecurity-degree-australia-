@@ -87,6 +87,25 @@ convert findings into network detections.
 |---|---|---|---|
 | Cyber Defence | Threat Hunting | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | TH04-K01 | Knowledge of network telemetry sources for hunting | Topic 1 |
+| Knowledge | TH04-K02 | Knowledge of command-and-control beaconing behaviour | Topic 2 |
+| Knowledge | TH04-K03 | Knowledge of DNS, TLS, and HTTP metadata hunting | Topic 3; Topic 4 |
+| Knowledge | TH04-K04 | Knowledge of statistical and frequency techniques for network hunting | Topic 5 |
+| Skill | TH04-S01 | Skill in hunting beaconing in Zeek/PCAP | Lab 1 |
+| Skill | TH04-S02 | Skill in hunting DNS tunnelling and exfiltration | Lab 2 |
+| Ability | TH04-A01 | Ability to surface low-and-slow C2 from network metadata | Lab 1; Topic 5 |
+| Ability | TH04-A02 | Ability to convert network findings into detections | Topic 6; Summative |
+| Task | T0023 | Characterize and analyze network traffic to identify anomalous activity | Lab 1 |
+| Task | T0294 | Conduct correlation across data sets to detect exfiltration | Lab 2 |
+
 ---
 
 ## Topics

@@ -92,6 +92,25 @@ strengthen ongoing defence.
 |---|---|---|---|
 | Incident Management | Incident Response | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | OC04-K01 | Knowledge of the IR lifecycle (NIST SP 800-61 / PICERL) and preparation | Topic 1 |
+| Knowledge | OC04-K02 | Knowledge of containment, eradication, and recovery options | Topic 3 |
+| Knowledge | OC04-K03 | Knowledge of evidence handling and chain of custody | Topic 4 |
+| Knowledge | OC04-K04 | Knowledge of Australian legal/regulatory obligations triggered by an incident | Topic 5 |
+| Skill | OC04-S01 | Skill in coordinating incident handling through a tabletop exercise | Lab 1 |
+| Skill | OC04-S02 | Skill in scoping an incident and building a timeline with chain of custody | Lab 2 |
+| Ability | OC04-A01 | Ability to select containment/eradication/recovery actions appropriate to an incident | Lab 1; Topic 3 |
+| Ability | OC04-A02 | Ability to derive improvements from a blameless post-incident review | Topic 6; Summative |
+| Task | T0041 | Coordinate and perform incident handling across the response lifecycle | Lab 1 |
+| Task | T0278 | Collect and preserve evidence and establish an incident timeline | Lab 2 |
+
 ---
 
 ## Topics

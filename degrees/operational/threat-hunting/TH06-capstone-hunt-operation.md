@@ -91,6 +91,25 @@ accountability, producing employer-grade deliverables in an Australian context.
 |---|---|---|---|
 | Cyber Defence | Threat Hunting | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | TH06-K01 | Knowledge of how to scope a full hunt operation and success criteria | Topic 1 |
+| Knowledge | TH06-K02 | Knowledge of intelligence-driven hypothesis design (TaHiTI) | Topic 2 |
+| Knowledge | TH06-K03 | Knowledge of building an ATT&CK-mapped hunt plan | Topic 3 |
+| Knowledge | TH06-K04 | Knowledge of analysis, verdict, reporting, and operationalising findings | Topic 5; Topic 6 |
+| Skill | TH06-S01 | Skill in designing and planning an end-to-end hunt | Lab 1 |
+| Skill | TH06-S02 | Skill in executing, reporting, and handing off detections | Lab 2 |
+| Ability | TH06-A01 | Ability to conduct a complete hunt across host and network | Lab 2; Topic 4 |
+| Ability | TH06-A02 | Ability to self-evaluate and improve hunt practice | Topic 6; Summative |
+| Task | T0569 | Apply threat frameworks to design and conduct a full hunt operation | Lab 1 |
+| Task | T0259 | Execute host/network hunts and report findings with detections | Lab 2 |
+
 ---
 
 ## Topics

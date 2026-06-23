@@ -88,6 +88,25 @@ lawful, scoped, and ethical in the Australian context.
 |---|---|---|---|
 | Offensive Cyber | Authorised Testing & Ethics | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CE01-K01 | Knowledge of how emulation, pentest, and attack differ | Topic 1 |
+| Knowledge | CE01-K02 | Knowledge of Australian computer-crime law | Topic 2 |
+| Knowledge | CE01-K03 | Knowledge of authorisation, rules of engagement, and scope discipline | Topic 3; Topic 4 |
+| Knowledge | CE01-K04 | Knowledge of responsible disclosure, professional ethics, and TIBER-AU | Topic 5; Topic 6 |
+| Skill | CE01-S01 | Skill in drafting rules of engagement | Lab 1 |
+| Skill | CE01-S02 | Skill in performing a scope and legal review | Lab 2 |
+| Ability | CE01-A01 | Ability to determine when offensive activity is lawfully authorised | Lab 2; Topic 3 |
+| Ability | CE01-A02 | Ability to apply professional ethics to offensive work | Topic 5; Summative |
+| Task | T0098 | Develop and review agreements ensuring legal/regulatory compliance for testing | Lab 1 |
+| Task | T0028 | Conduct authorised assessment within a defined, lawful scope | Lab 2 |
+
 ---
 
 ## Topics

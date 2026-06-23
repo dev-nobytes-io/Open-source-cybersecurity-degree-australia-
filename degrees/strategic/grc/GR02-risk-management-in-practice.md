@@ -83,6 +83,25 @@ organisations, producing decision-useful artefacts.
 |---|---|---|---|
 | Cyber Governance | Risk Management | Practitioner–Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | GR02-K01 | Knowledge of risk management as a practice | Topic 1 |
+| Knowledge | GR02-K02 | Knowledge of the risk register | Topic 2 |
+| Knowledge | GR02-K03 | Knowledge of bow-tie analysis | Topic 3 |
+| Knowledge | GR02-K04 | Knowledge of risk appetite, treatment, ISO 27005, and NIST RMF | Topic 4; Topic 6 |
+| Skill | GR02-S01 | Skill in building a risk register and bow-tie | Lab 1 |
+| Skill | GR02-S02 | Skill in setting appetite and selecting treatment | Lab 2 |
+| Ability | GR02-A01 | Ability to operate a risk register in practice | Lab 1; Topic 2 |
+| Ability | GR02-A02 | Ability to align treatment with appetite and resources | Lab 2; Topic 4 |
+| Task | T0177 | Perform risk assessment and maintain a risk register | Lab 1 |
+| Task | T0149 | Recommend treatment and resource allocation for risk | Lab 2 |
+
 ---
 
 ## Topics

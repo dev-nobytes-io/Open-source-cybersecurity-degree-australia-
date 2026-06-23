@@ -88,6 +88,25 @@ governance for Australian organisations with professional accountability.
 |---|---|---|---|
 | Cyber Governance | Security Leadership | Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | LD01-K01 | Knowledge of what a CISO actually does | Topic 1 |
+| Knowledge | LD01-K02 | Knowledge of mandate, authority, and reporting lines | Topic 2 |
+| Knowledge | LD01-K03 | Knowledge of security as a program and risk function | Topic 3 |
+| Knowledge | LD01-K04 | Knowledge of board engagement and the Australian regulatory frame for the CISO | Topic 4; Topic 5 |
+| Skill | LD01-S01 | Skill in analysing reporting structures | Lab 1 |
+| Skill | LD01-S02 | Skill in defining a CISO mandate | Lab 2 |
+| Ability | LD01-A01 | Ability to position the CISO function for effectiveness | Lab 2; Topic 6 |
+| Ability | LD01-A02 | Ability to align the role with governance expectations | Lab 1; Topic 4 |
+| Task | T0001 | Establish and lead an organisation's cyber program and risk posture | Lab 2 |
+| Task | T0147 | Define security governance, roles, and accountability | Lab 1 |
+
 ---
 
 ## Topics

@@ -84,6 +84,25 @@ capability aligned to Australian monitoring expectations.
 |---|---|---|---|
 | Cyber Defence | Detection Engineering | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DE05-K01 | Knowledge of alert quality metrics | Topic 1 |
+| Knowledge | DE05-K02 | Knowledge of systematic tuning | Topic 2 |
+| Knowledge | DE05-K03 | Knowledge of the detection lifecycle and detection-as-code operations | Topic 3; Topic 4 |
+| Knowledge | DE05-K04 | Knowledge of coverage management and sustaining the capability | Topic 5; Topic 6 |
+| Skill | DE05-S01 | Skill in tuning alerts to improve quality | Lab 1 |
+| Skill | DE05-S02 | Skill in operating the detection lifecycle with metrics | Lab 2 |
+| Ability | DE05-A01 | Ability to manage alert quality at an operational scale | Lab 1; Topic 2 |
+| Ability | DE05-A02 | Ability to prioritise coverage and sustain a detection program | Lab 2; Topic 5 |
+| Task | T0259 | Tune detections and manage alert quality | Lab 1 |
+| Task | T0163 | Perform trend analysis and manage the detection lifecycle | Lab 2 |
+
 ---
 
 ## Topics

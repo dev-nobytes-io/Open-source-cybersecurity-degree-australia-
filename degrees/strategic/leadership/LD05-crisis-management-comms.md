@@ -83,6 +83,24 @@ breach scenarios under legal and time constraints.
 |---|---|---|---|
 | Incident Management | Crisis Leadership & Communication | Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | LD05-K01 | Knowledge of crisis leadership | Topic 1 |
+| Knowledge | LD05-K02 | Knowledge of Australian notification obligations | Topic 2 |
+| Knowledge | LD05-K03 | Knowledge of ASX and market disclosure | Topic 3 |
+| Knowledge | LD05-K04 | Knowledge of crisis communications, media/reputation, and legal hold | Topic 4; Topic 6 |
+| Skill | LD05-S01 | Skill in producing a breach notification set | Lab 1 |
+| Skill | LD05-S02 | Skill in running a crisis-communications tabletop | Lab 2 |
+| Ability | LD05-A01 | Ability to lead an organisation through a cyber crisis | Lab 2; Topic 1 |
+| Ability | LD05-A02 | Ability to coordinate notification and disclosure obligations | Lab 1; Topic 2 |
+| Task | T0151 | Lead crisis response and coordinate stakeholder communication and disclosure | Lab 1; Lab 2 |
+
 ---
 
 ## Topics

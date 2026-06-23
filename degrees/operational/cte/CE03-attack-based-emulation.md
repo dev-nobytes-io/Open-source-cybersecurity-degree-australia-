@@ -86,6 +86,25 @@ Australian-relevant actors and drive defensive improvement.
 |---|---|---|---|
 | Offensive Cyber | Adversary Emulation | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CE03-K01 | Knowledge of what adversary emulation is | Topic 1 |
+| Knowledge | CE03-K02 | Knowledge of CTID methodology and the Adversary Emulation Library | Topic 2 |
+| Knowledge | CE03-K03 | Knowledge of building and adapting an emulation plan | Topic 3 |
+| Knowledge | CE03-K04 | Knowledge of executing emulation and evaluating fidelity and detection | Topic 4; Topic 5 |
+| Skill | CE03-S01 | Skill in adapting a CTID emulation plan | Lab 1 |
+| Skill | CE03-S02 | Skill in executing and evaluating detection from emulation | Lab 2 |
+| Ability | CE03-A01 | Ability to run an authorised, isolated emulation faithfully | Lab 2; Topic 4 |
+| Ability | CE03-A02 | Ability to translate emulation outcomes into defensive improvement | Topic 6; Summative |
+| Task | T0591 | Develop and execute adversary emulation plans to test defences | Lab 1 |
+| Task | T0259 | Analyse detection outcomes from emulated adversary behaviour | Lab 2 |
+
 ---
 
 ## Topics

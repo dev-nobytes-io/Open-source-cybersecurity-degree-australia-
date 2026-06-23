@@ -86,6 +86,25 @@ isolated framework to improve defensive visibility.
 |---|---|---|---|
 | Offensive Cyber | Red Team Operations | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CE02-K01 | Knowledge of how a red team operation is structured | Topic 1 |
+| Knowledge | CE02-K02 | Knowledge of command-and-control concepts | Topic 2 |
+| Knowledge | CE02-K03 | Knowledge of tradecraft, ATT&CK mapping, and operational security | Topic 3; Topic 4 |
+| Knowledge | CE02-K04 | Knowledge of Active Directory and lateral-movement concepts | Topic 5 |
+| Skill | CE02-S01 | Skill in operating a C2 workflow in an isolated lab | Lab 1 |
+| Skill | CE02-S02 | Skill in analysing OPSEC and infrastructure fingerprints | Lab 2 |
+| Ability | CE02-A01 | Ability to plan an authorised red team operation | Lab 1; Topic 6 |
+| Ability | CE02-A02 | Ability to reason about the detectable artefacts of operations | Lab 2; Topic 4 |
+| Task | T0591 | Conduct authorised adversary operations to test defences | Lab 1 |
+| Task | T0259 | Analyse the detectable artefacts of adversary operations | Lab 2 |
+
 ---
 
 ## Topics

@@ -85,6 +85,25 @@ real detections against Australian monitoring expectations.
 |---|---|---|---|
 | Cyber Defence | Detection Engineering | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DE01-K01 | Knowledge of why detection engineering exists | Topic 1 |
+| Knowledge | DE01-K02 | Knowledge of the Pyramid of Pain and detection durability | Topic 2 |
+| Knowledge | DE01-K03 | Knowledge of what makes a good detection and detection-as-code | Topic 3; Topic 4 |
+| Knowledge | DE01-K04 | Knowledge of ATT&CK coverage and the NIST CSF 2.0 Detect function | Topic 5; Topic 6 |
+| Skill | DE01-S01 | Skill in mapping detections to the Pyramid of Pain | Lab 1 |
+| Skill | DE01-S02 | Skill in reviewing detection quality | Lab 2 |
+| Ability | DE01-A01 | Ability to judge a detection's durability and value | Lab 2; Topic 3 |
+| Ability | DE01-A02 | Ability to relate detection coverage to ATT&CK and the CSF | Topic 5; Summative |
+| Task | T0569 | Apply threat frameworks to design and evaluate detections | Lab 1 |
+| Task | T0259 | Evaluate detection logic for quality and coverage | Lab 2 |
+
 ---
 
 ## Topics

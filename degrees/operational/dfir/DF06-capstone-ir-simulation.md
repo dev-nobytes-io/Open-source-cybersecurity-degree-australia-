@@ -86,6 +86,25 @@ accountability under Australian legal obligations.
 |---|---|---|---|
 | Incident Management | Incident Response & Digital Forensics | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DF06-K01 | Knowledge of scoping and readiness for an IR simulation | Topic 1 |
+| Knowledge | DF06-K02 | Knowledge of detection, triage, and evidence collection | Topic 2 |
+| Knowledge | DF06-K03 | Knowledge of multi-source forensic analysis | Topic 3 |
+| Knowledge | DF06-K04 | Knowledge of PICERL execution, notification, and reporting | Topic 4; Topic 5 |
+| Skill | DF06-S01 | Skill in moving from detection to forensics on a live incident | Lab 1 |
+| Skill | DF06-S02 | Skill in producing reporting and notifications | Lab 2 |
+| Ability | DF06-A01 | Ability to run a full-lifecycle incident response | Lab 1; Lab 2 |
+| Ability | DF06-A02 | Ability to self-evaluate and improve response practice | Topic 6; Summative |
+| Task | T0041 | Coordinate and perform full-lifecycle incident handling | Lab 1 |
+| Task | T0432 | Perform multi-source forensic analysis and reporting | Lab 2 |
+
 ---
 
 ## Topics

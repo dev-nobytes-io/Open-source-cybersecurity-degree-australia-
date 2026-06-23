@@ -85,6 +85,25 @@ Australian organisation with real regulatory obligations.
 |---|---|---|---|
 | Cyber Governance | GRC Program Design | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | GR06-K01 | Knowledge of scoping a GRC program to an organisation's context | Topic 1 |
+| Knowledge | GR06-K02 | Knowledge of governance design | Topic 2 |
+| Knowledge | GR06-K03 | Knowledge of the risk framework and register | Topic 3 |
+| Knowledge | GR06-K04 | Knowledge of compliance/gap analysis, regulatory mapping, and audit planning | Topic 4; Topic 5 |
+| Skill | GR06-S01 | Skill in designing integrated governance, risk, and compliance | Lab 1 |
+| Skill | GR06-S02 | Skill in building an audit and treatment plan | Lab 2 |
+| Ability | GR06-A01 | Ability to design a complete, integrated GRC program | Lab 1; Lab 2 |
+| Ability | GR06-A02 | Ability to plan assurance and treatment for the program | Topic 6; Summative |
+| Task | T0147 | Design and lead a complete GRC program | Lab 1 |
+| Task | T0177 | Plan assurance and treatment for the program | Lab 2 |
+
 ---
 
 ## Topics
