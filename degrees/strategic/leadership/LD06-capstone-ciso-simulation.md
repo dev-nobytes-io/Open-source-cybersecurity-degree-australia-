@@ -88,6 +88,25 @@ accountability for an Australian regulated organisation.
 |---|---|---|---|
 | Cyber Governance | Security Leadership | Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | LD06-K01 | Knowledge of scenario and current-state assessment | Topic 1 |
+| Knowledge | LD06-K02 | Knowledge of strategy, roadmap, and budget | Topic 2 |
+| Knowledge | LD06-K03 | Knowledge of the risk narrative and board materials | Topic 3 |
+| Knowledge | LD06-K04 | Knowledge of crisis readiness and defending the strategy | Topic 4; Topic 5 |
+| Skill | LD06-S01 | Skill in building a strategy and budget | Lab 1 |
+| Skill | LD06-S02 | Skill in delivering a board presentation | Lab 2 |
+| Ability | LD06-A01 | Ability to act as a CISO across strategy, risk, and crisis | Lab 1; Lab 2 |
+| Ability | LD06-A02 | Ability to reflect on and improve leadership practice | Topic 6; Summative |
+| Task | T0001 | Develop and present an organisation's cyber program and risk posture | Lab 2 |
+| Task | T0149 | Build a risk-prioritised program and investment plan | Lab 1 |
+
 ---
 
 ## Topics

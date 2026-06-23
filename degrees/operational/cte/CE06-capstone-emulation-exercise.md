@@ -88,6 +88,25 @@ within the Australian authorisation regime, to improve defence.
 |---|---|---|---|
 | Offensive Cyber | Adversary Emulation & Purple Teaming | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CE06-K01 | Knowledge of scenario, intelligence, and authorisation for an exercise | Topic 1 |
+| Knowledge | CE06-K02 | Knowledge of emulation plan development | Topic 2 |
+| Knowledge | CE06-K03 | Knowledge of execution with an active blue team | Topic 3 |
+| Knowledge | CE06-K04 | Knowledge of detection evaluation, purple debrief, and reporting | Topic 4; Topic 5 |
+| Skill | CE06-S01 | Skill in planning and executing an isolated emulation operation | Lab 1 |
+| Skill | CE06-S02 | Skill in debriefing, reporting, and improving | Lab 2 |
+| Ability | CE06-A01 | Ability to run a full authorised emulation end to end | Lab 1; Lab 2 |
+| Ability | CE06-A02 | Ability to deliver measurable defensive improvement and maturity | Topic 6; Summative |
+| Task | T0591 | Plan and execute a full authorised emulation operation | Lab 1 |
+| Task | T0259 | Evaluate detection and deliver improvement from emulation | Lab 2 |
+
 ---
 
 ## Topics

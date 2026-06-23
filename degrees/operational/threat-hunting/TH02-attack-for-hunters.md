@@ -91,6 +91,25 @@ threat profiles, producing prioritised, data-grounded hunt plans.
 |---|---|---|---|
 | Cyber Defence | Threat Hunting | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | TH02-K01 | Knowledge of ATT&CK as an operational instrument for hunting | Topic 1 |
+| Knowledge | TH02-K02 | Knowledge of building actor technique profiles | Topic 2 |
+| Knowledge | TH02-K03 | Knowledge of prioritising techniques and technique-to-data mapping | Topic 3; Topic 4 |
+| Knowledge | TH02-K04 | Knowledge of sequencing hunts with Attack Flow and measuring coverage | Topic 5; Topic 6 |
+| Skill | TH02-S01 | Skill in building an actor technique profile and hunt plan | Lab 1 |
+| Skill | TH02-S02 | Skill in prioritising coverage gaps for hunting | Lab 2 |
+| Ability | TH02-A01 | Ability to translate an actor profile into a prioritised hunt plan | Lab 1; Topic 3 |
+| Ability | TH02-A02 | Ability to communicate technique coverage and gaps | Topic 6; Summative |
+| Task | T0569 | Apply ATT&CK to characterise adversary behaviour and plan hunts | Lab 1 |
+| Task | T0708 | Analyse coverage gaps and prioritise techniques for detection/hunting | Lab 2 |
+
 ---
 
 ## Topics

@@ -84,6 +84,25 @@ to Australian secure-configuration expectations.
 |---|---|---|---|
 | Security Architecture | Secure Design | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SE01-K01 | Knowledge of security-by-design principles | Topic 1 |
+| Knowledge | SE01-K02 | Knowledge of the secure SDLC | Topic 2 |
+| Knowledge | SE01-K03 | Knowledge of threat modelling as a design activity | Topic 3 |
+| Knowledge | SE01-K04 | Knowledge of security requirements and NIST SP 800-160 systems security engineering | Topic 4; Topic 5 |
+| Skill | SE01-S01 | Skill in threat modelling a web application | Lab 1 |
+| Skill | SE01-S02 | Skill in auditing a design against SP 800-160 | Lab 2 |
+| Ability | SE01-A01 | Ability to derive security requirements from a threat model | Lab 1; Topic 4 |
+| Ability | SE01-A02 | Ability to assess a design against secure-engineering principles | Lab 2; Topic 6 |
+| Task | T0050 | Define security requirements and secure design for systems | Lab 1 |
+| Task | T0111 | Assess designs against secure engineering principles | Lab 2 |
+
 ---
 
 ## Topics

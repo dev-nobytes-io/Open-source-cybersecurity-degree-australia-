@@ -84,6 +84,25 @@ collection for realistic Australian organisations.
 |---|---|---|---|
 | Threat Intelligence | Intelligence Production | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CT01-K01 | Knowledge of what intelligence is and its role | Topic 1 |
+| Knowledge | CT01-K02 | Knowledge of Priority Intelligence Requirements | Topic 2 |
+| Knowledge | CT01-K03 | Knowledge of the intelligence cycle and collection management | Topic 3; Topic 4 |
+| Knowledge | CT01-K04 | Knowledge of structured analytic techniques and OPSEC for intelligence | Topic 5; Topic 6 |
+| Skill | CT01-S01 | Skill in writing Priority Intelligence Requirements | Lab 1 |
+| Skill | CT01-S02 | Skill in building an intelligence-cycle collection plan | Lab 2 |
+| Ability | CT01-A01 | Ability to manage collection against requirements | Lab 2; Topic 4 |
+| Ability | CT01-A02 | Ability to apply structured analytic techniques to reduce bias | Topic 5; Summative |
+| Task | T0707 | Develop and answer intelligence requirements through analysis | Lab 1 |
+| Task | T0569 | Apply analytic frameworks and the intelligence cycle | Lab 2 |
+
 ---
 
 ## Topics

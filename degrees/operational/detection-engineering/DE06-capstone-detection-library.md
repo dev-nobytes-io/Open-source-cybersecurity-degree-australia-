@@ -87,6 +87,25 @@ Australian-relevant threat and produce an employer-grade artefact.
 |---|---|---|---|
 | Cyber Defence | Detection Engineering | Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DE06-K01 | Knowledge of scoping a detection library to a threat scenario | Topic 1 |
+| Knowledge | DE06-K02 | Knowledge of data-source mapping for a rule set | Topic 2 |
+| Knowledge | DE06-K03 | Knowledge of authoring, validating, and false-positive analysis | Topic 3; Topic 4 |
+| Knowledge | DE06-K04 | Knowledge of coverage mapping, export, and maintenance | Topic 5; Topic 6 |
+| Skill | DE06-S01 | Skill in building and testing a detection library | Lab 1 |
+| Skill | DE06-S02 | Skill in analysing coverage and exporting deployable content | Lab 2 |
+| Ability | DE06-A01 | Ability to deliver a validated, deployment-ready detection set | Lab 1; Lab 2 |
+| Ability | DE06-A02 | Ability to evaluate and maintain a detection library | Topic 6; Summative |
+| Task | T0259 | Build and test a detection library for a threat scenario | Lab 1 |
+| Task | T0294 | Analyse coverage and produce deployment-ready content | Lab 2 |
+
 ---
 
 ## Topics

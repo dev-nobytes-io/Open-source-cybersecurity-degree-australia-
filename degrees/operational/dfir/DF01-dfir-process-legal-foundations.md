@@ -87,6 +87,25 @@ investigations that meet Australian legal and regulatory requirements.
 |---|---|---|---|
 | Incident Management | Digital Forensics | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DF01-K01 | Knowledge of the DFIR lifecycle | Topic 1 |
+| Knowledge | DF01-K02 | Knowledge of chain of custody and evidence integrity | Topic 2 |
+| Knowledge | DF01-K03 | Knowledge of order of volatility and acquisition strategy | Topic 3 |
+| Knowledge | DF01-K04 | Knowledge of the Evidence Act 1995, admissibility, and privacy/notification obligations | Topic 4; Topic 5 |
+| Skill | DF01-S01 | Skill in building a chain-of-custody and evidence plan | Lab 1 |
+| Skill | DF01-S02 | Skill in mapping an incident to PICERL with legal obligations | Lab 2 |
+| Ability | DF01-A01 | Ability to acquire evidence in a forensically sound, defensible manner | Lab 1; Topic 3 |
+| Ability | DF01-A02 | Ability to determine the legal obligations an incident triggers | Lab 2; Topic 6 |
+| Task | T0432 | Plan and perform evidence collection preserving integrity for legal use | Lab 1 |
+| Task | T0103 | Apply legal and policy requirements to a cyber investigation | Lab 2 |
+
 ---
 
 ## Topics

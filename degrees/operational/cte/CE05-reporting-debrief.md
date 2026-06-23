@@ -83,6 +83,25 @@ the Australian regulated-sector context.
 |---|---|---|---|
 | Offensive Cyber | Reporting & Communication | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CE05-K01 | Knowledge of reporting for technical and executive audiences | Topic 1 |
+| Knowledge | CE05-K02 | Knowledge of the technical findings report | Topic 2 |
+| Knowledge | CE05-K03 | Knowledge of the executive summary and TIBER-AU reporting | Topic 3; Topic 4 |
+| Knowledge | CE05-K04 | Knowledge of the purple-team debrief and improvement planning | Topic 5; Topic 6 |
+| Skill | CE05-S01 | Skill in producing a technical and executive report | Lab 1 |
+| Skill | CE05-S02 | Skill in producing a TIBER-AU-style report | Lab 2 |
+| Ability | CE05-A01 | Ability to translate findings into a prioritised improvement plan | Lab 2; Topic 6 |
+| Ability | CE05-A02 | Ability to tailor reporting to its audience | Lab 1; Topic 1 |
+| Task | T0445 | Produce reporting that communicates results and drives improvement | Lab 1 |
+| Task | T0259 | Translate findings into prioritised detection improvements | Lab 2 |
+
 ---
 
 ## Topics

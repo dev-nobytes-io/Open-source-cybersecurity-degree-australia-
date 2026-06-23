@@ -84,6 +84,25 @@ produce defensible, admissibility-aware findings.
 |---|---|---|---|
 | Incident Management | Digital Forensics | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DF02-K01 | Knowledge of forensic imaging and verification | Topic 1 |
+| Knowledge | DF02-K02 | Knowledge of the Windows file system and MFT | Topic 2 |
+| Knowledge | DF02-K03 | Knowledge of Windows execution and persistence artefacts | Topic 3 |
+| Knowledge | DF02-K04 | Knowledge of Linux host artefacts and forensic timelines | Topic 4; Topic 5 |
+| Skill | DF02-S01 | Skill in imaging and analysing Windows artefacts | Lab 1 |
+| Skill | DF02-S02 | Skill in constructing a forensic timeline with Plaso | Lab 2 |
+| Ability | DF02-A01 | Ability to reconstruct host activity from artefacts | Lab 2; Topic 5 |
+| Ability | DF02-A02 | Ability to produce defensible forensic findings | Topic 6; Summative |
+| Task | T0432 | Perform forensic analysis of digital media to determine activity | Lab 1 |
+| Task | T0396 | Construct forensic timelines to reconstruct events | Lab 2 |
+
 ---
 
 ## Topics

@@ -85,6 +85,25 @@ and communicate implications to decision-makers.
 |---|---|---|---|
 | Threat Intelligence | Strategic Analysis | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CT04-K01 | Knowledge of what strategic intelligence is | Topic 1 |
+| Knowledge | CT04-K02 | Knowledge of geopolitics and the threat landscape | Topic 2 |
+| Knowledge | CT04-K03 | Knowledge of sector threat analysis and Australia's strategic context | Topic 3; Topic 4 |
+| Knowledge | CT04-K04 | Knowledge of forecasting and estimative analysis | Topic 5 |
+| Skill | CT04-S01 | Skill in producing a sector threat assessment | Lab 1 |
+| Skill | CT04-S02 | Skill in delivering a strategic briefing for a CISO | Lab 2 |
+| Ability | CT04-A01 | Ability to forecast threat trends for decision-makers | Lab 1; Topic 5 |
+| Ability | CT04-A02 | Ability to brief executives at the strategic level | Lab 2; Topic 6 |
+| Task | T0751 | Synthesise reporting into strategic assessments for decision-makers | Lab 1 |
+| Task | T0710 | Produce intelligence briefings for leadership audiences | Lab 2 |
+
 ---
 
 ## Topics

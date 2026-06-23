@@ -82,6 +82,25 @@ security teams in the Australian market.
 |---|---|---|---|
 | Cyber Governance | Workforce Leadership | Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | LD04-K01 | Knowledge of designing the security function | Topic 1 |
+| Knowledge | LD04-K02 | Knowledge of roles, competencies, and workforce frameworks | Topic 2 |
+| Knowledge | LD04-K03 | Knowledge of resourcing options (build, buy, or MSSP) | Topic 3 |
+| Knowledge | LD04-K04 | Knowledge of culture, leadership, career pathways, and the Australian talent market | Topic 4; Topic 6 |
+| Skill | LD04-S01 | Skill in designing a team structure | Lab 1 |
+| Skill | LD04-S02 | Skill in building a retention strategy | Lab 2 |
+| Ability | LD04-A01 | Ability to resource a security function under constraints | Lab 1; Topic 3 |
+| Ability | LD04-A02 | Ability to develop competencies and career pathways | Lab 2; Topic 5 |
+| Task | T0152 | Plan and manage the security workforce and resourcing | Lab 1 |
+| Task | T0145 | Develop workforce competencies and career pathways | Lab 2 |
+
 ---
 
 ## Topics

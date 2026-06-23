@@ -81,6 +81,25 @@ organisations and government systems.
 |---|---|---|---|
 | Cyber Governance | Audit & Assurance | Practitioner–Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | GR05-K01 | Knowledge of the role of audit and assurance | Topic 1 |
+| Knowledge | GR05-K02 | Knowledge of audit planning | Topic 2 |
+| Knowledge | GR05-K03 | Knowledge of control testing and evidence | Topic 3 |
+| Knowledge | GR05-K04 | Knowledge of findings/reporting, IRAP, and assurance standards (ASAE 3402) | Topic 4; Topic 6 |
+| Skill | GR05-S01 | Skill in producing an ISO 27001 audit plan | Lab 1 |
+| Skill | GR05-S02 | Skill in performing an IRAP-style assessment | Lab 2 |
+| Ability | GR05-A01 | Ability to test controls and evaluate evidence | Lab 2; Topic 3 |
+| Ability | GR05-A02 | Ability to report findings credibly to stakeholders | Lab 1; Topic 4 |
+| Task | T0177 | Plan and perform control assessment and audit | Lab 1 |
+| Task | T0178 | Test controls and evaluate evidence | Lab 2 |
+
 ---
 
 ## Topics

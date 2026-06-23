@@ -79,6 +79,25 @@ produce tested, deployable detection logic.
 |---|---|---|---|
 | Cyber Defence | Detection Engineering | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DE03-K01 | Knowledge of the Sigma rule standard | Topic 1 |
+| Knowledge | DE03-K02 | Knowledge of translating behaviour into detection logic | Topic 2 |
+| Knowledge | DE03-K03 | Knowledge of rule conversion (Sigma to SPL/KQL) and YARA | Topic 3; Topic 4 |
+| Knowledge | DE03-K04 | Knowledge of testing, false-positive analysis, and evasion-resistant rules | Topic 5; Topic 6 |
+| Skill | DE03-S01 | Skill in writing Sigma rules | Lab 1 |
+| Skill | DE03-S02 | Skill in converting and testing detections across platforms | Lab 2 |
+| Ability | DE03-A01 | Ability to author behaviour-based, evasion-resistant detections | Lab 1; Topic 6 |
+| Ability | DE03-A02 | Ability to validate detections and manage false positives | Lab 2; Topic 5 |
+| Task | T0259 | Develop and test detection logic for adversary techniques | Lab 1 |
+| Task | T0294 | Convert and validate detections across platforms | Lab 2 |
+
 ---
 
 ## Topics

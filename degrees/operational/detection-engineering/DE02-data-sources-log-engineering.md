@@ -83,6 +83,25 @@ aligned to Australian logging obligations.
 |---|---|---|---|
 | Cyber Defence | Detection Engineering | Practitioner | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DE02-K01 | Knowledge of log sources and telemetry for detection | Topic 1 |
+| Knowledge | DE02-K02 | Knowledge of technique-to-data-source mapping | Topic 2 |
+| Knowledge | DE02-K03 | Knowledge of coverage auditing and gap analysis | Topic 3 |
+| Knowledge | DE02-K04 | Knowledge of data modelling, normalisation, and Australian logging obligations | Topic 4; Topic 6 |
+| Skill | DE02-S01 | Skill in auditing log-source coverage | Lab 1 |
+| Skill | DE02-S02 | Skill in normalising logs to a data model | Lab 2 |
+| Ability | DE02-A01 | Ability to identify and prioritise data-source gaps | Lab 1; Topic 3 |
+| Ability | DE02-A02 | Ability to engineer logging within real-world constraints | Topic 5; Summative |
+| Task | T0259 | Audit log sources and identify coverage gaps for detection | Lab 1 |
+| Task | T0166 | Normalise and model data to support correlation and detection | Lab 2 |
+
 ---
 
 ## Topics

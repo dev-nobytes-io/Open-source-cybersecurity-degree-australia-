@@ -82,6 +82,25 @@ organisations with regulatory alignment.
 |---|---|---|---|
 | Security Architecture | Identity & Access | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SE03-K01 | Knowledge of identity as the perimeter | Topic 1 |
+| Knowledge | SE03-K02 | Knowledge of IAM architecture and lifecycle | Topic 2 |
+| Knowledge | SE03-K03 | Knowledge of privileged access management | Topic 3 |
+| Knowledge | SE03-K04 | Knowledge of federation, SSO, authentication, and MFA | Topic 4; Topic 5 |
+| Skill | SE03-S01 | Skill in designing IAM and PAM | Lab 1 |
+| Skill | SE03-S02 | Skill in configuring federation with OIDC/SAML | Lab 2 |
+| Ability | SE03-A01 | Ability to design least-privilege access for an enterprise | Lab 1; Topic 3 |
+| Ability | SE03-A02 | Ability to govern IAM for compliance | Topic 6; Summative |
+| Task | T0050 | Design identity and access management architecture | Lab 1 |
+| Task | T0431 | Configure federated identity and authentication | Lab 2 |
+
 ---
 
 ## Topics

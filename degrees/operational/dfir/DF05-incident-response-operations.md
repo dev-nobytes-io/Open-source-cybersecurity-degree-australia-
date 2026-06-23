@@ -88,6 +88,25 @@ incidents, meeting legal obligations and producing professional deliverables.
 |---|---|---|---|
 | Incident Management | Incident Response | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DF05-K01 | Knowledge of executing the PICERL lifecycle | Topic 1 |
+| Knowledge | DF05-K02 | Knowledge of containment, eradication, and recovery decisions | Topic 2 |
+| Knowledge | DF05-K03 | Knowledge of Australian notification obligations | Topic 3 |
+| Knowledge | DF05-K04 | Knowledge of case management, decision logging, and stakeholder communication | Topic 4; Topic 5 |
+| Skill | DF05-S01 | Skill in executing a full PICERL response | Lab 1 |
+| Skill | DF05-S02 | Skill in producing notifications and a post-incident report | Lab 2 |
+| Ability | DF05-A01 | Ability to make and log defensible containment/recovery decisions | Lab 1; Topic 2 |
+| Ability | DF05-A02 | Ability to derive lessons learned from an incident | Topic 6; Summative |
+| Task | T0041 | Coordinate and perform incident handling across the lifecycle | Lab 1 |
+| Task | T0103 | Apply legal/notification requirements during response | Lab 2 |
+
 ---
 
 ## Topics

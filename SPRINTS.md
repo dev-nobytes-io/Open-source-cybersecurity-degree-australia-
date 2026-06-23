@@ -332,7 +332,7 @@ future metrics. They do not author new units.
       consistency, internal-link resolution
 - [x] `contributor-onboarding.md` updated to describe the checks
 
-### Sprint 17 — NICE/DCWF KSAT mapping 🚧 In progress
+### Sprint 17 — NICE/DCWF KSAT mapping ✅ Complete (2026-06-23)
 
 Goal: enumerate the **Knowledge, Skills, Abilities, and Tasks** developed in
 *every* unit, each tied to evidence, so coverage maps can be generated for future
@@ -343,14 +343,16 @@ metrics on the education delivered.
       (totals, by-layer, by-unit, work-role, full KSAT index)
 - [x] Linter advisory WARNING for a missing/empty KSAT subsection
 - [x] `docs/ksat-coverage.md` added to the MkDocs nav
-- [x] **Foundation tranche** — KSATs authored for F01–F06 (project-local
-      provisional IDs; Task rows reuse each unit's T-codes)
-- [ ] Operational Core tranche (OC01–OC06)
-- [ ] Strategic Core tranche (SC01–SC06)
-- [ ] Major tranches (TH, DF, CT, DE, CE, SE, LD, GR — 48 units)
+- [x] **Foundation tranche** — KSATs authored for F01–F06
+- [x] **Operational Core tranche** — OC01–OC06
+- [x] **Strategic Core tranche** — SC01–SC06
+- [x] **Major tranches** — TH, DF, CT, DE, CE, SE, LD, GR (48 units)
 
-> KSAT IDs are project-local and provisional pending Framework Custodian mapping
-> to official NICE/DCWF identifiers (tracked for Phase 4 verification).
+> **655 KSAT items across 66/66 units** (261 Knowledge · 132 Skills ·
+> 132 Abilities · 130 Tasks). Task rows reuse each unit's existing NICE/DCWF
+> T-codes. Knowledge/Skill/Ability IDs are project-local and provisional pending
+> Framework Custodian mapping to official NICE/DCWF identifiers (tracked for
+> Phase 4 verification). Coverage map: `docs/ksat-coverage.md`.
 
 ---
 

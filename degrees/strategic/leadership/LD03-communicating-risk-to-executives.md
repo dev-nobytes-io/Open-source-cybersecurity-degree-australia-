@@ -81,6 +81,24 @@ Australian boards within governance and disclosure expectations.
 |---|---|---|---|
 | Cyber Governance | Risk Communication | Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | LD03-K01 | Knowledge of the board's view of cyber risk | Topic 1 |
+| Knowledge | LD03-K02 | Knowledge of translating technical risk to business risk | Topic 2 |
+| Knowledge | LD03-K03 | Knowledge of risk dashboards and communicating uncertainty | Topic 3; Topic 4 |
+| Knowledge | LD03-K04 | Knowledge of Australian board reporting, disclosure, and influence | Topic 5; Topic 6 |
+| Skill | LD03-S01 | Skill in producing a board risk brief | Lab 1 |
+| Skill | LD03-S02 | Skill in designing a CISO risk dashboard | Lab 2 |
+| Ability | LD03-A01 | Ability to translate technical risk into business decisions | Lab 1; Topic 2 |
+| Ability | LD03-A02 | Ability to communicate uncertainty credibly to a board | Lab 2; Topic 4 |
+| Task | T0151 | Communicate security risk and posture to executives and the board | Lab 1; Lab 2 |
+
 ---
 
 ## Topics

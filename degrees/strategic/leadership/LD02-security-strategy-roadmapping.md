@@ -84,6 +84,25 @@ defensible, risk-driven strategies for Australian organisations.
 |---|---|---|---|
 | Cyber Governance | Strategy & Program Management | Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | LD02-K01 | Knowledge of moving from risk to strategy | Topic 1 |
+| Knowledge | LD02-K02 | Knowledge of maturity assessment | Topic 2 |
+| Knowledge | LD02-K03 | Knowledge of building a roadmap and an investment case | Topic 3; Topic 4 |
+| Knowledge | LD02-K04 | Knowledge of strategy metrics and defending the strategy | Topic 5; Topic 6 |
+| Skill | LD02-S01 | Skill in building a 3-year roadmap | Lab 1 |
+| Skill | LD02-S02 | Skill in constructing an investment case | Lab 2 |
+| Ability | LD02-A01 | Ability to sequence initiatives from a maturity baseline | Lab 1; Topic 2 |
+| Ability | LD02-A02 | Ability to defend a security strategy to leadership | Lab 2; Topic 6 |
+| Task | T0149 | Recommend resource allocations to manage risk through a program | Lab 2 |
+| Task | T0445 | Develop security strategy, roadmap, and metrics | Lab 1 |
+
 ---
 
 ## Topics

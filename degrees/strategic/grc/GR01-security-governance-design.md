@@ -83,6 +83,25 @@ organisations with regulatory alignment.
 |---|---|---|---|
 | Cyber Governance | Governance Design | Practitioner–Advanced | Activity 1, Activity 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | GR01-K01 | Knowledge of what security governance is | Topic 1 |
+| Knowledge | GR01-K02 | Knowledge of the NIST CSF 2.0 Govern function | Topic 2 |
+| Knowledge | GR01-K03 | Knowledge of the policy hierarchy | Topic 3 |
+| Knowledge | GR01-K04 | Knowledge of roles, accountability (RACI), and Australian governance obligations | Topic 4; Topic 5 |
+| Skill | GR01-S01 | Skill in building a policy hierarchy | Lab 1 |
+| Skill | GR01-S02 | Skill in designing a governance RACI | Lab 2 |
+| Ability | GR01-A01 | Ability to design fit-for-purpose governance | Lab 1; Topic 2 |
+| Ability | GR01-A02 | Ability to assign clear accountability for security | Lab 2; Topic 4 |
+| Task | T0226 | Develop security policies, standards, and governance artefacts | Lab 1 |
+| Task | T0147 | Define governance roles and accountability | Lab 2 |
+
 ---
 
 ## Topics

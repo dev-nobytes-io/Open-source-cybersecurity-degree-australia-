@@ -85,6 +85,25 @@ and share intelligence in an Australian community context.
 |---|---|---|---|
 | Threat Intelligence | Intelligence Sharing | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | CT05-K01 | Knowledge of structured intelligence with STIX 2.1 | Topic 1 |
+| Knowledge | CT05-K02 | Knowledge of exchanging intelligence with TAXII 2.1 | Topic 2 |
+| Knowledge | CT05-K03 | Knowledge of CTI platforms (MISP, OpenCTI) and handling/trust models | Topic 3; Topic 4 |
+| Knowledge | CT05-K04 | Knowledge of MITRE CTID for standardisation and enrichment | Topic 5 |
+| Skill | CT05-S01 | Skill in modelling intelligence as STIX 2.1 objects | Lab 1 |
+| Skill | CT05-S02 | Skill in operating a MISP/OpenCTI workflow | Lab 2 |
+| Ability | CT05-A01 | Ability to design an intelligence-sharing approach | Topic 6; Summative |
+| Ability | CT05-A02 | Ability to apply handling and quality controls to shared intelligence | Topic 4; Lab 2 |
+| Task | T0751 | Represent and exchange structured intelligence | Lab 1 |
+| Task | T0708 | Manage and correlate intelligence in a platform | Lab 2 |
+
 ---
 
 ## Topics

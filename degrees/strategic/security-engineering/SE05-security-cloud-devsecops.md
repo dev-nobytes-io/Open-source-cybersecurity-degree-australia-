@@ -82,6 +82,25 @@ aligned to Australian baseline controls.
 |---|---|---|---|
 | Security Architecture | Cloud & DevSecOps | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | SE05-K01 | Knowledge of DevSecOps principles | Topic 1 |
+| Knowledge | SE05-K02 | Knowledge of infrastructure-as-code security | Topic 2 |
+| Knowledge | SE05-K03 | Knowledge of container security and secure CI/CD pipelines | Topic 3; Topic 4 |
+| Knowledge | SE05-K04 | Knowledge of application security testing and Essential Eight alignment | Topic 5; Topic 6 |
+| Skill | SE05-S01 | Skill in auditing IaC for security | Lab 1 |
+| Skill | SE05-S02 | Skill in integrating SAST/DAST into CI/CD | Lab 2 |
+| Ability | SE05-A01 | Ability to secure a cloud delivery pipeline | Lab 2; Topic 4 |
+| Ability | SE05-A02 | Ability to design secure cloud/IaC configuration | Lab 1; Topic 2 |
+| Task | T0111 | Integrate and assess security in the delivery pipeline | Lab 2 |
+| Task | T0050 | Design secure cloud/IaC configuration | Lab 1 |
+
 ---
 
 ## Topics

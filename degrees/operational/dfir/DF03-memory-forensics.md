@@ -85,6 +85,25 @@ produce defensible findings and IOCs.
 |---|---|---|---|
 | Incident Management | Digital Forensics | Practitioner–Advanced | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | DF03-K01 | Knowledge of memory acquisition and integrity | Topic 1 |
+| Knowledge | DF03-K02 | Knowledge of process analysis in memory | Topic 2 |
+| Knowledge | DF03-K03 | Knowledge of detecting code and process injection | Topic 3 |
+| Knowledge | DF03-K04 | Knowledge of recovering credentials and network/handle artefacts from memory | Topic 4; Topic 5 |
+| Skill | DF03-S01 | Skill in analysing processes and injection in memory | Lab 1 |
+| Skill | DF03-S02 | Skill in recovering credentials and network artefacts | Lab 2 |
+| Ability | DF03-A01 | Ability to identify in-memory-only adversary activity | Lab 1; Topic 3 |
+| Ability | DF03-A02 | Ability to derive memory IOCs and defensible findings | Topic 6; Summative |
+| Task | T0432 | Perform memory analysis to determine malicious activity | Lab 1 |
+| Task | T0396 | Recover artefacts and IOCs to support the investigation | Lab 2 |
+
 ---
 
 ## Topics
