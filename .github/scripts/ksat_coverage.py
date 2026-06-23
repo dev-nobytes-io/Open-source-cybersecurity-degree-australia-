@@ -101,6 +101,14 @@ def main() -> int:
     out = []
     out.append("# NICE/DCWF KSAT Coverage Map")
     out.append("")
+    out.append("> 👉 **Want to build your own program and *see* its coverage as live "
+               "charts?** Open the **[Program Builder](program-builder/index.md)** — "
+               "tick any mix of courses and the work-role and KSAT diagrams update in "
+               "your browser (no scripts, no installs). Pick the *All 66 courses* preset "
+               "there to visualise the whole catalogue below.")
+    out.append("")
+    out.append("This page is the full text index of the same data.")
+    out.append("")
     out.append("> **Generated** by `.github/scripts/ksat_coverage.py` from the units'")
     out.append("> `### NICE/DCWF KSATs` tables. Do not edit by hand. KSAT IDs are")
     out.append("> project-local (provisional) pending Framework Custodian mapping to official")
