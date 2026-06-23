@@ -94,6 +94,25 @@ version-control practices appropriate to a professional Australian workplace.
 |---|---|---|---|
 | Technical Foundations | Automation & Scripting | Foundational | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F03-K01 | Knowledge of core programming constructs in Python | Topic 2; Lab 1 |
+| Knowledge | F03-K02 | Knowledge of administrative automation with Bash and PowerShell | Topic 3 |
+| Knowledge | F03-K03 | Knowledge of infrastructure as code (Ansible, Terraform, Docker) | Topic 4; Lab 2 |
+| Knowledge | F03-K04 | Knowledge of safe-coding and secrets-handling practices | Topic 6; Lab 1 |
+| Skill | F03-S01 | Skill in writing Python to parse and enrich security-relevant data | Lab 1 |
+| Skill | F03-S02 | Skill in building a reproducible lab with infrastructure as code | Lab 2 |
+| Ability | F03-A01 | Ability to select an appropriate language/tool for an automation task | Topic 1; Formative |
+| Ability | F03-A02 | Ability to apply safe-coding practices to automation that touches real systems | Topic 6; Summative |
+| Task | T0077 | Develop secure code and scripts to automate and support cyber tasks | Lab 1 |
+| Task | T0431 | Automate system administration tasks across platforms | Lab 2 |
+
 ---
 
 ## Topics

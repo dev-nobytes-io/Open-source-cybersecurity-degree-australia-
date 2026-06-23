@@ -93,6 +93,24 @@ logging expectations and reporting obligations.
 |---|---|---|---|
 | Cyber Defence | Log & Event Analysis | Foundational | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F06-K01 | Knowledge of security-relevant log sources across network, endpoint, and application | Topic 1 |
+| Knowledge | F06-K02 | Knowledge of log formats, normalisation, and the role of synchronised timestamps | Topic 2 |
+| Knowledge | F06-K03 | Knowledge of statistical and frequency techniques for anomaly detection | Topic 4 |
+| Skill | F06-S01 | Skill in searching, filtering, and correlating logs with CLI tools and a SIEM | Lab 1 |
+| Skill | F06-S02 | Skill in reconstructing an event timeline across multiple sources | Lab 2 |
+| Ability | F06-A01 | Ability to surface anomalies using least-frequency-of-occurrence analysis | Lab 1; Summative |
+| Ability | F06-A02 | Ability to relate logging quality to Australian incident-reporting obligations | Topic 6; Summative |
+| Task | T0166 | Perform event correlation using information from multiple sources | Lab 2 |
+| Task | T0259 | Identify and analyse anomalous activity in log and event data | Lab 1 |
+
 ---
 
 ## Topics

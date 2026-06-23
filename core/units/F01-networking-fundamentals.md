@@ -93,6 +93,24 @@ security implications of observed traffic.
 |---|---|---|---|
 | Technical Foundations | Networking | Foundational | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F01-K01 | Knowledge of the TCP/IP and OSI models and how each layer moves data | Topic 1; Topic 3 |
+| Knowledge | F01-K02 | Knowledge of IP addressing, subnetting, and routing | Topic 2; Lab 2 |
+| Knowledge | F01-K03 | Knowledge of common application protocols (DNS, HTTP/S, DHCP, SMTP) and their normal behaviour | Topic 4; Lab 1 |
+| Skill | F01-S01 | Skill in capturing and analysing network traffic with free tools | Lab 1 |
+| Skill | F01-S02 | Skill in enumerating hosts, services, and routes from the command line | Lab 2 |
+| Ability | F01-A01 | Ability to distinguish normal from anomalous traffic on the wire | Lab 1; Summative |
+| Ability | F01-A02 | Ability to relate network segmentation/filtering to ASD Essential Eight controls | Topic 5; Summative |
+| Task | T0023 | Characterize and analyze network traffic to identify anomalous activity | Lab 1 |
+| Task | T0294 | Conduct research, analysis, and correlation across a variety of data sets | Lab 2 |
+
 ---
 
 ## Topics

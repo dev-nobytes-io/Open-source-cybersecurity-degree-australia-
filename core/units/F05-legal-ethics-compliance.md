@@ -91,6 +91,25 @@ an Australian practitioner is expected to handle.
 |---|---|---|---|
 | Cyber Governance | Legal & Regulatory | Foundational | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F05-K01 | Knowledge of Australian computer-crime law (Cybercrime Act 2001) and the authorisation concept | Topic 1; Lab 1 |
+| Knowledge | F05-K02 | Knowledge of the Privacy Act 1988 and the Australian Privacy Principles | Topic 2 |
+| Knowledge | F05-K03 | Knowledge of the Notifiable Data Breaches scheme and SOCI Act obligations | Topic 3; Topic 4 |
+| Knowledge | F05-K04 | Knowledge of Australian regulators (OAIC, ACSC/ASD, AFP, APRA) and their roles | Topic 6 |
+| Skill | F05-S01 | Skill in constructing a rules-of-engagement / authorisation document | Lab 1 |
+| Skill | F05-S02 | Skill in performing an NDB eligible-breach assessment and notification | Lab 2 |
+| Ability | F05-A01 | Ability to determine when an activity requires explicit authorisation | Lab 1; Formative |
+| Ability | F05-A02 | Ability to apply professional ethics where the law is silent or ambiguous | Topic 5; Summative |
+| Task | T0098 | Develop and review policies/agreements ensuring legal and regulatory compliance | Lab 1 |
+| Task | T0863 | Ensure organisational compliance with privacy and data-breach obligations | Lab 2 |
+
 ---
 
 ## Topics

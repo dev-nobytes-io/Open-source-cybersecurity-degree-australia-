@@ -92,6 +92,25 @@ of the Essential Eight and ACSC ISM.
 |---|---|---|---|
 | Technical Foundations | Security Principles | Foundational | Lab 1, Lab 2 |
 
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian mapping
+> to official NICE/DCWF identifiers. Coverage metrics: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F04-K01 | Knowledge of security objectives (CIA, authenticity, non-repudiation, accountability) | Topic 1 |
+| Knowledge | F04-K02 | Knowledge of threat, vulnerability, and risk and how they combine | Topic 2 |
+| Knowledge | F04-K03 | Knowledge of defensive principles (defence in depth, least privilege, zero trust) | Topic 3 |
+| Knowledge | F04-K04 | Knowledge of cryptography, authentication, and access-control fundamentals | Topic 5 |
+| Skill | F04-S01 | Skill in threat modelling a system with STRIDE | Lab 1 |
+| Skill | F04-S02 | Skill in mapping controls to principles and the ASD Essential Eight | Lab 2 |
+| Ability | F04-A01 | Ability to reason about and prioritise security risks and trade-offs | Lab 1; Summative |
+| Ability | F04-A02 | Ability to recommend prioritised, principle-based controls | Lab 2; Summative |
+| Task | T0177 | Perform security reviews and identify gaps in security architecture | Lab 1 |
+| Task | T0149 | Recommend resource allocations to mitigate identified risks | Lab 2 |
+
 ---
 
 ## Topics

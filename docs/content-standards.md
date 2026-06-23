@@ -148,6 +148,44 @@ the column "Demonstrated In" pointing to the specific lab or assessment:
 For detailed framework mapping compliance requirements, see
 `docs/compliance/workforce-frameworks.md`.
 
+### NICE/DCWF KSAT Enumeration
+
+In addition to the work-role/T-code mapping above, every unit must include a
+`### NICE/DCWF KSATs` subsection that enumerates the **Knowledge, Skills,
+Abilities, and Tasks** the unit develops, each tied to evidence. These items
+feed the auto-generated coverage map at `docs/ksat-coverage.md`, which is how we
+measure — and later certify — what a graduate has actually demonstrated.
+
+Rules:
+
+- The subsection sits inside **Framework Mappings**, after the work-role table.
+- Use a four-column table: `Type | ID | Statement | Demonstrated In`.
+- Include at least one row of **each** type (Knowledge, Skill, Ability, Task).
+- **Knowledge/Skill/Ability** IDs are project-local and provisional:
+  `<UNIT>-K01`, `<UNIT>-S01`, `<UNIT>-A01` (e.g. `F01-K01`). They remain
+  provisional until the Framework Custodian maps them to official NICE
+  identifiers.
+- **Task** rows reuse the unit's existing NICE/DCWF T-codes (e.g. `T0023`) so
+  Tasks reconcile with the work-role table above.
+- "Demonstrated In" must point to concrete evidence — a Topic, Lab, Activity, or
+  the Summative assessment — never be empty. The linter warns on empty evidence
+  and on a missing subsection.
+
+```markdown
+### NICE/DCWF KSATs
+
+> Knowledge, Skills, Abilities, and Tasks developed in this unit, each tied to
+> evidence. IDs are project-local (provisional) pending Framework Custodian
+> mapping to official NICE/DCWF identifiers. Coverage: `docs/ksat-coverage.md`.
+
+| Type | ID | Statement | Demonstrated In |
+|---|---|---|---|
+| Knowledge | F01-K01 | Knowledge of the TCP/IP and OSI models | Topic 1; Topic 3 |
+| Skill | F01-S01 | Skill in capturing and analysing network traffic | Lab 1 |
+| Ability | F01-A01 | Ability to distinguish normal from anomalous traffic | Lab 1; Summative |
+| Task | T0023 | Characterize and analyze network traffic to identify anomalous activity | Lab 1 |
+```
+
 ---
 
 ## 5. Lab Design Standards
