@@ -95,6 +95,10 @@ nav:
     - KSAT Coverage Map: docs/ksat-coverage.md
     - Program Builder: docs/program-builder/index.md
     - Team Builder: docs/program-builder/team.md
+    - Review (Phase 4):
+      - Overview: docs/review/index.md
+      - Review Dashboard: docs/review/dashboard.md
+      - Framework Verification: docs/review/framework-verification.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md

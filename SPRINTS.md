@@ -476,6 +476,27 @@ radars to check coverage — with overlap shown as opacity.
 - [x] Seeds an illustrative 3-member team on first view; JS syntax-checked, render
       path verified under a DOM shim; `mkdocs build --strict` passes.
 
+### Sprint 23 — Phase 4 review scaffolding ✅ Complete (2026-06-23)
+
+Goal: stand up the infrastructure to hand the curriculum to practitioners for
+sign-off (the main remaining non-practitioner task).
+
+- [x] **Review hub** `docs/review/index.md` — the lifecycle, roles, how to review
+      a unit/major, and the repo-wide Phase 4 audits in one place.
+- [x] **Generated review dashboard** `.github/scripts/review_dashboard.py` →
+      `docs/review/dashboard.md` — live per-unit status + reviewer assignment from
+      unit metadata, grouped by section/major (currently 66/66 Draft, 0 assigned).
+- [x] **Framework verification tracker** `docs/review/framework-verification.md` —
+      the Framework Custodian's per-unit checks, repo-wide audits (ATT&CK v19, KSAT
+      ID mapping, capability mapping, DF-C2M2), and a per-major progress grid.
+- [x] Wired into the nav; cross-linked from STATUS, TODO (Phase 4 items), and the
+      existing issue templates / `templates/review-checklist.md`.
+- [x] `mkdocs build --strict` passes; all links resolve.
+
+> Built on the existing scaffolding (governance roles, content lifecycle, the
+> `unit-review-request` / `framework-mapping-error` issue templates, and the
+> review checklist) rather than duplicating it.
+
 ---
 
 ## Resource Inputs from Practitioners

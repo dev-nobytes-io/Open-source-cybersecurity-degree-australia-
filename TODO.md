@@ -13,9 +13,10 @@ This is the top-level tracking file for the Open Source Cybersecurity Degree Aus
 - [x] Phase 2 — Operational core units authored (OC01–OC06) _(Draft — pending practitioner review)_
 - [x] Phase 2 — Strategic core units authored (SC01–SC06) _(Draft — pending practitioner review)_
 - [x] Phase 3 — All major unit content written (8 majors × 6 units = 48 unit files) _(Draft — all 8 majors authored; pending practitioner review)_
-- [ ] Phase 4 — Practitioner review of each major completed
-- [ ] Phase 4 — Framework mappings independently verified
+- [ ] Phase 4 — Practitioner review of each major completed _(tracked: [docs/review/dashboard.md](docs/review/dashboard.md))_
+- [ ] Phase 4 — Framework mappings independently verified _(tracked: [docs/review/framework-verification.md](docs/review/framework-verification.md))_
 - [ ] Phase 4 — AQF Level 7 gap analysis completed
+- Phase 4 process, roles, and how to volunteer: [docs/review/index.md](docs/review/index.md)
 - [ ] Phase 5 — TEQSA formal alignment pathway explored
 - [ ] Phase 5 — Industry body endorsement sought
 - [ ] Phase 5 — Employer recognition programme established
