@@ -93,6 +93,14 @@ nav:
     - Framework Alignment: docs/frameworks.md
     - Capability Maturity Models: docs/maturity-models.md
     - KSAT Coverage Map: docs/ksat-coverage.md
+    - Program Builder:
+      - Overview: docs/program-builder/index.md
+      - Operations degree: docs/program-builder/operations-degree.md
+      - Strategy degree: docs/program-builder/strategy-degree.md
+      - Operations + Threat Hunting: docs/program-builder/threat-hunting.md
+      - Operations + Detection Engineering: docs/program-builder/detection-engineering.md
+      - Strategy + Leadership/CISO: docs/program-builder/ciso-leadership.md
+      - Strategy + GRC: docs/program-builder/grc.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
