@@ -1,5 +1,10 @@
 # Degree Structure
 
+> 🧭 **Assemble your own pathway interactively:** the
+> [Program Builder](program-builder/index.md) lets you tick courses (grouped by
+> degree → year → major) and instantly see the NICE/DCWF work-role and KSAT
+> coverage your selection delivers — no scripts required.
+
 ---
 
 ## Architecture Overview

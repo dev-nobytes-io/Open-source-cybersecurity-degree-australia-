@@ -2,6 +2,10 @@
 
 > This document maps every degree component to the industry and education frameworks it addresses. It is the primary reference for demonstrating that this degree produces workforce-ready graduates aligned to recognised standards.
 
+> 📊 For NICE/DCWF coverage specifically: the [KSAT Coverage Map](ksat-coverage.md)
+> is the full text index, and the interactive [Program Builder](program-builder/index.md)
+> visualises work-role completion and KSAT coverage for any course selection you make.
+
 ---
 
 ## Framework Index
