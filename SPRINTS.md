@@ -401,6 +401,36 @@ in real time, with no per-selection tooling or rebuild.
 > default. Refresh the embedded dataset with
 > `python3 .github/scripts/program_builder.py`.
 
+### Sprint 20 — Employability lenses + save / load / print ✅ Complete (2026-06-23)
+
+Goal: the four radars were near-identical (K/S/A/T over the same academic
+domains). Re-base them on *different* category systems that answer **"what can I
+employ this person to do?"**, and add save / load / print.
+
+- [x] Four radars now use four **different** category systems, each a Selected-vs-
+      Catalogue lens:
+      1. **Operational capabilities / use-cases** (Detect, Respond, Hunt,
+         Forensics, Intelligence, Emulate, Architect, Govern/Risk, Lead…) —
+         a curated, project-local capability mapping;
+      2. **NICE/DCWF work categories** (Protect & Defend, Analyze, Investigate,
+         Operate & Maintain, Securely Provision, Oversee & Govern);
+      3. **Cognitive depth (Bloom's)** parsed from each unit's learning-outcome
+         verbs (Remember → Create);
+      4. **Knowledge vs doing** (K/S/A/T mix).
+      Verified the four vectors produce distinct shapes (e.g. Ops degree is
+      Protect-&-Defend/Analyze-heavy; Strategy is Securely-Provision/Oversee-heavy).
+- [x] **Save / Load** the selection as JSON (`{format,version,name,savedAt,selected}`)
+- [x] **Print report** — a standalone, print-formatted report (program name, date,
+      summary, all four lens tables, work-role detail, selected courses, and the
+      **full KSAT listing** for the program)
+- [x] Embedded dataset extended with per-unit Bloom levels, capability tag, and
+      the full KSAT items; `program_builder.py` updated accordingly
+- [x] JS syntax-checked, render path + lens vectors verified under a DOM shim;
+      `mkdocs build --strict` passes
+
+> The capability mapping is curated and project-local (provisional), alongside the
+> KSAT IDs, pending Framework Custodian review.
+
 ---
 
 ## Resource Inputs from Practitioners
