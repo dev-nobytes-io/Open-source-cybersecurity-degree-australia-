@@ -52,11 +52,18 @@ by giving you an ordered, practical path. If anything here conflicts with
   consistency, and internal-link resolution.
 - [ ] Run the full set too (`python3 .github/scripts/lint_units.py`) so the
   prerequisite-graph check runs — the same as CI
+- [ ] If you changed unit content, **regenerate the dashboards** and commit them
+  (CI fails if they're stale): `python3 .github/scripts/ksat_coverage.py`,
+  `python3 .github/scripts/program_builder.py`, `python3 .github/scripts/review_dashboard.py`
+- [ ] Build the docs strictly (as CI does):
+  `python3 .github/prepare_wiki.py && python3 -m mkdocs build --strict`
 - [ ] Update the unit's row in [`STATUS.md`](../STATUS.md) to 🟡 Draft
 
 ## 6. Open the PR and request review
 
-- [ ] Open a pull request; the **Lint Unit Files** check must pass
+- [ ] Open a pull request; the **QA / QC** check must pass (it runs the linter,
+  validates the builder JavaScript, confirms the generated dashboards are up to
+  date, and builds the docs with `--strict`)
 - [ ] Open a **Unit Review Request** issue (or link the PR) and tag a Domain Expert and Practitioner Reviewer
 - [ ] Respond to review feedback; reviewers sign off per `docs/governance.md`
 - [ ] On merge, update `STATUS.md` and `docs/unit-assignments.md` to reflect the new status

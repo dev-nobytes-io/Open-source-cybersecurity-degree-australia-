@@ -1,0 +1,75 @@
+name: QA / QC
+
+# Runs the project's quality checks on pull requests and on pushes to main:
+#   1. unit linter (structure, traceability, prerequisite graph)
+#   2. JavaScript syntax check for the interactive builder apps
+#   3. generated-file freshness (the committed dashboards/coverage/builder pages
+#      must match what the generators produce)
+#   4. strict MkDocs build (catches broken links, nav, and anchors)
+
+on:
+  pull_request:
+    paths:
+      - "core/**"
+      - "degrees/**"
+      - "docs/**"
+      - "mkdocs.yml"
+      - ".github/scripts/**"
+      - ".github/prepare_wiki.py"
+      - ".github/requirements-docs.txt"
+      - ".github/workflows/qa.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+          cache: pip
+          cache-dependency-path: .github/requirements-docs.txt
+
+      - name: Install MkDocs and dependencies
+        run: pip install -r .github/requirements-docs.txt
+
+      - name: Lint units (0 errors required; warnings are advisory)
+        run: python3 .github/scripts/lint_units.py
+
+      - name: Validate interactive builder JavaScript
+        run: |
+          node --check .github/scripts/program_builder_app.js
+          node --check .github/scripts/program_builder_team_app.js
+
+      - name: Generated files are up to date
+        run: |
+          python3 .github/scripts/ksat_coverage.py
+          python3 .github/scripts/program_builder.py
+          python3 .github/scripts/review_dashboard.py
+          files="docs/ksat-coverage.md docs/review/dashboard.md docs/program-builder/index.md docs/program-builder/team.md"
+          if ! git diff --quiet -- $files; then
+            echo "::error::Generated docs are stale — regenerate and commit them:"
+            echo "  python3 .github/scripts/ksat_coverage.py"
+            echo "  python3 .github/scripts/program_builder.py"
+            echo "  python3 .github/scripts/review_dashboard.py"
+            git --no-pager diff --stat -- $files
+            exit 1
+          fi
+
+      - name: Build docs (strict)
+        run: |
+          python3 .github/prepare_wiki.py
+          mkdocs build --strict
