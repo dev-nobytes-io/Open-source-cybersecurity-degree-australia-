@@ -431,6 +431,31 @@ employ this person to do?"**, and add save / load / print.
 > The capability mapping is curated and project-local (provisional), alongside the
 > KSAT IDs, pending Framework Custodian review.
 
+### Sprint 21 — Meaningful capability profile ✅ Complete (2026-06-23)
+
+Goal: the K/S/A/T comparison was still uninformative (every radar a near-regular
+shape, because each unit carries an almost constant K/S/A/T mix). Re-express the
+four KSAT dimensions as an **employability profile** that actually varies.
+
+- [x] New headline radar — **Capability profile**: *Knows · Can do · Unique · Has
+      done* — each dimension binds its KSAT type to the matching Bloom band so the
+      axes carry independent signal:
+      Knows = Knowledge + Remember/Understand; Can do = Skills + Apply;
+      Has done = Tasks + Analyse; **Unique = Abilities + Evaluate/Create**
+      (distinctive higher-order judgement, which tracks program depth).
+- [x] All radars now plot **this program as a fraction of the full catalogue**
+      (catalogue = outer reference ring), so the shape shows relative emphasis and
+      skew rather than just "the catalogue is bigger". E.g. a Foundation-only
+      selection is visibly knowledge-leaning with a thin *Unique* corner; full
+      degrees fill out.
+- [x] Donut and report relabelled with the plain-language meanings
+      (knows / can do / unique / has done); profile added to the print report.
+- [x] Verified the profile differentiates programs; `mkdocs build --strict` passes.
+
+> Note: the published Pages deploy of Sprint 20 succeeded; a stale screenshot of
+> the pre-Sprint-20 "KSAT coverage by domain" radars prompted this further
+> sharpening of the K/S/A/T story.
+
 ---
 
 ## Resource Inputs from Practitioners

@@ -244,6 +244,7 @@ STYLE = """<style>
 .pb-bar-pct{flex:0 0 2.8em;text-align:right;font-variant-numeric:tabular-nums;color:#546e7a;}
 .pb-radars{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;}
 @media(max-width:560px){.pb-radars{grid-template-columns:1fr;}}
+.pb-help{font-size:.78rem;color:#607d8b;margin:.1rem 0 .4rem;}
 .pb-radar-card h4{margin:.4rem 0 0;font-size:.85rem;}
 .pb-radar-card p{margin:.1rem 0 0;font-size:.72rem;color:#78909c;}
 .pb-radar{width:100%;height:auto;color:#455a64;}
@@ -279,7 +280,8 @@ CONTAINER = """<div class="pb-app" markdown="0">
 <h3>NICE/DCWF work-role completion</h3>
 <div id="pb-bars"></div>
 <h3>What can I employ this person to do?</h3>
-<div class="pb-legend-row"><span class="pb-sw" style="background:#9aa7b4"></span>Catalogue (all on offer)<span class="pb-sw" style="background:#7e57c2"></span>Selected program</div>
+<p class="pb-help">Each chart compares <b>this program</b> (filled) against the <b>full catalogue</b> (outer ring), per axis — the shape shows where it is strong or thin. The <b>Capability profile</b> reads the KSATs as employability, each tied to the matching depth of learning: <b>Knows</b> = knowledge &amp; understanding, <b>Can do</b> = skills &amp; application, <b>Unique</b> = abilities, evaluation &amp; creation (distinctive judgement), <b>Has done</b> = tasks &amp; analysis performed.</p>
+<div class="pb-legend-row"><span class="pb-sw" style="background:#9aa7b4"></span>Full catalogue (reference)<span class="pb-sw" style="background:#7e57c2"></span>This program</div>
 <div id="pb-radars" class="pb-radars"></div>
 <h3>Learning composition</h3>
 <div id="pb-donut"></div>

@@ -47,6 +47,7 @@ Courses are grouped by **degree → year → major**; each group has a select-al
 .pb-bar-pct{flex:0 0 2.8em;text-align:right;font-variant-numeric:tabular-nums;color:#546e7a;}
 .pb-radars{display:grid;grid-template-columns:repeat(2,1fr);gap:.4rem;}
 @media(max-width:560px){.pb-radars{grid-template-columns:1fr;}}
+.pb-help{font-size:.78rem;color:#607d8b;margin:.1rem 0 .4rem;}
 .pb-radar-card h4{margin:.4rem 0 0;font-size:.85rem;}
 .pb-radar-card p{margin:.1rem 0 0;font-size:.72rem;color:#78909c;}
 .pb-radar{width:100%;height:auto;color:#455a64;}
@@ -81,7 +82,8 @@ Courses are grouped by **degree → year → major**; each group has a select-al
 <h3>NICE/DCWF work-role completion</h3>
 <div id="pb-bars"></div>
 <h3>What can I employ this person to do?</h3>
-<div class="pb-legend-row"><span class="pb-sw" style="background:#9aa7b4"></span>Catalogue (all on offer)<span class="pb-sw" style="background:#7e57c2"></span>Selected program</div>
+<p class="pb-help">Each chart compares <b>this program</b> (filled) against the <b>full catalogue</b> (outer ring), per axis — the shape shows where it is strong or thin. The <b>Capability profile</b> reads the KSATs as employability, each tied to the matching depth of learning: <b>Knows</b> = knowledge &amp; understanding, <b>Can do</b> = skills &amp; application, <b>Unique</b> = abilities, evaluation &amp; creation (distinctive judgement), <b>Has done</b> = tasks &amp; analysis performed.</p>
+<div class="pb-legend-row"><span class="pb-sw" style="background:#9aa7b4"></span>Full catalogue (reference)<span class="pb-sw" style="background:#7e57c2"></span>This program</div>
 <div id="pb-radars" class="pb-radars"></div>
 <h3>Learning composition</h3>
 <div id="pb-donut"></div>
@@ -126,33 +128,45 @@ Courses are grouped by **degree → year → major**; each group has a select-al
   });
   var catTotal = D.units.reduce(function (s, u) { return s + u.k + u.s + u.a + u.t; }, 0);
 
-  // The four radar lenses (each a different category system).
+  // The four radar lenses (each a different category system). Every radar
+  // compares THIS PROGRAM (filled) against the FULL CATALOGUE (outer ring), as a
+  // per-axis fraction, so the shape shows where the program is strong or thin.
   var LENSES = [
-    { key: "cap", title: "Operational capabilities", desc: "Hands-on use-cases — the jobs they can do", axes: D.capabilityOrder },
+    { key: "profile", title: "Capability profile", desc: "Knows · can do · what's unique · what they've done", axes: ["Knows", "Can do", "Unique", "Has done"] },
+    { key: "cap", title: "Operational capabilities", desc: "The hands-on use-cases they can cover", axes: D.capabilityOrder },
     { key: "nice", title: "NICE/DCWF work categories", desc: "Breadth across the workforce taxonomy", axes: D.niceOrder },
-    { key: "bloom", title: "Cognitive depth (Bloom's)", desc: "Operate → analyse → design & lead", axes: D.bloomLabels },
-    { key: "mix", title: "Knowledge vs doing", desc: "Theory vs hands-on balance", axes: ["Knowledge", "Skills", "Abilities", "Tasks"] }
+    { key: "bloom", title: "Cognitive depth (Bloom's)", desc: "Operate → analyse → design & lead", axes: D.bloomLabels }
   ];
 
   function lensVectors(codes) {
     var capI = {}; D.capabilityOrder.forEach(function (c, i) { capI[c] = i; });
     var niceI = {}; D.niceOrder.forEach(function (c, i) { niceI[c] = i; });
     var v = {
+      profile: [0, 0, 0, 0],   // Knows (K) · Can do (S) · Unique (A + higher-order Bloom) · Has done (T)
       cap: D.capabilityOrder.map(function () { return 0; }),
       nice: D.niceOrder.map(function () { return 0; }),
-      bloom: D.bloomLabels.map(function () { return 0; }),
-      mix: [0, 0, 0, 0]
+      bloom: D.bloomLabels.map(function () { return 0; })
     };
     var list = codes || D.units.map(function (u) { return u.code; });
     list.forEach(function (code) {
       var u = byCode[code]; if (!u) return;
       var tot = u.k + u.s + u.a + u.t;
+      // Capability profile — each employability dimension binds its KSAT type to
+      // the matching cognitive band of the learning outcomes, so the four axes
+      // carry independent signal instead of moving in lockstep:
+      //   Knows    = Knowledge + Remember/Understand (Bloom 1-2)
+      //   Can do   = Skills    + Apply               (Bloom 3)
+      //   Has done = Tasks     + Analyse             (Bloom 4)
+      //   Unique   = Abilities + Evaluate/Create     (Bloom 5-6, distinctive judgement)
+      v.profile[0] += u.k + (u.bloom[0] || 0) + (u.bloom[1] || 0);
+      v.profile[1] += u.s + (u.bloom[2] || 0);
+      v.profile[3] += u.t + (u.bloom[3] || 0);
+      v.profile[2] += u.a + (u.bloom[4] || 0) + (u.bloom[5] || 0);
       if (capI[u.cap] != null) v.cap[capI[u.cap]] += tot;
       var cats = {};
       u.roles.forEach(function (r) { var c = D.niceOf[r[0].split("-")[0]]; if (c) cats[c] = 1; });
       Object.keys(cats).forEach(function (c) { if (niceI[c] != null) v.nice[niceI[c]] += tot; });
       for (var i = 0; i < 6; i++) v.bloom[i] += (u.bloom[i] || 0);
-      v.mix[0] += u.k; v.mix[1] += u.s; v.mix[2] += u.a; v.mix[3] += u.t;
     });
     return v;
   }
@@ -326,18 +340,23 @@ Courses are grouped by **degree → year → major**; each group has a select-al
   function renderRadars(selVec) {
     var host = document.getElementById("pb-radars"); host.innerHTML = "";
     LENSES.forEach(function (L) {
-      var maxv = Math.max.apply(null, catVec[L.key].concat([1]));
+      // Plot each axis as the program's fraction of the catalogue on that axis,
+      // so the catalogue is a full reference polygon and the program's shape
+      // shows its relative emphasis (and any skew) across the categories.
+      var cat = catVec[L.key], sel = selVec[L.key];
+      var frac = cat.map(function (c, i) { return c ? sel[i] / c : 0; });
+      var ref = cat.map(function () { return 1; });
       var card = el("div", { class: "pb-radar-card" });
       card.appendChild(el("h4", {}, [L.title]));
       card.appendChild(el("p", {}, [L.desc]));
-      card.appendChild(radar(L.axes, catVec[L.key], selVec[L.key], maxv, L.title));
+      card.appendChild(radar(L.axes, ref, frac, 1, L.title));
       host.appendChild(card);
     });
   }
   function renderDonut(t) {
     var host = document.getElementById("pb-donut"); host.innerHTML = "";
     var grand = t.k + t.s + t.a + t.t;
-    var parts = [["Knowledge", t.k, "#7e57c2"], ["Skills", t.s, "#26a69a"], ["Abilities", t.a, "#ef6c00"], ["Tasks", t.t, "#1e88e5"]];
+    var parts = [["Knowledge — what they know", t.k, "#7e57c2"], ["Skills — what they can do", t.s, "#26a69a"], ["Abilities — what's unique", t.a, "#ef6c00"], ["Tasks — what they've done", t.t, "#1e88e5"]];
     var svg = sv("svg", { viewBox: "0 0 120 120", class: "pb-donut", role: "img", "aria-label": "Learning composition" });
     var cx = 60, cy = 60, r = 45, circ = 2 * Math.PI * r, off = 0;
     if (grand === 0) { svg.appendChild(sv("circle", { cx: cx, cy: cy, r: r, fill: "none", stroke: "#e0e4e8", "stroke-width": "18" })); }
@@ -402,6 +421,8 @@ Courses are grouped by **degree → year → major**; each group has a select-al
     var courses = ordered.map(function (u) {
       return [u.code, esc(u.title), esc(u.area), (u.k + u.s + u.a + u.t)];
     });
+    var profLabels = ["Knows (knowledge + understanding)", "Can do (skills + application)", "Unique (abilities + evaluate/create)", "Has done (tasks + analysis)"];
+    var profRows = profLabels.map(function (c, i) { return [esc(c), selVec.profile[i] + " / " + catVec.profile[i]]; });
     var capRows = D.capabilityOrder.map(function (c, i) { return [esc(c), selVec.cap[i] + " / " + catVec.cap[i]]; });
     var niceRows = D.niceOrder.map(function (c, i) { return [esc(c), selVec.nice[i] + " / " + catVec.nice[i]]; });
     var bloomRows = D.bloomLabels.map(function (c, i) { return [esc(c), selVec.bloom[i] + " / " + catVec.bloom[i]]; });
@@ -437,6 +458,7 @@ Courses are grouped by **degree → year → major**; each group has a select-al
       "<h2>Work-role completion</h2>" + bars +
       "<h2>Capability lenses — what can I employ this person to do?</h2><div>" + charts + "</div>" +
       "<h2>Learning composition</h2>" + donut +
+      "<h2>Capability profile — knows / can do / unique / has done (Selected / Catalogue)</h2>" + tableHTML(["Dimension", "Score"], profRows) +
       "<h2>Operational capabilities (Selected / Catalogue)</h2>" + tableHTML(["Capability", "KSATs"], capRows) +
       "<h2>NICE/DCWF work categories (Selected / Catalogue)</h2>" + tableHTML(["Category", "KSATs"], niceRows) +
       "<h2>Cognitive depth — Bloom's (Selected / Catalogue)</h2>" + tableHTML(["Level", "Outcomes"], bloomRows) +
