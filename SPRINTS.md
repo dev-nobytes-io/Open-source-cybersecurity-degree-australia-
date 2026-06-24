@@ -497,6 +497,24 @@ sign-off (the main remaining non-practitioner task).
 > `unit-review-request` / `framework-mapping-error` issue templates, and the
 > review checklist) rather than duplicating it.
 
+### Sprint 24 — Consolidate QA/QC into CI ✅ Complete (2026-06-23)
+
+Goal: run the local quality checks as a GitHub check so PRs are gated by them.
+
+- [x] New **`QA / QC`** workflow (`.github/workflows/qa.yml`) on PRs + push to main:
+      (1) unit linter, (2) `node --check` on both interactive builder apps,
+      (3) **generated-file freshness** — regenerates `ksat-coverage.md`,
+      `program-builder/index.md` + `team.md`, and `review/dashboard.md` and fails if
+      the committed copies are stale, and (4) **`mkdocs build --strict`** (catches
+      broken links / nav / anchors — which plain `mkdocs build` in the deploy job
+      does not).
+- [x] Removed `lint-units.yml` (subsumed by the QA workflow's lint step).
+- [x] Updated `docs/contributor-onboarding.md` self-check to match (regenerate
+      dashboards, strict build, the **QA / QC** check name).
+
+> The deploy workflow still uses plain `mkdocs build`; the strict build lives in QA
+> so a broken link fails the PR rather than silently shipping.
+
 ---
 
 ## Resource Inputs from Practitioners
