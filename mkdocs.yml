@@ -99,6 +99,8 @@ nav:
       - Overview: docs/review/index.md
       - Review Dashboard: docs/review/dashboard.md
       - Framework Verification: docs/review/framework-verification.md
+    - Extension Modules:
+      - EXT-ANS — Ansible for Security Operations: docs/modules/ansible-security-automation.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
