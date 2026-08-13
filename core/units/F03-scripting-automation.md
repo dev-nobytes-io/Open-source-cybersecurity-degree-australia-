@@ -183,6 +183,13 @@ surface, and code review of infrastructure is a defensive practice.
 - Terraform resources/state; Ansible playbooks/idempotency; Docker Compose files
 - Configuration drift and why IaC reduces it
 
+> **Going further:** the extension module
+> [EXT-ANS — Ansible for Security Operations & Continuous Compliance](../../docs/modules/ansible-security-automation.md)
+> develops this topic into a full elective course — automated incident response
+> actions, STIG/SCAP-driven continuous compliance, fleet-scale evidence collection,
+> detection-telemetry deployment, and the risk of the automation control plane
+> itself. It is optional and carries no credit points.
+
 ---
 
 ### Topic 5: Domain-Specific Syntaxes — Cisco IOS and Lua

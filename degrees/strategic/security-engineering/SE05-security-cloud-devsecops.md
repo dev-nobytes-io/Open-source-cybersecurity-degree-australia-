@@ -129,6 +129,12 @@ versioned infrastructure (building on F03).
 - Policy-as-code
 - Drift and reviewable infrastructure
 
+> **Going further:** this unit scans IaC for misconfiguration; the extension module
+> [EXT-ANS — Ansible for Security Operations & Continuous Compliance](../../../docs/modules/ansible-security-automation.md)
+> operates the remediation and drift loop behind it — STIG/SCAP continuous
+> compliance, Essential Eight evidence packs, guarded automated response actions,
+> and hardening the automation control plane. Optional; no credit points.
+
 ---
 
 ### Topic 3: Container Security
