@@ -1,4 +1,4 @@
-# SPL-06: Implementation & Consulting Practice — Splunk Core Certified Consultant
+# SPL-08: Implementation & Consulting Practice — Splunk Core Certified Consultant
 
 > **Part of:** [EXT-SPL — The Splunk Series](index.md)
 > **Status:** Draft · **Version:** v0.1 · **Last Reviewed:** 2026-09-09
@@ -59,7 +59,7 @@ substitution.
 `Distributed Search Migration`, `Implementation Fundamentals`, `Architect Implementation 1–3`.
 
 !!! danger "Authorisation is manual, and eligibility may be restricted"
-    Unlike [Architect](spl-05-architect.md), where authorisation arrives automatically,
+    Unlike [Architect](spl-07-architect.md), where authorisation arrives automatically,
     **Consultant authorisation must be requested**. Candidates who are Splunk Enterprise
     Certified Architects and have completed the required coursework **must email
     `splunk_certification@cisco.com`** to request their Core Consultant exam
@@ -90,7 +90,7 @@ employer-sponsored track for people working at Splunk or a Splunk partner.
     the most transferable material in the entire series. It applies to any platform
     engagement, and it is genuinely useful to a graduate who will never touch the exam.
 
-    Treat SPL-06 as the capstone of the series. The exam is optional; the practice is not.
+    Treat SPL-08 as the capstone of the series. The exam is optional; the practice is not.
 
 Every module before this one asked *can you build it?* This one asks *can you build it for
 someone else, on their estate, against their constraints, and leave them able to run it?*
@@ -121,7 +121,7 @@ that depend on the designer are defects.
 
 | Unit / module | Relationship |
 |---|---|
-| [SPL-05](spl-05-architect.md) | **Enforced prerequisite** (via the Architect certification), and the design skills applied here. |
+| [SPL-07](spl-07-architect.md) | **Enforced prerequisite** (via the Architect certification), and the design skills applied here. |
 | [SPL-02](spl-02-power-user.md) | **Enforced prerequisite** (via Power User and Advanced Power User). Base configs are largely knowledge-layer and parsing standardisation. |
 | [SE06 — Capstone: Architecture Design](../../../degrees/strategic/security-engineering/SE06-capstone-architecture-design.md) | **Closest degree analogue.** A defensible design delivered to a stakeholder under constraint. |
 | [SC06 — Stakeholder Communication](../../../core/units/SC06-stakeholder-communication.md) | **Directly relevant.** Requirements elicitation, difficult conversations, and reporting to non-technical audiences. |
@@ -189,16 +189,16 @@ On completion, a learner can:
 
 | Type | ID | Statement | Demonstrated in |
 |---|---|---|---|
-| Knowledge | SPL-06-K01 | Knowledge of base-configuration methodology and standardised parsing settings | Topic 2; Lab 2 |
-| Knowledge | SPL-06-K02 | Knowledge of implementation methodology and staged validation | Topic 3; Lab 3 |
-| Knowledge | SPL-06-K03 | Knowledge of migration patterns and their rollback constraints | Topic 4; Lab 3 |
-| Knowledge | SPL-06-K04 | Knowledge of health-assessment method for an existing deployment | Topic 5; Lab 4 |
-| Skill | SPL-06-S01 | Skill in eliciting and documenting verifiable requirements | Lab 1 |
-| Skill | SPL-06-S02 | Skill in applying and defending a standardised base configuration | Lab 2 |
-| Skill | SPL-06-S03 | Skill in producing operable handover documentation | Lab 5 |
-| Ability | SPL-06-A01 | Ability to tell a client their stated budget cannot buy their stated outcome | Lab 5; Summative |
-| Ability | SPL-06-A02 | Ability to prioritise remediation by risk and cost rather than by ease | Lab 4 |
-| Ability | SPL-06-A03 | Ability to design so the deployment survives the consultant's departure | Lab 5; Summative |
+| Knowledge | SPL-08-K01 | Knowledge of base-configuration methodology and standardised parsing settings | Topic 2; Lab 2 |
+| Knowledge | SPL-08-K02 | Knowledge of implementation methodology and staged validation | Topic 3; Lab 3 |
+| Knowledge | SPL-08-K03 | Knowledge of migration patterns and their rollback constraints | Topic 4; Lab 3 |
+| Knowledge | SPL-08-K04 | Knowledge of health-assessment method for an existing deployment | Topic 5; Lab 4 |
+| Skill | SPL-08-S01 | Skill in eliciting and documenting verifiable requirements | Lab 1 |
+| Skill | SPL-08-S02 | Skill in applying and defending a standardised base configuration | Lab 2 |
+| Skill | SPL-08-S03 | Skill in producing operable handover documentation | Lab 5 |
+| Ability | SPL-08-A01 | Ability to tell a client their stated budget cannot buy their stated outcome | Lab 5; Summative |
+| Ability | SPL-08-A02 | Ability to prioritise remediation by risk and cost rather than by ease | Lab 4 |
+| Ability | SPL-08-A03 | Ability to design so the deployment survives the consultant's departure | Lab 5; Summative |
 
 ---
 
@@ -206,12 +206,13 @@ On completion, a learner can:
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — The engagement | 1 | 1 | 8 |
-| B — Standardisation | 2 | 2 | 12 |
-| C — Implementation and migration | 3–4 | 3 | 14 |
-| D — Assessment and remediation | 5 | 4 | 10 |
-| E — Communication and handover | 6–7 | 5 | 12 |
-| | | | **~56 hours** |
+| A — The engagement and discovery | 1–2 | 1 | 14 |
+| B — Standardisation | 3 | 2 | 14 |
+| C — Implementation and migration | 4–6 | 3, 6 | 22 |
+| D — Assessment and value | 7–9 | 4 | 20 |
+| E — Communication | 10 | 5 | 10 |
+| F — Handover, operating model, practice | 11–13 | 5, 7 | 16 |
+| | | | **~96 hours** |
 
 ---
 
@@ -219,103 +220,153 @@ On completion, a learner can:
 
 ### Topic 1: The Engagement and the Real Requirement
 
-Scoping, statements of work, and the gap between what a client asks for and what they
-need. Common patterns: the compliance-driven deployment where nobody will read the alerts,
-the executive dashboard as the actual deliverable, the "we bought Splunk, now what"
-engagement, and the rescue of a deployment someone else abandoned.
+Scoping, statements of work, and the gap between what a client asks for and what they need.
+Common patterns: the compliance-driven deployment where nobody will read the alerts, the
+executive dashboard as the actual deliverable, the "we bought Splunk, now what" engagement,
+and the rescue of a deployment someone else abandoned.
 
-Turning requirements into something **verifiable**. "Improve our security monitoring" is
-not a requirement; "detect and alert on privileged account creation across all domain
-controllers within five minutes, with evidence retained twelve months" is. The second can
-be tested at handover. The first can be argued about forever, which is how engagements go
-bad.
+Turning requirements into something **verifiable**. "Improve our security monitoring" is not
+a requirement; "detect and alert on privileged account creation across all domain
+controllers within five minutes, with evidence retained twelve months" is. The second can be
+tested at handover. The first can be argued about forever, which is how engagements go bad.
 
-Scope creep, change control, and the observation that the most expensive words in
-consulting are "while we're in there".
+Scope creep, change control, and the observation that the most expensive words in consulting
+are "while we're in there".
 
-### Topic 2: Base Configurations and Standardisation
+### Topic 2: Discovery and Assessment
+
+The structured intake at the start of an engagement: current-state architecture, data
+inventory, licence position, use cases and their owners, existing content, team capability,
+and the organisational constraints nobody writes down.
+
+Interviewing across levels — the SOC analyst, the platform owner, the security manager and
+the executive sponsor will describe different problems, and all four descriptions are data.
+Reconciling them is the consultant's first analytical act.
+
+Producing a current-state assessment the client recognises as accurate. Getting this wrong
+poisons everything downstream, because a client who does not recognise their own environment
+in your assessment will not trust your recommendation.
+
+### Topic 3: Base Configurations and Standardisation
 
 The consultant's core artefact. A standardised, documented, version-controlled set of
-configurations applied consistently: `props.conf` and `transforms.conf` settings for
-correct parsing, index definitions, forwarder outputs, and the deployment apps that carry
-them.
+configurations applied consistently: `props.conf` and `transforms.conf` settings for correct
+parsing, index definitions, forwarder outputs, and the deployment apps that carry them.
 
-Splunk's consultant courseware centres on this and on the props settings practitioners
-call the **"Great 8"** — the parsing settings that, set explicitly, prevent the great
-majority of onboarding defects. The principle generalises well beyond Splunk: **set the
-things that matter explicitly rather than relying on inference**, because inference works
-until the day the data changes shape.
+Splunk's consultant courseware centres on this and on the parsing settings practitioners
+call the **"Great 8"**. The principle generalises well beyond Splunk: **set the things that
+matter explicitly rather than relying on inference**, because inference works until the day
+the data changes shape. The specific settings are the ones from
+[SPL-06](spl-06-enterprise-admin.md) Topic 6 — line breaking, timestamp recognition,
+truncation, charset — applied as a mandatory standard rather than a per-source decision.
 
-Why standardisation wins: it is reviewable, it is transferable between engagements, it
-makes defects diagnosable, and it means the client's estate looks like every other client's
-estate to the next consultant. Deviation is allowed — but it must be justified and
-documented, or it is just drift with a better story.
+Layering: how a base config, a client-specific layer and a source-specific layer compose
+without fighting each other, and how precedence
+([SPL-06](spl-06-enterprise-admin.md) Topic 3) determines whether that layering works.
 
-### Topic 3: Implementation Method
+Why standardisation wins: it is reviewable, transferable between engagements, makes defects
+diagnosable, and means the client's estate looks like every other client's estate to the
+next consultant. Deviation is allowed — but it must be justified and documented, or it is
+just drift with a better story.
+
+### Topic 4: Implementation Method
 
 Sequencing a build: infrastructure, cluster, data onboarding, knowledge layer, content,
 handover. Validation gates between stages, and the discipline of not proceeding past a
 failed gate because the schedule says so.
 
-Onboarding at scale: the standard process from [SPL-04](spl-04-enterprise-admin.md)
-Topic 3 applied to fifty sources with a prioritisation order, driven by which detections
-the client actually needs (which is [SPL-03](spl-03-cyber-defense-analyst.md)'s two-gap
-distinction, used as a planning input rather than an assessment output).
+Onboarding at scale: the standard process from [SPL-06](spl-06-enterprise-admin.md)
+Topic 5–6 applied to fifty sources with a prioritisation order, driven by which detections
+the client actually needs — which is [SPL-03](spl-03-cyber-defense-analyst.md)'s two-gap
+distinction used as a planning input rather than an assessment output.
 
 Working in someone else's change-management process, with someone else's approvals, on
 someone else's production estate.
 
-### Topic 4: Migration
+### Topic 5: Cluster and Distributed Implementation
 
-Version upgrades, single-site to multi-site, self-managed to Splunk Cloud, and
-consolidation of deployments after an acquisition — the last being extremely common and
-extremely messy.
+The implementation-specific content of the consultant track: **indexer cluster
+implementation** and **distributed search migration** as named procedures rather than
+concepts.
+
+Building a cluster to a standard: cluster manager configuration, peer provisioning, RF/SF
+to the design from [SPL-07](spl-07-architect.md), indexer discovery, and validation that
+replication actually works before declaring completion.
+
+Migrating a standalone deployment to distributed, and a distributed deployment to
+clustered, with data intact and a rollback at each stage.
+
+### Topic 6: Migration and Consolidation
+
+Version upgrades, single-site to multi-site, self-managed to Splunk Cloud, and consolidation
+after an acquisition.
 
 Data migration constraints, index compatibility, and knowledge-object portability. The
 recurring problem: the knowledge layer is what makes the data useful, and it is the part
 that migrates worst.
 
 **Rollback planning at each stage**, and identifying the point of no return honestly.
-A migration plan without a stated point of no return has one anyway — it is just undocumented.
 
-### Topic 5: Health Assessment of an Existing Deployment
+### Topic 7: Health Assessment of an Existing Deployment
 
 The engagement type most consultants meet most often: an estate that grew organically for
 five years and now underperforms.
 
 A structured assessment method: configuration hygiene (`btool` at estate scale), index and
-retention correctness, data-onboarding quality and CIM compliance, knowledge-layer debt
-(the audit from [SPL-02](spl-02-power-user.md) Lab 5), search and scheduler performance,
-capacity headroom against the model from [SPL-05](spl-05-architect.md) Topic 6, and
-detection-content health from [SPL-03](spl-03-cyber-defense-analyst.md) Topic 9.
+retention correctness, data-onboarding quality and CIM compliance, knowledge-layer debt (the
+audit from [SPL-02](spl-02-power-user.md) Lab 5), search and scheduler performance, capacity
+headroom against the model from [SPL-07](spl-07-architect.md) Topic 6, detection-content
+health from [SPL-03](spl-03-cyber-defense-analyst.md) Topic 15, and licence position.
 
 Producing a **prioritised, costed roadmap** — ordered by risk and value, not by what is
-easiest to fix or most interesting to the consultant. Distinguishing what must be fixed
-now, what can be deferred, and what should simply be accepted and documented as residual
-risk.
+easiest to fix or most interesting to the consultant. Distinguishing what must be fixed now,
+what can be deferred, and what should simply be accepted and documented as residual risk.
 
-### Topic 6: Communicating the Unwelcome
+### Topic 8: Use-Case Development and Value Realisation
 
-The skill that most distinguishes a senior consultant, and the one vendor courseware
-teaches least.
+The commercial reality behind most engagements: the client bought a platform and cannot
+demonstrate value from it.
+
+Use-case workshops that produce implementable requirements. Mapping use cases to data
+sources to detections to outcomes, and being honest when a desired use case requires
+telemetry the organisation does not collect and will not fund.
+
+Prioritising by value and feasibility rather than by enthusiasm. Measuring and reporting
+realised value in terms the sponsor recognises — which is rarely "number of dashboards".
+
+### Topic 9: Performance and Troubleshooting on a Client Estate
+
+Applying [SPL-07](spl-07-architect.md) Topics 9–10 under consulting conditions: incomplete
+information, limited access, a client team that has already formed a theory, and production
+systems you may not restart.
+
+The diplomatic dimension: the person who built the thing you are diagnosing is usually in
+the room. Diagnosing without assigning blame, because a defensive client team withholds the
+information you need.
+
+### Topic 10: Communicating the Unwelcome
+
+The skill that most distinguishes a senior consultant, and the one vendor courseware teaches
+least.
 
 - Telling a client their deployment is badly built, without making an enemy of the person
-  who built it — who is usually in the room and will implement your recommendations.
+  who built it — who will implement your recommendations.
 - Telling a client their budget cannot buy their outcome, with the options that follow:
   reduce scope, increase budget, or accept the risk explicitly.
 - Presenting to executives: what to include, what to leave out, and the discipline of
   leading with the decision required rather than the analysis performed.
 - Writing a recommendation that survives being forwarded without you attached to it.
+- Managing the client who wants a different answer and keeps asking.
 
 Grounded in [SC06](../../../core/units/SC06-stakeholder-communication.md).
 
-### Topic 7: Handover and Leaving Well
+### Topic 11: Documentation, Handover and Leaving Well
 
 Documentation that is actually operable: runbooks, the base config and its rationale, the
 decision register, known limitations, and the things you would fix with more time.
 
-Knowledge transfer to a team that was not present for the decisions. Sustainable
-operations — a deployment that requires a consultant on retainer to remain healthy is a
+Knowledge transfer to a team that was not present for the decisions. Enablement rather than
+dependency: a deployment that requires a consultant on retainer to remain healthy is a
 failed engagement, even though it is a profitable one.
 
 **The decision register** is the highest-value handover artefact and the one most often
@@ -323,13 +374,34 @@ skipped: not what was built, but *why it was built that way and what was rejecte
 it, the next person to touch the estate will re-litigate every decision from scratch,
 usually badly.
 
+### Topic 12: Operating Model and Managed Services
+
+Designing the client's ongoing operating model: who owns the platform, who owns content, who
+owns detection, and what the RACI looks like when those are three different teams.
+
+Run-books versus tribal knowledge. Capacity for growth. The support model, and the honest
+question of whether the client should be running this themselves at all — which sometimes has
+an uncomfortable commercial answer for the consultant.
+
+### Topic 13: Professional Practice
+
+The parts of consulting that are not technical.
+
+Time and expectation management. Working within a delivery methodology. Ethics: the
+recommendation that is right for the client but reduces your firm's revenue, and what you
+do about it. Conflicts of interest where the consultant's firm resells the product. Knowing
+the limits of your competence and saying so.
+
+Australian professional context, and the fact that this is a small market where reputation
+compounds — see [Australian context](#australian-context).
+
 ---
 
 ## Labs & exercises
 
 !!! note "These labs are mostly not technical"
     Labs 1, 4 and 5 need no Splunk instance at all and are the most valuable in the module.
-    Labs 2 and 3 need a lab deployment — reuse the [SPL-05](spl-05-architect.md) cluster
+    Labs 2 and 3 need a lab deployment — reuse the [SPL-07](spl-07-architect.md) cluster
     inside the same trial window.
 
     Because the certification's own labs are access-restricted, these are written to be
@@ -387,6 +459,33 @@ Two parts, both assessed on communication.
 
 **Deliverable:** the presentation (or a recording), the handover pack, and a reflection on
 what you would say differently. The decision register is weighted most heavily.
+
+---
+
+### Lab 6: Implement a Cluster to a Standard
+
+Build an indexer cluster to a written specification — RF/SF from a stated tolerance,
+indexer discovery, and your Lab 2 base configuration applied throughout.
+
+The deliverable is not "a cluster exists". It is a **validated** cluster: evidence that
+replication occurred, that the base config applied on every peer, and that a peer failure
+behaves as the specification says it should.
+
+**Deliverable:** the build procedure as a repeatable runbook, the validation evidence, and
+the completion criteria you would sign against on a client engagement.
+
+### Lab 7: Design the Operating Model — *no platform required*
+
+For the organisation in Lab 4, design the ongoing operating model: RACI across platform,
+content and detection ownership; the run-book set; the growth plan; and the support model.
+
+Then answer the uncomfortable question honestly: should this client be running this
+themselves, or is a managed service the right recommendation even though it reduces your
+firm's implementation revenue?
+
+**Deliverable:** the operating model, and a written recommendation on the build-versus-manage
+question with the reasoning shown — including the commercial conflict of interest, stated
+plainly.
 
 ---
 
@@ -511,12 +610,12 @@ customer service.
 
 | Field | Value |
 |---|---|
-| Module Code | SPL-06 |
+| Module Code | SPL-08 |
 | Module Title | Implementation & Consulting Practice — Splunk Core Certified Consultant |
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 4–6 (Analyse / Evaluate / Create) |
-| Notional Hours | ~56 |
+| Notional Hours | ~96 |
 | Zero-cost achievable | **No** — four prerequisite certifications, mandatory paid coursework, restricted-access labs, manual authorisation |
 | Credential reachable outside the partner channel? | **Unconfirmed — see [Verification status](#verification-status)** |
 | Facts verified | 2026-09-09 |

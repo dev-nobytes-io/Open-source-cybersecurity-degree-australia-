@@ -1,4 +1,4 @@
-# SPL-04: Platform Administration — Splunk Enterprise Certified Admin
+# SPL-06: Platform Administration — Splunk Enterprise Certified Admin
 
 > **Part of:** [EXT-SPL — The Splunk Series](index.md)
 > **Status:** Draft · **Version:** v0.1 · **Last Reviewed:** 2026-09-09
@@ -29,7 +29,7 @@ a core exam topic — that half of the module requires a trial licence.
 
 !!! info "This rung is the gate to the whole architecture track"
     Enterprise Certified Admin is not optional if a learner wants
-    [Architect](spl-05-architect.md) or [Consultant](spl-06-consultant.md). It is the
+    [Architect](spl-07-architect.md) or [Consultant](spl-08-consultant.md). It is the
     enforced prerequisite for Architect, and Architect is in turn enforced for Consultant.
 
     It is also the **last rung with no mandatory vendor coursework**. Everything above
@@ -80,7 +80,7 @@ absence visible, and they are the topic administrators most often skip.
 | [F02 — Operating Systems & Administration](../../../core/units/F02-operating-systems.md) | **Assumed core unit.** Linux/Windows administration, services, filesystems, permissions. |
 | [F03 — Scripting & Automation](../../../core/units/F03-scripting-automation.md) | Deployment at scale is automated; the deployment server is a configuration-management system with Splunk-specific semantics. Compare [EXT-ANS](../ansible-security-automation.md). |
 | [DE02 — Data Sources & Log Engineering](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | **Assumed core unit.** Onboarding here is DE02's theory made operational. |
-| [SPL-05](spl-05-architect.md) | **Direct successor.** SPL-05 takes every single-instance concept here and distributes it. |
+| [SPL-07](spl-07-architect.md) | **Direct successor.** SPL-07 takes every single-instance concept here and distributes it. |
 
 ---
 
@@ -139,16 +139,16 @@ On completion, a learner can:
 
 | Type | ID | Statement | Demonstrated in |
 |---|---|---|---|
-| Knowledge | SPL-04-K01 | Knowledge of `.conf` layering and precedence resolution | Topic 1; Lab 1 |
-| Knowledge | SPL-04-K02 | Knowledge of index architecture: buckets, lifecycle, retention settings | Topic 2; Lab 1 |
-| Knowledge | SPL-04-K03 | Knowledge of input types and index-time field assignment | Topic 3; Lab 2 |
-| Knowledge | SPL-04-K04 | Knowledge of forwarder topologies and deployment-server semantics | Topic 4; Lab 3 |
-| Knowledge | SPL-04-K05 | Knowledge of the Splunk RBAC model and index-level access control | Topic 5; Lab 4 |
-| Skill | SPL-04-S01 | Skill in diagnosing configuration conflicts with `btool` | Lab 1 |
-| Skill | SPL-04-S02 | Skill in onboarding a source with correct index-time fields | Lab 2 |
-| Skill | SPL-04-S03 | Skill in managing forwarders at scale via deployment server | Lab 3 |
-| Ability | SPL-04-A01 | Ability to design least-privilege index access against a real data-sensitivity map | Lab 4 |
-| Ability | SPL-04-A02 | Ability to detect the *absence* of expected data | Lab 5; Summative |
+| Knowledge | SPL-06-K01 | Knowledge of `.conf` layering and precedence resolution | Topic 1; Lab 1 |
+| Knowledge | SPL-06-K02 | Knowledge of index architecture: buckets, lifecycle, retention settings | Topic 2; Lab 1 |
+| Knowledge | SPL-06-K03 | Knowledge of input types and index-time field assignment | Topic 3; Lab 2 |
+| Knowledge | SPL-06-K04 | Knowledge of forwarder topologies and deployment-server semantics | Topic 4; Lab 3 |
+| Knowledge | SPL-06-K05 | Knowledge of the Splunk RBAC model and index-level access control | Topic 5; Lab 4 |
+| Skill | SPL-06-S01 | Skill in diagnosing configuration conflicts with `btool` | Lab 1 |
+| Skill | SPL-06-S02 | Skill in onboarding a source with correct index-time fields | Lab 2 |
+| Skill | SPL-06-S03 | Skill in managing forwarders at scale via deployment server | Lab 3 |
+| Ability | SPL-06-A01 | Ability to design least-privilege index access against a real data-sensitivity map | Lab 4 |
+| Ability | SPL-06-A02 | Ability to detect the *absence* of expected data | Lab 5; Summative |
 
 ---
 
@@ -156,108 +156,228 @@ On completion, a learner can:
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — Configuration and indexes | 1–2 | 1 | 10 |
-| B — Getting data in | 3–4 | 2, 3 | 14 |
-| C — Access control | 5 | 4 | 8 |
-| D — Operating the platform | 6–8 | 5 | 13 |
-| | | | **~45 hours** |
+| A — Install, CLI and configuration | 1–3 | 1 | 14 |
+| B — Indexes and retention | 4 | 1 | 10 |
+| C — Getting data in | 5–8 | 2, 3, 6 | 24 |
+| D — Access control and licensing | 9–10 | 4 | 12 |
+| E — Platform services | 11–13 | 6 | 12 |
+| F — Operating, monitoring and troubleshooting | 14–16 | 5, 7 | 16 |
+| | | | **~88 hours** |
 
 ---
 
 ## Topics
 
-### Topic 1: Configuration Files and Precedence
+### Topic 1: Installation, Directory Layout and Startup
 
-`$SPLUNK_HOME/etc` layout: `system/default`, `system/local`, app `default` and `local`,
-and user context. The precedence rules, and the fact that **`default` is never edited** —
-a rule learners break once and then never again.
+Installing Splunk Enterprise on Linux and Windows. `$SPLUNK_HOME` layout: `bin`, `etc`,
+`var`, and where each kind of state lives. Running as a non-root user, the boot-start
+mechanism, and file-descriptor and `THP`/`ulimit` requirements that cause obscure
+performance problems when unset.
 
-`btool` as the tool that answers "which setting actually applied?", and the discipline of
-using it before forming a theory. This is the highest-value debugging skill in the
-platform and it is directly load-bearing for [SPL-05](spl-05-architect.md).
+Instance roles and what a single-instance install is collapsing together.
 
-### Topic 2: Indexes, Buckets and Retention
+### Topic 2: The Splunk CLI and REST API
 
-Index architecture: hot, warm, cold, frozen. Bucket lifecycle and what triggers each
-transition. `maxTotalDataSizeMB`, `frozenTimePeriodInSecs`, and the fact that **the smaller
-of size and time wins** — the setting that silently destroys data organisations believed
-they had retained.
+The CLI as the administrator's primary interface: `splunk start|stop|restart|status`,
+`splunk add|edit|remove`, `splunk list`, `splunk search`, `splunk btool`, `splunk cmd`,
+`splunk diag`, `splunk show`, `splunk apply cluster-bundle`, `splunk validate`.
+
+The management port, the REST API (`/services/...`), and `| rest` from the search bar.
+Automating administration through the API rather than the UI, and why every serious
+deployment ends up doing so — the same argument as
+[F03](../../../core/units/F03-scripting-automation.md).
+
+### Topic 3: Configuration Files and Precedence
+
+`$SPLUNK_HOME/etc` layout: `system/default`, `system/local`, app `default` and `local`, and
+user context. The precedence rules, and the fact that **`default` is never edited** — a
+rule learners break once and then never again.
+
+`btool` as the tool that answers "which setting actually applied?"
+(`splunk btool inputs list --debug`), and the discipline of using it before forming a
+theory. This is the highest-value debugging skill in the platform and it is load-bearing
+for [SPL-07](spl-07-architect.md).
+
+**The files an administrator actually lives in:** `inputs.conf`, `outputs.conf`,
+`props.conf`, `transforms.conf`, `indexes.conf`, `server.conf`, `web.conf`,
+`authentication.conf`, `authorize.conf`, `limits.conf`, `savedsearches.conf`,
+`macros.conf`, `deploymentclient.conf`, `serverclass.conf`, `app.conf`, `distsearch.conf`.
+What each governs and where it belongs.
+
+### Topic 4: Indexes, Buckets and Retention
+
+Index architecture: hot, warm, cold, frozen, thawed. Bucket lifecycle and what triggers
+each transition. Bucket naming and what it tells you.
+
+The settings that matter: `homePath`, `coldPath`, `thawedPath`, `maxTotalDataSizeMB`,
+`frozenTimePeriodInSecs`, `maxHotBuckets`, `maxWarmDBCount`, `maxDataSize`,
+`coldToFrozenDir` and `coldToFrozenScript`.
+
+**The smaller of size and time wins** — the setting that silently destroys data an
+organisation believed it had retained. Test this, do not assume it.
 
 Index design as a security decision: separation by data sensitivity is the mechanism by
-which access control in Topic 5 becomes possible, because Splunk's RBAC is index-scoped.
-An estate with one big index cannot enforce least privilege, and that is an architecture
+which access control in Topic 9 becomes possible, because Splunk's RBAC is index-scoped. An
+estate with one big index cannot enforce least privilege, and that is an architecture
 mistake made at onboarding time.
 
-Retention as a legal question — see [Australian context](#australian-context).
+Metrics indexes and when to use them over event indexes.
 
-### Topic 3: Getting Data In
+### Topic 5: Getting Data In — Inputs
 
-Input types: monitor, upload, network (TCP/UDP), scripted, HTTP Event Collector, and
-modular inputs. Choosing among them.
+Input types and their trade-offs:
 
-Parsing: line breaking, timestamp recognition, and event breaking, with the observation
-that most bad onboarding is a timestamp problem. Sourcetype assignment and why renaming a
-sourcetype later is not a fix for the data already indexed.
+- **Monitor** inputs: `monitor://`, whitelist/blacklist, `crcSalt`, `followTail`, and the
+  file-tracking problems that produce duplicate or missing data.
+- **Batch** inputs and destructive read.
+- **Network** inputs: TCP and UDP, and why UDP loses data silently under load.
+- **Scripted** inputs and modular inputs.
+- **HTTP Event Collector (HEC):** tokens, acknowledgement, indexer acknowledgement, and
+  the raw versus event endpoints. HEC is how most modern and cloud-native sources arrive.
+- **Windows-specific:** event logs, performance monitoring, registry and WMI inputs.
+- **Files and directories versus agents:** when a forwarder is required.
 
-**Onboarding checklist discipline:** verify index, sourcetype, host, timestamp and line
-breaking on a sample *before* opening the tap. Ten minutes here saves a re-index later.
+### Topic 6: Parsing — `props.conf` and `transforms.conf`
 
-### Topic 4: Forwarders and the Deployment Server
+The settings that determine whether data is usable, and the ones the consultant track calls
+the parsing essentials:
+
+- `SHOULD_LINEMERGE`, `LINE_BREAKER`, `BREAK_ONLY_BEFORE`, `MUST_BREAK_AFTER`
+- `TIME_PREFIX`, `TIME_FORMAT`, `MAX_TIMESTAMP_LOOKAHEAD`, `TZ`, `DATETIME_CONFIG`
+- `TRUNCATE`, `CHARSET`, `EVENT_BREAKER` (for forwarder-side breaking)
+- `KV_MODE`, `REPORT`, `EXTRACT`, `FIELDALIAS`, `EVAL`, `LOOKUP`
+
+**Setting these explicitly rather than relying on inference** is the difference between an
+onboarding that works forever and one that breaks when the data changes shape. This is the
+foundation of the base-configuration discipline in [SPL-08](spl-08-consultant.md).
+
+Sourcetype assignment, sourcetype renaming, and why renaming later does not fix data
+already indexed. The data preview interface as the pre-flight check.
+
+### Topic 7: Forwarders and Deployment
 
 Universal versus heavy forwarders, and when the extra weight of a heavy forwarder is
-justified. `outputs.conf`, load balancing across indexers, indexer acknowledgement, and
-persistent queues for when the indexing tier is unavailable.
+justified (parsing, filtering, routing — everything else argues for universal).
 
-The deployment server, server classes and apps: configuration management for the Splunk
-estate. This is the same problem [EXT-ANS](../ansible-security-automation.md) solves for
-the OS layer, with Splunk-specific semantics — and the same blast-radius concern applies,
-because a bad app pushed to every forwarder is an estate-wide incident.
+`outputs.conf`: indexer discovery, load balancing, `autoLB` and `autoLBFrequency`,
+indexer acknowledgement (`useACK`), persistent queues, and `maxQueueSize`. Forwarder
+throughput limits in `limits.conf` (`maxKBps`) and why the default throttle surprises people
+during a backfill.
 
-### Topic 5: Users, Roles and Least Privilege
+Intermediate forwarding tiers and their cost. Forwarder installation at scale and
+deployment automation.
 
-Authentication (native, LDAP, SAML) and the role model: capabilities, index access,
-search filters, and role inheritance.
+### Topic 8: The Deployment Server and Apps
+
+Deployment server, server classes, client filtering, and deployment apps. `serverclass.conf`
+and `deploymentclient.conf`. Reload versus restart behaviour on app deployment.
+
+App and add-on management generally: installing from Splunkbase, app structure
+(`default`/`local`/`metadata`), `app.conf`, and the discipline of never editing an app's
+`default` directory.
+
+**Blast radius:** the deployment server is a configuration-management system, and a bad app
+pushed to every forwarder is an estate-wide incident. The same discipline as
+[EXT-ANS](../ansible-security-automation.md) applies.
+
+### Topic 9: Users, Roles and Authentication
+
+Authentication methods: native, LDAP, SAML/SSO, and multi-factor considerations.
+`authentication.conf` and `authorize.conf`.
+
+The role model: capabilities, index access (`srchIndexesAllowed`/`srchIndexesDefault`),
+**search filters** (`srchFilter`) for row-level restriction, role inheritance, and the
+search quotas and disk quotas that prevent one user from consuming the cluster.
 
 The design problem: security telemetry contains, in aggregate, some of the most sensitive
-data in the organisation — authentication records, user behaviour, and often payload
-fragments. "Everyone in security can search everything" is the default and it is usually
-wrong. Index separation from Topic 2 is what makes a defensible answer possible.
+data in the organisation. "Everyone in security can search everything" is the default and
+usually wrong. Index separation from Topic 4 is what makes a defensible answer possible.
 
 !!! danger "Free-licence gap"
     **Splunk Free has no authentication, no users and no roles** — you are dropped straight
     into Splunk Web as an admin-level user with no login. This entire topic requires a
-    **trial licence** to practise, and it is examinable. It is also why a Free instance
-    must never hold real data: anyone who can reach the port is an administrator.
+    **trial licence** to practise, and it is examinable. It is also why a Free instance must
+    never hold real data: anyone who can reach the port is an administrator.
 
-### Topic 6: Licensing and Volume Management
+### Topic 10: Licensing and Volume Management
 
-Licence model, volume tracking, warnings and violations. On the Free licence: 500 MB/day,
-a bulk-load allowance above the cap only twice in any 30-day period, and — the consequence
-that surprises people — **exceed too often and Splunk keeps indexing but disables search**.
+Licence types, licence manager and peers, licence pools and stacks, warnings and violations.
+Volume tracking and the licence usage dashboards.
+
+On the Free licence: 500 MB/day, a bulk-load allowance above the cap only twice in any
+30-day period, and — the consequence that surprises people — **exceed too often and Splunk
+keeps indexing but disables search**.
 
 Licence management is capacity management with a commercial edge, and it is the constraint
-that forces the filtering and routing decisions in Topic 7.
+that forces the filtering and routing decisions in Topic 11.
 
-### Topic 7: Filtering and Routing Data
+### Topic 11: Filtering, Routing and Index-Time Transformation
 
-Dropping unwanted events at the heavy forwarder, routing by sourcetype, and index-time
+Dropping unwanted events at the heavy forwarder (`nullQueue`), routing by sourcetype or
+content to different indexes or outputs, cloning to multiple destinations, and index-time
 field extraction — with the standing warning that index-time work is expensive and
 permanent, so the bar for doing it is high.
 
+Masking sensitive data at index time with `SEDCMD`, and the important caveat that this
+genuinely removes the data, unlike search-time masking. Which means it is both the right
+control for secrets and an irreversible loss if applied wrongly.
+
 **The judgement:** every event dropped saves licence and storage, and is unavailable
 forever if you need it. Filtering decisions are made under uncertainty about future
-investigations, and they should be documented as decisions, not buried in a `transforms.conf`.
+investigations, and should be documented as decisions rather than buried in a
+`transforms.conf`.
 
-### Topic 8: Monitoring the Platform — and the Absence of Data
+### Topic 12: The KV Store
 
-The Monitoring Console. Forwarder connectivity, indexing latency, skipped searches, queue
-saturation.
+KV Store collections, `collections.conf`, and their use by lookups and apps. Sizing,
+backup and restore, and the failure modes — a KV Store that will not start is a common and
+alarming incident.
+
+Relevant because ES, ITSI and much custom content depend on it entirely.
+
+### Topic 13: Search Head Administration
+
+Search head configuration: `limits.conf` concurrency settings, scheduler behaviour, skipped
+searches and their diagnosis, dispatch directory management, and search artefact retention.
+
+Scheduled search management: priority, scheduling windows, and spreading load. Workload
+management concepts where available.
+
+Knowledge object administration at scale: orphaned objects after a user departs, and the
+reassignment process.
+
+### Topic 14: Monitoring the Platform — and the Absence of Data
+
+The Monitoring Console: setup in standalone and distributed modes, and the health checks it
+provides. Forwarder connectivity, indexing latency, skipped searches, queue saturation
+(and reading which queue is blocked as a diagnostic).
+
+Splunk's own `_internal`, `_audit` and `_introspection` indexes as the primary
+troubleshooting data source.
 
 **The distinctive failure mode of a logging platform is silent absence.** A source that
-stops sending produces no error in the SOC — it produces nothing, which looks exactly like
-a quiet day. Building data-source continuity monitoring (expected sources, expected
-volumes, alert on absence) is the control, and it is the single most valuable thing an
-administrator can build for the analysts in [SPL-03](spl-03-cyber-defense-analyst.md).
+stops sending produces no error in the SOC — it produces nothing, which looks exactly like a
+quiet day. Building data-source continuity monitoring (expected sources, expected volumes,
+alert on absence) is the control, and it is the single most valuable thing an administrator
+can build for the analysts in [SPL-03](spl-03-cyber-defense-analyst.md).
+
+### Topic 15: Backup, Recovery and Upgrades
+
+What actually needs backing up: configuration, apps, the knowledge layer, KV Store — all
+harder to reconstruct than the indexed data itself.
+
+Upgrade planning: version compatibility between tiers, upgrade ordering, testing, and
+rollback. `splunk diag` for support cases.
+
+### Topic 16: Troubleshooting Method
+
+A structured approach before the distributed complexity of [SPL-07](spl-07-architect.md):
+identify the symptom precisely, locate the tier, gather evidence from `_internal` and the
+Monitoring Console, form one hypothesis, and test it.
+
+The common presentations: data not arriving, data arriving with wrong fields, data arriving
+late, searches slow, searches returning wrong results, and the instance that will not start.
 
 ---
 
@@ -316,6 +436,30 @@ updates is the actual failure mode.
 
 ---
 
+### Lab 6: Parse It Properly, Then Route and Mask It
+
+Onboard a source via HEC and a second via a monitor input. Set the parsing settings from
+Topic 6 **explicitly** — line breaking, timestamp, truncation, charset — rather than
+relying on inference.
+
+Then configure a heavy forwarder to route two sourcetypes to different indexes, drop a
+third to `nullQueue`, and mask a secret with `SEDCMD`.
+
+**Deliverable:** the working configuration, evidence that the masked value is genuinely
+absent from the index (not merely hidden at search time), and a written note on what the
+`nullQueue` decision costs you if you later need that data.
+
+### Lab 7: Diagnose Five Faults
+
+Given an instance with five injected faults — data not arriving, wrong timestamps, a
+blocked queue, a skipped scheduled search, and an instance that will not start — diagnose
+each using the Topic 16 method and `_internal`.
+
+**Deliverable:** for each fault, the evidence gathered and the order you gathered it in.
+Marked on method, not speed.
+
+---
+
 ## Assessment
 
 ### Formative 1: Which Layer Won?
@@ -363,7 +507,7 @@ administrator, and they pull in opposite directions.
   evidence.
 - **Data sovereignty and IRAP** — where indexed data physically resides matters for
   government and IRAP-assessed workloads. This becomes a full design constraint in
-  [SPL-05](spl-05-architect.md), but the index-location decision starts here.
+  [SPL-07](spl-07-architect.md), but the index-location decision starts here.
 - **Workplace surveillance law** (e.g. NSW *Workplace Surveillance Act 2005*) constrains
   monitoring of employees and interacts with the role model in Topic 5: who may search
   logs about a named individual is a governance question, not just a capability grant.
@@ -410,12 +554,12 @@ governance problem in [SC03](../../../core/units/SC03-governance-policy-complian
 
 | Field | Value |
 |---|---|
-| Module Code | SPL-04 |
+| Module Code | SPL-06 |
 | Module Title | Platform Administration — Splunk Enterprise Certified Admin |
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–6 (Apply / Analyse / Evaluate / Create) |
-| Notional Hours | ~45 |
+| Notional Hours | ~88 |
 | Zero-cost achievable | Partly — Lab 4 (authentication/RBAC) requires a trial licence |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

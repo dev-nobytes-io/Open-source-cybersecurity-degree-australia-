@@ -1,4 +1,4 @@
-# SPL-03: Enterprise Security & SOC Practice — Cybersecurity Defense Analyst
+# SPL-03: SOC Analysis & Threat Detection — Cybersecurity Defense Analyst
 
 > **Part of:** [EXT-SPL — The Splunk Series](index.md)
 > **Status:** Draft · **Version:** v0.1 · **Last Reviewed:** 2026-09-09
@@ -89,7 +89,7 @@ deployment.
 | [OC01 — Adversary Tradecraft](../../../core/units/OC01-adversary-tradecraft.md), [OC05 — Threat Intelligence](../../../core/units/OC05-threat-intelligence-fundamentals.md) | Threat context and intelligence handling; ES's threat-intelligence framework is the tooling expression of OC05. |
 | [TH01 — Hunting Methodology](../../../degrees/operational/threat-hunting/TH01-hunting-methodology-process.md) | **Directly relevant.** TH01 already uses **PEAK**, which is Splunk/SURGe's own framework — see [`docs/maturity-models.md`](../../maturity-models.md). Topic 6 runs PEAK hunts in ES. |
 | [DE03](../../../degrees/operational/detection-engineering/DE03-writing-detection-logic.md), [DE05](../../../degrees/operational/detection-engineering/DE05-detection-operations-management.md) | Detection authoring and lifecycle management; correlation searches are the ES form. |
-| [SPL-04](spl-04-enterprise-admin.md) | Successor for the platform-administration path. |
+| [SPL-06](spl-06-enterprise-admin.md) | Successor for the platform-administration path. |
 
 !!! danger "ES is only as good as your CIM compliance"
     Enterprise Security is built entirely on CIM data models. **Non-compliant data is
@@ -182,57 +182,113 @@ verification**.
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — ES foundations | 1–2 | 1 | 8 |
-| B — Notables and investigation | 3–4 | 1, 2 | 12 |
-| C — Detection and coverage | 5–6 | 2, 4 | 12 |
-| D — Risk-based alerting | 7 | 3 | 8 |
-| E — Hunting and operations | 8–9 | 5, 6 | 10 |
-| | | | **~50 hours** |
+| A — The analyst role and analysis methods | 1–2 | — | 10 |
+| B — ES foundations | 3–5 | 1 | 12 |
+| C — Triage and investigation | 6–7 | 1, 2 | 14 |
+| D — Coverage and data sources | 8–9 | 4 | 16 |
+| E — Analytical technique | 10–11 | 3, 7 | 14 |
+| F — Intelligence and hunting | 12–14 | 5, 6 | 14 |
+| G — Operations and reporting | 15–16 | 7 | 10 |
+| | | | **~90 hours** |
 
 ---
 
 ## Topics
 
-### Topic 1: What Enterprise Security Is
+### Topic 1: The Analyst's Operating Picture
+
+What a SOC analyst is actually accountable for, and the shift from "search Splunk" to "hold
+a queue". Tiering models and their discontents; the handoff points; what escalation means
+and what it costs the person receiving it.
+
+The two failure modes this module exists to prevent: **the analyst who closes everything**
+(alert fatigue expressed as disposition) and **the analyst who escalates everything**
+(judgement deferred upward until the tier-2 queue collapses).
+
+### Topic 2: Analysis Methods — Structured Reasoning
+
+The intellectual core of the module, and the part that transfers to every platform.
+[OC01](../../../core/units/OC01-adversary-tradecraft.md) and
+[OC05](../../../core/units/OC05-threat-intelligence-fundamentals.md) establish these;
+this topic applies them at the keyboard.
+
+- **The Cyber Kill Chain** — useful for narrative and for asking "what came before this?"
+- **MITRE ATT&CK** — the working vocabulary: tactic, technique, sub-technique, procedure.
+  Used for coverage (Topic 8), for hypothesis generation, and for communicating findings.
+- **The Diamond Model** — adversary, capability, infrastructure, victim. The pivot engine:
+  given one vertex, what do the others tell you to search for next?
+- **The Pyramid of Pain** — why an indicator's type determines how long a detection based
+  on it survives, and why hash-based detection is nearly worthless against a competent
+  adversary.
+- **Analysis of Competing Hypotheses (ACH)** — enumerate explanations including the benign
+  ones, then look for evidence that *discriminates* between them rather than evidence that
+  confirms the one you like.
+- **Chain of custody and evidentiary thinking** — from
+  [OC04](../../../core/units/OC04-incident-response-lifecycle.md).
+
+**The bias content is not optional.** Confirmation bias, anchoring on the first plausible
+explanation, and base-rate neglect are the three that ruin investigations. The
+countermeasure is procedural: write down the alternative explanation before you go looking
+for evidence.
+
+### Topic 3: What Enterprise Security Is
 
 ES as a premium app layered on Splunk Enterprise, not a separate product. Its dependency
 chain: data → CIM compliance → data models → ES content. The security posture dashboards,
 and why they are the least useful part of the product for an analyst.
 
-Cover the licensing and deployment reality honestly: ES is expensive, it is sized
-separately, and its resource demands drive architecture decisions that reappear in
-[SPL-05](spl-05-architect.md).
+Licensing and deployment reality: ES is expensive, sized separately, and its resource
+demands drive architecture decisions that reappear in [SPL-07](spl-07-architect.md).
+Engineering it is [SPL-04](spl-04-enterprise-security.md)'s subject; using it is this
+module's.
 
-### Topic 2: Asset & Identity
+### Topic 4: The Security Domains and Their Dashboards
+
+ES's domain structure and what each is for: **Access** (authentication and account
+activity), **Endpoint** (malware, system change, time sync), **Network** (traffic, IDS,
+vulnerability, web), **Identity**, **Threat**, and **Audit**.
+
+Working the dashboards as an *investigative* tool rather than a monitoring wall: which
+panel answers which question, and the honest observation that most dashboard time in a real
+SOC is spent on three or four panels.
+
+### Topic 5: Asset & Identity — Why Alerts Become Actionable
 
 The framework, its lookups, and how enrichment attaches business context to a technical
-event. Asset criticality, identity categories, and the maintenance problem — asset data
-is always stale because the source of truth is a CMDB nobody updates.
+event. Asset criticality, identity categories, `bunit`, and their effect on notable urgency.
+
+The maintenance problem: asset data is always stale because the source of truth is a CMDB
+nobody updates. What an analyst does when the asset is unknown — which is often.
 
 **The analytical point:** severity without business context is noise. This is where the
-lookup discipline from [SPL-02](spl-02-power-user.md) Topic 3 becomes an operational
+lookup discipline from [SPL-02](spl-02-power-user.md) Topic 5 becomes an operational
 capability.
 
-### Topic 3: Correlation Searches and Notables
+### Topic 6: Correlation Searches and Notables
 
-How correlation searches generate notables; adaptive response actions; the notable's
-fields, urgency calculation, and the difference between urgency and severity.
+How correlation searches generate notables; the notable's fields; urgency as a computed
+product of severity and asset priority, and why analysts should understand that calculation
+rather than trust it.
 
 Reading ES's out-of-the-box content critically: much of it is a starting point, not a
 production detection, and shipping it untuned is the origin of most alert fatigue.
 
-### Topic 4: The Investigation Workflow
+### Topic 7: Triage — The Investigation Workflow
 
-Incident review, ownership, status transitions, and the investigation workbench. Mapping
-the ES workflow onto the PICERL phases taught in
+Incident Review, ownership, status transitions, and the investigation workbench. Mapping the
+ES workflow onto the PICERL phases from
 [OC04](../../../core/units/OC04-incident-response-lifecycle.md), and being explicit about
-where the tool does *not* support the discipline — ES is weak on the lessons-learned phase,
-and that work happens elsewhere.
+where the tool does *not* support the discipline — ES is weak on lessons-learned, and that
+work happens elsewhere.
 
-Disposition discipline: closing a notable without recording *why* destroys the data you
-need to tune it later.
+**A repeatable triage procedure:** what is the claim, what evidence supports it, what would
+disconfirm it, what is the asset and who owns it, has this happened before, what is the
+blast radius, and what does the next person need to know.
 
-### Topic 5: Coverage, ATT&CK and the Two Kinds of Gap
+Disposition discipline: closing a notable without recording *why* destroys the data needed
+to tune it later. Writing a disposition another analyst can audit.
+
+### Topic 8: Coverage, ATT&CK and the Two Kinds of Gap
 
 Assessing what a detection estate actually covers. The distinction that matters more than
 any other in this module:
@@ -241,49 +297,116 @@ any other in this module:
 - A **telemetry gap** — nothing is logging it. The rule cannot exist until data engineering
   happens first.
 
-Conflating them produces coverage claims that are false, and a coverage heat map that is
-green where it should be grey. This is the same honesty DE02 requires about telemetry, and
-the same one [SPL-02](spl-02-power-user.md) Lab 2 requires in its gap statement.
+Conflating them produces coverage claims that are false and a heat map that is green where
+it should be grey. This is the same honesty DE02 requires about telemetry, and the same
+one [SPL-02](spl-02-power-user.md) Lab 2 requires in its gap statement.
 
-### Topic 6: Detection Content Sources
+Coverage tooling: ATT&CK Navigator layers, and the caution that a technique marked
+"covered" by one weak detection is a claim, not a fact.
 
-Splunk Security Content / ESCU as delivered detection content, Sigma and its conversion
-to SPL, and the maintenance burden of adopted content. What to take, what to adapt, what
-to write yourself — and the fact that adopted content you do not understand is content you
+### Topic 9: Investigating by Data Source
+
+The practical heart of analyst work — what each telemetry type can and cannot tell you.
+
+- **Authentication:** Windows event IDs (4624, 4625, 4768/4769, 4776), logon types and
+  what each implies, Kerberos versus NTLM, cloud/SSO sign-in logs, impossible travel and
+  its false-positive sources (VPN, mobile roaming).
+- **Endpoint/process:** process creation (Sysmon Event ID 1, Windows 4688), command-line
+  auditing, parent-child relationships and anomalous ancestry, `auditd` on Linux, and
+  living-off-the-land binaries.
+- **Network:** flow versus full packet, proxy and DNS logs, TLS metadata and JA3-style
+  fingerprinting, beaconing detection by interval regularity, DNS tunnelling and
+  high-entropy domain detection.
+- **Email:** headers, authentication results (SPF/DKIM/DMARC), attachment and URL
+  detonation results.
+- **Cloud:** control-plane audit logs (AWS CloudTrail, Azure/Entra sign-in and audit,
+  Google Cloud audit), and why identity is the perimeter in a cloud estate.
+- **Web:** access logs, user-agent analysis, and the injection and traversal patterns worth
+  recognising on sight.
+
+### Topic 10: Analytical Techniques at the Keyboard
+
+Turning the methods in Topic 2 into searches:
+
+- **Frequency and stack counting** — `top`, `rare`, `stats count by`. The oldest hunting
+  technique and still one of the best.
+- **First-seen / long-tail analysis** — `stats earliest(_time)` and `streamstats` to find
+  what is new in the environment.
+- **Behavioural baselining** — per-user and per-host norms with `eventstats`/`streamstats`
+  rather than global thresholds.
+- **Time-series and beaconing** — interval analysis, jitter tolerance, `timechart` and
+  `delta`.
+- **Entropy and randomness** — detecting DGA domains and encoded payloads.
+- **Pivoting** — from one artefact to the next using the Diamond Model as the map.
+- **Timeline construction** — assembling a defensible sequence of events across sources
+  with reconciled timestamps.
+
+### Topic 11: Risk-Based Alerting from the Analyst's Side
+
+RBA as the analyst experiences it: a risk notable is a *narrative* about an object, not a
+single event. Reading a risk notable — the contributing events, their spread across ATT&CK
+tactics, and the time window.
+
+Why a risk notable with eight contributions across four tactics is more interesting than
+one with forty contributions from a single noisy rule, and how to tell the difference
+quickly.
+
+Feedback: an analyst who finds a risk contribution worthless should be able to say so in a
+way that reaches the engineer. Building that loop is
+[SPL-04](spl-04-enterprise-security.md)'s job; using it is this module's.
+
+### Topic 12: Threat Intelligence in Practice
+
+ES's threat-intelligence framework from the consuming side: where matches surface, what a
+match means, and — critically — what it does not mean. A match against a low-confidence
+feed is a prompt to look, not a finding.
+
+Evaluating intelligence: source, confidence, timeliness, and relevance to *this*
+organisation. Applying the Pyramid of Pain to decide how much weight an indicator type
+deserves. Connects to [OC05](../../../core/units/OC05-threat-intelligence-fundamentals.md).
+
+### Topic 13: Threat Hunting with PEAK
+
+**PEAK** — Prepare, Execute, Act with Knowledge — is Splunk/SURGe's own hunting framework,
+already the hunt-maturity model cited in [`docs/maturity-models.md`](../../maturity-models.md)
+and taught in
+[TH01](../../../degrees/operational/threat-hunting/TH01-hunting-methodology-process.md).
+
+The three PEAK hunt types run in Splunk: **hypothesis-driven**, **baseline** (exploratory
+data analysis), and **model-assisted**. Hypothesis formation from ATT&CK, from threat
+intelligence, and from ACSC advisories.
+
+**Closing the loop** — converting a hunt finding into a correlation search or an RBA
+contribution. A hunt that ends in a report and no durable detection has produced knowledge
+that expires.
+
+### Topic 14: Detection Content Sources
+
+Splunk Security Content / ESCU as delivered detection content, Sigma and its conversion to
+SPL, and the maintenance burden of adopted content. What to take, what to adapt, what to
+write yourself — and the fact that adopted content you do not understand is content you
 cannot tune.
 
-### Topic 7: Risk-Based Alerting
-
-The module's centrepiece. Risk objects and risk index; assigning risk scores to events;
-risk incident rules that fire on accumulated score; and the mapping onto ATT&CK tactics so
-that a spread of weak signals across the kill chain aggregates into one strong one.
-
-**Where RBA goes wrong:** scores assigned by feel and never calibrated; thresholds that
-never fire or always fire; risk attribution to the wrong object; and the failure to
-re-baseline as the estate changes. Scoring is a judgement problem, and the module treats
-it as one.
-
-### Topic 8: Threat Hunting in Splunk with PEAK
-
-**PEAK** — Prepare, Execute, Act with Knowledge — is Splunk/SURGe's own hunting framework
-and is already the hunt-maturity model cited in
-[`docs/maturity-models.md`](../../maturity-models.md) and taught in
-[TH01](../../../degrees/operational/threat-hunting/TH01-hunting-methodology-process.md).
-This topic runs the three PEAK hunt types (hypothesis-driven, baseline, model-assisted) in
-Splunk, and — the part that matters — closes the loop by converting a hunt finding into a
-correlation search or an RBA contribution.
-
-A hunt that ends in a report and no durable detection has produced knowledge that expires.
-
-### Topic 9: Detection Operations and Alert Quality
+### Topic 15: Detection Operations and Alert Quality
 
 Measuring the estate: true/false positive rates, time-to-triage, notables never actioned,
-detections that have not fired in six months (broken, or genuinely rare?). Tuning debt as
-a managed backlog.
+detections that have not fired in six months (broken, or genuinely rare?). Tuning debt as a
+managed backlog.
 
-The silent-failure problem from [SPL-02](spl-02-power-user.md) Lab 4 returns here at
-estate scale. Connects directly to
+The silent-failure problem from [SPL-02](spl-02-power-user.md) Lab 4 returns here at estate
+scale. Connects directly to
 [DE05](../../../degrees/operational/detection-engineering/DE05-detection-operations-management.md).
+
+### Topic 16: Reporting and Handover
+
+Writing an investigation up so that it survives contact with someone else: the finding, the
+evidence, the confidence level, the alternatives considered and rejected, and the
+recommended action.
+
+Confidence language that means something — distinguishing "confirmed", "assessed likely"
+and "possible" and using them consistently. Shift handover, and communicating to a
+non-technical stakeholder, which is [SC06](../../../core/units/SC06-stakeholder-communication.md)
+applied under time pressure.
 
 ---
 
@@ -351,6 +474,21 @@ time.
 
 **Deliverable:** the hunt record and the durable artefact. A hunt with no artefact fails
 this lab.
+
+---
+
+### Lab 7: Investigate End to End, and Write It Up
+
+Given a multi-stage intrusion scenario spanning authentication, endpoint and network
+telemetry, run a full investigation: construct the timeline, apply the Diamond Model to
+pivot, and use ACH to enumerate and discriminate between at least two explanations
+(one benign).
+
+**Deliverable:** the timeline with sources, the searches used, the competing hypotheses
+with the evidence that discriminated between them, a finding stated with an explicit
+confidence level, and a handover note a colleague could act on cold. An investigation that
+never considered a benign explanation fails this lab regardless of whether the conclusion
+was correct.
 
 ---
 
@@ -442,11 +580,11 @@ and what it would cost to change that** — including the cases where the answer
 | Field | Value |
 |---|---|
 | Module Code | SPL-03 |
-| Module Title | Enterprise Security & SOC Practice — Cybersecurity Defense Analyst |
+| Module Title | SOC Analysis & Threat Detection — Cybersecurity Defense Analyst |
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–5 (Apply / Analyse / Evaluate) |
-| Notional Hours | ~50 |
+| Notional Hours | ~90 |
 | Zero-cost achievable | Partly — ES labs require a trial licence |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

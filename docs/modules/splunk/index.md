@@ -80,7 +80,7 @@ State this to learners before they start, not after.
 | Splunk Enterprise **trial** | Free for a limited period | Full-feature evaluation; the only free way to touch clustering and distributed search. Time-boxed, so architecture labs must be planned around it. |
 | Any exam attempt (every certification in this series) | **US$130 per attempt** | Delivered by Pearson VUE. |
 | Instructor-led prerequisite coursework (Architect and Consultant tracks) | **Paid, and substantial** | Not published as a fixed figure here because it varies by region and delivery mode. Treat the Architect and Consultant tracks as employer-sponsored, not self-funded. |
-| `Core Consultant Labs` and `Services: Core Implementation` | **Paid and access-restricted** | Widely reported to be oriented to Splunk partners and employees. **Verify eligibility before planning a Consultant pathway** — see [SPL-06](spl-06-consultant.md). |
+| `Core Consultant Labs` and `Services: Core Implementation` | **Paid and access-restricted** | Widely reported to be oriented to Splunk partners and employees. **Verify eligibility before planning a Consultant pathway** — see [SPL-08](spl-08-consultant.md). |
 
 !!! note "The honest summary"
     Everything up to and including **Cybersecurity Defense Analyst** is realistically
@@ -121,11 +121,20 @@ graph TD
     CDA -.->|no formal prereq| CDE
     CDE -.->|no formal prereq| CDARCH
 
+    ESADM["Splunk ES Certified Admin<br/><i>LEGACY · 60 min · 48 Q</i>"]
+    SOARDEV["Splunk SOAR Certified Automation Developer<br/><i>LEGACY · 60 min · 45 Q</i>"]
+
     classDef platform fill:#ede7f6,stroke:#5e35b1
     classDef security fill:#e0f7fa,stroke:#00838f
+    classDef legacy fill:#eceff1,stroke:#78909c,stroke-dasharray: 4 3
     class CU,PU,APU,EA,ARCH,CONS platform
     class CDA,CDE,CDARCH security
+    class ESADM,SOARDEV legacy
 ```
+
+**Greyed, dashed nodes are Legacy Certifications** — still valid, no longer refreshed with
+product releases. They sit outside the chain because neither publishes a prerequisite and
+neither is a prerequisite for anything.
 
 **Solid arrows are enforced prerequisites. Dotted arrows are recommended sequence only** —
 Splunk lists no formal prerequisite certification for them, so you may sit those exams in
@@ -151,6 +160,8 @@ table is US$130 per attempt and delivered by Pearson VUE.
 | [Cybersecurity Defense Analyst](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-analyst.html) | Analyst | **None** (Power User–level knowledge recommended) | None | 75 min | 66 |
 | [Cybersecurity Defense Engineer](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-engineer.html) | Professional | **None published** | None published | 75 min | 60 |
 | [Cybersecurity Defense Architect](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-architect.html) | Expert | **None published** | None published | 75 min | 67 |
+| [ES Certified Admin](https://www.splunk.com/en_us/training/certification-track/splunk-es-certified-admin.html) **(Legacy)** | Professional | **None listed** | None specified | 60 min | 48 |
+| [SOAR Certified Automation Developer](https://www.splunk.com/en_us/training/certification-track/splunk-soar-certified-automation-developer.html) **(Legacy)** | Professional | **None listed** | None specified | 60 min | 45 |
 
 \* **The Advanced Power User substitution.** Splunk's Consultant track flowchart states
 that *in lieu of* earning the Advanced Power User certification, candidates may instead
@@ -202,23 +213,86 @@ These are the facts learners most often miss, and the reason this index exists.
 
 ---
 
+## Programme changes you must know before planning a pathway
+
+Two changes to the Splunk Certification programme, both verified 2026-09-09 against
+Splunk's own certification-changes FAQ. Either can invalidate a learner's plan.
+
+=== "Legacy Certifications — from 1 January 2026"
+
+    Splunk introduced a **Legacy Certification** category on **1 January 2026**. Legacy
+    credentials **remain valid and recognised**, but they are **no longer refreshed with
+    product updates or releases**.
+
+    Reclassified as Legacy (verified on their own exam pages):
+
+    | Certification | Module that teaches the content |
+    |---|---|
+    | Splunk Enterprise Security Certified Admin | [SPL-04](spl-04-enterprise-security.md) |
+    | Splunk SOAR Certified Automation Developer | [SPL-05](spl-05-soar.md) |
+    | Splunk IT Service Intelligence Certified Admin | *(not covered — out of scope)* |
+
+    **Splunk names no replacement for any of them.** The series' position — clearly marked
+    as a reading, not a Splunk statement — is that a learner starting today should target
+    the **Cybersecurity Defense** track (Analyst → Engineer → Architect) for security work.
+
+    **The content is not legacy even where the credential is.** ES and SOAR are the
+    products Australian SOCs run. SPL-04 and SPL-05 teach them regardless of exam status.
+
+=== "Recertification — from 1 March 2026"
+
+    Splunk **no longer offers recertification through coursework completion**.
+
+    Certifications operate on a **three-year lifecycle**, running from the date the
+    **highest-level** certification was achieved.
+
+    Two practical consequences:
+
+    1. A learner on the Architect or Consultant track is committing to a **renewal
+       obligation**, not a one-off purchase. Say so before they start.
+    2. Because the clock runs from the highest-level certification, earning a higher rung
+       resets the whole stack — which changes the optimal ordering for anyone holding
+       several credentials.
+
+!!! danger "This is exactly why the series carries a 6-month staleness window"
+    Both changes landed inside the last nine months, and the Consultant exam-authorisation
+    address is now a `@cisco.com` address. Treat every fact here as **stale after
+    2027-03-09** and re-verify.
+
+---
+
 ## Series structure
 
-Six modules. Each maps to one rung (or one pair of rungs) of the ladder.
+Eight modules across two tracks that share a common foundation. **SPL-01 and SPL-02 are
+prerequisites for everything else.**
 
-| Module | Covers | Ladder rung | Zero-cost achievable? |
-|---|---|---|---|
-| [SPL-01 — Search Fundamentals](spl-01-core-user.md) | SPL basics, time, fields, reporting | Core Certified User | **Yes** |
-| [SPL-02 — Power User & Advanced Power User](spl-02-power-user.md) | Knowledge objects, data models, `tstats`, SPL2 | Core Certified Power User → Advanced Power User | **Yes** |
-| [SPL-03 — Cybersecurity Defense Analyst](spl-03-cyber-defense-analyst.md) | Enterprise Security, notables, risk-based alerting, threat hunting | Cybersecurity Defense Analyst | **Partly** — ES needs a trial |
-| [SPL-04 — Enterprise Administration](spl-04-enterprise-admin.md) | Indexes, inputs, forwarders, apps, users/roles, licensing | Enterprise Certified Admin | **Partly** — Free licence has no auth |
-| [SPL-05 — Architecture & Deployment](spl-05-architect.md) | Sizing, index/search clustering, distributed search, troubleshooting, capacity | Enterprise Certified Architect (+ Cybersecurity Defense Architect) | **No** — clustering needs a trial |
-| [SPL-06 — Consultant Practice](spl-06-consultant.md) | Base configs, implementation method, migration, client engagement | Core Certified Consultant | **No** — gated coursework |
+| Module | Topics | Covers | Ladder rung | Zero-cost? |
+|---|---|---|---|---|
+| **Foundation** | | | | |
+| [SPL-01 — Search Fundamentals](spl-01-core-user.md) | 14 | The execution model, time, the command set, field extraction, reporting, the job inspector | Core Certified User | **Yes** |
+| [SPL-02 — SPL Mastery & Knowledge Objects](spl-02-power-user.md) | 19 | Every knowledge-object type, the full `eval` function library, the `stats` family, multivalue, subsearches and the `join` rewrite, CIM, data models, acceleration and `tstats` | Power User → Advanced Power User | **Yes** |
+| **Security track** | | | | |
+| [SPL-03 — SOC Analysis & Threat Detection](spl-03-cyber-defense-analyst.md) | 16 | Analysis methods (Diamond, ACH, Pyramid of Pain, bias), triage, investigation by data source, analytical technique, PEAK hunting, reporting | Cybersecurity Defense Analyst | **Partly** — ES needs a trial |
+| [SPL-04 — Enterprise Security Engineering](spl-04-enterprise-security.md) | 13 | Deploying ES, the dependency stack, Asset & Identity, correlation searches, adaptive response, the risk framework, threat intel, content lifecycle, ES capacity | ES Certified Admin **(Legacy)** → Cybersecurity Defense Engineer | **No** — premium app |
+| [SPL-05 — SOAR & Security Automation](spl-05-soar.md) | 13 | Playbooks, the automation decision boundary, apps and custom actions, case management, measuring automation, defending the platform | SOAR Certified Automation Developer **(Legacy)** | **No** — licensed product |
+| **Platform track** | | | | |
+| [SPL-06 — Platform Administration](spl-06-enterprise-admin.md) | 16 | CLI and REST, `.conf` files and precedence, indexes and retention, all input types, parsing, forwarders, deployment server, RBAC, licensing, filtering, KV Store, monitoring | Enterprise Certified Admin | **Partly** — Free licence has no auth |
+| [SPL-07 — Architecture & Deployment](spl-07-architect.md) | 17 | Tiers, SVAs, index and search head clustering, distributed search, capacity and sizing, SmartStore, tuning, troubleshooting, multi-site and DR, residency and cloud, ingest architecture, platform security, cost | Enterprise Certified Architect (+ Cybersecurity Defense Architect) | **No** — mandatory coursework |
+| **Apex** | | | | |
+| [SPL-08 — Implementation & Consulting Practice](spl-08-consultant.md) | 13 | Discovery, base configurations, implementation and cluster method, migration, health assessment, use-case value, unwelcome communication, handover, operating model, professional practice | Core Certified Consultant | **No** — gated coursework |
 
-**Notional total: ~180 hours** across the series, excluding exam preparation and vendor
+**Notional total: ~674 hours** across the series, excluding exam preparation and vendor
 coursework. This is a series, not a unit; hours are indicative only and have not been
 through the AQF mapping process in
 [`docs/compliance/aqf-teqsa.md`](../../compliance/aqf-teqsa.md).
+
+!!! note "Why the two tracks are separate"
+    The security track (SPL-03 → SPL-04 → SPL-05) and the platform track
+    (SPL-06 → SPL-07) are **different jobs**, and Splunk's own certification structure
+    reflects that: the security track publishes no prerequisites at all, while the platform
+    track is the most heavily gated in the portfolio. A SOC analyst does not need SPL-06; a
+    platform engineer does not need SPL-04. Only [SPL-08](spl-08-consultant.md) assumes
+    both.
 
 ---
 
@@ -232,9 +306,11 @@ unit teaches the concept; the EXT-SPL module teaches the Splunk expression of it
 | SPL-01 | [F06 — Data & Log Analysis](../../../core/units/F06-data-log-analysis.md) | F06 teaches log structure and query thinking; SPL-01 is the SPL dialect. |
 | SPL-02 | [F06](../../../core/units/F06-data-log-analysis.md), [DE02](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | DE02 teaches normalisation and data modelling; SPL-02 is CIM and Splunk data models. |
 | SPL-03 | [OC02](../../../core/units/OC02-security-monitoring-siem.md), [OC04](../../../core/units/OC04-incident-response-lifecycle.md), [TH01](../../../degrees/operational/threat-hunting/TH01-hunting-methodology-process.md), [DE03](../../../degrees/operational/detection-engineering/DE03-writing-detection-logic.md) | OC02 teaches SIEM operation and OC04 the IR lifecycle, vendor-neutrally; TH01 supplies PEAK (a Splunk/SURGe model already cited in [`docs/maturity-models.md`](../../maturity-models.md)); SPL-03 is ES, notables and RBA. |
-| SPL-04 | [F02 — Operating Systems](../../../core/units/F02-operating-systems.md), [DE02](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | Platform administration and data onboarding. |
-| SPL-05 | [SE01](../../../degrees/strategic/security-engineering/SE01-secure-system-design.md), [SE02 — Security Architecture](../../../degrees/strategic/security-engineering/SE02-security-architecture.md), [SE04](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md) | **The architecture module.** SE02 teaches architecture method (SABSA, Zero Trust); SPL-05 applies it to a distributed log platform under real capacity and failure constraints. |
-| SPL-06 | [SE06 — Capstone: Architecture Design](../../../degrees/strategic/security-engineering/SE06-capstone-architecture-design.md), [LD](../../../degrees/strategic/leadership/README.md) units | Consulting practice: requirements, stakeholder management, and defensible design under commercial constraint. |
+| SPL-04 | [SE04 — Detection & Response Engineering](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md), [DE05](../../../degrees/operational/detection-engineering/DE05-detection-operations-management.md), [DE06](../../../degrees/operational/detection-engineering/DE06-capstone-detection-library.md) | SE04 teaches detection and response engineering vendor-neutrally; SPL-04 is the ES implementation, including content lifecycle as a software-delivery problem. |
+| SPL-05 | [SE04](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md), [OC04](../../../core/units/OC04-incident-response-lifecycle.md), [F03](../../../core/units/F03-scripting-automation.md) | Response automation. Shares its blast-radius and reversibility reasoning with [EXT-ANS](../ansible-security-automation.md) rather than repeating it. |
+| SPL-06 | [F02 — Operating Systems](../../../core/units/F02-operating-systems.md), [F03](../../../core/units/F03-scripting-automation.md), [DE02](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | Platform administration and data onboarding. |
+| SPL-07 | [SE01](../../../degrees/strategic/security-engineering/SE01-secure-system-design.md), [SE02 — Security Architecture](../../../degrees/strategic/security-engineering/SE02-security-architecture.md), [SC02](../../../core/units/SC02-security-architecture.md), [SE05](../../../degrees/strategic/security-engineering/SE05-security-cloud-devsecops.md) | **The architecture module.** SE02 teaches architecture method (SABSA, Zero Trust); SPL-07 applies it to a distributed log platform under real capacity and failure constraints. |
+| SPL-08 | [SE06 — Capstone: Architecture Design](../../../degrees/strategic/security-engineering/SE06-capstone-architecture-design.md), [SC06](../../../core/units/SC06-stakeholder-communication.md), [LD](../../../degrees/strategic/leadership/README.md) units | Consulting practice: requirements, stakeholder management, and defensible design under commercial constraint. |
 
 ### Certification bridges already claimed elsewhere
 
@@ -265,20 +341,20 @@ Consequences for the series:
 |---|---|---|
 | SPL search, fields, reporting, dashboards | ✅ Works | None needed — SPL-01 and most of SPL-02 run entirely on Free. |
 | Knowledge objects, data models, CIM | ✅ Works | None needed. |
-| Users, roles, RBAC, authentication | ❌ Absent | Enterprise trial. **This is a core Enterprise Admin exam topic** — SPL-04 cannot be fully completed on Free. |
+| Users, roles, RBAC, authentication | ❌ Absent | Enterprise trial. **This is a core Enterprise Admin exam topic** — SPL-06 cannot be fully completed on Free. |
 | Alerting / scheduled searches | ❌ Absent | Enterprise trial. |
-| Enterprise Security, notables, RBA | ❌ Absent | Enterprise trial (ES is a separate premium app). |
-| Distributed search, index/search-head clustering | ❌ Absent | Enterprise trial only. **SPL-05 is trial-gated end to end.** |
+| Enterprise Security, notables, RBA | ❌ Absent | Enterprise trial. ES is a separate premium app — **SPL-04 is gated end to end**. |
+| Distributed search, index/search-head clustering | ❌ Absent | Enterprise trial only. **SPL-07 is trial-gated end to end.** |
 
 **Planning guidance:** do SPL-01, SPL-02 and the vendor-neutral parts of SPL-03 on the
-Free licence at leisure. Then start a trial and run SPL-04 and SPL-05 *inside the trial
+Free licence at leisure. Then start a trial and run SPL-06 and SPL-07 *inside the trial
 window* as a single continuous block. Starting the trial early is the most common
 avoidable mistake.
 
 **Public datasets.** Splunk publishes the *Boss of the SOC* (BOTS) datasets and the
 `attack_range` project for generating attack telemetry, and the Splunk Security Content
 / ESCU repository for detection content. These are the realistic source of security data
-for SPL-03 and SPL-05 labs. **Licence terms and current availability must be confirmed
+for SPL-03, SPL-04 and SPL-07 labs. **Licence terms and current availability must be confirmed
 by the Domain Expert before these are made assessable** — see
 [Verification status](#verification-status).
 
@@ -321,6 +397,13 @@ verified from what has not.
 - The Advanced Power User 14-course substitution for the Consultant track.
 - Cybersecurity Defense Analyst has **no** formal prerequisite certification.
 - Splunk Free licence limits and disabled features.
+- **ES Certified Admin** (Professional, 60 min, 48 Q) and **SOAR Certified Automation
+  Developer** (Professional, 60 min, 45 Q) are both marked **Legacy Certification**, both
+  publish no prerequisites, and **neither names a replacement**.
+- The Legacy Certification category began **1 January 2026**; legacy credentials stay valid
+  but are not refreshed with product releases.
+- Recertification through coursework completion ends **1 March 2026**; certifications run a
+  **three-year lifecycle** from the date the highest-level certification was achieved.
 
 ### Not verified — Phase 4 items
 
@@ -329,10 +412,13 @@ verified from what has not.
 | Exam codes (`SPLK-xxxx`) | Not published on the current certification-track pages. Third-party sources are unreliable. **Not stated anywhere in this series.** |
 | Prerequisite coursework for Power User, Advanced Power User and Enterprise Admin | Pages publish no mandatory coursework; recommended-course lists exist but are not authoritative for registration. |
 | Cybersecurity Defense Engineer and Architect prerequisites | Published as "none". Given they sit above CDA in the marketing sequence, confirm whether an unpublished gate exists. |
+| Successors to the Legacy certifications | Splunk names **no replacement** for ES Certified Admin or SOAR Certified Automation Developer. The series' position — that the Cybersecurity Defense track is the successor for security work — is **this series' reading, not a Splunk statement**. Confirm before advising a learner. |
+| Splunk SOAR availability for learning use | Community/trial edition availability and licence terms are **unverified**. [SPL-05](spl-05-soar.md) labs are written so the highest-value ones run as design exercises without a platform, but availability must be confirmed before the module is scheduled. |
+| ES and SOAR product versions | Neither [SPL-04](spl-04-enterprise-security.md) nor [SPL-05](spl-05-soar.md) is pinned to a product version, and both products change feature names and UI locations materially between releases. Version pinning must be fixed at review. |
 | Instructor-led course pricing, and AUD pricing | Varies by region and delivery partner; deliberately not quoted. |
 | `Core Consultant Labs` / `Services: Core Implementation` eligibility | Partner/employee restriction is reported by practitioners, not stated on the exam page. **Must be confirmed before any learner is advised to pursue the Consultant track.** |
 | BOTS dataset and `attack_range` licence terms | Must be confirmed before lab content is made assessable. |
-| Test blueprint contents | Each certification has a published test blueprint PDF. Topic lists in SPL-01…SPL-06 are the module author's reading of the platform, **not** a transcription of any blueprint, and have not been reconciled against them. |
+| Test blueprint contents | Each certification has a published test blueprint PDF. Topic lists in SPL-01…SPL-08 are the module author's reading of the platform, **not** a transcription of any blueprint, and have not been reconciled against them. |
 | Framework mappings (NICE/DCWF, SFIA 9, ASD, ATT&CK v19) and project-local KSAT IDs | Provisional pending Framework Custodian review, as everywhere else in the repository. |
 
 !!! danger "Re-verification is mandatory, not optional"
@@ -363,8 +449,8 @@ verified from what has not.
 | Series Title | The Splunk Series — Certification Pathway & Module Map |
 | Status | Draft |
 | Type | Extension module series (non-credit, vendor-specific) |
-| Modules | SPL-01 … SPL-06 |
-| Notional Hours | ~180 (indicative, not AQF-mapped) |
+| Modules | SPL-01 … SPL-08 (two tracks + apex) |
+| Notional Hours | ~674 (indicative, not AQF-mapped) |
 | Vendor-neutrality | **Exempt by design** — see [Why a vendor-specific series exists](#why-a-vendor-specific-series-exists). Not valid as core-unit content under R3. |
 | Facts verified | 2026-09-09 |
 | Re-verification due | 2027-03-09 |

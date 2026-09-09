@@ -1,4 +1,4 @@
-# SPL-05: Architecture & Deployment — Splunk Enterprise Certified Architect
+# SPL-07: Architecture & Deployment — Splunk Enterprise Certified Architect
 
 > **Part of:** [EXT-SPL — The Splunk Series](index.md)
 > **Status:** Draft · **Version:** v0.1 · **Last Reviewed:** 2026-09-09
@@ -38,7 +38,7 @@
     receiving their passing lab results**.
 
     This is the material difference between the Architect and
-    [Consultant](spl-06-consultant.md) tracks: Architect authorisation arrives on its own;
+    [Consultant](spl-08-consultant.md) tracks: Architect authorisation arrives on its own;
     Consultant authorisation must be requested by email.
 
 !!! note "Naming variance"
@@ -91,7 +91,7 @@ troubleshooting, and this is not an accident. In a distributed deployment, "the 
 slow" has a dozen possible causes across four tiers. The diagnostic method — narrow the
 tier, then the component, then prove it with data from the Monitoring Console and the job
 inspector — is what the exam actually tests, and it rests on the `btool` and precedence
-discipline from [SPL-04](spl-04-enterprise-admin.md) Topic 1.
+discipline from [SPL-06](spl-06-enterprise-admin.md) Topic 1.
 
 ### A second architect certification
 
@@ -103,7 +103,7 @@ The two are different jobs sharing a word:
 |---|---|---|
 | Designs | The Splunk platform — indexers, clusters, capacity, resilience | The security detection and response capability built on it |
 | Prerequisites | Power User **and** Enterprise Admin, plus 4 mandatory courses | **None published** |
-| Natural predecessor here | [SPL-04](spl-04-enterprise-admin.md) | [SPL-03](spl-03-cyber-defense-analyst.md) |
+| Natural predecessor here | [SPL-06](spl-06-enterprise-admin.md) | [SPL-03](spl-03-cyber-defense-analyst.md) |
 | Degree analogue | [SE01](../../../degrees/strategic/security-engineering/SE01-secure-system-design.md) / [SE02](../../../degrees/strategic/security-engineering/SE02-security-architecture.md) | [SE04](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md) |
 
 **This module's primary target is the Enterprise Certified Architect.** Topic 9 covers the
@@ -120,14 +120,14 @@ prerequisites" claim is [flagged for verification](index.md#verification-status)
 
 | Unit / module | Relationship |
 |---|---|
-| [SPL-04](spl-04-enterprise-admin.md) | **Enforced prerequisite** (via Enterprise Certified Admin). Every concept here is a distributed version of one taught there. |
-| [SE02 — Security Architecture](../../../degrees/strategic/security-engineering/SE02-security-architecture.md) | **The core architecture unit.** SE02 teaches architecture method — SABSA, Zero Trust, NIST SP 800-160. SPL-05 applies that method to a distributed log platform where the constraints are numeric and the trade-offs are priced. |
+| [SPL-06](spl-06-enterprise-admin.md) | **Enforced prerequisite** (via Enterprise Certified Admin). Every concept here is a distributed version of one taught there. |
+| [SE02 — Security Architecture](../../../degrees/strategic/security-engineering/SE02-security-architecture.md) | **The core architecture unit.** SE02 teaches architecture method — SABSA, Zero Trust, NIST SP 800-160. SPL-07 applies that method to a distributed log platform where the constraints are numeric and the trade-offs are priced. |
 | [SC02 — Security Architecture (Strategic Core)](../../../core/units/SC02-security-architecture.md) | Strategic-core architecture grounding. |
 | [SE01 — Secure System Design](../../../degrees/strategic/security-engineering/SE01-secure-system-design.md) | Availability, resilience and failure-mode reasoning. |
 | [SE04 — Detection & Response Engineering](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md) | Topic 9; the Cybersecurity Defense Architect angle. |
 | [SE05 — Security in Cloud & DevSecOps](../../../degrees/strategic/security-engineering/SE05-security-cloud-devsecops.md) | Cloud deployment, Splunk Cloud, and data-residency constraints in Topic 8. |
 | [SE06 — Capstone: Architecture Design](../../../degrees/strategic/security-engineering/SE06-capstone-architecture-design.md) | The summative here is deliberately shaped like an SE06 deliverable. |
-| [SPL-06](spl-06-consultant.md) | Successor — implementation practice, and the next rung. |
+| [SPL-08](spl-08-consultant.md) | Successor — implementation practice, and the next rung. |
 
 ---
 
@@ -191,18 +191,18 @@ On completion, a learner can:
 
 | Type | ID | Statement | Demonstrated in |
 |---|---|---|---|
-| Knowledge | SPL-05-K01 | Knowledge of Splunk tier roles and reference topologies at each scale | Topic 1–2; Lab 1 |
-| Knowledge | SPL-05-K02 | Knowledge of index clustering, replication/search factors and bucket replication | Topic 3; Lab 2 |
-| Knowledge | SPL-05-K03 | Knowledge of search head clustering, captaincy and knowledge-bundle replication | Topic 4; Lab 2 |
-| Knowledge | SPL-05-K04 | Knowledge of distributed search execution and its failure modes | Topic 5; Lab 3 |
-| Knowledge | SPL-05-K05 | Knowledge of capacity drivers: ingest, retention, concurrency, acceleration | Topic 6; Lab 1 |
-| Knowledge | SPL-05-K06 | Knowledge of DR, multi-site clustering and data-residency constraints | Topic 8; Lab 4 |
-| Skill | SPL-05-S01 | Skill in producing a capacity model with explicit assumptions | Lab 1 |
-| Skill | SPL-05-S02 | Skill in building and recovering an index cluster | Lab 2, Lab 4 |
-| Skill | SPL-05-S03 | Skill in structured multi-tier performance diagnosis | Lab 3 |
-| Ability | SPL-05-A01 | Ability to defend a sizing decision to a non-technical approver | Lab 1; Summative |
-| Ability | SPL-05-A02 | Ability to design for a stated failure tolerance rather than for maximum resilience | Lab 4; Summative |
-| Ability | SPL-05-A03 | Ability to plan a migration with a rollback path | Lab 5 |
+| Knowledge | SPL-07-K01 | Knowledge of Splunk tier roles and reference topologies at each scale | Topic 1–2; Lab 1 |
+| Knowledge | SPL-07-K02 | Knowledge of index clustering, replication/search factors and bucket replication | Topic 3; Lab 2 |
+| Knowledge | SPL-07-K03 | Knowledge of search head clustering, captaincy and knowledge-bundle replication | Topic 4; Lab 2 |
+| Knowledge | SPL-07-K04 | Knowledge of distributed search execution and its failure modes | Topic 5; Lab 3 |
+| Knowledge | SPL-07-K05 | Knowledge of capacity drivers: ingest, retention, concurrency, acceleration | Topic 6; Lab 1 |
+| Knowledge | SPL-07-K06 | Knowledge of DR, multi-site clustering and data-residency constraints | Topic 8; Lab 4 |
+| Skill | SPL-07-S01 | Skill in producing a capacity model with explicit assumptions | Lab 1 |
+| Skill | SPL-07-S02 | Skill in building and recovering an index cluster | Lab 2, Lab 4 |
+| Skill | SPL-07-S03 | Skill in structured multi-tier performance diagnosis | Lab 3 |
+| Ability | SPL-07-A01 | Ability to defend a sizing decision to a non-technical approver | Lab 1; Summative |
+| Ability | SPL-07-A02 | Ability to design for a stated failure tolerance rather than for maximum resilience | Lab 4; Summative |
+| Ability | SPL-07-A03 | Ability to plan a migration with a rollback path | Lab 5 |
 
 ---
 
@@ -210,13 +210,15 @@ On completion, a learner can:
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — Topology and tiers | 1–2 | 1 | 10 |
-| B — Clustering | 3–4 | 2 | 14 |
-| C — Distributed search and troubleshooting | 5 | 3 | 12 |
-| D — Capacity and sizing | 6–7 | 1 | 12 |
-| E — Resilience, residency and migration | 8 | 4, 5 | 12 |
-| F — Security architecture of the platform | 9 | 4 | 8 |
-| | | | **~68 hours** |
+| A — Topology and tiers | 1–2 | 1 | 12 |
+| B — Clustering | 3–4 | 2 | 18 |
+| C — Distributed search, tuning, troubleshooting | 5, 9, 10 | 3 | 22 |
+| D — Capacity, sizing and storage | 6–7 | 1, 6 | 20 |
+| E — Deployment and change | 8 | 5 | 8 |
+| F — Resilience, residency and cloud | 11–12 | 4, 5 | 16 |
+| G — Ingest and security architecture | 13–15 | 4, 7 | 16 |
+| H — Migration, cost and constraint | 16–17 | 5, 7 | 12 |
+| | | | **~124 hours** |
 
 ---
 
@@ -224,25 +226,30 @@ On completion, a learner can:
 
 ### Topic 1: The Tiers, Separated
 
-Forwarding, indexing, search and management tiers as distinct roles with distinct
-resource profiles. Which tier is CPU-bound, which is I/O-bound, and why that determines
-hardware choice rather than the other way round.
+Forwarding, indexing, search and management tiers as distinct roles with distinct resource
+profiles. Which tier is CPU-bound, which is I/O-bound, and why that determines hardware
+choice rather than the other way round. Reference hardware, and why "reference" is a floor
+and not a target.
 
 The management components learners rarely meet before this rung: **cluster manager**,
-**deployer**, **deployment server**, **licence manager**, **Monitoring Console**. What
-each one does, what breaks when it is unavailable, and — a favourite exam theme — which of
-them can safely be co-located and which cannot.
+**deployer**, **deployment server**, **licence manager**, **Monitoring Console**, **KV Store
+members**. What each one does, what breaks when it is unavailable, and — a favourite exam
+theme — which of them can safely be co-located and which cannot.
 
-### Topic 2: Reference Topologies
+### Topic 2: Reference Topologies and Splunk Validated Architectures
 
 Single instance → distributed non-clustered → indexer cluster → search head cluster →
-multi-site. What drives each transition, expressed as a threshold rather than a
-preference: ingest volume, search concurrency, availability requirement, geography.
+multi-site. What drives each transition, expressed as a threshold rather than a preference:
+ingest volume, search concurrency, availability requirement, geography.
+
+**Splunk Validated Architectures (SVAs)**: the published topology categories, the pillars
+(availability, performance, scalability, security, manageability), and how to select a
+topology from stated requirements rather than from ambition.
 
 **The architectural judgement:** every step up buys something and costs operational
 complexity. An organisation running a multi-site cluster it does not need has bought a
-harder job. Being able to say "you do not need this yet" is an architect skill, and it is
-one the vendor's own courseware has no incentive to teach.
+harder job. Being able to say "you do not need this yet" is an architect skill, and one the
+vendor's own courseware has no incentive to teach.
 
 ### Topic 3: Index Clustering
 
@@ -250,113 +257,224 @@ Cluster manager, peers, and the mechanics of bucket replication. **Replication f
 (how many copies of the data) and **search factor** (how many are searchable), and the
 storage multiple each implies.
 
-Bucket states and the fix-up process. What happens when a peer fails: which buckets go
-non-searchable, how the cluster remediates, and how long it takes. Rolling restarts and
-maintenance mode.
+Bucket states — searchable, non-searchable, primary — and the fix-up process. What happens
+when a peer fails: which buckets go non-searchable, how the cluster remediates, and how
+long it takes. Rolling restarts, maintenance mode, and the cluster bundle
+(`apply cluster-bundle`) as the configuration path.
+
+Indexer discovery so forwarders find peers without a static list. Data rebalancing after a
+peer is added.
 
 **The decision to teach properly:** RF and SF are a statement about how much data loss and
-search unavailability the business accepts, priced in storage. RF=3/SF=2 is not "more
-safe" — it is a specific cost for a specific tolerance, and it must be traced back to a
-requirement someone signed.
+search unavailability the business accepts, priced in storage. RF=3/SF=2 is not "more safe" —
+it is a specific cost for a specific tolerance, traceable to a requirement someone signed.
 
 ### Topic 4: Search Head Clustering
 
-Captain election and what the captain does. Knowledge-bundle replication — the mechanism
-by which the knowledge layer from [SPL-02](spl-02-power-user.md) reaches the indexers, and
-a common source of both performance problems (oversized bundles) and correctness problems
-(stale bundles).
+Captain election, what the captain does, and captaincy transfer — including the failure
+mode where a cluster cannot elect one.
 
-The deployer versus the deployment server: two similarly-named components doing different
-jobs, and a reliable source of confusion. Configuration management for a search head
-cluster, and why you must not edit a member directly.
+**Knowledge-bundle replication** — the mechanism by which the knowledge layer from
+[SPL-02](spl-02-power-user.md) reaches the indexers, and a common source of both
+performance problems (oversized bundles, and the `distsearch.conf` blacklist that fixes
+them) and correctness problems (stale bundles).
 
-### Topic 5: Distributed Search and Structured Troubleshooting
+The **deployer** versus the **deployment server**: two similarly-named components doing
+different jobs, and a reliable source of confusion. Configuration management for a search
+head cluster, and why you must not edit a member directly. Search head cluster member
+replacement and recovery.
+
+KV Store clustering and its own quorum behaviour, which fails independently of the search
+head cluster and surprises people.
+
+### Topic 5: Distributed Search
 
 How a search is decomposed and distributed: what runs on the indexers (streaming) and what
-runs on the search head (transforming) — the [SPL-01](spl-01-core-user.md) Topic 3
+runs on the search head (transforming) — the [SPL-01](spl-01-core-user.md) Topic 5
 distinction, now with a network between the two and real consequences.
 
-Search concurrency limits, scheduler behaviour, skipped searches, and why the scheduler is
-usually the first thing to break at scale.
+Search peers, `distsearch.conf`, and search head pooling history. Search concurrency limits,
+scheduler behaviour, skipped searches, and why the scheduler is usually the first thing to
+break at scale.
 
-**The diagnostic method**, which is the examinable skill:
-
-1. Narrow to a tier — is this a forwarding, indexing, search or knowledge problem?
-2. Narrow to a component within it.
-3. **Prove it with evidence** — Monitoring Console, job inspector, `_internal` logs,
-   `btool` — before changing anything.
-
-Practise the common presentations: slow searches, indexing lag, queue blockage, skipped
-scheduled searches, uneven data distribution across peers, and results that are *wrong*
-rather than slow (usually a bundle or precedence problem).
+**Federated search** for querying across deployments, and its constraints.
 
 ### Topic 6: Capacity Planning and Sizing
 
 The module's centrepiece and the deliverable that defines the role.
 
-Inputs to the model: daily ingest volume, growth rate, retention by index, replication and
-search factors, search concurrency (scheduled and ad hoc), data-model acceleration load
-(the cost from [SPL-02](spl-02-power-user.md) Topic 6, now at estate scale), and premium
-app overhead — **Enterprise Security is sized separately and substantially**.
+Inputs to the model: daily ingest volume, growth rate, **compression and indexing overhead
+ratios** (raw versus `tsidx` versus total on disk), retention by index, replication and
+search factors, search concurrency (scheduled and ad hoc), data-model acceleration load (the
+cost from [SPL-02](spl-02-power-user.md) Topic 14, now at estate scale), and premium app
+overhead — **Enterprise Security is sized separately and substantially**, per
+[SPL-04](spl-04-enterprise-security.md) Topic 12.
 
-Outputs: indexer count, storage by tier, search head count, and IOPS requirements.
+Outputs: indexer count, storage by tier, search head count, IOPS requirements, and network
+between tiers.
 
 **Assumptions are the deliverable.** A sizing with an unstated compression ratio, an
 unstated peak-to-average ratio or an unstated concurrency assumption is not reviewable.
-Learners must produce a model someone else can disagree with — which means every number
-traceable to a stated input.
+Learners must produce a model someone else can disagree with — every number traceable to a
+stated input.
 
 Cover the reality that ingest estimates from stakeholders are consistently wrong, usually
 low, and that the model must include headroom and a re-forecast trigger.
 
-### Topic 7: Deployment, Configuration Management and Change
+### Topic 7: Storage Architecture and SmartStore
+
+Storage tiers and their performance requirements: hot on the fastest storage available,
+warm, cold on cheaper media, frozen off-platform.
+
+**SmartStore**: decoupling compute from storage using object storage, the local cache and
+its eviction behaviour, and the workloads for which it is and is not appropriate. The
+trade-off is search latency on cache misses against a very different cost curve — and it
+changes the sizing model in Topic 6 materially.
+
+Archiving to frozen, `coldToFrozenScript`, and the restore-from-frozen path that
+organisations assume works and rarely test.
+
+### Topic 8: Deployment, Configuration Management and Change
 
 Managing configuration across a distributed estate: the deployment server for forwarders,
-the deployer for search head clusters, the cluster manager for indexers. Version upgrades
-and their ordering constraints — upgrade order in a clustered deployment is not optional
-and getting it wrong is an outage.
+the deployer for search head clusters, the cluster manager for indexers. Which tool owns
+which tier, and the errors that follow from using the wrong one.
+
+Version upgrades and their ordering constraints — upgrade order in a clustered deployment
+is not optional and getting it wrong is an outage. Rolling upgrade procedures.
 
 Blast radius again, at architecture scale: a bad push to a cluster is worse than a bad push
-to a host. The discipline is the same one [EXT-ANS](../ansible-security-automation.md)
-teaches for OS automation.
+to a host. The discipline is the same one
+[EXT-ANS](../ansible-security-automation.md) teaches for OS automation.
 
-### Topic 8: Resilience, Disaster Recovery and Data Residency
+### Topic 9: Performance Tuning
 
-Multi-site index clustering, site replication and search affinity. RPO and RTO for a log
-platform, and the observation that "we lost four hours of logs" is a *detection* outage
-and potentially a compliance one, not merely an inconvenience.
+Reading the platform's own telemetry: `_internal` metrics, queue fill ratios and what a
+blocked queue upstream implies about the tier below it, indexing latency, and search
+concurrency saturation.
+
+Tuning levers by tier: parsing and typing queue sizing, pipeline sets, indexer parallelism,
+search concurrency and quota settings in `limits.conf`, scheduler priority and window
+spreading, and workload management to protect interactive searches from scheduled load.
+
+Diagnosing the search that is slow for a *knowledge* reason — an oversized bundle, an
+automatic lookup applied estate-wide, an un-accelerated model — rather than a hardware one.
+
+### Topic 10: Structured Troubleshooting at Distributed Scale
+
+The examinable skill, and one of the four mandatory Architect courses.
+
+**The diagnostic method:**
+
+1. Narrow to a tier — forwarding, indexing, search or knowledge?
+2. Narrow to a component within it.
+3. **Prove it with evidence** — Monitoring Console, job inspector, `_internal`, `btool`,
+   `diag` — before changing anything.
+
+Practise the common presentations: slow searches, indexing lag, queue blockage, skipped
+scheduled searches, uneven data distribution across peers, bucket fix-up that never
+completes, a search head cluster that will not elect a captain, and results that are
+*wrong* rather than slow (usually a bundle or precedence problem).
+
+### Topic 11: Multi-Site, Disaster Recovery and Resilience
+
+Multi-site index clustering: site replication and search factors, site affinity for search,
+and forwarder site awareness. The failure scenarios multi-site does and does not protect
+against.
+
+RPO and RTO for a log platform, and the observation that "we lost four hours of logs" is a
+*detection* outage and potentially a compliance one, not merely an inconvenience.
 
 Backup and recovery of what actually matters: configuration and the knowledge layer, which
-are harder to reconstruct than the data.
+are harder to reconstruct than the data. Cluster manager loss and recovery. Testing the
+recovery path rather than documenting it.
+
+### Topic 12: Data Residency, Cloud and Splunk Cloud
 
 **Data residency** as a hard architectural constraint for Australian workloads — see
-[Australian context](#australian-context). Where buckets physically live is a design
-input, not a deployment detail, and it can rule out topologies that are otherwise optimal.
+[Australian context](#australian-context). Where buckets physically live is a design input,
+not a deployment detail, and it can rule out topologies that are otherwise optimal.
 
-Splunk Cloud versus self-managed: what the architect still owns in each model.
+Splunk Cloud versus self-managed: what the architect still owns in each model, what changes
+about configuration management, and the migration path. Hybrid deployments and their
+particular awkwardness.
 
-### Topic 9: The Security Architecture of the Platform Itself
+Deploying on cloud infrastructure: instance sizing, storage classes, availability zones as a
+site analogue, and the cost model that differs from on-premises in ways that surprise
+finance.
 
-The platform holding the organisation's security telemetry is itself a target — and it is
-a high-value one, because it contains both the evidence of intrusion and the means to
+### Topic 13: Designing the Data Onboarding Architecture
+
+Not "how do I onboard a source" (that is [SPL-06](spl-06-enterprise-admin.md)) but "how does
+this organisation onboard sources at scale, repeatably". Ingest patterns: forwarder,
+syslog collection tier, HEC, API pull, cloud-native.
+
+The syslog problem specifically — UDP loss, the need for a collection tier, and the common
+architecture using a syslog daemon writing to files monitored by a forwarder rather than
+Splunk receiving syslog directly.
+
+Ingest actions and edge processing as filtering options, and where filtering should happen
+in the pipeline.
+
+### Topic 14: The Security Architecture of the Platform Itself
+
+The platform holding the organisation's security telemetry is itself a target — a
+high-value one, because it contains both the evidence of intrusion and the means to
 suppress it.
 
-- **Hardening the deployment:** TLS between tiers, certificate management, authentication
-  integration, and the management ports that should not be reachable.
+- **Hardening the deployment:** TLS between all tiers, certificate management and rotation,
+  authentication integration, and the management ports that should not be reachable.
 - **The insider and integrity problem:** an administrator can alter retention, drop data at
   a heavy forwarder, or edit a knowledge object so a detection silently returns nothing.
-  Splunk's own audit logging, and the uncomfortable question of who watches it. Compare
-  the control-plane threat model in [EXT-ANS](../ansible-security-automation.md) Topic 13 —
-  the same argument applies here and matters more.
-- **Segregation of duties** between platform administration and detection content
-  ownership, which the RBAC model from [SPL-04](spl-04-enterprise-admin.md) Topic 5 must
-  actually enforce.
-- **Designing the detection capability**, not just the platform: data-source coverage
-  against requirements, where detection runs, how content is promoted to production, and
-  how the whole thing degrades when a tier is lost. This is the
-  [Cybersecurity Defense Architect](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-architect.html)
-  layer and the direct application of
-  [SE04](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md).
+  Splunk's own audit logging, and the uncomfortable question of who watches it. Compare the
+  control-plane threat model in [EXT-ANS](../ansible-security-automation.md) Topic 13 — the
+  same argument applies here and matters more.
+- **Segregation of duties** between platform administration and detection content ownership,
+  which the RBAC model from [SPL-06](spl-06-enterprise-admin.md) Topic 9 must actually
+  enforce.
+- Data-at-rest and data-in-transit protection, and their performance cost.
+
+### Topic 15: Designing the Detection Capability
+
+The [Cybersecurity Defense Architect](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-architect.html)
+layer, and the direct application of
+[SE04](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md).
+
+Designing the security capability rather than just the platform: data-source coverage
+against detection requirements, where detection runs, how content is promoted to
+production, how ES and SOAR fit the topology, and how the whole thing degrades when a tier
+is lost.
+
+**The architect's version of the two-gap distinction:** which detection requirements are
+unmet because of missing content, and which because the architecture never collects the
+telemetry. The second is an architecture problem and it is the architect's to fix.
+
+### Topic 16: Migration and Consolidation
+
+Migration patterns: version upgrades, single-site to multi-site, self-managed to Splunk
+Cloud, and the consolidation of multiple deployments after an acquisition — the last being
+common and messy.
+
+Data migration constraints, index compatibility, and knowledge-object portability. The
+recurring problem: the knowledge layer is what makes the data useful, and it is the part
+that migrates worst.
+
+**Rollback planning at each stage**, and identifying the point of no return honestly. A
+migration plan without a stated point of no return has one anyway — it is just undocumented.
+
+### Topic 17: Cost, Constraint and the Design That Fits
+
+The topic vendor courseware omits. Real Australian organisations outside the largest
+enterprises cannot fund the reference architecture. An architect who can only design the
+ideal deployment is not useful here.
+
+Designing within a budget ceiling: which pillar to sacrifice first, what to defer, what to
+accept as residual risk, and how to state that clearly enough that the business can
+genuinely choose. Licensing models as an architectural input rather than a procurement
+afterthought.
+
+**Presenting a design to someone who does not want to pay for it** — the skill that decides
+whether the design ever gets built. Developed further in [SPL-08](spl-08-consultant.md).
 
 ---
 
@@ -427,6 +545,31 @@ validation gates, and a **rollback path at each stage**.
 
 **Deliverable:** the plan, plus an explicit statement of the point of no return and what
 mitigates it.
+
+---
+
+### Lab 6: Storage Architecture and the SmartStore Trade-off — *no licence required*
+
+Take the Lab 1 capacity model. Re-cost it three ways: all-local storage with conventional
+tiering; SmartStore with object storage and a local cache; and a hybrid.
+
+**Deliverable:** the three cost models with their assumptions, a search-latency assessment
+for each, and a recommendation tied to a stated workload profile. State explicitly which
+workloads would be *worse* under SmartStore and why.
+
+### Lab 7: Design the Detection Capability, Not Just the Platform
+
+Given a set of detection requirements and an ATT&CK coverage target, design the
+architecture that supports them: data sources and their ingest paths, where ES and SOAR
+sit, where detection executes, and how content reaches production.
+
+Then identify which requirements cannot be met by *any* content because the architecture
+does not collect the telemetry.
+
+**Deliverable:** the capability architecture, the ingest design, and the architecture-level
+telemetry-gap statement with the cost of closing each gap. This is the
+[Cybersecurity Defense Architect](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-architect.html)
+deliverable.
 
 ---
 
@@ -552,12 +695,12 @@ Governance framing for these obligations sits in
 
 | Field | Value |
 |---|---|
-| Module Code | SPL-05 |
+| Module Code | SPL-07 |
 | Module Title | Architecture & Deployment — Splunk Enterprise Certified Architect |
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 4–6 (Analyse / Evaluate / Create) |
-| Notional Hours | ~68 |
+| Notional Hours | ~124 |
 | Zero-cost achievable | **No** — mandatory paid coursework; clustering labs require a trial licence |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

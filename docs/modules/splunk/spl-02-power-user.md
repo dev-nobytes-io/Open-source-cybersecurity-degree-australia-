@@ -48,7 +48,7 @@ Free instance except scheduled/accelerated data-model behaviour, noted where rel
     For the Consultant track only, Splunk permits candidates to complete **all 14 courses
     recommended for the Advanced Power User certification** *in lieu of* earning the
     certification itself. This is the only published substitution anywhere in the ladder.
-    It does not help anyone outside the Consultant track — see [SPL-06](spl-06-consultant.md).
+    It does not help anyone outside the Consultant track — see [SPL-08](spl-08-consultant.md).
 
 ---
 
@@ -69,7 +69,7 @@ standard. CIM is why `Authentication.action=failure` works whether the underlyin
 came from Windows, Linux, Okta or a firewall. Everything in
 [SPL-03](spl-03-cyber-defense-analyst.md) depends on data being CIM-compliant, and the
 most common reason Enterprise Security "doesn't work" at a real customer site is that it
-isn't. That failure is diagnosed in SPL-04 and prevented in SPL-06.
+isn't. That failure is diagnosed in SPL-06 and prevented in SPL-08.
 
 The Advanced Power User half adds the performance dimension: **accelerated data models
 and `tstats`**. The difference between a search that scans raw events and one that hits a
@@ -86,7 +86,7 @@ detection that can run every five minutes and one that cannot run at all.
 | [DE02 — Data Sources & Log Engineering](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | **Assumed core unit.** DE02 teaches normalisation, data modelling and telemetry gaps vendor-neutrally. SPL-02 is CIM as one concrete implementation of that theory. |
 | [DE03 — Writing Detection Logic](../../../degrees/operational/detection-engineering/DE03-writing-detection-logic.md) | DE03 already teaches SPL alongside KQL, YARA and Sigma. SPL-02 goes deeper on the Splunk side only. |
 | [F06 — Data & Log Analysis](../../../core/units/F06-data-log-analysis.md) | Assumed. |
-| [SPL-03](spl-03-cyber-defense-analyst.md), [SPL-04](spl-04-enterprise-admin.md) | **Both depend on this module.** ES requires CIM; administration requires understanding what knowledge objects cost. |
+| [SPL-03](spl-03-cyber-defense-analyst.md), [SPL-06](spl-06-enterprise-admin.md) | **Both depend on this module.** ES requires CIM; administration requires understanding what knowledge objects cost. |
 
 ---
 
@@ -161,11 +161,13 @@ On completion, a learner can:
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — The knowledge layer | 1–3 | 1 | 10 |
-| B — Normalisation and CIM | 4–5 | 2, 4 | 12 |
-| C — Performance | 6 | 3 | 10 |
-| D — Governance of the knowledge layer | 7–8 | 5 | 8 |
-| | | | **~40 hours** |
+| A — The knowledge layer | 1–6 | 1 | 20 |
+| B — The command and function set | 7–11 | 6, 7 | 24 |
+| C — Normalisation and CIM | 12–13 | 2, 4 | 14 |
+| D — Performance and acceleration | 14 | 3 | 12 |
+| E — Advanced constructs and analytics | 15–17 | 7 | 12 |
+| F — Governance of the knowledge layer | 18–19 | 5 | 8 |
+| | | | **~90 hours** |
 
 ---
 
@@ -174,83 +176,275 @@ On completion, a learner can:
 ### Topic 1: The Knowledge Object Taxonomy
 
 Field extractions (regex and delimiter), field aliases, calculated fields, event types,
-tags, workflow actions, lookups, and macros. What each one is *for*, and — the part
-learners get wrong — the fact that several of them can solve the same problem with very
-different maintenance costs.
+tags, workflow actions, lookups, macros, data models, and saved searches. What each one is
+*for*, and — the part learners get wrong — the fact that several of them can solve the same
+problem with very different maintenance costs.
 
-The judgement to develop: an alias is cheap and reversible; a regex extraction is
-brittle; an index-time change is expensive and permanent. Choose accordingly.
+The judgement to develop: an alias is cheap and reversible; a regex extraction is brittle;
+an index-time change is expensive and permanent. Choose accordingly.
 
-### Topic 2: Precedence and Why Your Field Is Wrong
+### Topic 2: Precedence, App Context and `btool`
 
 Configuration precedence in Splunk is a genuine source of production incidents. App
-context, user context, and the layering of `props.conf` and `transforms.conf`. Why the
-same search returns different fields for two users, and how to prove which configuration
-won using `btool`.
+context, user context, and the layering of `props.conf` and `transforms.conf`. Why the same
+search returns different fields for two users.
 
-This topic is the seed of a skill the Architect exam tests hard, and it is the single most
-useful debugging technique in the platform.
+`btool` as the tool that answers "which setting actually applied?" —
+`splunk btool props list --debug` and reading the output. The discipline of proving
+precedence before forming a theory.
 
-### Topic 3: Lookups and Macros — Enrichment and Reuse
+This is the seed of a skill the Architect exam tests hard, and the single most useful
+debugging technique in the platform.
 
-File-based, KV-store and external lookups; automatic lookups and their cost. Macros as
-the mechanism for not repeating yourself, with arguments.
+### Topic 3: Field Extraction in Depth
+
+Regular expressions for Splunk: named capture groups, non-greedy matching, anchoring, and
+character classes. The performance difference between a well-anchored regex and one that
+backtracks.
+
+`rex` (inline), `erex` (example-driven), the field extractor UI, and persistent extractions
+in `props.conf`/`transforms.conf`. `REPORT` versus `EXTRACT` versus `TRANSFORMS` and what
+each implies about when extraction happens.
+
+Delimiter-based extraction for CSV-like data. Multi-value extraction with `max_match`.
+`sed`-mode `rex` for masking sensitive values at search time — with the caveat that this is
+presentation, not protection: the data is still in the index.
+
+**Search-time versus index-time extraction:** the decision, its cost, and why the default
+answer is search-time.
+
+### Topic 4: Structured Data — JSON, XML and Key-Value
+
+`spath` for JSON and XML path extraction, including array handling and the `{}` notation.
+Automatic extraction for `key=value` data and `KV_MODE` settings. `xmlkv` and `extract`.
+
+Working with nested and deeply-nested JSON, which is now the common case for cloud and API
+telemetry. Flattening strategies and their cost.
+
+`tojson` and `fromjson` for constructing and parsing structured values in-pipeline.
+
+### Topic 5: Lookups — Enrichment in Every Form
+
+- **File-based (CSV)** lookups: definition, matching, output fields, case sensitivity, and
+  size limits.
+- **KV Store** collections: when to use them over CSV, `inputlookup`/`outputlookup` against
+  a collection, and their role in stateful content.
+- **Automatic lookups** and their cost — invisible enrichment applied to every search
+  touching a sourcetype, which is powerful and easy to over-apply.
+- **External (scripted)** lookups for dynamic enrichment.
+- **Geospatial** lookups and `iplocation` for geographic enrichment.
+- **Time-bounded** lookups, which matter when the mapping changes over time (an IP that
+  belonged to a different host last month).
+
+Commands: `lookup`, `inputlookup`, `outputlookup`, and the `append`/`OVERWRITE` semantics
+that silently destroy data when misunderstood.
 
 Enrichment is where a SOC turns an IP address into an asset owner and a business
-criticality. That mapping is the difference between an alert and a decision — it is the
-same asset-and-identity problem that
-[OC02](../../../core/units/OC02-security-monitoring-siem.md) raises conceptually, and it
-becomes the Asset & Identity framework in [SPL-03](spl-03-cyber-defense-analyst.md).
+criticality. That mapping is the difference between an alert and a decision — the same
+problem [OC02](../../../core/units/OC02-security-monitoring-siem.md) raises conceptually,
+and it becomes the Asset & Identity framework in
+[SPL-04](spl-04-enterprise-security.md).
 
-### Topic 4: The Common Information Model
+### Topic 6: Macros, Event Types, Tags and Workflow Actions
+
+**Macros:** arguments, validation, and nesting. Macros as the mechanism for not repeating
+yourself, and the readability cost when they nest three deep.
+
+**Event types:** naming a search condition so it can be referenced as a field. **Tags:**
+attaching vocabulary to field-value pairs, and the tag-based abstraction that CIM depends
+on — `tag=authentication` working across every compliant source is the whole point.
+
+**Workflow actions:** GET/POST/search actions that let an analyst pivot from an event to an
+external system or another search. Under-used, and one of the cheapest wins in analyst
+efficiency.
+
+### Topic 7: The `eval` Function Library
+
+The Advanced Power User expects fluency here, not familiarity. Worked coverage by family:
+
+| Family | Functions |
+|---|---|
+| **Conditional** | `if`, `case`, `validate`, `coalesce`, `nullif`, `in`, `searchmatch` |
+| **String** | `len`, `lower`, `upper`, `substr`, `replace`, `trim`/`ltrim`/`rtrim`, `split`, `mvjoin`, `urldecode`, `spath` |
+| **Comparison/Info** | `isnull`, `isnotnull`, `isnum`, `isstr`, `typeof`, `like`, `match`, `cidrmatch` |
+| **Mathematical** | `abs`, `ceiling`, `floor`, `round`, `sigfig`, `pow`, `sqrt`, `exp`, `ln`, `log`, `pi` |
+| **Statistical** | `max`, `min`, `random`, `sum` (row-wise, distinct from `stats` aggregates) |
+| **Time** | `now`, `time`, `strftime`, `strptime`, `relative_time`, `strptime` format specifiers |
+| **Multivalue** | `mvcount`, `mvindex`, `mvfilter`, `mvjoin`, `mvappend`, `mvdedup`, `mvsort`, `mvzip`, `mvmap`, `mvrange` |
+| **Cryptographic** | `md5`, `sha1`, `sha256`, `sha512` |
+| **Conversion** | `tonumber`, `tostring` (including the `"commas"`, `"duration"`, `"hex"` formats) |
+| **JSON** | `json_extract`, `json_keys`, `json_valid`, `json_object`, `json_array` |
+
+`cidrmatch` deserves specific attention: subnet matching in security work is constant and
+learners routinely do it wrong with string comparison.
+
+**The null-handling theme** runs through all of it. An absent field is not an empty one,
+and most functions return null on null input — which propagates silently through the rest
+of the pipeline.
+
+### Topic 8: The `stats` Family — `eventstats`, `streamstats`, `tstats`
+
+The four commands that look similar and behave completely differently:
+
+- **`stats`** — aggregates and *replaces* the result set.
+- **`eventstats`** — aggregates and *appends the result to every row*, preserving events.
+  The tool for "compare this event to the average".
+- **`streamstats`** — computes a *running* aggregate in order, with `window`, `current`,
+  `time_window`, `global` and `reset_on_change`. The tool for sequence and rate-of-change
+  problems: failed logins in a rolling window, time between events, first-seen detection.
+- **`tstats`** — operates on indexed and modelled fields only, and is therefore orders of
+  magnitude faster. Constraints, `prestats`, `summariesonly`, and the `append` pattern.
+
+**Behavioural baselining with `eventstats` and `streamstats`** is the honest, explainable
+alternative to machine learning for most anomaly problems, and it is a recurring theme from
+[SPL-04](spl-04-enterprise-security.md) Topic 11.
+
+Also: `sistats`/`sitimechart` and the summary-indexing family, and when they still beat
+data-model acceleration.
+
+### Topic 9: Multivalue Fields
+
+Where multivalue fields come from, and why they surprise people — a field that is
+sometimes single and sometimes multi produces intermittent bugs.
+
+Commands: `mvexpand` (and its memory limits, which are a real operational constraint),
+`mvcombine`, `makemv`, `nomv`. The `eval` multivalue functions from Topic 7 applied
+properly.
+
+Multivalue fields in `stats` and `where` clauses: what `=` means when the left side has
+three values. This is a genuinely counter-intuitive area and worth explicit drilling.
+
+### Topic 10: Correlating Datasets — Subsearches, `join`, `append`, `union`
+
+The commands learners over-use and practitioners avoid:
+
+- **Subsearches** — the `[ ... ]` syntax, `format`, `return`, and the hard limits
+  (result count and time) that cause a subsearch to be **silently truncated**, producing a
+  wrong answer with no error. This is one of the most dangerous behaviours in SPL.
+- **`join`** — types, and why it is usually the wrong answer: slow, subject to subsearch
+  limits, and almost always replaceable.
+- **`append`, `appendcols`, `appendpipe`, `union`** — and their ordering and column
+  semantics.
+- **`set`** — union, diff and intersect over two result sets.
+
+**The `stats`-based alternative.** Nearly every `join` can be rewritten as a single search
+across both datasets followed by `stats ... by <key>`. It is faster, has no truncation
+limit, and is the idiom experienced Splunk practitioners actually use. Teaching this
+rewrite explicitly is one of the highest-value things in the module.
+
+`lookup` as the third option when one side is small and static.
+
+### Topic 11: `transaction` and Sequence Analysis
+
+`transaction` with `startswith`, `endswith`, `maxspan`, `maxpause` and `maxevents`.
+Transaction fields (`duration`, `eventcount`).
+
+**When `transaction` is genuinely right** — when you need the events themselves grouped and
+the grouping depends on ordering or start/end markers — and when `stats by` is the correct
+and much faster answer. The default assumption should be `stats`; `transaction` must be
+argued for.
+
+Sequence detection with `streamstats` as a third approach.
+
+### Topic 12: The Common Information Model
 
 CIM as a set of data models with agreed field names, and the Splunk Add-on as the usual
-unit of CIM compliance. Working through a data source that is *not* compliant: identifying
-which model it belongs to, which fields are missing, and what to alias, extract or tag.
+unit of CIM compliance. The major models a security practitioner lives in: Authentication,
+Network Traffic, Web, Endpoint, Malware, Change, Intrusion Detection, Email, Certificates.
+
+Working through a data source that is *not* compliant: identifying which model it belongs
+to, which fields are missing, and what to alias, extract or tag. The CIM validation
+dashboards in the CIM add-on.
 
 **The strategic point:** CIM compliance is what makes detection content portable. A Sigma
 rule, an ESCU detection, or a correlation search written against `Authentication` works
-across every compliant source and none of the non-compliant ones. Detection content is
-only as good as the normalisation beneath it — which is exactly DE02's argument, in
-Splunk's vocabulary.
+across every compliant source and none of the non-compliant ones. Detection content is only
+as good as the normalisation beneath it — which is exactly DE02's argument, in Splunk's
+vocabulary.
 
-### Topic 5: Data Models
+### Topic 13: Data Models
 
-Datasets, objects, constraints, and inheritance. Building a data model from scratch and
-mapping events into it. `pivot` as the non-SPL interface, and why analysts who only know
-pivot hit a ceiling.
+Datasets (event, search, transaction), objects, constraints, attributes and inheritance.
+Building a data model from scratch and mapping events into it. Calculated and lookup
+attributes within a model.
 
-### Topic 6: Acceleration, `tsidx` and `tstats`
+`pivot` and the Pivot UI as the non-SPL interface, and why analysts who only know pivot hit
+a ceiling. `datamodel` command syntax for searching a model directly.
+
+### Topic 14: Acceleration, `tsidx` and Performance
 
 **The Advanced Power User core.** How report and data-model acceleration actually work,
-what a `tsidx` summary contains, and where it lives. `tstats` syntax and its constraints —
-in particular that it operates on indexed and modelled fields, not arbitrary search-time
-extractions, which is why it is fast and why it sometimes cannot answer your question.
+what a `tsidx` summary contains, and where it lives. Acceleration time ranges, backfill,
+and rebuild.
 
-The trade-off to internalise: acceleration buys search speed with **indexer CPU and
-disk**. A deployment with every data model accelerated and a modest indexing tier is a
-deployment that has moved its performance problem rather than solved it. This is the
-first genuinely architectural judgement in the series and it returns in
-[SPL-05](spl-05-architect.md).
+`tstats` in depth: syntax against accelerated models, `summariesonly=true` versus `false`
+and the correctness implication of each, `allow_old_summaries`, and combining `tstats` with
+`tstats append` for federated results.
 
-Also cover: summary indexing, and when it is still the right answer over acceleration.
+The trade-off to internalise: acceleration buys search speed with **indexer CPU and disk**.
+A deployment with every data model accelerated and a modest indexing tier has moved its
+performance problem rather than solved it. This is the first genuinely architectural
+judgement in the series and it returns in [SPL-07](spl-07-architect.md).
 
-### Topic 7: Permissions, Naming and App Context
+Also: summary indexing, `collect`, and when it is still the right answer over acceleration.
 
-Private / app / global scope. Why a knowledge object that works for its author and
-nobody else is the most common support ticket in a Splunk deployment. Naming conventions,
-and the fact that the knowledge layer is shared mutable state across every team using the
-platform.
+### Topic 15: Advanced Search Constructs
+
+- **`foreach`** — iterating over fields, including wildcard field sets, for
+  normalisation work that would otherwise be twenty near-identical `eval` statements.
+- **`map`** — running a search per result, and the strong warning that it is slow and
+  usually indicates the problem should be solved differently.
+- **`makeresults`** — generating synthetic events for testing, which is how you unit-test
+  SPL logic without waiting for real data.
+- **`eventstats`/`streamstats` composition** for multi-pass logic.
+- **`bin`/`bucket`** for manual time and numeric bucketing.
+- **`untable`/`xyseries`** for reshaping result sets between wide and long form — the
+  commands people need for charting and never remember.
+- **`addinfo`**, `addtotals`, `accum`, `delta`.
+
+### Topic 16: Statistical and Predictive Commands
+
+Where SPL's built-in analytics genuinely help:
+
+`anomalydetection`, `anomalies`, `outlier`, `cluster`, `predict`, `trendline`, `x11`.
+`rare` and `top` as first-pass outlier tools. `associate` and `correlate` for relationship
+discovery.
+
+The Machine Learning Toolkit as an adjacent option, treated properly in
+[SPL-04](spl-04-enterprise-security.md) Topic 11.
+
+**The stance to establish here:** an unexplainable result is an untriageable result. These
+commands are useful when a human can see *why* something was flagged. Prefer the
+`streamstats` baseline you can explain to the clustering you cannot.
+
+### Topic 17: SPL2
+
+What SPL2 is, where it currently applies, and how it differs from SPL. Splunk publishes
+free SPL2 courseware and it appears in the certification blueprints.
+
+Treated as **awareness-level** here rather than depth: SPL2's rollout across the product
+line is still in progress, and this module does not assert a migration timeline. Flagged
+for re-verification.
+
+### Topic 18: Permissions, Naming and App Context
+
+Private / app / global scope. Why a knowledge object that works for its author and nobody
+else is the most common support ticket in a Splunk deployment. Naming conventions, and the
+fact that the knowledge layer is shared mutable state across every team using the platform.
+
+Knowledge object precedence when two apps define the same object. Exporting objects between
+apps.
 
 !!! warning "Free-licence gap"
     Splunk Free has **no authentication, no users and no roles**, so permission scoping
     cannot be demonstrated hands-on. Cover it conceptually here; it becomes practical in
-    [SPL-04](spl-04-enterprise-admin.md) under a trial licence.
+    [SPL-06](spl-06-enterprise-admin.md) under a trial licence.
 
-### Topic 8: Knowledge as Technical Debt
+### Topic 19: Knowledge as Technical Debt
 
 Orphaned objects, duplicated extractions, lookups nobody owns, macros that encode a
-business rule that changed two years ago. Reviewing and retiring knowledge objects.
+business rule that changed two years ago. Reviewing and retiring knowledge objects, and
+using `| rest` to inventory what exists.
 
 This is the topic vendor courseware skips and practitioners care about most. A five-year-old
 Splunk deployment is usually 30% useful knowledge objects and 70% archaeology.
@@ -313,6 +507,31 @@ removal.
 
 ---
 
+### Lab 6: Eliminate the `join`
+
+Given three searches written with `join`, `append` and a subsearch, rewrite each as a
+single search using `stats by` or `lookup`. Measure both versions.
+
+Then demonstrate the **silent subsearch truncation**: construct a subsearch that exceeds
+the result limit and show that it returns a confidently wrong answer with no error.
+
+**Deliverable:** the three rewrites with before/after timings, and evidence of the
+truncation failure with a note on how you would have detected it in production. This is the
+single most valuable SPL habit in the module.
+
+### Lab 7: Baseline Without Machine Learning
+
+Using `streamstats` and `eventstats`, build a behavioural baseline that flags a user whose
+activity departs from their own recent norm — not a global threshold.
+
+Handle the multivalue and null cases correctly; the lab dataset should contain both.
+
+**Deliverable:** the search, the flagged results, and an explanation an analyst could read
+of *why* each result was flagged. Then state what an ML approach would add and what it
+would cost in explainability.
+
+---
+
 ## Assessment
 
 ### Formative 1: Which Object?
@@ -355,7 +574,7 @@ Full marks require an explicit statement of **what you chose not to accelerate a
   the gap statement from Lab 2 is the honest version of that assessment.
 - **Data sovereignty.** Where lookups and KV-store collections live matters for
   IRAP-assessed and government workloads. Raised properly in
-  [SPL-05](spl-05-architect.md), where deployment location becomes a design decision.
+  [SPL-07](spl-07-architect.md), where deployment location becomes a design decision.
 
 ---
 
@@ -398,7 +617,7 @@ Full marks require an explicit statement of **what you chose not to accelerate a
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–5 (Apply / Analyse / Evaluate) |
-| Notional Hours | ~40 |
+| Notional Hours | ~90 |
 | Zero-cost achievable | Yes (excluding exam fees) |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

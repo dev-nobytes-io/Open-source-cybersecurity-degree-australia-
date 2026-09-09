@@ -129,10 +129,12 @@ On completion, a learner can:
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — How Splunk sees data | 1–2 | 1 | 6 |
-| B — Searching | 3–5 | 2, 3 | 12 |
-| C — Reporting | 6–7 | 4 | 7 |
-| | | | **~25 hours** |
+| A — How Splunk sees data | 1–3 | 1 | 8 |
+| B — Time | 4 | 2 | 5 |
+| C — Searching and the command set | 5–10 | 2, 3, 5 | 20 |
+| D — Reporting and visualisation | 11–13 | 4, 6 | 10 |
+| E — Working with the platform | 14 | 4 | 5 |
+| | | | **~48 hours** |
 
 ---
 
@@ -146,71 +148,208 @@ and a cost model driven by how many events must be read off disk and shipped to 
 head.
 
 Introduce the three roles a single-instance install collapses together — **forwarder,
-indexer, search head** — because SPL-04 and SPL-05 pull them apart, and a learner who
+indexer, search head** — because SPL-06 and SPL-07 pull them apart, and a learner who
 never knew they were separate will struggle there.
+
+Splunk Enterprise versus Splunk Cloud versus Splunk Free: what differs, and which
+constraints apply to this module's labs.
 
 ### Topic 2: The Data Pipeline and Search-Time Schema
 
 Input → parsing → indexing → search. What happens at each stage, and critically **which
 fields exist when**.
 
-- **Index time:** `host`, `source`, `sourcetype`, `_time`, `index`. Fixed at ingest.
-  Getting these wrong is expensive to fix — it means re-indexing.
+- **Index time:** `host`, `source`, `sourcetype`, `_time`, `index`, `_raw`. Fixed at
+  ingest. Getting these wrong is expensive to fix — it means re-indexing.
 - **Search time:** everything else. Extracted on the fly, every time, per search.
 
 The trade-off is the platform's central design decision: flexibility at ingest, cost at
 search. Learners should be able to state which of the two is cheap to change and why
 this makes `sourcetype` decisions strategically important — a theme that returns in
-SPL-04 and dominates SPL-06.
+SPL-06 and dominates SPL-08.
 
-### Topic 3: The Search Pipeline
+The internal fields (`_time`, `_raw`, `_indextime`, `_cd`) and why they behave differently
+from ordinary fields.
 
-SPL as a pipeline of commands joined by `|`. The distinction that matters most:
+### Topic 3: Events, Indexes and the Search App
 
-- **Streaming commands** operate per event and can run distributed on the indexers.
-- **Transforming commands** (`stats`, `chart`, `timechart`, `top`) reshape the result set
-  and run on the search head.
+What constitutes an event; multi-line events and why they are the hard case. Indexes as the
+unit of storage, retention and access control — the last being the reason index choice is a
+security decision, developed in [SPL-06](spl-06-enterprise-admin.md).
 
-**The rule:** filter early, transform late. Every event you exclude in the base search is
-an event that never crosses the network. This is the seed of the performance reasoning
-that the Architect exam tests properly.
+The Search & Reporting app: the search bar, the timeline, the events/statistics/
+visualisation tabs, the fields sidebar (selected versus interesting fields), and the search
+history. Search modes — **fast, smart, verbose** — and what each one does to field
+discovery and therefore to performance. Learners who never change the mode never understand
+why their field disappeared.
 
 ### Topic 4: Time
 
 Time is the axis Splunk is built on and the most common source of wrong answers.
 
-- `_time` (event time, parsed from the event) vs `_indextime` (when Splunk saw it).
+- `_time` (event time, parsed from the event) versus `_indextime` (when Splunk saw it).
 - Time-zone handling, and why a misconfigured forwarder produces events "in the future".
+- The time-range picker versus `earliest`/`latest` in the search string.
+- **Relative time modifiers and snap-to:** `-24h`, `-7d@d`, `@w0`, `+1mon`, and why
+  `@d` (snap to midnight) changes results in ways learners do not expect.
+- `now()`, `relative_time()` and time arithmetic.
 - Why a narrow time range is the single cheapest optimisation available.
 - Real-time searches, and why they are usually the wrong tool.
 
 An investigation that uses index time when it needed event time — or vice versa — reaches
 a confidently wrong conclusion. Practise both.
 
-### Topic 5: Fields, Filtering and `eval`
+### Topic 5: The Search Pipeline and Command Types
 
-Automatic vs interesting fields; the fields sidebar; `fields` to reduce payload. Comparison
-and boolean logic, wildcards and their cost. `eval` for computed values, `where` versus
-`search`, and the `if`/`case` constructs learners will use constantly from SPL-02 onward.
+SPL as a pipeline of commands joined by `|`. The distinction that matters most:
 
-### Topic 6: Aggregation and Reporting
+- **Streaming commands** operate per event and can run distributed on the indexers
+  (`eval`, `rex`, `where`, `fields`).
+- **Transforming commands** reshape the result set and run on the search head
+  (`stats`, `chart`, `timechart`, `top`, `rare`).
+- **Generating commands** produce their own results and must lead the pipeline
+  (`tstats`, `inputlookup`, `makeresults`, `rest`, `metadata`).
+- **Dataset-processing commands** need the whole set before emitting (`sort`, `dedup`).
 
-`stats` and its aggregate functions; `by` clauses; `dedup`, `sort`, `head`. `top` and
-`rare` as convenience wrappers over `stats`. `timechart` versus `chart` versus `stats`,
-and choosing between them deliberately rather than by habit.
+**The rule:** filter early, transform late. Every event you exclude in the base search is
+an event that never crosses the network. This is the seed of the performance reasoning
+that the Architect exam tests properly.
 
-### Topic 7: Saving Work — Reports, Alerts and Dashboards
+### Topic 6: Searching and Filtering
 
-Saved searches as the unit of reuse. Reports, and the dashboard as a collection of saved
-searches with a layout. Permissions and sharing scope (private / app / global) — a
-concept that becomes a real operational problem in SPL-02's knowledge-object management
-and a governance problem in SPL-04.
+The implied `search` command. Boolean operators (`AND`, `OR`, `NOT` — and the difference
+between `NOT` and `!=`, which is a real trap when a field is absent). Comparison operators,
+quoting rules, and case sensitivity — field *names* are case-sensitive, values usually are
+not.
+
+Wildcards and their cost: why a leading wildcard defeats the index and a trailing one does
+not. Searching `_raw` versus searching a field, and why the latter is faster and more
+precise.
+
+`fields` to include or exclude, and why trimming the payload early is one of the cheapest
+optimisations available.
+
+### Topic 7: `eval` and Calculated Values
+
+`eval` as the general-purpose computation command. Creating, overwriting and conditionally
+assigning fields.
+
+Function families introduced here, developed fully in
+[SPL-02](spl-02-power-user.md):
+
+- **Comparison and conditional:** `if()`, `case()`, `validate()`, `coalesce()`, `nullif()`
+- **String:** `len()`, `lower()`, `upper()`, `substr()`, `replace()`, `trim()`, `split()`
+- **Mathematical:** `round()`, `abs()`, `ceiling()`, `floor()`, `pow()`, `sqrt()`
+- **Time:** `strftime()`, `strptime()`, `now()`, `relative_time()`
+- **Informational:** `isnull()`, `isnotnull()`, `typeof()`, `like()`, `match()`
+
+`where` versus `search`: `where` evaluates an expression and can compare two fields;
+`search` matches terms. Learners reach for `search` when they need `where` constantly.
+
+**The null problem.** A field that does not exist is not empty — it is absent, and most
+comparisons against it are neither true nor false. `isnull()`, `coalesce()` and
+`fillnull` are the tools; understanding *why* they are needed is the actual learning.
+
+### Topic 8: Aggregation with `stats`
+
+`stats` as the workhorse transforming command. Aggregate functions: `count`, `dc`
+(distinct count), `sum`, `avg`, `min`, `max`, `median`, `stdev`, `values`, `list`,
+`earliest`, `latest`, `range`, `perc<N>`.
+
+The `by` clause and what it does to result cardinality. `count` versus `dc` — a
+distinction that silently produces wrong answers when confused. `values` versus `list`
+(deduplicated versus not, and the ordering guarantee).
+
+Renaming with `as`, and multiple aggregations in one `stats`.
+
+**Why `stats` is preferable to `transaction`** for almost every grouping problem: it is
+faster, distributable, and has no event limit. `transaction` is introduced in
+[SPL-02](spl-02-power-user.md) precisely so learners know when *not* to use it.
+
+### Topic 9: Result Manipulation
+
+- `sort` with `-`/`+`, multiple keys, and the default result limit that truncates silently.
+- `dedup` — what it keeps, the `sortby` interaction, and why it is often a slower answer
+  than `stats`.
+- `head` and `tail`.
+- `rename`, including wildcard renaming.
+- `table` versus `fields` — presentation versus payload reduction, and why the difference
+  matters for performance.
+- `top` and `rare` as convenience wrappers over `stats`, including `limit`, `showperc`
+  and `countfield`.
+- `fillnull` and `eventstats` (previewed here, developed in SPL-02).
+
+### Topic 10: Field Extraction at Search Time
+
+The field extractor UI (regex and delimiter modes), and its limits.
+
+`rex` for inline extraction with named capture groups, `sed` mode for masking, and the
+`max_match` parameter. `erex` as the example-driven generator that writes a regex for you —
+useful for learning, rarely good enough for production.
+
+Extracting from structured data: `spath` for JSON and XML, and automatic key-value
+extraction for `key=value` formats.
+
+**The judgement to establish early:** an inline `rex` is a one-off; a persistent extraction
+belongs in the knowledge layer ([SPL-02](spl-02-power-user.md)). Copy-pasting the same
+`rex` into twenty searches is technical debt being created in real time.
+
+### Topic 11: Reporting Commands and Visualisation
+
+`chart` versus `timechart` versus `stats` — what each produces and when to reach for it.
+The `over` and `by` clauses in `chart`, the `span` argument in `timechart`, and
+`usenull`/`useother` and their effect on honesty in a chart.
+
+Chart types and matching the visualisation to the question: time series, column, bar, pie
+(and why pie is nearly always the wrong choice), scatter, single value, gauge.
+
+`addtotals`, `eventstats` for adding an aggregate back onto rows, and `trendline`.
+
+Formatting: `fieldformat`, and number/time display without corrupting the underlying value —
+a distinction that matters when the formatted field is used downstream.
+
+### Topic 12: Saved Searches, Reports, Alerts and Dashboards
+
+Saved searches as the unit of reuse. Reports, scheduling, and the dashboard as a
+collection of saved searches with a layout.
+
+Alerts: scheduled versus real-time, trigger conditions, throttling, and alert actions.
+Dashboards: panels, inputs and tokens, drilldown, and time-range binding.
+
+Permissions and sharing scope (private / app / global) — a concept that becomes a real
+operational problem in [SPL-02](spl-02-power-user.md)'s knowledge-object management and a
+governance problem in SPL-06.
 
 !!! warning "Free-licence gap"
     **Alerting is not available on the Splunk Free licence**, and there is no
     authentication, so sharing scope cannot be demonstrated meaningfully. Cover both
-    conceptually here; they become hands-on in [SPL-04](spl-04-enterprise-admin.md) under
-    a trial licence.
+    conceptually here; they become hands-on in
+    [SPL-06](spl-06-enterprise-admin.md) under a trial licence.
+
+### Topic 13: Reading a Search — the Job Inspector
+
+The job inspector as the primary feedback loop: execution costs, the number of events
+scanned versus matched, which commands ran where, and how long each phase took.
+
+Search job lifecycle and artefacts; dispatch directories; job quotas and why a search can
+be queued rather than slow.
+
+**This topic is why the module is not just syntax.** A learner who can read the job
+inspector can improve their own searches without being told how; one who cannot will write
+the same slow search for years. It is also the foundation of the troubleshooting method in
+[SPL-07](spl-07-architect.md).
+
+### Topic 14: Getting Results Out
+
+Exporting results (CSV, JSON, XML, PDF) and the export limits that differ from display
+limits.
+
+An introduction to the REST API and `| rest` as a search-time way to interrogate the
+platform about itself — used heavily from [SPL-04](spl-04-enterprise-security.md) onward
+for content inventory.
+
+Sharing a search versus sharing a link versus scheduling a report to a person: three
+different answers with different governance implications.
 
 ---
 
@@ -261,6 +400,29 @@ question; a panel that exists because it looked good is marked down.
 
 ---
 
+### Lab 5: Drill the Command Set
+
+Given one dataset and fifteen questions, answer each with SPL. The questions are chosen so
+that the obvious command is sometimes the wrong one — at least one requires `where` rather
+than `search`, one requires `dc` rather than `count`, one requires handling a field that is
+absent rather than empty, and one requires `cidrmatch` rather than a string comparison.
+
+**Deliverable:** the fifteen searches, plus a short note on the three you initially got
+wrong and why. The wrong answers are the assessed part.
+
+### Lab 6: Read the Job Inspector
+
+Take one search. Run it four ways: fast mode, verbose mode, with a wide time range, and
+with a narrow one. Record the job inspector's execution costs for each.
+
+Then find a search in your own history that is slower than it should be and improve it
+using only what the inspector told you.
+
+**Deliverable:** the four-way comparison table, and a before/after for the improved search
+with the specific inspector metric that pointed at the fix.
+
+---
+
 ## Assessment
 
 ### Formative: Predict the Cost
@@ -281,7 +443,7 @@ that matters in [OC04](../../../core/units/OC04-incident-response-lifecycle.md).
 ## Australian context
 
 Log retention is a design decision with legal consequences, and it starts at this rung
-because retention is set per index (SPL-04) but the *requirement* is set by law.
+because retention is set per index (SPL-06) but the *requirement* is set by law.
 
 - The **Privacy Act 1988 (Cth)** and the Australian Privacy Principles govern personal
   information in logs. APP 11.2 requires destruction or de-identification once information
@@ -334,7 +496,7 @@ learner should never treat an index retention setting as a purely technical choi
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 2–3 (Understand / Apply) |
-| Notional Hours | ~25 |
+| Notional Hours | ~48 |
 | Zero-cost achievable | Yes (excluding the optional exam fee) |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |
