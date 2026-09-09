@@ -199,15 +199,15 @@ PY
 Run it across several thresholds before you commit to one, and look at the shape:
 
 ```
-threshold= 100  fired=  96  true positive=  9  PPV= 9.4%
-threshold= 150  fired=  38  true positive=  5  PPV=13.2%
-threshold= 200  fired=  15  true positive=  3  PPV=20.0%
+threshold= 100  fired=  92  true positive=  9  PPV= 9.8%
+threshold= 150  fired=  35  true positive=  4  PPV=11.4%
+threshold= 200  fired=  22  true positive=  4  PPV=18.2%
 threshold= 300  fired=   6  true positive=  2  PPV=33.3%
 ```
 
 Precision rises with the threshold, as you would hope. **Now read the other two
 columns, which is where the decision actually lives.** Going from 100 to 300
-improves precision by a factor of 3.5 and discards **7 of 9** true positives. You
+improves precision by a factor of 3.4 and discards **7 of 9** true positives. You
 are not choosing a precision; you are choosing how many real incidents to miss in
 exchange for a queue somebody can work.
 
@@ -249,7 +249,7 @@ PY
 ```
 
 **In this dataset the prior is wrong where it matters.** Total score wins at the
-top of the queue — 30% against 20% at the top ten, 20% against 15% at twenty — and
+top of the queue — 20% against 10% at the top ten, 15% against 10% at twenty — and
 only draws level deeper down, where nobody is looking. Work out why before reading
 on.
 
@@ -267,7 +267,7 @@ strength of a conference talk would have made its own queue worse.
 
 **The calibration note.** Full marks require defending a score you got wrong. The
 easiest one to get wrong here is *Excessive Failed Authentications* at 20. The
-spray generates **33 findings across 24 distinct victims**, all of them accounts
+spray generates **25 findings across 21 distinct victims**, all of them accounts
 that merely *received* attempts and were never compromised. A purely additive
 scheme therefore floods the top of the queue with victims and buries the one
 account that actually fell over.
@@ -351,7 +351,7 @@ cheaper than haversine. At continental scale that error is irrelevant next to th
 threshold you are about to pick arbitrarily; do not let precision here distract
 you from the fact that `900 km/h` is a guess.
 
-That returns roughly **140 pairs across 72 users**. **This is correct behaviour,
+That returns roughly **120 pairs across 74 users**. **This is correct behaviour,
 not a bug.** People genuinely travel interstate, and the detection has no way to
 know that. Your job is the diagnosis the module asks for: is the failure *logic*,
 *normalisation*, or *missing telemetry*?
@@ -372,7 +372,7 @@ The shape of that funnel is the deliverable, not the final row.
 | search category!="service_account"
 ```
 
-142 pairs → 107; 72 users → 65. Service accounts sign in constantly, so even a
+122 pairs → 102; 74 users → 68. Service accounts sign in constantly, so even a
 small genuine-travel rate produces many pairs from very few accounts. Cheap win,
 real cost: **a compromised service account is now invisible to this detection**.
 Say so, and say where you would cover it instead.
@@ -387,8 +387,8 @@ Note that **both** legs matter — an adversary signing in from offshore and the
 the victim signing in normally from Sydney is the same pair seen from the other
 end. Filtering only on `src_country` silently drops half of them.
 
-Down to **37 users**, and this is where the naive analyst declares victory and is
-wrong. Thirty-seven is still an unworkable queue, the organisation has legitimate
+Down to **34 users**, and this is where the naive analyst declares victory and is
+wrong. Thirty-four is still an unworkable queue, the organisation has legitimate
 NZ and Singapore activity, and in a company with offshore staff this filter buys
 nothing at all. It is also the least transferable thing you could build: a
 country list encodes today's org chart, not adversary behaviour.
@@ -462,8 +462,8 @@ because a chain in one hour is different from the same hosts over two weeks:
 
 !!! important "Your threshold decides what you find — check it deliberately"
     `hosts >= 3` returns **two users**, and they are not the same kind of thing:
-    one reached 15 cross-department hosts steadily over the whole window, the
-    other reached 4 inside an hour. Raise it to `hosts >= 5` and you keep only the
+    one reached 11 cross-department hosts steadily over the whole window, the
+    other reached 3 inside an hour. Raise it to `hosts >= 5` and you keep only the
     first and lose the intrusion entirely.
 
     That is the lab. A count threshold cannot distinguish *breadth* from *speed*,
@@ -521,7 +521,7 @@ index=dns reply_code=NXDomain
 | sort - failures
 ```
 
-That narrows 260 hosts to about 252 with at least one failure — which is to say,
+That narrows 260 hosts to about 250 with at least one failure — which is to say,
 it narrows nothing. Real estates fail DNS lookups constantly: typos, decommissioned
 internal names, search-domain suffixing. Roughly 11% of lookups here fail and that
 is normal.
@@ -536,8 +536,8 @@ index=dns
 | sort - failure_rate
 ```
 
-One host sits near **38%** against a field where the next-worst is around 28%.
-That is a lead and no more — a 10-point gap is not a separation you would bet on,
+One host sits near **53%** against a field where the next-worst is around 23%.
+That is a strong lead, and still only a lead —
 and nothing yet says the failures are hostile rather than a broken agent. Note how
 much weaker this signal is than the neat story usually told about NXDOMAIN and C2.
 
@@ -641,16 +641,17 @@ Narrow to the window around the compromise and the shape appears:
 
 | Time (UTC) | Source | What |
 |---|---|---|
-| 02:25 | `wineventlog` | Failed authentications from an external address, one of 45 accounts targeted |
+| 02:11 | `wineventlog` | Failed authentications from an external address, one of 45 accounts targeted |
 | 02:30 | `wineventlog` | **Successful** authentication from that same address |
 | 03:00 | `sysmon` | `certutil.exe` spawned by `powershell.exe`, fetching a remote file |
 | 03:00 | `sysmon` | `rundll32.exe` spawned by **`certutil.exe`** |
-| 04:23 → 05:17 | `wineventlog` + `sysmon` | Type 3 authentications to a jump host, two servers and finally a **domain controller**, each followed by `wmic.exe` under `services.exe` |
+| 04:11 → 04:49 | `wineventlog` + `sysmon` | Type 3 authentications to four servers in 38 minutes, each followed by `wmic.exe` under `services.exe` |
 
-**Read the last row again.** The chain ends on a domain controller, roughly three
-hours after a password that was guessed from the internet. Nothing in that
-sequence required a novel technique, and no single event in it is remarkable
-enough to alert on by itself.
+**Read the timing.** Initial access to four servers in about two and a half
+hours, from a password guessed over the internet. Nothing in that sequence
+required a novel technique, and no single event in it is remarkable enough to
+alert on by itself — which is the entire argument for correlating across
+telemetry types rather than tuning any one detection harder.
 
 **Two things here are worth more than the timeline itself.**
 
@@ -665,13 +666,13 @@ index=sysmon
 | sort count
 ```
 
-The numbers make the argument for you: `certutil.exe` runs **44 times** in this
-dataset and `rundll32.exe` **38 times**, both almost always under `cmd.exe`. The
+The numbers make the argument for you: `certutil.exe` runs **45 times** in this
+dataset and `rundll32.exe` **44 times**, both almost always under `cmd.exe`. The
 pair `certutil.exe → rundll32.exe` occurs **once**. Frequency-based detection on
 either binary alone gives you 100-odd events and no signal; frequency on the
 *edge* gives you one event and the answer.
 
-The same holds for the lateral movement: `wmic.exe` under `cmd.exe` occurs 48
+The same holds for the lateral movement: `wmic.exe` under `cmd.exe` occurs 39
 times and is unremarkable, while `wmic.exe` under **`services.exe`** occurs 4
 times and is the entire intrusion.
 
@@ -679,9 +680,8 @@ Rare-pair analysis over that table is the durable technique; the specific pairs
 are disposable, because tomorrow it will be a different LOLBin. What survives is
 the shape of the query — score the edge, not the node.
 
-Second, the lateral movement crosses from a **workstation** into a jump host,
-servers and a domain controller — a boundary that ordinarily is not crossed by
-this user's account at all. Verify with the asset lookup:
+Second, the lateral movement crosses from a **workstation** into four servers —
+a boundary that ordinarily is not crossed by this user's account at all. Verify with the asset lookup:
 
 ```
 index=wineventlog EventCode=4624 Logon_Type=3 user=<spray victim>

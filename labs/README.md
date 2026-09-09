@@ -103,7 +103,7 @@ python3 generator/generate.py --with-truth --out ./data-instructor   # labels in
 ## A caveat on realism
 
 The dataset is **deliberately enriched**: about 0.2% of events belong to an
-attack scenario, and roughly 10% of intermediate findings are malicious. Real
+attack scenario, and roughly 13% of intermediate findings are malicious. Real
 enterprise base rates are orders of magnitude lower.
 
 This is a teaching compromise, and the series is explicit about it rather than
@@ -117,9 +117,9 @@ the window and the base rate falls**, because benign volume grows while the
 scenarios do not.
 
 ```
---days  7    422 findings   17.5% malicious
---days 14    755 findings    9.5% malicious
---days 30  1,608 findings    5.2% malicious
+--days  7    400 findings   16.8% malicious
+--days 14    771 findings   12.8% malicious
+--days 30  1,609 findings    6.1% malicious
 ```
 
 That is Topic 5's lesson in miniature — the same detector gets worse as the

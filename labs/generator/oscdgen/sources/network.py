@@ -17,11 +17,55 @@ TOP_DOMAINS = ["google.com", "microsoft.com", "atlassian.net", "github.com",
 CATEGORIES = {"business": 0.55, "technology": 0.2, "news": 0.12,
               "social": 0.08, "uncategorised": 0.05}
 _VOWELS, _CONSONANTS = "aeiou", "bcdfghjklmnpqrstvwxyz"
+_B32 = "abcdefghijklmnopqrstuvwxyz234567"
+_HEX = "0123456789abcdef"
+
+# Ordinary English words, for the dictionary DGA. Wordlist DGAs are the case
+# character entropy is structurally blind to: `correcthorsebattery` is
+# maximally malicious and entirely unremarkable to an entropy threshold.
+_WORDS = ["correct", "horse", "battery", "staple", "harbour", "summer", "copper",
+          "silver", "market", "garden", "window", "planet", "forest", "river",
+          "stone", "bridge", "candle", "pepper", "yellow", "orange", "velvet",
+          "packet", "router", "cotton", "anchor", "lantern", "meadow", "quarry"]
+
+
+def high_entropy_benign(rng):
+    """Benign hostnames that look exactly like a DGA to an entropy threshold.
+
+    These are the false positives entropy actually produces in a real estate,
+    and without them SPL-09 Lab 5 measures entropy against a straw man: the
+    generator's uniform-random DGA is precisely the distribution entropy is
+    optimal for, so it scores 100% precision and teaches nothing.
+
+    All four kinds are long, so they land in the same `len >= 12` band the
+    detection uses and cannot be separated by length alone.
+    """
+    kind = rng.random()
+    if kind < 0.35:                                     # CDN / object-store hash
+        return "%s.cdn.example-media.net" % "".join(
+            rng.choice(_HEX) for _ in range(rng.randint(24, 32)))
+    if kind < 0.60:                                     # DKIM selector
+        return "%s._domainkey.%s" % (
+            "".join(rng.choice(_B32) for _ in range(rng.randint(16, 24))),
+            rng.choice(TOP_DOMAINS))
+    if kind < 0.85:                                     # UUID subdomain
+        u = "".join(rng.choice(_HEX) for _ in range(32))
+        return "%s-%s-%s-%s-%s.telemetry.example-saas.com" % (
+            u[:8], u[8:12], u[12:16], u[16:20], u[20:])
+    return "%s.token.example-auth.io" % "".join(        # base32 token
+        rng.choice(_B32) for _ in range(rng.randint(20, 28)))
 
 
 def benign_domain(rng):
-    if rng.random() < 0.82:
+    roll = rng.random()
+    if roll < 0.80:
         return rng.choice(TOP_DOMAINS)
+    if roll < 0.815:
+        # A modest slice, deliberately. These are the false positives entropy
+        # produces, and real estates have them — but spread thinly across many
+        # hosts, which is what makes a *per-host* view recover the signal a
+        # per-domain view loses (SPL-09 Lab 5).
+        return high_entropy_benign(rng)
     # Pronounceable filler: alternating consonant/vowel keeps entropy moderate,
     # so entropy alone will not separate these from DGA cleanly.
     n = rng.randint(3, 5)
@@ -54,11 +98,26 @@ def failed_lookup(rng):
         rng.choice(["syd", "mel", "bne", "per"]))
 
 
-def dga_domain(rng, length=None):
-    """Uniform random labels: high entropy AND improbable n-grams."""
+def dga_domain(rng, length=None, style=None):
+    """An algorithmically generated domain, in one of two families.
+
+    ``uniform`` draws characters uniformly: high entropy and improbable n-grams,
+    the textbook case. ``wordlist`` concatenates dictionary words, which has
+    *low* character entropy and is invisible to an entropy threshold at any
+    cut-point — the failure mode entropy cannot be tuned out of.
+
+    Both families appear in the data, so SPL-09 Lab 5 can measure a detector
+    against the case it handles and the case it does not, rather than only the
+    former.
+    """
+    style = style or "uniform"
+    tld = rng.choice(["top", "xyz", "info", "cc", "su"])
+    if style == "wordlist":
+        label = "".join(rng.sample(_WORDS, rng.randint(2, 3)))
+        return f"{label}.{tld}"
     n = length or rng.randint(12, 22)
     label = "".join(rng.choice(string.ascii_lowercase) for _ in range(n))
-    return f"{label}.{rng.choice(['top', 'xyz', 'info', 'cc', 'su'])}"
+    return f"{label}.{tld}"
 
 
 def proxy_event(rng, ts, ident, asset, domain=None, bytes_out=None, bytes_in=None):

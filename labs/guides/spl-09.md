@@ -167,10 +167,10 @@ What does not work: probability, rates, or the word "Bayesian". What does work i
 counting, in their units:
 
 The table above hands you the argument. **Four of the ten detections have a PPV of
-exactly zero** — they fired between 61 and 70 times each and caught nothing.
+exactly zero** — they fired between 56 and 72 times each and caught nothing.
 
-> *"'Legacy Authentication Protocol' fired 68 times over the period. **None** were
-> real. At about 20 minutes each that is roughly 23 hours of analyst time, and it
+> *"'Legacy Authentication Protocol' fired 72 times over the period. **None** were
+> real. At about 20 minutes each that is roughly 24 hours of analyst time, and it
 > has never once been the detection that found something.*
 >
 > *The two incidents where legacy authentication was actually involved were both
@@ -180,7 +180,7 @@ exactly zero** — they fired between 61 and 70 times each and caught nothing.
 > *If we keep it, we should be honest that we are keeping it because deleting
 > detections feels risky, not because it has caught anything.*
 >
-> *Here is what I would do with the 23 hours instead: [specific thing]."*
+> *Here is what I would do with the 24 hours instead: [specific thing]."*
 
 Three things make that work and all three are transferable: it is **counted, not
 estimated**; it names the **redundancy** (which is what makes deletion safe rather
@@ -294,9 +294,9 @@ enter and leave the alerting set. Do not summarise; list them.
 At a constant alert volume (top 5% of entities) this dataset gives a blunt result:
 
 ```
-half-life  1d:  TP = 2
-half-life  7d:  TP = 4
-half-life 30d:  TP = 4
+half-life  1d:  TP = 2   PPV = 12.5%
+half-life  7d:  TP = 5   PPV = 31.2%
+half-life 30d:  TP = 5   PPV = 31.2%
 ```
 
 Entities alerting at 30 days but **not** at 1 day include the C2 host and the
@@ -419,10 +419,21 @@ cross-validation and reporting only that fit throws the interesting part away.
 
 **Compare fitted against hand-assigned.** The comparison is the deliverable, and
 what you are looking for is not agreement but **rank inversion**. In this dataset
-they are dramatic: `LOLBin Download Behaviour` is hand-scored **60** — the highest
-in the set — and fits with a **negative** weight, as do `Remote Execution
-Observed` (hand 55) and `Regular Outbound Callback` (hand 40). Meanwhile
-`Excessive Failed Authentications`, hand-scored a lowly 20, dominates the fit.
+they are dramatic, and they are **systematic**: the fitted ordering is close to the
+*reverse* of the hand ordering at the top end.
+
+| Detection | Hand | Fitted |
+|---|---:|---:|
+| Excessive Failed Authentications | 20 | **+1.567** |
+| Large Outbound Transfer | 50 | +0.296 |
+| High Entropy Domain Lookup | 25 | +0.238 |
+| Anomalous Parent Child Process | 45 | −0.296 |
+| Regular Outbound Callback | 40 | −0.541 |
+| Remote Execution Observed | 55 | **−0.844** |
+| LOLBin Download Behaviour | 60 | **−0.833** |
+
+The two detections analysts scored highest, 60 and 55, carry the two most
+negative weights. The one they scored lowest but one, 20, dominates the fit.
 
 Before you conclude the humans were wrong, work out what a negative weight means
 here: given everything else about an entity, seeing this detection fire makes it
@@ -475,31 +486,28 @@ delete detections it has no information about.
 
 ## Lab 5 📄 — Entropy Versus a Language Model
 
-Python, no platform. The dataset has labelled DGA and benign domains.
+Python, no platform. The dataset carries labelled DGA domains in **two families**
+— uniform-random labels and dictionary-word concatenations — alongside benign
+names that are genuinely high-entropy: CDN object hashes, DKIM selectors, UUID
+subdomains and base32 tokens.
 
-**A warning before you start: this lab does not come out the way the textbook says
-it will.** Run it honestly, get the surprising result, and then diagnose it. The
-diagnosis is the deliverable.
+That mixture is deliberate. A DGA corpus of nothing but uniform-random labels,
+scored against nothing but short pronounceable benign names, is a straw man:
+character entropy is the *optimal* detector for exactly that generative process
+and will score near-perfectly. The lesson would be an artefact of the test set.
 
 ```bash
 python3 - <<'PY'
-import json, csv, math, collections, random
-random.seed(4)
+import json, csv, math, collections
 
 truth = {r['event_id']: r['scenario']
          for r in csv.DictReader(open('data/truth/ground_truth.csv'))}
 dga, benign = set(), set()
 for line in open('data/events/dns.json'):
     e = json.loads(line)
-    lab = e['query'].split('.')[0]
-    (dga if truth.get(e['event_id']) == 'dga_c2' else benign).add(lab)
+    label = e['query'].split('.')[0]
+    (dga if truth.get(e['event_id']) == 'dga_c2' else benign).add(label)
 benign -= dga
-
-# A wordlist DGA, which is what entropy is supposed to be blind to.
-WORDS = ["correct","horse","battery","staple","harbour","summer","copper","silver",
-         "market","garden","window","planet","forest","river","stone","bridge",
-         "candle","pepper","yellow","orange","velvet","packet","router","cotton"]
-wordlist = {"".join(random.sample(WORDS, random.randint(2, 3))) for _ in range(72)}
 
 def entropy(s):
     c = collections.Counter(s)
@@ -522,88 +530,120 @@ def loglik(s, counts, alpha=0.5, V=38):
     return total / (len(w) - 1)
 
 bl = sorted(benign)
-train, test_b = bl[:len(bl)//2], bl[len(bl)//2:]
+train, test = bl[:len(bl)//2], bl[len(bl)//2:]
 model = train_bigram(train)
 
-def at_budget(score, budget, higher_is_dga, positives):
-    scored = ([(score(d), 1) for d in positives] +
-              [(score(d), 0) for d in test_b])
-    scored.sort(reverse=higher_is_dga)
-    tp = sum(l for _, l in scored[:budget])
-    return tp / budget, tp / len(positives)
+print(f"DGA labels {len(dga)}  benign test {len(test)}")
+for name, fn, hi in (("entropy", entropy, True),
+                     ("bigram LL", lambda d: loglik(d, model), False)):
+    scored = [(fn(d), 1) for d in dga] + [(fn(d), 0) for d in test]
+    scored.sort(reverse=hi)
+    tp = sum(l for _, l in scored[:50])
+    print(f"  {name:10} budget 50/day:  precision={tp/50:6.1%}  recall={tp/len(dga):6.1%}")
 
-for name, pos in (("uniform-random DGA", dga), ("wordlist DGA", wordlist)):
-    print(f"\n{name}  (n={len(pos)}, benign test n={len(test_b)})")
-    for sn, fn, hi in (("entropy", entropy, True),
-                       ("bigram LL", lambda d: loglik(d, model), False)):
-        p, r = at_budget(fn, 50, hi, pos)
-        print(f"  {sn:10} budget 50/day:  precision={p:6.1%}  recall={r:6.1%}")
-    print(f"  mean entropy: malicious {sum(map(entropy, pos))/len(pos):.2f}"
-          f"   benign {sum(map(entropy, test_b))/len(test_b):.2f}")
+wordlist = [d for d in dga if entropy(d) <= 3.2]
+print(f"\nDGA families: {len(dga)-len(wordlist)} uniform, {len(wordlist)} wordlist")
+print(f"benign labels clearing len>=12 and entropy>3.2: "
+      f"{len([d for d in test if len(d) >= 12 and entropy(d) > 3.2])}")
 PY
 ```
 
-### The result, and why it is not what you were told
-
 ```
-uniform-random DGA    entropy  precision 100.0%  recall 69.4%
-                    bigram LL  precision  30.0%  recall 20.8%
-
-wordlist DGA          entropy  precision  78.0%  recall 54.2%
-                    bigram LL  precision   0.0%  recall  0.0%
+entropy    budget 50/day:  precision  44.0%  recall  30.1%
+bigram LL  budget 50/day:  precision   2.0%  recall   1.4%
 ```
 
-**Entropy wins both, and the bigram model is close to useless on the second.**
-Every write-up of this technique says the opposite. Before reading on, work out
-which of the two you should distrust: the result, or the write-ups.
+**Both are poor.** Entropy is mediocre and the bigram model is worse than
+useless. Diagnose each before reading on — the diagnosis is the deliverable.
 
-The answer is neither — it is the **evaluation**, and there are three distinct
-reasons, each worth a paragraph in your deliverable:
+### Why entropy is mediocre here
 
-1. **The uniform-random DGA is the easiest possible case, and it is synthetic.**
-   `dga_domain()` in this generator draws characters uniformly from the alphabet,
-   which maximises character entropy by construction. Entropy is *the* optimal
-   detector for exactly that generative process. A result showing entropy at 100%
-   precision is not evidence that entropy works; it is evidence that the test set
-   was drawn from the distribution entropy assumes. Real DGAs are not uniform.
+It has failures in both directions, and both are real:
 
-2. **A character bigram is too weak a model, and it was trained on the wrong
-   corpus.** The benign labels here are short pronounceable filler
-   (`kosoli`, `bavuze`) and real domains. A bigram trained on that assigns
-   perfectly ordinary likelihoods to `correcthorsebattery` because English
-   character pairs are exactly what it learned. Trigrams with backoff, or a model
-   trained on a much larger and more varied corpus, behave differently — and the
-   fact that the *order* of the model changes the conclusion is the point.
+- **False positives.** Base32 tokens over a 32-symbol alphabet, 20–28 characters
+  long, have *higher* character entropy than a 12–22 character lowercase DGA
+  label. They sit above the malicious domains in the ranking and cannot be
+  thresholded away, because there is no cut-point with the DGA above them.
+- **False negatives.** Roughly a third of the DGA labels are dictionary
+  concatenations — `copperhorse`, `cottonstoneriver`. Low character entropy,
+  entirely malicious, invisible to this detector at any threshold.
 
-3. **The wordlist DGA still loses to entropy, but for a boring reason:** the
-   generated names are 12–18 characters of varied letters, while benign filler is
-   6–10. Entropy is partly measuring **length**, not randomness. Control for
-   length and the gap narrows sharply. Try it — restrict the benign test set to
-   labels of 12+ characters and re-run.
+Note that the first failure is partly about **alphabet size and length**, not
+randomness. Entropy over a longer string drawn from a larger alphabet is higher
+almost mechanically. A detector that appears to work by measuring randomness may
+be measuring length; control for it and watch the ranking move.
 
-**That third point is the most transferable thing in this lab.** A detector that
-appears to work may be exploiting a nuisance correlate of the label rather than
-the property you intended, and the only way to find out is to control for the
-correlate and watch the performance move. This is the same failure as evaluating
-a malware classifier that has learned file size.
+### Why the bigram model is worse
 
-### What you should conclude
+It was trained on the benign corpus, which contains those same hex and base32
+tokens — so it has *learned* that improbable-looking character sequences are
+normal here. And dictionary DGAs are made of English words, which are maximally
+probable under a model trained on English-ish labels. It fails on both families
+for opposite reasons.
 
-- **In this dataset**, entropy is the better DGA scorer at a fixed budget, and
-  saying so is the honest reading.
-- **That conclusion does not generalise**, and you can say precisely why: the
-  positive class is synthetic and uniform, the negative class is short, and the
-  competing model is first-order.
-- **The genuine failure cases of entropy are real and are not visible here**:
-  hashed CDN hostnames, base32 tokens, UUID subdomains and DKIM selectors are all
-  high-entropy and benign; dictionary DGAs are low-entropy and malicious. This
-  dataset contains none of them, which is a limitation of the dataset and belongs
-  in your write-up.
+The fix is not a better threshold. It is a higher-order model (trigrams with
+backoff), a training corpus that excludes machine-generated names, or scoring
+against a general English model rather than the local one. **Try one and report
+the result** — this is where the lab wants an experiment, not an opinion.
+
+### The move that actually works
+
+Neither scorer is going to be rescued by tuning. Change the **unit of detection**
+instead — from the domain to the host:
+
+```bash
+python3 - <<'PY'
+import json, math, collections
+
+rows = []
+for line in open('data/events/dns.json'):
+    e = json.loads(line)
+    rows.append((e['src_host'], e['query'].split('.')[0]))
+
+def entropy(s):
+    c = collections.Counter(s)
+    return -sum((n/len(s)) * math.log2(n/len(s)) for n in c.values())
+
+per_host = collections.defaultdict(lambda: [0, 0])
+for host, label in rows:
+    per_host[host][1] += 1
+    if len(label) >= 12 and entropy(label) > 3.2:
+        per_host[host][0] += 1
+
+print(f"{'host':18}{'high-entropy':>13}{'lookups':>9}")
+for host, (hits, total) in sorted(per_host.items(), key=lambda kv: -kv[1][0])[:6]:
+    print(f"{host:18}{hits:13}{total:9}")
+PY
+```
+
+```
+host                 high-entropy  lookups
+WS-FIN-0013                    54      112     <-- the C2 host
+SRV-SER-031                     4      173
+WS-OPE-0161                     4       91
+WS-ENG-0189                     4       59
+```
+
+**54 against 4.** The same entropy function that manages 44% precision per
+domain is decisive per host, because benign high-entropy names are *spread
+thinly* — a hash here, a DKIM selector there — while a beaconing host generates
+them in a concentrated burst.
+
+**This is the transferable result, and it is worth more than either scorer.**
+A weak signal aggregated over the right entity beats a strong signal evaluated
+on the wrong one. Before reaching for a better model, ask whether you are
+scoring the right thing: the domain is what carries the property, but the host
+is what you would act on, and it is also where the evidence accumulates.
+
+It also explains why [SPL-03 Lab 7](spl-03.md) works at all. That lab ranks
+hosts, not domains, which is why a mediocre per-domain scorer still lands on the
+right machine.
 
 **Deliverable:** both implementations, the PR curves, the measured precision of
-each at a budget of 50/day, and — the graded part — the diagnosis above in your
-own words, including at least one experiment you ran to test one of the three
-explanations. An answer that reports the numbers and repeats the textbook claim
+each at a fixed budget of 50/day, the per-host comparison, and the diagnosis in
+your own words — including at least one experiment testing one of the
+explanations above (control for length, retrain the n-gram on a filtered corpus,
+or raise the model order). Reporting the numbers and repeating the textbook claim
 that n-grams beat entropy has not done the lab.
 
 ---
@@ -758,11 +798,37 @@ window — `verify.py data` asserts it — so a mean-based baseline is inflated 
 very behaviour it is meant to detect. This is contamination, and robust estimators
 are the response.
 
-Note also what the z-score does here. The flagged day is roughly 67,000× the
-user's median, and its z-score is **3.18** — barely over a conventional threshold.
+Note also what the z-score does here. The flagged day is roughly 117,000× the
+user's median, and its z-score is **3.20** — barely over a conventional threshold.
 That is the log transform doing its job on a heavy-tailed quantity, and it is why
 you must not report the z-score to the analyst. Report the ratio and the bytes;
 keep the z-score for ranking.
+
+!!! danger "A scale-free statistic needs a materiality floor"
+    Rank the flagged days by z-score alone and the top result is a user whose
+    normal day is 2 kB and who once sent 100 kB. Their z-score is **8.5**. The
+    person exfiltrating 2.5 GB scores **3.2** and ranks below them.
+
+    The statistic is not wrong — that user really did deviate from their own
+    baseline by more. It is *immaterial*, and the modified z-score has no way to
+    know that, because it deliberately discarded the scale.
+
+    Pair it with a floor drawn from the estate's own distribution rather than a
+    round number:
+
+    ```python
+    everything = sorted(v for vals in by_user.values() for v in vals)
+    floor = everything[int(0.99 * len(everything))]      # ~2.9 MB here
+    ...
+    if z > 3.5 and v > floor:
+        flagged.append((z, user))
+    ```
+
+    With the floor, the taught method returns exactly one user, and it is the
+    right one. Without it, it returns statistically remarkable trivia ranked
+    above a genuine exfiltration. **Any anomaly detector on a scale-free
+    statistic needs this**, and its absence is one of the most common reasons an
+    otherwise sound model produces an unusable queue.
 
 ### The part that is actually graded
 
@@ -775,25 +841,25 @@ Not actionable:
 
 Actionable:
 
-> *`mia.brown` uploaded **2.36 GB** to `upload3.filetransfer-cc` in a single day.
-> Her normal daily upload is **35 kB** (median over 12 days); her Finance
-> colleagues sit at **37 kB** (median of 30 peers). This day is roughly
-> **67,000× her own baseline**, and every other day she has ever had is under
-> 140 kB.*
+> *`yusuf.lee` uploaded **2.49 GB** to `upload4.filetransfer-top` in a single
+> day. His normal daily upload is **21 kB** (median over 12 days); his Finance
+> colleagues sit at **28 kB** (median of 30 peers). This day is roughly
+> **117,000× his own baseline**.*
 >
-> *`upload3.filetransfer-cc` has been contacted by **no other user** in the
+> *`upload4.filetransfer-top` has been contacted by **no other user** in the
 > estate, ever.*
 >
 > *To confirm or dismiss: check whether a sanctioned file-transfer service is in
 > use by this team, and whether a data migration or release was scheduled that
-> day. If neither, this is 2.4 GB leaving the business to a destination nobody
+> day. If neither, this is 2.5 GB leaving the business to a destination nobody
 > else uses.*
 
-The difference is not verbosity. The second gives a **comparison** (her own
-baseline *and* her peers'), a **magnitude in units a person holds** (GB, not
+The difference is not verbosity. The second gives a **comparison** (his own
+baseline *and* his peers'), a **magnitude in units a person holds** (GB, not
 z-scores), a **novelty signal** (a destination with no other users), and a
-**disconfirming check** — the specific thing that would make this benign. An explanation that only
-supports the alert cannot be triaged; it can only be believed or ignored.
+**disconfirming check** — the specific thing that would make this benign. An
+explanation that only supports the alert cannot be triaged; it can only be
+believed or ignored.
 
 **"Any explanation your peer could not act on is a model defect, not an analyst
 deficiency."** The module is right and it is the sentence to take away. If your

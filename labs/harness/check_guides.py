@@ -36,6 +36,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import textwrap
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 GUIDES = sorted((ROOT / "guides").glob("spl-*.md"))
@@ -61,7 +62,28 @@ def _ok(msg):
 # blocks
 # --------------------------------------------------------------------------
 
-BLOCK_RE = re.compile(r"```bash\n(?:.*?\n)??python3 - <<'PY'\n(.*?)\nPY\n", re.S)
+# Fences nested inside an admonition are indented, and so is their closer. A
+# pattern that only recognises a closer at column 0 runs past it and swallows the
+# prose that follows, which parses as neither bash nor python.
+#
+# Note the explicit [^\n] rather than a dot under re.DOTALL: a dot that matches
+# newlines inside a repeated group makes this a catastrophic-backtracking pattern
+# that hangs on the first long file.
+BLOCK_RE = re.compile(
+    r"^(?P<indent>[ \t]*)```bash\n"
+    r"(?:(?P=indent)[^\n]*\n)*?"
+    r"(?P=indent)python3 - <<'PY'\n"
+    r"(?P<body>(?:[^\n]*\n)*?)"
+    r"(?P=indent)PY\n",
+    re.M,
+)
+
+PY_FENCE_RE = re.compile(
+    r"^(?P<indent>[ \t]*)```python\n"
+    r"(?P<body>(?:[^\n]*\n)*?)"
+    r"(?P=indent)```[ \t]*$",
+    re.M,
+)
 
 
 def check_blocks():
@@ -80,13 +102,14 @@ def check_blocks():
         sandbox.mkdir()
         shutil.copytree(DATA, sandbox / "data")
         for guide in GUIDES:
-            blocks = BLOCK_RE.findall(guide.read_text(encoding="utf-8"))
+            blocks = [m.group("body")
+                      for m in BLOCK_RE.finditer(guide.read_text(encoding="utf-8"))]
             for n, body in enumerate(blocks, 1):
                 total += 1
                 if any(m in body for m in NETWORK_MARKERS):
                     continue
                 script = sandbox / f"_{guide.stem}_{n}.py"
-                script.write_text(body, encoding="utf-8")
+                script.write_text(textwrap.dedent(body), encoding="utf-8")
                 proc = subprocess.run(
                     [sys.executable, script.name],
                     cwd=sandbox, capture_output=True, text=True, timeout=600,
@@ -107,10 +130,10 @@ def check_syntax():
     total = 0
     for path in GUIDES + PAPER:
         text = path.read_text(encoding="utf-8")
-        for n, body in enumerate(re.findall(r"```python\n(.*?)\n```", text, re.S), 1):
+        for n, m in enumerate(PY_FENCE_RE.finditer(text), 1):
             total += 1
             try:
-                ast.parse(body)
+                ast.parse(textwrap.dedent(m.group("body")))
             except SyntaxError as exc:
                 errors += _fail(f"{path.name} python block {n}: {exc}")
     if errors:
@@ -236,7 +259,14 @@ def _insider_user():
 
 
 def _exfil_user():
-    """SPL-09 Lab 7 / SPL-02 Lab 7: robust per-user daily egress baseline."""
+    """SPL-09 Lab 7 / SPL-02 Lab 7: robust per-user baseline *plus* a floor.
+
+    The modified z-score is scale-free, so a user whose normal day is 2 kB and
+    who one day sends 100 kB outranks the person exfiltrating 2.5 GB. The
+    statistic is correct and the ranking is useless. The taught method pairs it
+    with a materiality floor drawn from the estate's own distribution, which is
+    the condition that makes the alert worth an analyst's time.
+    """
     daily = collections.defaultdict(float)
     for e in _events("proxy"):
         daily[(e["user"], int(e["_time"] // 86400))] += e["bytes_out"]
@@ -249,6 +279,9 @@ def _exfil_user():
         mid = len(s) // 2
         return s[mid] if len(s) % 2 else (s[mid - 1] + s[mid]) / 2
 
+    everything = sorted(v for vals in by_user.values() for v in vals)
+    floor = everything[int(0.99 * len(everything))]
+
     flagged = []
     for user, vals in by_user.items():
         if len(vals) < 7:
@@ -260,10 +293,11 @@ def _exfil_user():
             continue
         for v in vals:
             z = 0.6745 * (math.log(v + 1) - med) / dev
-            if z > 3.5:
+            if z > 3.5 and v > floor:
                 flagged.append((z, user))
     if not flagged:
-        raise AssertionError("the robust baseline flagged nothing")
+        raise AssertionError(
+            "no day is both anomalous for its user and material for the estate")
     return max(flagged)[1]
 
 
