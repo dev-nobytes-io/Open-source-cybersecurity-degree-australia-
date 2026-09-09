@@ -58,6 +58,79 @@ All framework mapping tables in `frameworks.md` must reference specific versions
 - [ ] Define what happens when a Domain Expert is no longer available (succession for unit ownership)
 - [ ] Add a contributor recognition section (how contributors are credited)
 
+### modules/splunk/ — EXT-SPL Splunk Series Verification
+
+The series is written against official Splunk pages verified **2026-09-09**. Splunk is
+now under Cisco ownership and the certification programme is actively changing, so these
+items are time-sensitive.
+
+**Blocking — must be resolved before advising any learner:**
+
+- [ ] **Confirm `Core Consultant Labs` / `Services: Core Implementation` eligibility.**
+      Practitioner reports say these are restricted to Splunk partners/employees and that
+      `Core Consultant Labs` requires the Architect certification. Splunk publishes no
+      eligibility criteria. If the restriction holds, [SPL-08](modules/splunk/spl-08-consultant.md)
+      is content without a reachable credential and must say so plainly.
+- [ ] Confirm whether the Cybersecurity Defense **Engineer** and **Architect** exams have
+      unpublished prerequisites — both pages currently state none, despite sitting above
+      the Analyst in the marketing sequence.
+
+- [ ] **Confirm the successors to the Legacy certifications.** Splunk reclassified
+      **ES Certified Admin** and **SOAR Certified Automation Developer** as Legacy on
+      1 January 2026 and **names no replacement** for either. The series' position — that
+      the Cybersecurity Defense track succeeds them for security work — is a reading, not
+      a Splunk statement. [SPL-04](modules/splunk/spl-04-enterprise-security.md) and
+      [SPL-05](modules/splunk/spl-05-soar.md) both flag this.
+- [ ] **Confirm Splunk SOAR availability for learning use** (community edition, trial or
+      developer licence) and its terms. [SPL-05](modules/splunk/spl-05-soar.md) labs are
+      written so the highest-value ones run as design exercises without a platform, but
+      availability must be settled before the module is scheduled.
+- [ ] **Pin ES and SOAR product versions.** Neither SPL-04 nor SPL-05 is pinned, and both
+      products change feature names and UI locations materially between releases.
+- [ ] Record the **recertification change** (coursework-based recertification ends
+      1 March 2026; three-year lifecycle from the highest-level certification) wherever the
+      repo advises learners on certification pathways, including
+      [`student/prospectus.md`](student/prospectus.md).
+
+**Content reconciliation:**
+
+- [x] ~~Reconcile SPL-01…SPL-08 topic coverage against each certification's published
+      **test blueprint** PDF.~~ **Done 2026-09-09** — all eleven blueprints retrieved and
+      mapped; every module carries a *Blueprint alignment* section with domain weightings.
+      Corrected three material errors: SPL-08 was mis-framed (the Consultant exam is ~90%
+      technical, not consulting practice), SPL-02 was missing the Advanced Power User's
+      33% dashboard/Simple XML content, and lookups (Core User, 6%) and distributed search
+      (Enterprise Admin, 10%) sat in the wrong modules.
+- [ ] **Resolve the Consultant prerequisite-coursework discrepancy.** The blueprint names
+      `Indexer Cluster Implementation Lab`, `Distributed Search Migration Lab`,
+      `Implementation Fundamentals Lab`, `Architect Implementation Labs (1-3)` and
+      `Services: Core Implementation`. The exam page and track flowchart name
+      **`Core Consultant Labs`** as registration-mandatory; the blueprint omits it
+      entirely. Both retrieved the same day.
+- [ ] **Decide whether ITSI is in scope.** The Architect blueprint examines ITSI sizing and
+      topology (domain 4.5) and the series does not cover it. The ITSI Certified Admin
+      credential is also Legacy.
+- [ ] Confirm licence terms and current availability of the **BOTS datasets**,
+      **`attack_range`**, and **Splunk Security Content / ESCU** before SPL-03 Labs 4–6
+      are made assessable.
+- [ ] Verify the "Great 8" `props.conf` settings named in SPL-08 Topic 3 against current
+      courseware. No specific settings are listed until this is done.
+- [ ] Recruit reviewers holding **current** Enterprise Certified Architect (for SPL-07)
+      and Core Certified Consultant (for SPL-08) certifications. Neither module may reach
+      Practitioner Approved without one.
+
+**Cross-document consistency:**
+
+- [ ] Update [`structure.md`](structure.md) and
+      [`compliance/workforce-frameworks.md`](compliance/workforce-frameworks.md), which
+      list *"Splunk Core Certified"* as a Detection Engineering certification bridge, to
+      name the specific credential: **Splunk Core Certified Power User**. The same
+      imprecise wording appears in [`student/prospectus.md`](student/prospectus.md).
+- [ ] Add EXT-SPL re-verification to
+      [`quality/annual-review-schedule.md`](quality/annual-review-schedule.md) — the
+      series carries a **6-month** staleness window (due 2027-03-09), shorter than the
+      annual cycle.
+
 ### accreditation.md — Expand Phase 5 Content
 
 - [ ] Document the preliminary TEQSA pathway assessment (what is needed to apply for registration)
