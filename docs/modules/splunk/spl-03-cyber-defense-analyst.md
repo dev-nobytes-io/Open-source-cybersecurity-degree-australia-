@@ -484,6 +484,20 @@ each is applied in analysis. Grounded in
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-03 lab guide](../../../labs/guides/spl-03.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    Five of eight run on core Splunk with the lab dataset, using `index=risk` as a stand-in for the ES finding queue. Lab 1 needs Enterprise Security and the guide says so plainly rather than pretending a workaround exists — but its analytical half, which is where the marks are, does not.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 !!! warning "Licensing"
     Labs 1, 3 and 4 require **Enterprise Security**, which is not available on the Splunk
     Free licence. Run them inside a trial window as a continuous block. Labs 2, 5 and 6

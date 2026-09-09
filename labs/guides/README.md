@@ -18,18 +18,40 @@ to deliver*; the guide says *how to run it*. Marking criteria stay in the module
 | [spl-09](spl-09.md) | [Detection Analytics & Risk Scoring](../../docs/modules/splunk/spl-09-detection-analytics.md) | 8 | 4 | 3 | 1 | 0 |
 | **Total** | | **69** | **31** | **21** | **12** | **5** |
 
-**52 of 69 (75%) need no paid licence.**
+**52 of 69 (75%) need no paid licence**, and **every one of the 69 has a written
+deliverable that can be produced without a running Splunk instance.**
 
 ## Status legend
+
+The icons say what the *platform* would give you. They do not say whether the lab is
+worth doing without one — every guide is written so the paper path is the primary
+route, because most of what these certifications assess is paperwork.
 
 | | Meaning |
 |---|---|
 | ✅ | Runs on Splunk Free with the lab dataset |
-| 📄 | Design, analysis or Python — no Splunk instance needed |
-| ⚠️ | Needs a trial licence (auth, alerting, acceleration, clustering, AITK) |
-| 🔒 | Needs Enterprise Security or SOAR. Guide gives the spec and states the blocker plainly. |
+| 📄 | Design, analysis or Python — no Splunk instance needed, by nature |
+| ⚠️ | The *platform behaviour* needs a trial (auth, alerting, acceleration, clustering, AITK). The design, the conf files and the analysis do not. |
+| 🔒 | The platform behaviour needs Enterprise Security or SOAR. The guide names the blocker plainly and gives the paper equivalent — it does not invent a workaround. |
 
-## Before any lab
+## Working without a platform
+
+This is the normal case, not the fallback. What you produce instead:
+
+| Modality | Where it lives |
+|---|---|
+| **Configuration files**, written and defended | [Conf-file practice](../paper/conf-practice.md); SPL-06 Labs 1, 2, 6; SPL-08 Lab 2 |
+| **Capacity and cost models** with traceable assumptions | SPL-07 Labs 1, 6; SPL-04 Lab 7 |
+| **Risk and detection arithmetic** | SPL-09 Labs 2, 3, 4 — standard-library Python over the dataset files |
+| **Architecture and operating-model design** | SPL-07 Labs 5, 7; SPL-08 Labs 1, 4, 5, 7 |
+| **Structured analysis** — ACH, coverage maps, diagnosis logs | SPL-03 Labs 4, 7; SPL-06 Lab 7; SPL-07 Lab 3 |
+| **Self-assessment** | [52-question quiz](../../docs/modules/splunk/quiz.md) |
+
+The dataset is JSONL and CSV. Standard-library Python reads both, so the analytical labs
+need no Splunk, no `pip install`, and no numpy or pandas — a deliberate constraint that
+keeps the arithmetic visible.
+
+## If you do have an instance
 
 ```bash
 python3 generator/generate.py --days 14

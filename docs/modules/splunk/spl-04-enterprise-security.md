@@ -456,6 +456,20 @@ relative to the UEBA and MLTK discussion in Topic 11.
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-04 lab guide](../../../labs/guides/spl-04.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    **The module warning above overstates the constraint.** Only Labs 1 and 5 truly need Enterprise Security; the risk model, the correlation search, the dependency diagnosis, the capacity model and the content pipeline are all architecture you can build and defend without it. The guide works the six runnable labs first.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 !!! danger "Trial licence required throughout"
     Enterprise Security is a premium app and does not run on the Splunk Free licence.
     Provision a trial and run this module as a continuous block. Reuse the

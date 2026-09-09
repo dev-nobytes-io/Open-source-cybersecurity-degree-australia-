@@ -466,6 +466,22 @@ degrades every search on the deployment.
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-06 lab guide](../../../labs/guides/spl-06.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    **Lab 3 no longer needs a trial.** The guide ships a deployment server and three universal forwarders that run on the Free licence, so the server-class and blast-radius work is fully runnable. Labs 4, 5 and 8 still need a trial for authentication, alerting and distributed search.
+
+    Conf-file work: **[nine exercises with marking keys](../../../labs/paper/conf-practice.md)**.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 !!! warning "Licensing"
     Labs 1, 2, 3 and 5 run on **Splunk Free** (alerting in Lab 5 requires a trial). **Lab 4
     requires a trial licence** — authentication does not exist on Free.

@@ -360,10 +360,47 @@ Free licence at leisure. Then start a trial and run SPL-06 and SPL-07 *inside th
 window* as a single continuous block. Starting the trial early is the most common
 avoidable mistake.
 
+### The lab environment, and the path with no licence at all
+
+The table above says what a licence gets you. It is not the whole picture, and read
+alone it makes the series look far more gated than it is.
+
+**[`labs/`](../../../labs/README.md)** provides a reproducible synthetic estate — about
+101,000 labelled events across authentication, endpoint, web, DNS, cloud and risk, with
+227 identities and 260 assets — plus a verification harness and Docker environments. It
+exists because ground truth is the thing BOTS cannot give you: with labels you can
+compute a real positive predictive value, which is what
+[SPL-09](spl-09-detection-analytics.md) Part B is arithmetic about.
+
+The **[lab guides](../../../labs/guides/README.md)** cover all 69 labs, one guide per
+module. Each states plainly what it needs.
+
+!!! important "Most of this series needs no Splunk instance, and that is not a compromise"
+    A great deal of what these certifications assess is **paperwork**: configuration
+    files written and defended, capacity models with traceable assumptions, index and
+    retention design against a real obligation, risk arithmetic, ACH tables, coverage
+    assessments that route telemetry gaps correctly, operating models, decision
+    registers.
+
+    Counted honestly across the series: **21 of the 69 labs need no platform by
+    nature**, and the whole of [SPL-09](spl-09-detection-analytics.md) runs in
+    standard-library Python against the dataset files. The paper path is written as the
+    primary route in every guide, not as a consolation for people without a licence.
+
+    Where a lab genuinely requires Enterprise Security or SOAR, the guide **names the
+    blocker and gives the paper equivalent** rather than inventing a workaround. Five
+    labs are in that position. They are specified anyway, because the capability is real
+    and the exam blueprints test it.
+
+Self-assessment across the whole series: the **[52-question quiz](quiz.md)** — single
+answer and multiple selection, with the reasoning revealed per question.
+
 **Public datasets.** Splunk publishes the *Boss of the SOC* (BOTS) datasets and the
 `attack_range` project for generating attack telemetry, and the Splunk Security Content
-/ ESCU repository for detection content. These are the realistic source of security data
-for SPL-03, SPL-04 and SPL-07 labs. **Licence terms and current availability must be confirmed
+/ ESCU repository for detection content. These are a realistic source of security data
+for SPL-03, SPL-04 and SPL-07 labs, and complement rather than replace
+[`labs/`](../../../labs/README.md): BOTS is real traffic without labels, the lab
+generator is synthetic traffic with them, and the two support different exercises. **Licence terms and current availability must be confirmed
 by the Domain Expert before these are made assessable** — see
 [Verification status](#verification-status).
 

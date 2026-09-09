@@ -590,6 +590,20 @@ explicitly, because Simple XML extended far enough becomes unmaintainable.
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-02 lab guide](../../../labs/guides/spl-02.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    Seven of eight run on Splunk Free; Lab 3's acceleration needs a trial, and the guide gives the design-only path where a licence is unavailable.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 Labs 1–3 and 5 run on **Splunk Free**. Lab 3's acceleration behaviour is observable but
 scheduled acceleration is best seen under a trial licence. Observe the
 [series safety rules](index.md#safety-authorisation-and-data-handling).

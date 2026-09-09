@@ -125,6 +125,7 @@ nav:
           - Data model: labs/docs/data-model.md
           - Ground truth: labs/docs/ground-truth.md
           - Licence note: labs/LICENCE-NOTE.md
+        - Conf-file practice: labs/paper/conf-practice.md
         - Lab guides:
           - Index & runnability: labs/guides/README.md
           - SPL-01 labs: labs/guides/spl-01.md
