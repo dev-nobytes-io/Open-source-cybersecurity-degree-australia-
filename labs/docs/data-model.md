@@ -52,6 +52,18 @@ would be hollow without them.
     then measure regularity**. A learner who computes CV over a host's entire
     traffic will find nothing and conclude the technique does not work.
 
+!!! note "Why the events carry no `index` or `sourcetype` field"
+    The generator routes internally on those names but strips them before writing.
+    With `INDEXED_EXTRACTIONS = json`, a payload key called `sourcetype` is
+    extracted as an indexed field and **shadows the sourcetype assigned in
+    `inputs.conf`** — so `sourcetype=oscd:proxy` returns nothing while the events
+    sit in the index in plain sight, with no error anywhere. `index`, `source` and
+    `host` collide the same way.
+
+    Metadata belongs in metadata. This is a real defect people ship, and it is
+    worth recognising the symptom: a search that returns zero on a sourcetype the
+    UI's sourcetype picker is happy to offer you.
+
 ## Attack scenarios
 
 | Scenario | ATT&CK | Signal |

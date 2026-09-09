@@ -16,6 +16,18 @@ from collections import defaultdict
 
 TRUTH_KEYS = ("_truth_scenario", "_truth_technique", "_truth_note")
 
+# JSON keys that collide with Splunk metadata. With INDEXED_EXTRACTIONS = json a
+# payload key named `sourcetype` is extracted as an indexed field and shadows the
+# sourcetype assigned in inputs.conf, so `sourcetype=oscd:proxy` silently returns
+# nothing while the events sit there in plain sight. `index`, `source` and `host`
+# behave the same way. The generator uses these internally for routing; they are
+# dropped on the way out, because metadata belongs in metadata.
+METADATA_KEYS = ("index", "sourcetype", "source", "host")
+
+
+def _strip_metadata(row):
+    return {k: v for k, v in row.items() if k not in METADATA_KEYS}
+
 
 def _split_truth(events, include_truth=False):
     """Assign stable ids; return (ingestable_events, truth_rows)."""
@@ -61,14 +73,15 @@ def write(dataset, findings, outdir, include_truth=False):
         path = os.path.join(ev_dir, f"{index}.json")
         with open(path, "w", encoding="utf-8") as fh:
             for r in rows:
-                fh.write(json.dumps(r, separators=(",", ":")) + "\n")
+                fh.write(json.dumps(_strip_metadata(r), separators=(",", ":")) + "\n")
         written[index] = len(rows)
 
     # Risk index: findings keep their truth column only in the truth file.
     rpath = os.path.join(ev_dir, "risk.json")
     with open(rpath, "w", encoding="utf-8") as fh:
         for f in findings:
-            r = {k: v for k, v in f.items() if not k.startswith("_truth")}
+            r = _strip_metadata({k: v for k, v in f.items()
+                                 if not k.startswith("_truth")})
             fh.write(json.dumps(r, separators=(",", ":")) + "\n")
     written["risk"] = len(findings)
 

@@ -20,7 +20,7 @@ services:
       - "127.0.0.1:8089:8089"   # management / REST
     volumes:
       - ../data:/data:ro                                   # generated events
-      - ./splunk-apps/oscd_lab:/opt/splunk/etc/apps/oscd_lab
+      - ../splunk-apps/oscd_lab:/opt/splunk/etc/apps/oscd_lab
       - oscd-var:/opt/splunk/var
     healthcheck:
       test: ["CMD", "curl", "-fsk", "https://localhost:8089/services/server/info"]
