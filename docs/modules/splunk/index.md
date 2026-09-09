@@ -232,6 +232,12 @@ Splunk's own certification-changes FAQ. Either can invalidate a learner's plan.
     | Splunk SOAR Certified Automation Developer | [SPL-05](spl-05-soar.md) |
     | Splunk IT Service Intelligence Certified Admin | *(not covered — out of scope)* |
 
+    **Products are being retired on the same pattern.** **Splunk UBA** (the standalone
+    User Behavior Analytics appliance) reached **End of Sale in December 2025** and
+    **End of Support in January 2027**; UEBA capability is now native to **ES Premier**.
+    Verified 2026-09-09. [SPL-09](spl-09-detection-analytics.md) teaches the underlying
+    methods rather than the product for exactly this reason.
+
     **Splunk names no replacement for any of them.** The series' position — clearly marked
     as a reading, not a Splunk statement — is that a learner starting today should target
     the **Cybersecurity Defense** track (Analyst → Engineer → Architect) for security work.
@@ -278,10 +284,12 @@ prerequisites for everything else.**
 | **Platform track** | | | | |
 | [SPL-06 — Platform Administration](spl-06-enterprise-admin.md) | 17 | CLI and REST, `.conf` files and precedence, indexes and retention, all input types, parsing, forwarders, deployment server, RBAC, licensing, filtering, KV Store, monitoring | Enterprise Certified Admin | **Partly** — Free licence has no auth |
 | [SPL-07 — Architecture & Deployment](spl-07-architect.md) | 17 | Tiers, SVAs, index and search head clustering, distributed search, capacity and sizing, SmartStore, tuning, troubleshooting, multi-site and DR, residency and cloud, ingest architecture, platform security, cost | Enterprise Certified Architect (+ Cybersecurity Defense Architect) | **No** — mandatory coursework |
+| **Advanced analytics (cross-cutting, not certification-aligned)** | | | | |
+| [SPL-09 — Detection Analytics & Risk Scoring](spl-09-detection-analytics.md) | 28 | The detection artefact decision framework; base rates and FDR; risk decay as an ODE; score calibration by regularised logistic regression; cost- and capacity-constrained thresholds; Mahalanobis/PCA/graph methods and UEBA; entropy and sketches; AITK, DSDL and custom Python; SPL optimisation as map-reduce | **None** — beyond every blueprint | **Partly** |
 | **Apex** | | | | |
 | [SPL-08 — Implementation & Consulting Practice](spl-08-consultant.md) | 22 | Discovery, base configurations, implementation and cluster method, migration, health assessment, use-case value, unwelcome communication, handover, operating model, professional practice | Core Certified Consultant | **No** — gated coursework |
 
-**Notional total: ~821 hours** (142 topics, 61 labs) across the series, excluding exam preparation and vendor
+**Notional total: ~969 hours** (170 topics, 69 labs) across the series, excluding exam preparation and vendor
 coursework. This is a series, not a unit; hours are indicative only and have not been
 through the AQF mapping process in
 [`docs/compliance/aqf-teqsa.md`](../../compliance/aqf-teqsa.md).
@@ -310,6 +318,7 @@ unit teaches the concept; the EXT-SPL module teaches the Splunk expression of it
 | SPL-05 | [SE04](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md), [OC04](../../../core/units/OC04-incident-response-lifecycle.md), [F03](../../../core/units/F03-scripting-automation.md) | Response automation. Shares its blast-radius and reversibility reasoning with [EXT-ANS](../ansible-security-automation.md) rather than repeating it. |
 | SPL-06 | [F02 — Operating Systems](../../../core/units/F02-operating-systems.md), [F03](../../../core/units/F03-scripting-automation.md), [DE02](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | Platform administration and data onboarding. |
 | SPL-07 | [SE01](../../../degrees/strategic/security-engineering/SE01-secure-system-design.md), [SE02 — Security Architecture](../../../degrees/strategic/security-engineering/SE02-security-architecture.md), [SC02](../../../core/units/SC02-security-architecture.md), [SE05](../../../degrees/strategic/security-engineering/SE05-security-cloud-devsecops.md) | **The architecture module.** SE02 teaches architecture method (SABSA, Zero Trust); SPL-07 applies it to a distributed log platform under real capacity and failure constraints. |
+| SPL-09 | [DE01 — Detection Theory & Philosophy](../../../degrees/operational/detection-engineering/DE01-detection-theory-philosophy.md), [DE05](../../../degrees/operational/detection-engineering/DE05-detection-operations-management.md), [F06](../../../core/units/F06-data-log-analysis.md) | **The analytics module.** DE01 supplies the detection philosophy; SPL-09 supplies the mathematics that makes it quantitative. Not aligned to any blueprint. |
 | SPL-08 | [SE06 — Capstone: Architecture Design](../../../degrees/strategic/security-engineering/SE06-capstone-architecture-design.md), [SC06](../../../core/units/SC06-stakeholder-communication.md), [LD](../../../degrees/strategic/leadership/README.md) units | Consulting practice: requirements, stakeholder management, and defensible design under commercial constraint. |
 
 ### Certification bridges already claimed elsewhere
@@ -397,6 +406,11 @@ verified from what has not.
 - The Advanced Power User 14-course substitution for the Consultant track.
 - Cybersecurity Defense Analyst has **no** formal prerequisite certification.
 - Splunk Free licence limits and disabled features.
+- **ES 8 renamed the detection vocabulary**: correlation search → **detection**, notable →
+  **finding**, risk notable/risk event → **intermediate finding**; `risk_object` →
+  `entity`. Risk factors are **multipliers**.
+- **MLTK is now the Splunk AI Toolkit (AITK)**; **DLTK is now DSDL** (5.2.4, May 2026).
+- **Splunk UBA: End of Sale December 2025, End of Support January 2027.**
 - **All eleven published test blueprints retrieved and reconciled** (2026-09-09). Each
   module now carries a *Blueprint alignment* section mapping its topics to the examined
   domains and weightings, and stating what it covers beyond the blueprint.
@@ -483,8 +497,8 @@ exam.
 | Series Title | The Splunk Series — Certification Pathway & Module Map |
 | Status | Draft |
 | Type | Extension module series (non-credit, vendor-specific) |
-| Modules | SPL-01 … SPL-08 (two tracks + apex) |
-| Notional Hours | ~821 (indicative, not AQF-mapped) |
+| Modules | SPL-01 … SPL-09 (two tracks, apex, plus a cross-cutting analytics module) |
+| Notional Hours | ~969 (indicative, not AQF-mapped) |
 | Vendor-neutrality | **Exempt by design** — see [Why a vendor-specific series exists](#why-a-vendor-specific-series-exists). Not valid as core-unit content under R3. |
 | Facts verified | 2026-09-09 |
 | Re-verification due | 2027-03-09 |

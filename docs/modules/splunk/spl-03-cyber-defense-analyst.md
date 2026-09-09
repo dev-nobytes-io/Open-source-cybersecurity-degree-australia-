@@ -41,6 +41,17 @@ half of this module requires a trial. Plan accordingly (see
     Splunk *recommends* Power User–level knowledge. Take that seriously even though it is
     not enforced: [SPL-02](spl-02-power-user.md) is genuinely assumed here.
 
+
+!!! warning "ES 8 renamed this vocabulary — verified 2026-09-09"
+    Splunk Enterprise Security 8 uses **detection** (was correlation search), **finding**
+    (was notable) and **intermediate finding** (was risk event / risk notable), and
+    `entity` / `entity_type` in the `risk` index (was `risk_object` /
+    `risk_object_type`). This module still uses the pre-ES 8 vocabulary throughout,
+    because that is what the exam blueprints and most published material use.
+
+    [SPL-09](spl-09-detection-analytics.md) uses the ES 8 terms and carries the full
+    mapping table. **Check field names against your ES version before copying any SPL.**
+
 ---
 
 ## Overview
