@@ -1,0 +1,39 @@
+# Distributed deployment: one search head, two indexers (search peers).
+# Covers SPL-06 Lab 8 (distributed search) and the topology work in SPL-07.
+#
+# REQUIRES A TRIAL LICENCE. The Free licence has no distributed search, so this
+# will not work on Free — that constraint is real and is documented in
+# SPL-06 Topic 9 and SPL-07 Lab 2. Expect ~6 GB RAM.
+#
+#   docker compose -f compose.distributed.yml up -d
+services:
+  idx1: &indexer
+    image: splunk/splunk:latest
+    hostname: idx1
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "${SPLUNK_PASSWORD:-oscd-lab-changeme}"
+      SPLUNK_ROLE: splunk_indexer
+    volumes:
+      - ../data:/data:ro
+      - ./splunk-apps/oscd_lab:/opt/splunk/etc/apps/oscd_lab
+    ports: ["127.0.0.1:8189:8089"]
+
+  idx2:
+    <<: *indexer
+    hostname: idx2
+    ports: ["127.0.0.1:8289:8089"]
+
+  sh1:
+    image: splunk/splunk:latest
+    hostname: sh1
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "${SPLUNK_PASSWORD:-oscd-lab-changeme}"
+      SPLUNK_ROLE: splunk_search_head
+      SPLUNK_SEARCH_HEAD_URL: sh1:8089
+      SPLUNK_INDEXER_URL: idx1:8089,idx2:8089
+    ports:
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8089:8089"
+    depends_on: [idx1, idx2]
