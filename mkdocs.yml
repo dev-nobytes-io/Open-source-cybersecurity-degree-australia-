@@ -65,11 +65,17 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js
 
 extra:
   social:
@@ -111,6 +117,7 @@ nav:
         - SPL-06 — Platform Administration: docs/modules/splunk/spl-06-enterprise-admin.md
         - SPL-07 — Architecture & Deployment: docs/modules/splunk/spl-07-architect.md
         - SPL-08 — Implementation & Consulting Practice: docs/modules/splunk/spl-08-consultant.md
+        - SPL-09 — Detection Analytics & Risk Scoring: docs/modules/splunk/spl-09-detection-analytics.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md

@@ -50,6 +50,26 @@ This module has an unusual credential situation and the series is explicit about
 **Zero-cost achievable: no.** Enterprise Security is a **premium app** and is not
 available on the Splunk Free licence. This module requires a trial licence throughout.
 
+
+!!! warning "ES 8 renamed this vocabulary — verified 2026-09-09"
+    Splunk Enterprise Security 8 uses **detection** (was correlation search), **finding**
+    (was notable) and **intermediate finding** (was risk event / risk notable), and
+    `entity` / `entity_type` in the `risk` index (was `risk_object` /
+    `risk_object_type`). This module still uses the pre-ES 8 vocabulary throughout,
+    because that is what the exam blueprints and most published material use.
+
+    [SPL-09](spl-09-detection-analytics.md) uses the ES 8 terms and carries the full
+    mapping table. **Check field names against your ES version before copying any SPL.**
+
+!!! danger "Splunk UBA is End of Sale — verified 2026-09-09"
+    The standalone **Splunk UBA** appliance reached **End of Sale in December 2025** and
+    **End of Support in January 2027**. UEBA capability is now native to **ES Premier**.
+
+    Teach the *methods*, not the product — they survive the transition and can be
+    explained to an analyst. [SPL-09](spl-09-detection-analytics.md) Part D develops them
+    (Mahalanobis distance, PCA peer groups, spectral graph methods, heat-kernel risk
+    propagation).
+
 ---
 
 ## Overview

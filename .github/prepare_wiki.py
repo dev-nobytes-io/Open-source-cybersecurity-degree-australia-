@@ -8,6 +8,11 @@ structure. wiki_src/ is ephemeral — generated at build time and gitignored.
 
 Note: the repo's templates/ directory is copied to resources/ because MkDocs
 always excludes a directory named templates/ (reserved for Jinja2 theme overrides).
+
+Note: javascripts/ is copied verbatim because mkdocs.yml references
+javascripts/mathjax.js via extra_javascript (MathJax config for the maths in
+docs/modules/splunk/spl-09-detection-analytics.md). Without this the strict
+build fails on a missing asset.
 """
 import shutil
 import pathlib
@@ -32,6 +37,14 @@ for path in sorted(ROOT.rglob("*.md")):
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(path, target)
     count += 1
+
+# Copy non-markdown asset directories that mkdocs.yml references directly.
+ASSET_DIRS = ["javascripts"]
+for name in ASSET_DIRS:
+    src = ROOT / name
+    if src.is_dir():
+        shutil.copytree(src, DEST / name, dirs_exist_ok=True)
+        print(f"Staged asset directory {name}/")
 
 # Fix markdown links in staged files: replace renamed directory references
 # so that links like [foo](templates/bar.md) become [foo](resources/bar.md)
