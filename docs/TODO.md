@@ -58,6 +58,49 @@ All framework mapping tables in `frameworks.md` must reference specific versions
 - [ ] Define what happens when a Domain Expert is no longer available (succession for unit ownership)
 - [ ] Add a contributor recognition section (how contributors are credited)
 
+### modules/splunk/ — EXT-SPL Splunk Series Verification
+
+The series is written against official Splunk pages verified **2026-09-09**. Splunk is
+now under Cisco ownership and the certification programme is actively changing, so these
+items are time-sensitive.
+
+**Blocking — must be resolved before advising any learner:**
+
+- [ ] **Confirm `Core Consultant Labs` / `Services: Core Implementation` eligibility.**
+      Practitioner reports say these are restricted to Splunk partners/employees and that
+      `Core Consultant Labs` requires the Architect certification. Splunk publishes no
+      eligibility criteria. If the restriction holds, [SPL-06](modules/splunk/spl-06-consultant.md)
+      is content without a reachable credential and must say so plainly.
+- [ ] Confirm whether the Cybersecurity Defense **Engineer** and **Architect** exams have
+      unpublished prerequisites — both pages currently state none, despite sitting above
+      the Analyst in the marketing sequence.
+
+**Content reconciliation:**
+
+- [ ] Reconcile SPL-01…SPL-06 topic coverage against each certification's published
+      **test blueprint** PDF. Current topic lists are the module author's reading of the
+      platform, not a blueprint transcription.
+- [ ] Confirm licence terms and current availability of the **BOTS datasets**,
+      **`attack_range`**, and **Splunk Security Content / ESCU** before SPL-03 Labs 4–6
+      are made assessable.
+- [ ] Verify the "Great 8" `props.conf` settings named in SPL-06 Topic 2 against current
+      courseware. No specific settings are listed until this is done.
+- [ ] Recruit reviewers holding **current** Enterprise Certified Architect (for SPL-05)
+      and Core Certified Consultant (for SPL-06) certifications. Neither module may reach
+      Practitioner Approved without one.
+
+**Cross-document consistency:**
+
+- [ ] Update [`structure.md`](structure.md) and
+      [`compliance/workforce-frameworks.md`](compliance/workforce-frameworks.md), which
+      list *"Splunk Core Certified"* as a Detection Engineering certification bridge, to
+      name the specific credential: **Splunk Core Certified Power User**. The same
+      imprecise wording appears in [`student/prospectus.md`](student/prospectus.md).
+- [ ] Add EXT-SPL re-verification to
+      [`quality/annual-review-schedule.md`](quality/annual-review-schedule.md) — the
+      series carries a **6-month** staleness window (due 2027-03-09), shorter than the
+      annual cycle.
+
 ### accreditation.md — Expand Phase 5 Content
 
 - [ ] Document the preliminary TEQSA pathway assessment (what is needed to apply for registration)

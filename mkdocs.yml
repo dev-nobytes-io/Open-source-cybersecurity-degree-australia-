@@ -101,6 +101,14 @@ nav:
       - Framework Verification: docs/review/framework-verification.md
     - Extension Modules:
       - EXT-ANS — Ansible for Security Operations: docs/modules/ansible-security-automation.md
+      - EXT-SPL — The Splunk Series:
+        - Certification Pathway & Module Map: docs/modules/splunk/index.md
+        - SPL-01 — Search Fundamentals: docs/modules/splunk/spl-01-core-user.md
+        - SPL-02 — Knowledge Objects & Data Models: docs/modules/splunk/spl-02-power-user.md
+        - SPL-03 — Enterprise Security & SOC Practice: docs/modules/splunk/spl-03-cyber-defense-analyst.md
+        - SPL-04 — Platform Administration: docs/modules/splunk/spl-04-enterprise-admin.md
+        - SPL-05 — Architecture & Deployment: docs/modules/splunk/spl-05-architect.md
+        - SPL-06 — Implementation & Consulting Practice: docs/modules/splunk/spl-06-consultant.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
