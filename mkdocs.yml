@@ -118,6 +118,24 @@ nav:
         - SPL-07 — Architecture & Deployment: docs/modules/splunk/spl-07-architect.md
         - SPL-08 — Implementation & Consulting Practice: docs/modules/splunk/spl-08-consultant.md
         - SPL-09 — Detection Analytics & Risk Scoring: docs/modules/splunk/spl-09-detection-analytics.md
+        - Self-assessment quiz: docs/modules/splunk/quiz.md
+        - Lab environment:
+          - Overview: labs/README.md
+          - Environment: labs/docs/environment.md
+          - Data model: labs/docs/data-model.md
+          - Ground truth: labs/docs/ground-truth.md
+          - Licence note: labs/LICENCE-NOTE.md
+        - Lab guides:
+          - Index & runnability: labs/guides/README.md
+          - SPL-01 labs: labs/guides/spl-01.md
+          - SPL-02 labs: labs/guides/spl-02.md
+          - SPL-03 labs: labs/guides/spl-03.md
+          - SPL-04 labs: labs/guides/spl-04.md
+          - SPL-05 labs: labs/guides/spl-05.md
+          - SPL-06 labs: labs/guides/spl-06.md
+          - SPL-07 labs: labs/guides/spl-07.md
+          - SPL-08 labs: labs/guides/spl-08.md
+          - SPL-09 labs: labs/guides/spl-09.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md

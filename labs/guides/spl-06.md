@@ -4,7 +4,7 @@
 8 labs, 5 ✅ on Free, 3 ⚠️ trial licence.
 
 The module's own warning lists Lab 3 as needing more than a single instance.
-This guide ships [`docker/compose.forwarders.yml`](../docker/compose.forwarders.yml),
+This guide ships [`docker/compose.forwarders.yml`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/labs/docker/compose.forwarders.yml),
 which adds a deployment server and three universal forwarders **on the Free
 licence** — Free has no distributed *search*, but it accepts forwarded data and
 runs a deployment server perfectly well. So Lab 3 runs here.
@@ -281,7 +281,7 @@ staged server class the only lever you have.
 
 **Trial licence required.** The Free licence has no authentication at all — you
 are dropped straight in as `admin`. This is not a limitation you can work around;
-it is why [`compose.single.yml`](../docker/compose.single.yml) binds to
+it is why [`compose.single.yml`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/labs/docker/compose.single.yml) binds to
 `127.0.0.1` only.
 
 **Design it now, implement it in the trial window.** Four job functions against

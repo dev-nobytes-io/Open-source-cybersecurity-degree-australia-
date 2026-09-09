@@ -88,9 +88,8 @@ index=wineventlog EventCode=4625
 | where failures > 5
 ```
 
-Run it. It returns **two rows, both service accounts** — stale credentials
-retrying against a domain controller. Two false positives, zero true positives,
-and the spray is missed completely.
+Run it. It returns **nothing at all** — not one row, against a dataset that
+contains a live password spray with 45 victims and a successful compromise.
 
 That is the point, and it is worth sitting with: the search is not broken, it is
 counting the wrong thing. A spray is *designed* to stay under a per-account
@@ -111,7 +110,7 @@ index=wineventlog EventCode=4625
 
 One source separates cleanly: the noisiest benign source touches **4** accounts,
 the sprayer touches **45**. An order of magnitude of separation on the right key,
-where the wrong key gave none at all. Now find what it got:
+where the wrong key gave nothing whatsoever. Now find what it got:
 
 ```
 index=wineventlog EventCode=4624 src=<the sprayer IP>
@@ -200,23 +199,26 @@ PY
 Run it across several thresholds before you commit to one, and look at the shape:
 
 ```
-threshold= 100  fired=  87  true positive= 12  PPV=13.8%
-threshold= 150  fired=  40  true positive=  4  PPV=10.0%
-threshold= 200  fired=  18  true positive=  4  PPV=22.2%
-threshold= 300  fired=   7  true positive=  2  PPV=28.6%
+threshold= 100  fired=  96  true positive=  9  PPV= 9.4%
+threshold= 150  fired=  38  true positive=  5  PPV=13.2%
+threshold= 200  fired=  15  true positive=  3  PPV=20.0%
+threshold= 300  fired=   6  true positive=  2  PPV=33.3%
 ```
 
-**Precision is not monotone in the threshold.** Going from 100 to 150 halves the
-alert volume *and* makes precision worse, because the entities lost were mostly
-true positives with modest scores while several high-scoring benign entities
-survived. Anyone who assumes "raise the threshold, improve precision" would have
-made the SOC strictly worse at 150 and never known.
+Precision rises with the threshold, as you would hope. **Now read the other two
+columns, which is where the decision actually lives.** Going from 100 to 300
+improves precision by a factor of 3.5 and discards **7 of 9** true positives. You
+are not choosing a precision; you are choosing how many real incidents to miss in
+exchange for a queue somebody can work.
 
-This is the calibration problem stated concretely: the *ranking* is wrong, so no
-choice of cut-point on it is good. You cannot threshold your way out of scores
-that do not order the population correctly — you have to fix the scores. That is
-what [SPL-09](../../docs/modules/splunk/spl-09-detection-analytics.md) Lab 4 fits
-properly, and why the note below matters more than the number you pick.
+There is no correct answer to that, and this is the honest reason risk thresholds
+are hard: the arithmetic gives you the trade curve, and someone accountable has to
+pick a point on it. What the arithmetic *can* tell you is that the curve here is
+poor — 33% precision at the cost of two-thirds of your recall is not a good place
+to be operating, and no cut-point on this ranking is. When the whole curve is bad,
+the fix is the scores, not the threshold. That is what
+[SPL-09](../../docs/modules/splunk/spl-09-detection-analytics.md) Lab 4 fits
+properly, and why the calibration note below matters more than the number you pick.
 
 **Step 4 — test the received wisdom instead of repeating it.** Every RBA talk you
 will ever see asserts that **breadth beats depth**: three different detections on
@@ -246,15 +248,17 @@ for k in (10, 20, 50):
 PY
 ```
 
-**In this dataset the prior is wrong.** Total score wins at every cut-off — 30%
-against 10% at the top ten. Work out why before reading on.
+**In this dataset the prior is wrong where it matters.** Total score wins at the
+top of the queue — 30% against 20% at the top ten, 20% against 15% at twenty — and
+only draws level deeper down, where nobody is looking. Work out why before reading
+on.
 
 The reason is that the malicious entities here are mostly spray victims, and a
 spray trips *one* detection many times. Ranking by breadth actively demotes them.
 Breadth wins when an intrusion chain trips structurally different detections on
 the same entity — which happens for the C2 host and the insider, and for almost
 nobody else. Two or three such entities cannot outweigh twenty-four spray victims
-in a precision-at-k measurement.
+at the top of a precision-at-k measurement.
 
 The transferable lesson is not "breadth is bad". It is that **a scoring heuristic
 is a claim about your population, not a law**, and you have the labels to check
@@ -263,7 +267,7 @@ strength of a conference talk would have made its own queue worse.
 
 **The calibration note.** Full marks require defending a score you got wrong. The
 easiest one to get wrong here is *Excessive Failed Authentications* at 20. The
-spray generates **32 findings across 24 distinct victims**, all of them accounts
+spray generates **33 findings across 24 distinct victims**, all of them accounts
 that merely *received* attempts and were never compromised. A purely additive
 scheme therefore floods the top of the queue with victims and buries the one
 account that actually fell over.
@@ -347,7 +351,7 @@ cheaper than haversine. At continental scale that error is irrelevant next to th
 threshold you are about to pick arbitrarily; do not let precision here distract
 you from the fact that `900 km/h` is a guess.
 
-That returns roughly **120 pairs across 70 users**. **This is correct behaviour,
+That returns roughly **140 pairs across 72 users**. **This is correct behaviour,
 not a bug.** People genuinely travel interstate, and the detection has no way to
 know that. Your job is the diagnosis the module asks for: is the failure *logic*,
 *normalisation*, or *missing telemetry*?
@@ -368,7 +372,7 @@ The shape of that funnel is the deliverable, not the final row.
 | search category!="service_account"
 ```
 
-121 pairs → 101; 70 users → 64. Service accounts sign in constantly, so even a
+142 pairs → 107; 72 users → 65. Service accounts sign in constantly, so even a
 small genuine-travel rate produces many pairs from very few accounts. Cheap win,
 real cost: **a compromised service account is now invisible to this detection**.
 Say so, and say where you would cover it instead.
@@ -383,8 +387,8 @@ Note that **both** legs matter — an adversary signing in from offshore and the
 the victim signing in normally from Sydney is the same pair seen from the other
 end. Filtering only on `src_country` silently drops half of them.
 
-Down to **38 users**, and this is where the naive analyst declares victory and is
-wrong. Thirty-eight is still an unworkable queue, the organisation has legitimate
+Down to **37 users**, and this is where the naive analyst declares victory and is
+wrong. Thirty-seven is still an unworkable queue, the organisation has legitimate
 NZ and Singapore activity, and in a company with offshore staff this filter buys
 nothing at all. It is also the least transferable thing you could build: a
 country list encodes today's org chart, not adversary behaviour.
@@ -457,19 +461,22 @@ because a chain in one hour is different from the same hosts over two weeks:
 ```
 
 !!! important "Your threshold decides what you find — check it deliberately"
-    `hosts >= 3` returns essentially **one user**. A hunt that returns one row is
-    not a hunt; it is a lookup, and you should be suspicious of it.
+    `hosts >= 3` returns **two users**, and they are not the same kind of thing:
+    one reached 15 cross-department hosts steadily over the whole window, the
+    other reached 4 inside an hour. Raise it to `hosts >= 5` and you keep only the
+    first and lose the intrusion entirely.
 
-    Drop to `hosts >= 2` and a second user appears, with two cross-department
-    hosts. That user is the more interesting of the two: they authenticated to
-    four hosts in a short chain, but two of those hosts happened to sit in their
-    own department, so the cross-department count under-reports them. The
-    abstraction leaks.
+    That is the lab. A count threshold cannot distinguish *breadth* from *speed*,
+    and the two behaviours it conflates are a data-collecting insider and an
+    adversary moving laterally. Add the time dimension and they separate
+    immediately — which is what the `transaction` above is for, and why running it
+    is not optional.
 
-    Run both. Then say in your hunt record what the leak was and what you would
-    measure instead — host *role* transitions (workstation → jump host → server)
-    rather than department, since role crossing is what actually characterises
-    lateral movement and does not depend on how the org chart happens to be drawn.
+    Then say in your hunt record what the abstraction could not see, and what you
+    would measure instead: host *role* transitions (workstation → jump host →
+    server → domain controller) rather than department count. Role crossing is
+    what actually characterises lateral movement, and unlike department it does
+    not depend on how the org chart happens to be drawn this quarter.
 
 Act — whatever the outcome, produce a durable artefact. **A hunt with no artefact
 fails this lab.** Acceptable outputs:
@@ -514,7 +521,7 @@ index=dns reply_code=NXDomain
 | sort - failures
 ```
 
-That narrows 260 hosts to about 245 with at least one failure — which is to say,
+That narrows 260 hosts to about 252 with at least one failure — which is to say,
 it narrows nothing. Real estates fail DNS lookups constantly: typos, decommissioned
 internal names, search-domain suffixing. Roughly 11% of lookups here fail and that
 is normal.
@@ -529,9 +536,10 @@ index=dns
 | sort - failure_rate
 ```
 
-One host sits near **54%** against a field where the next-worst is around 25%.
-That is a strong lead, and it is still only a lead — you have a host, not a
-finding, and nothing yet says the failures are hostile rather than a broken agent.
+One host sits near **38%** against a field where the next-worst is around 28%.
+That is a lead and no more — a 10-point gap is not a separation you would bet on,
+and nothing yet says the failures are hostile rather than a broken agent. Note how
+much weaker this signal is than the neat story usually told about NXDOMAIN and C2.
 
 **Now characterise the domains.** SPL has no entropy function, so compute it:
 
@@ -633,11 +641,16 @@ Narrow to the window around the compromise and the shape appears:
 
 | Time (UTC) | Source | What |
 |---|---|---|
-| 02:15 | `wineventlog` | Failed authentications from an external address, one of ~45 accounts |
+| 02:25 | `wineventlog` | Failed authentications from an external address, one of 45 accounts targeted |
 | 02:30 | `wineventlog` | **Successful** authentication from that same address |
 | 03:00 | `sysmon` | `certutil.exe` spawned by `powershell.exe`, fetching a remote file |
 | 03:00 | `sysmon` | `rundll32.exe` spawned by **`certutil.exe`** |
-| 04:04–04:43 | `wineventlog` + `sysmon` | Type 3 authentications to four servers, each followed by `wmic.exe` under `services.exe` |
+| 04:23 → 05:17 | `wineventlog` + `sysmon` | Type 3 authentications to a jump host, two servers and finally a **domain controller**, each followed by `wmic.exe` under `services.exe` |
+
+**Read the last row again.** The chain ends on a domain controller, roughly three
+hours after a password that was guessed from the internet. Nothing in that
+sequence required a novel technique, and no single event in it is remarkable
+enough to alert on by itself.
 
 **Two things here are worth more than the timeline itself.**
 
@@ -652,13 +665,13 @@ index=sysmon
 | sort count
 ```
 
-The numbers make the argument for you: `certutil.exe` runs **56 times** in this
-dataset and `rundll32.exe` **47 times**, both almost always under `cmd.exe`. The
+The numbers make the argument for you: `certutil.exe` runs **44 times** in this
+dataset and `rundll32.exe` **38 times**, both almost always under `cmd.exe`. The
 pair `certutil.exe → rundll32.exe` occurs **once**. Frequency-based detection on
 either binary alone gives you 100-odd events and no signal; frequency on the
 *edge* gives you one event and the answer.
 
-The same holds for the lateral movement: `wmic.exe` under `cmd.exe` occurs 55
+The same holds for the lateral movement: `wmic.exe` under `cmd.exe` occurs 48
 times and is unremarkable, while `wmic.exe` under **`services.exe`** occurs 4
 times and is the entire intrusion.
 
@@ -666,9 +679,9 @@ Rare-pair analysis over that table is the durable technique; the specific pairs
 are disposable, because tomorrow it will be a different LOLBin. What survives is
 the shape of the query — score the edge, not the node.
 
-Second, the lateral movement crosses from a **workstation** into **servers and a
-jump host** — a boundary that ordinarily is not crossed by a finance user's
-account at all. Verify with the asset lookup:
+Second, the lateral movement crosses from a **workstation** into a jump host,
+servers and a domain controller — a boundary that ordinarily is not crossed by
+this user's account at all. Verify with the asset lookup:
 
 ```
 index=wineventlog EventCode=4624 Logon_Type=3 user=<spray victim>

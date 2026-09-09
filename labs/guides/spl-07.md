@@ -159,7 +159,7 @@ because only the first can be corrected.
 
 ## Lab 2 ⚠️ — Build an Index Cluster and a Search Head Cluster
 
-**Trial licence and multiple instances.** [`compose.distributed.yml`](../docker/compose.distributed.yml)
+**Trial licence and multiple instances.** [`compose.distributed.yml`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/labs/docker/compose.distributed.yml)
 gives you a search head and two peers; extend it to a cluster manager, three peers,
 a deployer and three search heads. Budget ~10 GB RAM.
 

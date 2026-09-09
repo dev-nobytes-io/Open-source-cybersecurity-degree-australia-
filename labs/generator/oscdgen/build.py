@@ -15,7 +15,41 @@ from . import scenarios as S
 TRUTH_KEYS = ("_truth_scenario", "_truth_technique", "_truth_note")
 
 
-def _benign_day(rng, org, day_start, out):
+def _server_footprint(rng, org):
+    """The handful of servers each person routinely reaches.
+
+    Without this, every ordinary user authenticates only to their own workstation,
+    the user x resource matrix is rank-deficient, and behavioural peer grouping
+    (SPL-09 Lab 6) has nothing to group: the only accounts with any breadth of
+    access are the service accounts, so every "behavioural outlier" is a service
+    account and the technique looks useless. Real people reach file servers,
+    application servers and a jump host, mostly within their own department.
+    """
+    servers = [a for a in org.assets if a.role != "workstation"]
+    by_dept = {}
+    for a in servers:
+        by_dept.setdefault(a.department, []).append(a)
+    shared = [a for a in servers if a.role == "jump_host"] or servers[:2]
+
+    footprint = {}
+    for ident in org.identities:
+        if ident.category == "service_account":
+            footprint[ident.user] = rng.sample(servers, min(12, len(servers)))
+            continue
+        own = by_dept.get(ident.department, [])
+        n_own = min(len(own), rng.randint(1, 3))
+        picks = rng.sample(own, n_own) if own else []
+        # A minority also use shared infrastructure. This is the tail that makes
+        # peer groups differ from the org chart in interesting ways.
+        if rng.random() < 0.35 and shared:
+            picks = picks + [rng.choice(shared)]
+        if rng.random() < 0.10 and servers:
+            picks = picks + [rng.choice(servers)]      # genuine cross-department use
+        footprint[ident.user] = picks or [rng.choice(servers)]
+    return footprint
+
+
+def _benign_day(rng, org, day_start, out, footprint):
     """One day of ordinary activity, modulated by seasonality."""
     ws = {a.host: a for a in org.assets if a.role == "workstation"}
     for ident in org.identities:
@@ -33,7 +67,16 @@ def _benign_day(rng, org, day_start, out):
                 ts = ts0 + rng.uniform(0, 3600)
                 roll = rng.random()
                 if roll < 0.22:
-                    out.extend(auth.benign_burst(rng, ts, ident, a))
+                    # Most authentication is to your own workstation; a minority
+                    # reaches a server you routinely use.
+                    target = a
+                    if rng.random() < 0.28:
+                        target = rng.choice(footprint[ident.user])
+                        out.append(auth.event(rng, ts, ident, target,
+                                              success=True, src_ip=a.ip,
+                                              logon_type="3"))
+                        continue
+                    out.extend(auth.benign_burst(rng, ts, ident, target))
                 elif roll < 0.55:
                     out.append(process.benign(rng, ts, ident, a))
                 elif roll < 0.90:
@@ -73,8 +116,9 @@ def generate(seed=1337, days=14, n_users=220, n_servers=40, start_ts=None):
     end_ts = start_ts + days * 86400
 
     events = []
+    footprint = _server_footprint(rng, org)
     for d in range(days):
-        _benign_day(rng, org, start_ts + d * 86400, events)
+        _benign_day(rng, org, start_ts + d * 86400, events, footprint)
 
     # ---- scenarios -------------------------------------------------------
     injected = {}
