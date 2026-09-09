@@ -1,0 +1,136 @@
+name: Labs
+
+# The lab guides make quantitative claims — a beacon channel's coefficient of
+# variation, a detection's positive predictive value, the funnel from 142
+# candidate pairs down to one user. Those numbers came from running the code,
+# and a change to the generator can invalidate them without breaking anything
+# that looks like a test.
+#
+# This workflow is the guard:
+#   1. the dataset generates and has the statistical properties the labs need
+#   2. no ground-truth labels leaked into the events learners search
+#   3. every python block embedded in a guide still runs
+#   4. the five objective answers are still reachable *by the method the guide
+#      teaches* — not merely present in the answer file
+#   5. relative links inside labs/ resolve, and the quiz's payload is well-formed
+
+on:
+  pull_request:
+    paths:
+      - "labs/**"
+      - "docs/modules/splunk/**"
+      - ".github/workflows/labs.yml"
+  push:
+    branches: [main]
+    paths:
+      - "labs/**"
+      - "docs/modules/splunk/**"
+      - ".github/workflows/labs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: labs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  labs:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # No pip install anywhere in this job. The generator and harness are
+      # standard library only, deliberately, so that a learner needs nothing
+      # beyond Python — and CI proves that claim every run.
+      - name: Generate the dataset
+        run: python3 generator/generate.py --days 14
+
+      - name: Assessment integrity (no ground truth in ingested events)
+        run: python3 harness/verify.py integrity
+
+      - name: Dataset properties the labs depend on
+        run: python3 harness/verify.py data
+
+      - name: Guide code blocks execute
+        run: python3 harness/check_guides.py blocks
+
+      - name: Standalone python blocks parse
+        run: python3 harness/check_guides.py syntax
+
+      - name: Objective answers reachable by the taught method
+        run: python3 harness/check_guides.py answers
+
+      - name: Relative links resolve
+        run: python3 harness/check_guides.py links
+
+      - name: Reproducibility — same seed, same dataset
+        run: |
+          python3 generator/generate.py --days 14 --out /tmp/repro-a >/dev/null
+          python3 generator/generate.py --days 14 --out /tmp/repro-b >/dev/null
+          if ! diff -r /tmp/repro-a /tmp/repro-b >/dev/null; then
+            echo "::error::The generator is not deterministic for a fixed seed."
+            echo "A grader must be able to regenerate exactly what the learner saw."
+            diff -rq /tmp/repro-a /tmp/repro-b | head
+            exit 1
+          fi
+          echo "seed 1337 reproduces byte-identically"
+
+  quiz:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate the quiz page
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, re, subprocess, sys, tempfile
+
+          page = pathlib.Path("docs/modules/splunk/quiz.md").read_text(encoding="utf-8")
+          js = re.search(r"<script>\n(.*?)\n</script>", page, re.S)
+          if not js:
+              sys.exit("no <script> block in quiz.md")
+
+          with tempfile.NamedTemporaryFile("w", suffix=".js", delete=False) as fh:
+              fh.write(js.group(1))
+              path = fh.name
+          proc = subprocess.run(["node", "--check", path], capture_output=True, text=True)
+          if proc.returncode:
+              sys.exit(f"quiz JavaScript does not parse:\n{proc.stderr}")
+
+          payload = re.search(r"var Q = (\[.*?\]);\n", js.group(1), re.S)
+          if not payload:
+              sys.exit("could not find the embedded question bank")
+          questions = json.loads(payload.group(1))
+
+          # Markdown processing sits between the source and the browser, so the
+          # schema is checked on the payload as it survives that trip.
+          for i, q in enumerate(questions, 1):
+              for field in ("m", "t", "q", "o", "a", "e"):
+                  if field not in q:
+                      sys.exit(f"question {i} is missing {field!r}")
+              if q["t"] not in ("single", "multi"):
+                  sys.exit(f"question {i} has unknown type {q['t']!r}")
+              if len(q["o"]) < 2:
+                  sys.exit(f"question {i} has fewer than two options")
+              if not q["a"]:
+                  sys.exit(f"question {i} has no correct answer")
+              if any(not 0 <= a < len(q["o"]) for a in q["a"]):
+                  sys.exit(f"question {i} has an answer index out of range")
+              if q["t"] == "single" and len(q["a"]) != 1:
+                  sys.exit(f"question {i} is single-answer with {len(q['a'])} answers")
+              if len(set(q["a"])) != len(q["a"]):
+                  sys.exit(f"question {i} repeats an answer index")
+          print(f"{len(questions)} questions valid; JavaScript parses")
+          PY

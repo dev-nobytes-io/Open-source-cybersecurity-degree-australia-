@@ -127,6 +127,33 @@ population grows.
 
 ---
 
+## How this is kept honest
+
+The guides make quantitative claims — a beacon channel's coefficient of
+variation, a detection's positive predictive value, the funnel from 142
+candidate pairs down to one user. Every one came from running the code. A change
+to the generator can invalidate them without breaking anything that looks like a
+test, so CI ([`.github/workflows/labs.yml`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/.github/workflows/labs.yml))
+guards them:
+
+```bash
+python3 harness/verify.py integrity      # no ground truth leaked into the events
+python3 harness/verify.py data           # the 8 statistical properties the labs need
+python3 harness/check_guides.py blocks   # every embedded python block still runs
+python3 harness/check_guides.py answers  # each answer still reachable by the taught method
+python3 harness/check_guides.py links    # relative links resolve
+```
+
+**The `answers` check is the one with teeth.** `verify.py answer` confirms a
+value against a hash. `check_guides.py answers` re-implements the *search the
+guide actually teaches* and asserts it still produces that value. A generator
+change that broke the taught method while leaving the labelled scenario intact
+would pass the first and fail the second — which is exactly the failure that
+would waste a learner's afternoon.
+
+CI also re-runs the generator twice and diffs the output, because "same seed,
+same dataset, on any machine" is a promise a grader relies on.
+
 ## Requirements
 
 - **Python 3.8+** — standard library only, no `pip install`

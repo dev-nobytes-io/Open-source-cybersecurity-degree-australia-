@@ -143,9 +143,13 @@ items are time-sensitive.
       22 behind a generator flag so the gap can be opened and closed.
 - [ ] **Docker environments are untested end to end in this repository.** The compose
       files are YAML-valid and the app configuration is written, but no CI job starts
-      Splunk. Everything that could be verified without a running instance has been
-      (dataset properties, answer keys, every embedded Python block); the container
-      startup path has not.
+      Splunk. Everything that *can* be verified without a running instance now is, on
+      every change, by [`.github/workflows/labs.yml`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/.github/workflows/labs.yml) —
+      dataset properties, assessment integrity, every embedded Python block, the five
+      objective answers by their taught method, link resolution, generator determinism
+      and the quiz payload. The container startup path remains unverified; doing it
+      would need a CI job that pulls the Splunk image, accepts its licence and waits
+      for the instance, which is a licence question before it is a technical one.
 - [ ] Confirm the Splunk container image licence terms are acceptable for the way the
       compose files use them (`SPLUNK_START_ARGS: --accept-license`), and that
       redistributing the compose files is within those terms.
