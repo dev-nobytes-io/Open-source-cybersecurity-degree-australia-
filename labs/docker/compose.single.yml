@@ -1,0 +1,31 @@
+# Single Splunk instance on the Free licence.
+# Covers SPL-01, SPL-02, most of SPL-09, and the searchable parts of SPL-03.
+#
+#   docker compose -f compose.single.yml up -d
+#   open http://localhost:8000
+#
+# The Free licence has NO authentication: you are dropped straight in as admin.
+# That is why this binds to 127.0.0.1 only. Never expose it.
+services:
+  splunk:
+    image: splunk/splunk:latest
+    container_name: oscd-splunk
+    hostname: oscd-splunk
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "${SPLUNK_PASSWORD:-oscd-lab-changeme}"
+      SPLUNK_LICENSE_URI: "Free"
+    ports:
+      - "127.0.0.1:8000:8000"   # Splunk Web
+      - "127.0.0.1:8089:8089"   # management / REST
+    volumes:
+      - ../data:/data:ro                                   # generated events
+      - ../splunk-apps/oscd_lab:/opt/splunk/etc/apps/oscd_lab
+      - oscd-var:/opt/splunk/var
+    healthcheck:
+      test: ["CMD", "curl", "-fsk", "https://localhost:8089/services/server/info"]
+      interval: 20s
+      timeout: 5s
+      retries: 30
+volumes:
+  oscd-var:

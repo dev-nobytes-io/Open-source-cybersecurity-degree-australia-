@@ -1,0 +1,34 @@
+# Deployment server + three universal forwarders, against the Free-licence indexer.
+#
+# This runs on Free. The Free licence has no distributed *search*, but it accepts
+# forwarded data and the deployment server works — which is enough for SPL-06
+# Lab 3, where the subject is server classes and blast radius, not search.
+#
+#   docker compose -f compose.single.yml -f compose.forwarders.yml up -d
+#
+# The indexer from compose.single.yml doubles as the deployment server. That is a
+# lab convenience, not a pattern to copy: in a real estate the deployment server
+# is a separate instance, because a DS busy enough to matter should not be
+# competing with indexing for the same CPU.
+services:
+  # Three forwarders in two "server classes", so a bad push can reach a subset
+  # rather than everything — which is the whole point of Lab 3.
+  uf-web-01: &uf
+    image: splunk/universalforwarder:latest
+    hostname: uf-web-01
+    environment:
+      SPLUNK_START_ARGS: "--accept-license"
+      SPLUNK_PASSWORD: "${SPLUNK_PASSWORD:-oscd-lab-changeme}"
+      SPLUNK_STANDALONE_URL: oscd-splunk:8089
+      SPLUNK_DEPLOYMENT_SERVER: oscd-splunk:8089
+    volumes:
+      - ../data:/data:ro
+    depends_on: [splunk]
+
+  uf-web-02:
+    <<: *uf
+    hostname: uf-web-02
+
+  uf-db-01:
+    <<: *uf
+    hostname: uf-db-01

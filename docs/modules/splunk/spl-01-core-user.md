@@ -403,6 +403,20 @@ developed in [SPL-02](spl-02-power-user.md) Topic 5.
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-01 lab guide](../../../labs/guides/spl-01.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    All seven labs run on Splunk Free with the lab dataset.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 All labs run on a **Splunk Enterprise Free** instance. See the
 [series safety rules](index.md#safety-authorisation-and-data-handling) before starting —
 in particular, a Free instance has **no authentication**, so bind it to localhost or an

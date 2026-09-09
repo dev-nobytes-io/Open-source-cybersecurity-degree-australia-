@@ -1655,6 +1655,20 @@ sufficiently unusual dataset some of them will be wrong. Check.
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-09 lab guide](../../../labs/guides/spl-09.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    **Every lab in this module can be completed without a Splunk instance.** The dataset is JSONL and CSV; the guide's implementations are standard-library Python with no numpy, no pandas and no `pip install`, so the arithmetic stays visible.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 !!! note "Licensing and environment"
     Labs 1, 2 and 4 are **analytical and need no Splunk instance** — they are the highest
     value in the module and can be run entirely on paper and in Python. Labs 3 and 8 need

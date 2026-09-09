@@ -517,6 +517,74 @@ Goal: run the local quality checks as a GitHub check so PRs are gated by them.
 
 ---
 
+### Sprint 25 — EXT-SPL lab environment, guides and quiz ✅ Complete (2026-09-09)
+
+Every lab in the EXT-SPL series said "provision Splunk Free" and stopped. This
+sprint closed that gap and then, on direction that hands-on lab work is out of
+scope, reframed the whole series around what can be produced **without** a
+running instance.
+
+- [x] **`labs/` environment.** Pure-stdlib generator producing a labelled 14-day
+      estate (~101k events, 227 identities, 260 assets, 8 attack scenarios); a
+      verification harness; Docker compose for single-instance (Free), forwarders
+      + deployment server (Free) and distributed (trial); and an `oscd_lab` Splunk
+      app with explicit parsing.
+- [x] **Guides for all 69 labs**, one per module. The split of responsibility:
+      the module says *why* a lab exists and *what to deliver*; the guide says
+      *how to run it*; marking criteria stay in the module.
+- [x] **`labs/paper/conf-practice.md`** — nine configuration exercises with
+      collapsed marking keys, marked on the production symptom rather than on
+      spotting the defect.
+- [x] **`docs/modules/splunk/quiz.md`** — 52-question interactive quiz (single
+      answer and multiple selection, per-question reveal, check-all, reset, live
+      score, module filter). Self-contained inline style/script following the
+      Program Builder pattern, so `prepare_wiki.py` needed no new asset staging.
+- [x] Linked from all nine module pages and the series index; added to nav.
+
+**The data had to be right, and repeatedly was not.** Writing guides against
+real output rather than against intuition surfaced six defects, each of which
+would have broken the lab it fed:
+
+| Defect | What it would have done |
+|---|---|
+| Sign-in geolocation drawn uniformly across capitals while the identity lookup pinned everyone to Sydney | Every user appears to teleport; geo-velocity returns 2,915 findings, all artefacts |
+| Benign DNS never failed | `reply_code=NXDomain` identifies the C2 host in one line; the investigation lab has no analysis in it |
+| Risk findings from web/DNS attributed to the remote domain | Risk accrues to `cloudflare.com` instead of to the host that called it |
+| Payload keys `index`/`sourcetype` shadowing metadata under `INDEXED_EXTRACTIONS = json` | Every macro in the app returns zero while the events sit in the index |
+| Ordinary users only authenticated to their own workstation | Peer-group analytics returns "every outlier is a service account"; 9 users had 2+ resources, now 227 |
+| Both compose files mounted the app from a non-existent path | The `oscd_lab` app silently absent from the container |
+
+**Three written claims were measured and found false**, and are now taught as
+what the data shows rather than what the literature says — which is arguably the
+more valuable content:
+
+- Ranking risk entities by **detection breadth** is worse than by total score in
+  this population (P@10 of 20% against 30%), because the malicious entities are
+  mostly spray victims tripping one detection repeatedly. The lab now has the
+  learner measure it rather than repeat the conference-talk version.
+- **Character entropy beats an n-gram model** for DGA detection here, on both
+  the uniform-random and the wordlist case. Lab 5 presents the surprising result
+  and makes diagnosing it the deliverable — the synthetic DGA is the case entropy
+  is optimal for, the bigram is too weak and trained on the wrong corpus, and
+  entropy is partly measuring label length rather than randomness.
+- The SPL-07 capacity model's arithmetic disagreed with itself: Lab 1 multiplied
+  by RF then added SF separately, which does not match the
+  `RF × rawdata + SF × tsidx` formula Lab 2 derives.
+
+Also corrected: the SPL-04 module warning claims a trial licence is required
+throughout. Only Labs 1 and 5 truly need Enterprise Security, and the guide says
+so.
+
+**Verification.** Every figure quoted in a guide was computed against the
+generated dataset rather than estimated; every embedded Python block was
+executed; the quiz's JS passes `node --check` with its payload re-parsed out of
+the rendered HTML; `verify.py` passes 8/8 property checks and all five objective
+answer keys. What is **not** verified: no CI job starts a Splunk container, so
+the container startup path is untested — recorded in `docs/TODO.md` along with
+five other lab-environment open items.
+
+---
+
 ## Resource Inputs from Practitioners
 
 This project is practitioner-led. Where a maintainer has a preferred real-world
@@ -535,6 +603,6 @@ rather than reinvented.
 
 | Capability maturity (all units) | Integrate **all** operational + program maturity models (SOC-CMM, CTI-CMM, SIM3, HMM/PEAK, DML/M3TID, C2M2, O-ISM3) across operations **and** strategy; tie service→capability→NIST CSF→NICE/DCWF role→KSATs; wire operational maturity into governance/program/risk to avoid development mismatch | ✅ Sprint 11 — `docs/maturity-models.md` ("DF-C2M2" name pending confirmation) |
 
-| Splunk certification pathway (EXT-SPL) | Splunk certification-track prerequisite chains, supplied as the official Architect and Consultant exam-detail pages. Verified against Splunk's live certification pages and track flowcharts and built out as the **EXT-SPL** extension series (`docs/modules/splunk/`) — deliberately vendor-specific, non-credit, and explicit about cost and access gating | ✅ Drafted — Domain Expert and currently-certified Practitioner Reviewers still required; blocking verification items in `docs/TODO.md` |
+| Splunk certification pathway (EXT-SPL) | Splunk certification-track prerequisite chains, supplied as the official Architect and Consultant exam-detail pages. Verified against Splunk's live certification pages and track flowcharts and built out as the **EXT-SPL** extension series (`docs/modules/splunk/`) — deliberately vendor-specific, non-credit, and explicit about cost and access gating. Sprint 25 added the `labs/` environment, guides for all 69 labs, conf-file practice and a 52-question quiz | ✅ Drafted — Domain Expert and currently-certified Practitioner Reviewers still required; blocking verification items in `docs/TODO.md` |
 
 *(Add rows as resources are supplied.)*

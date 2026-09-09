@@ -542,6 +542,20 @@ whether the design ever gets built. Developed further in [SPL-08](spl-08-consult
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-07 lab guide](../../../labs/guides/spl-07.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    Labs 1, 5, 6 and 7 need no licence at all and feed the other three — do them first. The guide's capacity model is worked end to end, so the cluster labs can be built to a number rather than to a guess.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 !!! danger "All labs require a trial licence and multiple instances"
     **Splunk Free has no distributed search and no clustering** — none of these labs can
     run on it. Provision a trial and run the whole module as one continuous block inside

@@ -466,6 +466,20 @@ component of a larger automation estate rather than a silo.
 
 ## Labs & exercises
 
+!!! tip "Lab guide: how to actually run these"
+    **[SPL-05 lab guide](../../../labs/guides/spl-05.md)** gives the setup, the commands and the
+    verification for every lab below — against the
+    **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
+    ~101k labelled events with ground truth, so you can measure a real positive
+    predictive value rather than estimate one.
+
+    The split of responsibility: **this page says why each lab exists and what to
+    deliver; the guide says how to run it.** Marking criteria stay here.
+
+    Six of eight need no platform, and Lab 4's connector is plain Python against a free public API — the guide ships a working skeleton with the three-state result type the module argues for.
+
+    Self-assess with the **[52-question quiz](quiz.md)**.
+
 !!! danger "Platform access is a real constraint"
     Splunk SOAR is a licensed product and its free/community availability is
     **unverified** — see [Verification status](#verification-status). Where a SOAR instance

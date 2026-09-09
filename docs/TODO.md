@@ -119,6 +119,37 @@ items are time-sensitive.
       and Core Certified Consultant (for SPL-08) certifications. Neither module may reach
       Practitioner Approved without one.
 
+**Lab environment (`labs/`) — open items:**
+
+- [ ] **Objective answer keys exist for five labs only** (`spl03.lab2`, `spl03.lab5`,
+      `spl03.lab7`, `spl09.lab3`, `spl09.lab5`). The remaining 64 are rubric-marked.
+      Decide whether more hash-checkable answers are wanted, and for which labs — the
+      constraint is that a checkable answer tends to reward the answer over the method,
+      which several of these labs deliberately grade the other way round.
+- [ ] **The dataset's base rate is deliberately enriched** — about 0.2% of events belong
+      to a scenario and roughly 10% of intermediate findings are malicious, against real
+      rates orders of magnitude lower. Stated explicitly in
+      [`labs/README.md`](../labs/README.md); confirm the Domain Expert accepts the
+      teaching compromise, since [SPL-09](modules/splunk/spl-09-detection-analytics.md)
+      Part B teaches the real arithmetic against a dataset that does not exhibit it.
+- [ ] **The generator's DGA is uniform-random**, which is the case character entropy is
+      optimal for. [SPL-09 Lab 5](../labs/guides/spl-09.md) now teaches this as a
+      measurement artefact to diagnose rather than hiding it, but a more realistic DGA
+      (dictionary-based, and hashed-but-benign CDN hostnames on the negative side) would
+      make the lab better. Also absent: base32 tokens, UUID subdomains, DKIM selectors.
+- [ ] **Sysmon carries EventCode 1 only.** This is deliberate — it is what makes
+      [SPL-03 Lab 4](../labs/guides/spl-03.md)'s telemetry-gap classification real — but
+      it caps what any endpoint-detection lab can do. Decide whether to add 3, 7, 11 and
+      22 behind a generator flag so the gap can be opened and closed.
+- [ ] **Docker environments are untested end to end in this repository.** The compose
+      files are YAML-valid and the app configuration is written, but no CI job starts
+      Splunk. Everything that could be verified without a running instance has been
+      (dataset properties, answer keys, every embedded Python block); the container
+      startup path has not.
+- [ ] Confirm the Splunk container image licence terms are acceptable for the way the
+      compose files use them (`SPLUNK_START_ARGS: --accept-license`), and that
+      redistributing the compose files is within those terms.
+
 **Cross-document consistency:**
 
 - [ ] Update [`structure.md`](structure.md) and
