@@ -206,19 +206,182 @@ On completion, a learner can:
 
 | Part | Topics | Labs | Notional hours |
 |---|---|---|---|
-| A — The engagement and discovery | 1–2 | 1 | 14 |
-| B — Standardisation | 3 | 2 | 14 |
-| C — Implementation and migration | 4–6 | 3, 6 | 22 |
-| D — Assessment and value | 7–9 | 4 | 20 |
-| E — Communication | 10 | 5 | 10 |
-| F — Handover, operating model, practice | 11–13 | 5, 7 | 16 |
-| | | | **~96 hours** |
+| **A — Blueprint technical mastery** | **1–9** | **6** | **60** |
+| B — The engagement and discovery | 10–11 | 1 | 14 |
+| C — Standardisation | 12 | 2 | 14 |
+| D — Implementation and migration | 13–15 | 3, 6 | 22 |
+| E — Assessment and value | 16–18 | 4 | 20 |
+| F — Communication, handover, practice | 19–22 | 5, 7 | 26 |
+| | | | **~156 hours** |
+
+---
+
+## Blueprint alignment
+
+!!! danger "The exam and the job are different things — this module teaches both"
+    Splunk's published [Core Certified Consultant test blueprint](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-consultant.pdf)
+    (retrieved 2026-09-09) contains **no consulting-practice content at all**. It is a
+    **technical mastery exam** spanning the whole platform — the deepest one Splunk
+    publishes. Roughly 90% of it is architecture, clustering, data collection, indexing
+    and search internals.
+
+    The *job*, and the prerequisite lab courses, are about implementation and client
+    delivery. Both are taught here. **Part A is what the exam tests; Parts B–F are what
+    the work requires.** Do not confuse the two — an earlier draft of this module covered
+    only the second and would have left a candidate unprepared.
+
+| Blueprint domain | Weight | Covered by |
+|---|---|---|
+| 1.0 Deploying Splunk (SVA, standalone→distributed, HA vs DR) | 5% | Topic 1 |
+| 2.0 Monitoring Console | **8%** | Topic 2 |
+| 3.0 Access and Roles (LDAP, SAML/SSO, role-based data security) | **8%** | Topic 3 |
+| 4.0 Data Collection (ingestion methods, S2S, input types, troubleshooting) | **15%** | Topic 4 |
+| 5.0 Indexing (artifacts, pipelines, parsing, retention) | **14%** | Topic 5 |
+| 6.0 Search (job inspection, search types, efficiency, subsearches) | **14%** | Topic 6 |
+| 7.0 Configuration Management (deployment apps and server) | **8%** | Topic 7 |
+| 8.0 Indexer Clustering (buckets, failure modes, multisite, migration) | **18%** | Topic 8 |
+| 9.0 Search Head Clustering (deployer, captain, RAFT election) | **10%** | Topic 9 |
+
+**Beyond the blueprint** — Topics 10–22 cover discovery, base configurations, health
+assessment, communication, handover, operating model and professional practice. None of
+it is examined. All of it is the job, and it is what the prerequisite lab courses
+(`Implementation Fundamentals`, `Architect Implementation 1–3`, `Services: Core
+Implementation`) exist to develop.
+
+!!! note "Prerequisite coursework — a source discrepancy"
+    The blueprint names the prerequisite courses as **`Indexer Cluster Implementation
+    Lab`, `Distributed Search Migration Lab`, `Implementation Fundamentals Lab`,
+    `Architect Implementation Labs (1-3)`, and `Services: Core Implementation`**.
+
+    The exam page and track flowchart name **`Core Consultant Labs`** as one of the two
+    registration-mandatory courses; the blueprint **does not list it at all**. Both
+    sources were retrieved the same day. Resolve with Splunk Education before advising a
+    learner — recorded in [`docs/TODO.md`](../../TODO.md).
 
 ---
 
 ## Topics
 
-### Topic 1: The Engagement and the Real Requirement
+## Part A — Blueprint technical mastery
+
+> These nine topics carry the exam. Each is a *deeper* revisit of material introduced in
+> [SPL-06](spl-06-enterprise-admin.md) and [SPL-07](spl-07-architect.md) — the Consultant
+> exam expects you to explain mechanisms, not just operate them.
+
+### Topic 1: Deployment Models, SVAs and HA versus DR
+
+Splunk Validated Architectures: the pillar model, the topology categories, and selecting
+one from stated requirements.
+
+Articulating **how and why** a deployment grows from standalone to distributed to
+clustered — the thresholds, not the preferences.
+
+**High availability versus disaster recovery**, which the blueprint calls out explicitly
+and which candidates routinely conflate. HA is surviving component loss without service
+interruption; DR is recovering the service after loss of a site or the data itself. They
+are addressed by different mechanisms in Splunk (clustering and replication factor versus
+multisite, backup and frozen archive), and a design that provides one does not provide the
+other.
+
+### Topic 2: The Monitoring Console in Depth
+
+Which instance is suitable to host the MC, and why it should not be a busy search head.
+Configuring the MC for standalone versus distributed mode. Server roles and groups, and
+how the MC uses them to know what to check.
+
+**MC health checks**: how they run, what they cover, and how to extend them with custom
+health checks — the part that separates operating the MC from configuring it.
+
+### Topic 3: Authentication, Roles and Securing Data
+
+Authentication methods and their trade-offs. **LDAP** concepts and configuration —
+strategies, group mapping, and the failure modes when a bind account expires. **SAML and
+SSO** options, and multifactor.
+
+Roles as the data-security mechanism: capabilities, `srchIndexesAllowed`, and **search
+filters (`srchFilter`)** for row-level restriction within an index. Role inheritance and
+the resulting effective-permission problem, which is genuinely hard to reason about and
+is a favourite exam target.
+
+### Topic 4: Data Collection and S2S
+
+The full set of ingestion paths onto an indexer, and choosing between them.
+
+**Splunk-to-Splunk (S2S)**: how one Splunk instance actually talks to another — the
+protocol, the cooked versus raw distinction, compression, TLS, and indexer acknowledgement.
+This is the mechanism underneath every forwarder topology and the blueprint asks about it
+directly.
+
+Input types and configuration in depth, and **troubleshooting data inputs**: the ordered
+method for "the data is not arriving" — check the forwarder, check S2S connectivity, check
+the queue, check the index, check the search.
+
+### Topic 5: Indexing Internals
+
+**Indexing artifacts and their locations:** what a bucket directory actually contains —
+the rawdata journal, `tsidx` files, bloom filters, and the metadata files — and why each
+exists.
+
+Event processing and the data pipelines: the parsing, merging, typing and indexing queues,
+what each does, and reading a blocked queue as a diagnostic.
+
+The **underlying text parsing and indexing process**: segmentation, how terms enter the
+index, and how that determines which searches are fast. Data retention controls end to end.
+
+### Topic 6: Search Internals
+
+**Search job inspection** and explaining the inner workings of a search — the blueprint
+phrases this as explaining the mechanism, not reading the numbers.
+
+Search types: streaming, transforming, generating, orchestrating, dataset-processing — and
+the centralised versus distributable streaming distinction that determines where work runs.
+
+Maximising search efficiency: filtering, index/sourcetype specificity, TERM, and
+`tstats`. **How subsearches work** — execution order, the result and time limits, and the
+silent truncation that returns a wrong answer.
+
+### Topic 7: Configuration Management at Consultant Depth
+
+Deployment apps, how the deployment server works internally (phoning home, checksums,
+reload versus restart), deployment system configuration, and managing a deployment server
+at scale — including when the deployment server itself becomes the bottleneck.
+
+### Topic 8: Indexer Clustering — The Largest Domain
+
+**18% of the exam.** Deployment and component configuration: manager node, peers, search
+heads, and the cluster bundle.
+
+**The life cycle of data using buckets** — hot → warm → cold → frozen, bucket naming, and
+what replication does at each stage. Primary versus searchable copies.
+
+**Failure modes and recovery processes**: peer loss, bucket fix-up, what goes
+non-searchable and for how long, manager node loss, and the recovery path for each.
+
+**Multisite clustering**: site replication and search factors, site affinity, and how
+failover behaves across sites. **Migration procedures** — single-site to multisite, and
+cluster upgrade ordering.
+
+### Topic 9: Search Head Clustering and RAFT
+
+Managing and deploying a search head cluster. **When a SHC is needed and — the blueprint
+asks this explicitly — when it is *not* recommended**: a small deployment with modest
+search concurrency is worse off with a SHC than without one.
+
+Content management using the **deployer**, and why direct member edits are lost.
+
+The role of members and the **captain**, and **how captain election works (RAFT)** —
+quorum, terms, and why a cluster that cannot reach quorum stops serving rather than
+splitting. Captaincy transfer, member addition and decommissioning.
+
+---
+
+## Part B — Implementation and consulting practice
+
+> Not examined. This is the work the prerequisite lab courses develop, and the reason the
+> credential exists.
+
+
+### Topic 10: The Engagement and the Real Requirement
 
 Scoping, statements of work, and the gap between what a client asks for and what they need.
 Common patterns: the compliance-driven deployment where nobody will read the alerts, the
@@ -233,7 +396,7 @@ tested at handover. The first can be argued about forever, which is how engageme
 Scope creep, change control, and the observation that the most expensive words in consulting
 are "while we're in there".
 
-### Topic 2: Discovery and Assessment
+### Topic 11: Discovery and Assessment
 
 The structured intake at the start of an engagement: current-state architecture, data
 inventory, licence position, use cases and their owners, existing content, team capability,
@@ -247,7 +410,7 @@ Producing a current-state assessment the client recognises as accurate. Getting 
 poisons everything downstream, because a client who does not recognise their own environment
 in your assessment will not trust your recommendation.
 
-### Topic 3: Base Configurations and Standardisation
+### Topic 12: Base Configurations and Standardisation
 
 The consultant's core artefact. A standardised, documented, version-controlled set of
 configurations applied consistently: `props.conf` and `transforms.conf` settings for correct
@@ -269,7 +432,7 @@ diagnosable, and means the client's estate looks like every other client's estat
 next consultant. Deviation is allowed — but it must be justified and documented, or it is
 just drift with a better story.
 
-### Topic 4: Implementation Method
+### Topic 13: Implementation Method
 
 Sequencing a build: infrastructure, cluster, data onboarding, knowledge layer, content,
 handover. Validation gates between stages, and the discipline of not proceeding past a
@@ -283,7 +446,7 @@ distinction used as a planning input rather than an assessment output.
 Working in someone else's change-management process, with someone else's approvals, on
 someone else's production estate.
 
-### Topic 5: Cluster and Distributed Implementation
+### Topic 14: Cluster and Distributed Implementation
 
 The implementation-specific content of the consultant track: **indexer cluster
 implementation** and **distributed search migration** as named procedures rather than
@@ -296,7 +459,7 @@ replication actually works before declaring completion.
 Migrating a standalone deployment to distributed, and a distributed deployment to
 clustered, with data intact and a rollback at each stage.
 
-### Topic 6: Migration and Consolidation
+### Topic 15: Migration and Consolidation
 
 Version upgrades, single-site to multi-site, self-managed to Splunk Cloud, and consolidation
 after an acquisition.
@@ -307,7 +470,7 @@ that migrates worst.
 
 **Rollback planning at each stage**, and identifying the point of no return honestly.
 
-### Topic 7: Health Assessment of an Existing Deployment
+### Topic 16: Health Assessment of an Existing Deployment
 
 The engagement type most consultants meet most often: an estate that grew organically for
 five years and now underperforms.
@@ -322,7 +485,7 @@ Producing a **prioritised, costed roadmap** — ordered by risk and value, not b
 easiest to fix or most interesting to the consultant. Distinguishing what must be fixed now,
 what can be deferred, and what should simply be accepted and documented as residual risk.
 
-### Topic 8: Use-Case Development and Value Realisation
+### Topic 17: Use-Case Development and Value Realisation
 
 The commercial reality behind most engagements: the client bought a platform and cannot
 demonstrate value from it.
@@ -334,7 +497,7 @@ telemetry the organisation does not collect and will not fund.
 Prioritising by value and feasibility rather than by enthusiasm. Measuring and reporting
 realised value in terms the sponsor recognises — which is rarely "number of dashboards".
 
-### Topic 9: Performance and Troubleshooting on a Client Estate
+### Topic 18: Performance and Troubleshooting on a Client Estate
 
 Applying [SPL-07](spl-07-architect.md) Topics 9–10 under consulting conditions: incomplete
 information, limited access, a client team that has already formed a theory, and production
@@ -344,7 +507,7 @@ The diplomatic dimension: the person who built the thing you are diagnosing is u
 the room. Diagnosing without assigning blame, because a defensive client team withholds the
 information you need.
 
-### Topic 10: Communicating the Unwelcome
+### Topic 19: Communicating the Unwelcome
 
 The skill that most distinguishes a senior consultant, and the one vendor courseware teaches
 least.
@@ -360,7 +523,7 @@ least.
 
 Grounded in [SC06](../../../core/units/SC06-stakeholder-communication.md).
 
-### Topic 11: Documentation, Handover and Leaving Well
+### Topic 20: Documentation, Handover and Leaving Well
 
 Documentation that is actually operable: runbooks, the base config and its rationale, the
 decision register, known limitations, and the things you would fix with more time.
@@ -374,7 +537,7 @@ skipped: not what was built, but *why it was built that way and what was rejecte
 it, the next person to touch the estate will re-litigate every decision from scratch,
 usually badly.
 
-### Topic 12: Operating Model and Managed Services
+### Topic 21: Operating Model and Managed Services
 
 Designing the client's ongoing operating model: who owns the platform, who owns content, who
 owns detection, and what the RACI looks like when those are three different teams.
@@ -383,7 +546,7 @@ Run-books versus tribal knowledge. Capacity for growth. The support model, and t
 question of whether the client should be running this themselves at all — which sometimes has
 an uncomfortable commercial answer for the consultant.
 
-### Topic 13: Professional Practice
+### Topic 22: Professional Practice
 
 The parts of consulting that are not technical.
 
@@ -582,9 +745,20 @@ customer service.
 - **Not verified:** the exam code is not published and is deliberately not stated. Course
   pricing varies by region and is deliberately not quoted. The "Great 8" props settings
   are named as practitioner terminology; the exact set has **not** been verified against
-  current courseware and no specific settings are listed here. Topic coverage is the
-  module author's reading of consulting practice and has **not** been reconciled against
-  Splunk's published test blueprint.
+  current courseware and no specific settings are listed here. Topic coverage
+  **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only.
+- **Correction made 2026-09-09.** An earlier draft of this module covered only consulting
+  practice. The published blueprint is a **technical mastery exam** with no
+  consulting-practice content, so Part A (Topics 1–9) was added to cover the nine examined
+  domains. Anyone who reviewed the earlier draft should re-read the module structure.
+- **Source discrepancy on prerequisite coursework.** The blueprint names
+  `Indexer Cluster Implementation Lab`, `Distributed Search Migration Lab`,
+  `Implementation Fundamentals Lab`, `Architect Implementation Labs (1-3)` and
+  `Services: Core Implementation`. The exam page and track flowchart name
+  **`Core Consultant Labs`** as registration-mandatory, and the blueprint does not list it.
+  Both retrieved 2026-09-09. Unresolved — recorded in [`docs/TODO.md`](../../TODO.md).
 - **Requires a currently-certified reviewer.** This module must not reach Practitioner
   Approved without review by someone holding a **current** Core Certified Consultant
   certification, who can confirm both the eligibility question and the base-configuration
@@ -615,7 +789,7 @@ customer service.
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 4–6 (Analyse / Evaluate / Create) |
-| Notional Hours | ~96 |
+| Notional Hours | ~156 |
 | Zero-cost achievable | **No** — four prerequisite certifications, mandatory paid coursework, restricted-access labs, manual authorisation |
 | Credential reachable outside the partner channel? | **Unconfirmed — see [Verification status](#verification-status)** |
 | Facts verified | 2026-09-09 |

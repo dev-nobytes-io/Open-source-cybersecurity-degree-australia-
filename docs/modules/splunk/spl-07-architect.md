@@ -212,13 +212,54 @@ On completion, a learner can:
 |---|---|---|---|
 | A — Topology and tiers | 1–2 | 1 | 12 |
 | B — Clustering | 3–4 | 2 | 18 |
-| C — Distributed search, tuning, troubleshooting | 5, 9, 10 | 3 | 22 |
+| **C — Distributed search, tuning, troubleshooting (30% of exam)** | 5, 9, 10 | 3 | **32** |
 | D — Capacity, sizing and storage | 6–7 | 1, 6 | 20 |
 | E — Deployment and change | 8 | 5 | 8 |
 | F — Resilience, residency and cloud | 11–12 | 4, 5 | 16 |
 | G — Ingest and security architecture | 13–15 | 4, 7 | 16 |
 | H — Migration, cost and constraint | 16–17 | 5, 7 | 12 |
-| | | | **~124 hours** |
+| | | | **~134 hours** |
+
+---
+
+## Blueprint alignment
+
+Verified against the published
+[Enterprise Certified Architect test blueprint](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-architect.pdf),
+retrieved 2026-09-09. Twenty domains.
+
+| Domain group | Weight | Covered by |
+|---|---|---|
+| 1.0–2.0 Deployment plan and process; project requirements | 7% | Topics 2, 6 |
+| 3.0 Index design and non-SmartStore storage estimation | 5% | Topics 6, 7 |
+| 4.0 Resource planning (sizing, disk, hardware per component, **ES and ITSI sizing**, security/privacy/integrity) | 7% | Topics 1, 6, 14 |
+| 5.0 Clustering overview (storage/disk, SHC requirements) | 5% | Topics 3, 4 |
+| 6.0 Forwarder and deployment best practices; configuration management | 6% | Topics 8, 13 |
+| 7.0 Performance tuning (`limits.conf`, `indexes.conf` bucket size, `props.conf`, search performance) | 5% | Topic 9 |
+| **8.0–13.0 Troubleshooting** (diagnostic tools; internal logs and indexes; licensing and crash; input; search and job inspector; forwarding and deployment server) | **30%** | Topic 10 |
+| 14.0 Large-scale deployment (server roles in clusters, licence manager in a cluster) | 5% | Topics 1, 2 |
+| 15.0–17.0 Single-site and multisite indexer clusters; **cluster management** (storage options, **peer offline and decommission**, **manager app bundles**, **Monitoring Console for clusters**) | 17% | Topics 3, 11 |
+| 18.0–19.0 Search head cluster; SHC management (**deployer, captaincy transfer, member add/decommission**) | 10% | Topic 4 |
+| 20.0 KV Store collection and lookup management in clusters | 3% | Topic 4 |
+
+!!! warning "Troubleshooting is 30% of this exam"
+    Domains 8.0–13.0 together carry **30%** — more than clustering, more than sizing. One
+    of the four mandatory prerequisite courses is `Troubleshooting Splunk Enterprise`, and
+    the weighting confirms it is not a footnote.
+
+    Topic 10 is correspondingly the largest topic in this module. Candidates who prepare
+    on architecture and clustering alone are preparing for two thirds of the exam.
+
+!!! note "SmartStore is *not* the emphasis"
+    The blueprint twice specifies **non-SmartStore** storage estimation (domains 3.2 and
+    5.1). Topic 7 covers SmartStore because it is a real and increasingly common
+    architectural choice, but a candidate should size the conventional way for the exam.
+
+**Beyond the blueprint** — Topics 12 (residency and cloud), 15 (designing the detection
+capability) and 17 (cost and constraint) are not examined. They are included because they
+are what the role actually requires in an Australian context, and Topic 15 addresses the
+separate [Cybersecurity Defense Architect](https://www.splunk.com/en_us/training/certification-track/splunk-certified-cybersecurity-defense-architect.html)
+credential.
 
 ---
 
@@ -264,6 +305,11 @@ long it takes. Rolling restarts, maintenance mode, and the cluster bundle
 
 Indexer discovery so forwarders find peers without a static list. Data rebalancing after a
 peer is added.
+
+**Cluster management and administration** (examined at 7%): storage utilisation options,
+**taking a peer offline versus decommissioning it** and why the distinction matters to
+bucket fix-up, **manager app bundles** as the configuration path, and using the
+**Monitoring Console in an indexer-cluster environment**.
 
 **The decision to teach properly:** RF and SF are a statement about how much data loss and
 search unavailability the business accepts, priced in storage. RF=3/SF=2 is not "more safe" —
@@ -375,6 +421,22 @@ Practise the common presentations: slow searches, indexing lag, queue blockage, 
 scheduled searches, uneven data distribution across peers, bucket fix-up that never
 completes, a search head cluster that will not elect a captain, and results that are
 *wrong* rather than slow (usually a bundle or precedence problem).
+
+**The blueprint's troubleshooting domains, each examined separately:**
+
+- **Diagnostic resources and tools** (8.0) — `splunk diag`, the Monitoring Console, the
+  job inspector, `btool`, and what to collect before opening a support case.
+- **Splunk's internal log files and internal indexes** (9.0) — `_internal`, `_audit`,
+  `_introspection`, `_telemetry`; `splunkd.log` and its channels; and which log answers
+  which question. This is the most examinable single skill in the group.
+- **Licensing and crash problems** (10.0) — licence warnings and violations and their
+  effect on search; reading a crash log and the common causes (memory, ulimits, disk).
+- **Configuration and input problems** (11.0) — data not arriving, arriving twice, or
+  arriving wrong; the fishbucket; monitor-input CRC behaviour.
+- **Search problems** (12.0) — the job inspector as the primary instrument; skipped and
+  queued searches; concurrency limits; and the wrong-results class of failure.
+- **Deployment problems** (13.0) — forwarding failures, S2S connectivity, and deployment
+  server issues including clients that never phone home.
 
 ### Topic 11: Multi-Site, Disaster Recovery and Resilience
 
@@ -661,9 +723,9 @@ Governance framing for these obligations sits in
 - **Verified 2026-09-09:** Cybersecurity Defense Architect exam facts (Expert, 75 minutes,
   67 questions, US$130, Pearson VUE, no published prerequisites).
 - **Not verified:** the exam code is not published and is deliberately not stated.
-  Instructor-led course pricing varies by region and is deliberately not quoted. Topic
-  coverage is the module author's reading of the platform and has **not** been reconciled
-  against Splunk's published test blueprint.
+  Instructor-led course pricing varies by region and is deliberately not quoted. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only.
 - **Flagged:** the Cybersecurity Defense Architect page publishes **no** prerequisites
   despite sitting above Analyst and Engineer in the marketing sequence. Confirm whether an
   unpublished gate exists before advising a learner on that track.
@@ -700,7 +762,7 @@ Governance framing for these obligations sits in
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 4–6 (Analyse / Evaluate / Create) |
-| Notional Hours | ~124 |
+| Notional Hours | ~134 |
 | Zero-cost achievable | **No** — mandatory paid coursework; clustering labs require a trial licence |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

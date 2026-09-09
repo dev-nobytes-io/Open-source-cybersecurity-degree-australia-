@@ -133,8 +133,37 @@ On completion, a learner can:
 | B — Time | 4 | 2 | 5 |
 | C — Searching and the command set | 5–10 | 2, 3, 5 | 20 |
 | D — Reporting and visualisation | 11–13 | 4, 6 | 10 |
-| E — Working with the platform | 14 | 4 | 5 |
-| | | | **~48 hours** |
+| E — Lookups and platform | 14–15 | 4, 7 | 10 |
+| | | | **~53 hours** |
+
+---
+
+## Blueprint alignment
+
+Verified against the published
+[Core Certified User test blueprint](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-user.pdf),
+retrieved 2026-09-09.
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 Splunk basics (components, uses, apps, user settings, navigation) | 5% | Topics 1, 3 |
+| 2.0 **Basic searching** (run, time range, results, refine, timeline, events, control a search job, save results) | **22%** | Topics 3, 4, 6, 13 |
+| 3.0 **Using fields in searches** (understand fields, use in searches, fields sidebar) | **20%** | Topics 2, 3, 7 |
+| 4.0 Search language fundamentals (search pipeline, specify indexes, `table`, `rename`, `fields`, `dedup`, `sort`) | 15% | Topics 5, 6, 9 |
+| 5.0 Basic transforming commands (`top`, `rare`, `stats`) | 15% | Topics 8, 9 |
+| 6.0 Reports and dashboards | 12% | Topics 11, 12 |
+| 7.0 **Creating and using lookups** | **6%** | Topic 15 |
+| 8.0 Scheduled reports and alerts | 5% | Topic 12 |
+
+!!! note "Lookups are examined at this level"
+    Domain 7.0 puts **lookup creation and automatic lookups in the entry-level exam**,
+    which is earlier than the topic's difficulty suggests. Topic 15 covers it here;
+    [SPL-02](spl-02-power-user.md) Topic 5 goes deeper into KV Store, external and
+    geospatial lookups for the Advanced Power User level.
+
+**Beyond the blueprint** — Topics 10 (field extraction) and 14 (export and REST) are not
+examined at this level. Both are included because they are needed constantly in practice
+and because SPL-02 assumes them.
 
 ---
 
@@ -353,6 +382,25 @@ different answers with different governance implications.
 
 ---
 
+### Topic 15: Creating and Using Lookups
+
+Examined in the Core User blueprint at 6%, and the first point at which a learner enriches
+data rather than just reading it.
+
+What a lookup is and why it exists: attaching context Splunk does not have to data Splunk
+does. A worked example file — the structure of a lookup CSV, and the matching field that
+joins it to your events.
+
+Creating a **lookup file**, defining a **lookup definition**, and configuring an
+**automatic lookup** so the enrichment applies without anyone remembering to ask for it.
+Using `lookup` explicitly in a search, and `inputlookup` to inspect the table itself.
+
+The judgement to plant early: an automatic lookup is invisible enrichment applied to every
+search touching that sourcetype. That is powerful and easy to over-apply — a theme
+developed in [SPL-02](spl-02-power-user.md) Topic 5.
+
+---
+
 ## Labs & exercises
 
 All labs run on a **Splunk Enterprise Free** instance. See the
@@ -423,6 +471,21 @@ with the specific inspector metric that pointed at the fix.
 
 ---
 
+### Lab 7: Enrich With a Lookup
+
+Build a lookup that maps a technical identifier in your dataset (host, IP or account) to
+business context (owner, department, criticality). Create the definition, configure it as
+an automatic lookup, and confirm the enriched fields appear without being asked for.
+
+Then answer a question that is **only** answerable with the enrichment — one where the raw
+events alone give a technically correct but useless answer.
+
+**Deliverable:** the lookup, the definition, the before/after searches, and one sentence
+on what would happen to every search using this sourcetype if the lookup file were
+deleted.
+
+---
+
 ## Assessment
 
 ### Formative: Predict the Cost
@@ -470,8 +533,9 @@ learner should never treat an index retention setting as a purely technical choi
 
 - **Verified 2026-09-09:** all exam facts in the table above, against the linked official page.
 - **Not verified:** the exam code (`SPLK-xxxx`) is not published on the certification-track
-  page and is deliberately not stated. Topic coverage is the module author's reading of the
-  platform and has **not** been reconciled against Splunk's published test blueprint.
+  page and is deliberately not stated. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only.
 - Framework mappings and KSAT IDs are provisional per the
   [series verification status](index.md#verification-status).
 
@@ -496,7 +560,7 @@ learner should never treat an index retention setting as a purely technical choi
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 2–3 (Understand / Apply) |
-| Notional Hours | ~48 |
+| Notional Hours | ~53 |
 | Zero-cost achievable | Yes (excluding the optional exam fee) |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

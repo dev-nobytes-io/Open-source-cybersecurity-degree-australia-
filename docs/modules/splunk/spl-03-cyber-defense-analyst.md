@@ -189,7 +189,39 @@ verification**.
 | E — Analytical technique | 10–11 | 3, 7 | 14 |
 | F — Intelligence and hunting | 12–14 | 5, 6 | 14 |
 | G — Operations and reporting | 15–16 | 7 | 10 |
-| | | | **~90 hours** |
+| H — The Splunk security ecosystem | 17 | 8 | 6 |
+| | | | **~96 hours** |
+
+---
+
+## Blueprint alignment
+
+Verified against the published
+[Cybersecurity Defense Analyst test blueprint](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-cybersecurity-defense-analyst.pdf),
+retrieved 2026-09-09. Six domains, evenly weighted.
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 The cyber landscape, frameworks and standards (SOC organisation and Analyst/Engineer/Architect tasks; industry controls and frameworks; CIA and basic risk management) | 10% | Topics 1, 2 |
+| 2.0 **Threat and attack types, motivations and tactics** (attack vectors; terminology — supply chain, ransomware, exfiltration, C2, APT, zero trust, account takeover; **threat intelligence tiers**; **ES annotations**; TTPs) | **20%** | Topics 2, 12, 17 |
+| 3.0 **Defenses, data sources and SIEM best practices** (defence systems and high-value data sources; CIM/data models/acceleration, Asset & Identity, common CIM fields; **Splunk Security Essentials** for data-source assessment) | **20%** | Topics 4, 5, 9, 17 |
+| 4.0 **Investigation, event handling, correlation and risk** (continuous monitoring and **the five stages of investigation**; **MTTR and dwell time**; dispositions; notable/risk notable/adaptive response/risk object/contributing events; built-in dashboards; RBA and correlation searches) | **20%** | Topics 4, 6, 7, 11, 15 |
+| 5.0 **SPL and efficient searching** (`tstats`, `transaction`, `first`/`last`, `rex`, `eval`, `foreach`, `lookup`, `makeresults`; efficient search practice; **SPL resources in ES, SSE and Splunk Lantern**) | **20%** | Topic 10, [SPL-02](spl-02-power-user.md), Topic 17 |
+| 6.0 Threat hunting and remediation (hunting techniques — configuration, modelling, indicators, behavioural; **long tail analysis**, outlier detection, hypothesis hunting; adaptive response actions; **SOAR playbooks triggered from ES**) | 10% | Topics 10, 13, [SPL-05](spl-05-soar.md) |
+
+!!! note "A fifth of this exam is vocabulary"
+    Domain 2.0 is largely **definitional** — being able to define supply chain attack,
+    ransomware, exfiltration, C2, botnet, APT, zero trust, account takeover and business
+    email compromise precisely. The degree teaches these properly in
+    [OC01](../../../core/units/OC01-adversary-tradecraft.md) and
+    [F04](../../../core/units/F04-security-concepts.md); this module does not re-teach
+    them, but a candidate should not assume tacit familiarity is enough for a
+    multiple-choice exam.
+
+**Beyond the blueprint** — Topics 3, 8, 14 and 16 (ES architecture, ATT&CK coverage
+assessment, detection content sources, and reporting) are practitioner content. Topic 8's
+detection-gap versus telemetry-gap distinction is not examined and is the most useful idea
+in the module.
 
 ---
 
@@ -410,6 +442,35 @@ applied under time pressure.
 
 ---
 
+### Topic 17: The Splunk Security Ecosystem — SSE, Lantern and Annotations
+
+Three named resources the blueprint expects a candidate to know, and which are genuinely
+useful rather than marketing.
+
+**Splunk Security Essentials (SSE)** — a free app that catalogues detection content mapped
+to ATT&CK, and, more usefully, **assesses which data sources you have and what content
+they unlock**. It answers "what could I detect with the data I already collect?" and "what
+would I need to collect next?", which is the two-gap distinction from Topic 8 in tool form.
+Examined in domain 3.3.
+
+**Splunk Lantern** — Splunk's use-case and guidance library, named in domain 5.3 as an SPL
+resource alongside ES and SSE.
+
+**Annotations in Enterprise Security** (domain 2.4) — the mechanism that tags correlation
+searches with framework references (ATT&CK, Kill Chain, CIS, NIST). Annotations are what
+make ES's coverage reporting possible, and getting them right on custom content is what
+keeps a coverage map honest.
+
+**The five stages of investigation** (domain 4.1) and the analyst performance metrics the
+blueprint names — **MTTR** and **dwell time** — with the caution from Topic 15 that
+optimising MTTR alone rewards closing notables fast rather than correctly.
+
+**Threat intelligence tiers** (domain 2.3) — strategic, operational and tactical — and how
+each is applied in analysis. Grounded in
+[OC05](../../../core/units/OC05-threat-intelligence-fundamentals.md).
+
+---
+
 ## Labs & exercises
 
 !!! warning "Licensing"
@@ -492,6 +553,20 @@ was correct.
 
 ---
 
+### Lab 8: Assess Your Data Sources with Security Essentials
+
+Install Splunk Security Essentials against your lab data. Use it to inventory which data
+sources are present and which detection content each unlocks.
+
+Then produce the two-gap answer from Topic 8: what you could detect today and are not, and
+what you cannot detect at any effort because the telemetry is absent.
+
+**Deliverable:** the data-source assessment, the two-gap statement, and a prioritised list
+of the three data sources that would unlock the most content — with the ingest cost of each
+estimated against the licence model from [SPL-06](spl-06-enterprise-admin.md) Topic 10.
+
+---
+
 ## Assessment
 
 ### Formative 1: Read the Notable
@@ -552,9 +627,9 @@ and what it would cost to change that** — including the cases where the answer
   Architect pages likewise publish no prerequisites. Given they sit above CDA in the
   marketing sequence, **confirm whether an unpublished gate exists** before advising a
   learner on the full security track.
-- **Not verified:** exam codes are not published and are deliberately not stated. Topic
-  coverage is the module author's reading of the platform and has **not** been reconciled
-  against Splunk's published test blueprint.
+- **Not verified:** exam codes are not published and are deliberately not stated. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only.
 - **Not verified:** the licence terms and current availability of the BOTS datasets,
   `attack_range`, and Splunk Security Content / ESCU. These must be confirmed by the
   Domain Expert **before Labs 4, 5 and 6 are made assessable**.
@@ -584,7 +659,7 @@ and what it would cost to change that** — including the cases where the answer
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–5 (Apply / Analyse / Evaluate) |
-| Notional Hours | ~90 |
+| Notional Hours | ~96 |
 | Zero-cost achievable | Partly — ES labs require a trial licence |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

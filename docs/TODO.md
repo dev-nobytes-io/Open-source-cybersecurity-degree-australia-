@@ -94,9 +94,22 @@ items are time-sensitive.
 
 **Content reconciliation:**
 
-- [ ] Reconcile SPL-01…SPL-08 topic coverage against each certification's published
-      **test blueprint** PDF. Current topic lists are the module author's reading of the
-      platform, not a blueprint transcription.
+- [x] ~~Reconcile SPL-01…SPL-08 topic coverage against each certification's published
+      **test blueprint** PDF.~~ **Done 2026-09-09** — all eleven blueprints retrieved and
+      mapped; every module carries a *Blueprint alignment* section with domain weightings.
+      Corrected three material errors: SPL-08 was mis-framed (the Consultant exam is ~90%
+      technical, not consulting practice), SPL-02 was missing the Advanced Power User's
+      33% dashboard/Simple XML content, and lookups (Core User, 6%) and distributed search
+      (Enterprise Admin, 10%) sat in the wrong modules.
+- [ ] **Resolve the Consultant prerequisite-coursework discrepancy.** The blueprint names
+      `Indexer Cluster Implementation Lab`, `Distributed Search Migration Lab`,
+      `Implementation Fundamentals Lab`, `Architect Implementation Labs (1-3)` and
+      `Services: Core Implementation`. The exam page and track flowchart name
+      **`Core Consultant Labs`** as registration-mandatory; the blueprint omits it
+      entirely. Both retrieved the same day.
+- [ ] **Decide whether ITSI is in scope.** The Architect blueprint examines ITSI sizing and
+      topology (domain 4.5) and the series does not cover it. The ITSI Certified Admin
+      credential is also Legacy.
 - [ ] Confirm licence terms and current availability of the **BOTS datasets**,
       **`attack_range`**, and **Splunk Security Content / ESCU** before SPL-03 Labs 4–6
       are made assessable.

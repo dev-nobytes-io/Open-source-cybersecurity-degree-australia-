@@ -187,7 +187,51 @@ On completion, a learner can:
 | D — Risk-based alerting | 7 | 4 | 10 |
 | E — Advanced analytics | 11 | — | 6 |
 | F — Capacity and operations | 12–13 | 7 | 12 |
-| | | | **~70 hours** |
+| G — Glass tables, forensics and add-ons | 14 | 8 | 10 |
+| | | | **~80 hours** |
+
+---
+
+## Blueprint alignment
+
+Two blueprints apply, and together they justify this module's shape.
+
+**[Cybersecurity Defense Engineer](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-cybersecurity-defense-engineer.pdf)**
+(current credential, retrieved 2026-09-09) — five domains:
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 Data engineering (data review and analysis, performant indexing, normalisation) | 10% | Topic 2, [SPL-02](spl-02-power-user.md) |
+| 2.0 **Detection engineering** (create and tune correlation searches; incorporate context; risk-based modifiers; effective notables/findings; **detection lifecycle**) | **40%** | Topics 5–7, 10 |
+| 3.0 Building security processes and programs (threat intelligence; risk and detection prioritisation; **documentation and SOPs**) | 20% | Topics 8, 13 |
+| 4.0 **Automation and efficiency** (automation for SOPs; case management; **REST APIs**; **SOAR playbooks**; comparing ES and SOAR integration) | **20%** | Topic 6, [SPL-05](spl-05-soar.md) |
+| 5.0 Auditing and reporting (security metrics; security reports; program dashboards) | 10% | Topic 13 |
+
+**[ES Certified Admin (Legacy)](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-es-admin.pdf)**
+— twelve domains, still the most precise published description of ES administration:
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 ES introduction | 5% | Topic 1 |
+| 2.0 Monitoring and investigation (security posture, incident review, notable management, investigations) | 10% | Topic 9, [SPL-03](spl-03-cyber-defense-analyst.md) |
+| 3.0 Security intelligence tools | 5% | Topic 8 |
+| 4.0 **Forensics, glass tables and navigation control** | 10% | Topic 14 |
+| 5.0 ES deployment (topologies, checklist, indexing strategy, ES data models) | 10% | Topics 1–2 |
+| 6.0 **Installation and configuration** (prepare environment, install on a search head, ES accounts and roles, post-install tasks) | **15%** | Topics 1, 3 |
+| 7.0 Validating ES data (plan inputs, configure technology add-ons) | 10% | Topic 2 |
+| 8.0 **Custom add-ons (Add-on Builder)** | 5% | Topic 14 |
+| 9.0 Tuning correlation searches (scheduling and sensitivity) | 10% | Topic 5 |
+| 10.0 Creating correlation searches (custom searches, adaptive responses, **search export/import**) | 10% | Topics 5–6, 10 |
+| 11.0 Lookups and identity management (ES-specific lookups, lookup lists) | 5% | Topic 4 |
+| 12.0 Threat intelligence framework; **user activity analysis** | 5% | Topic 8 |
+
+!!! success "Detection engineering is 40% of the current credential"
+    The CD Engineer blueprint puts **40%** on creating, tuning and maintaining detections —
+    and names the **detection lifecycle** explicitly (domain 2.5). Topic 10's treatment of
+    content as software delivery is not editorialising; it is the largest examined domain.
+
+    Note also that domain 4.0 (20%) is **automation** — SOAR playbooks, REST APIs and case
+    management. [SPL-05](spl-05-soar.md) is not optional for this credential.
 
 ---
 
@@ -360,6 +404,36 @@ asset-data decay, dead detections and acceleration drift before an incident does
 
 ---
 
+### Topic 14: Glass Tables, Forensics Dashboards and Custom Add-ons
+
+The remaining examined ES surface, drawn from the legacy ES Admin blueprint.
+
+**Forensics dashboards** — the per-domain investigative dashboards (Access, Endpoint,
+Network, Identity) and what each answers. Distinct from the posture dashboards, and far
+more useful to an analyst.
+
+**Glass tables** — ES's service-status visualisation, where you draw a representation of a
+business service or control chain and bind live metrics to it. Genuinely valuable for
+communicating security posture to non-analysts, and frequently built once and never
+maintained. Building one that stays true as the estate changes is the actual skill.
+
+**Navigation and dashboard permissions** — controlling what each ES role sees, which is
+both a usability decision and an access-control one.
+
+**Custom add-ons with the Add-on Builder** (domain 8.0): designing an add-on for a data
+source with no supported TA — field extractions, CIM mapping, and packaging. This is the
+practical answer to the CIM-compliance gap identified in
+[SPL-02](spl-02-power-user.md) Lab 2, and it is how an organisation onboards a product
+Splunkbase does not cover.
+
+**Search export/import** (domain 10.3) for moving correlation searches between
+environments — the manual predecessor to the version-controlled promotion path in Topic 10.
+
+**User activity analysis** (domain 12.2) and where ES's built-in behavioural views sit
+relative to the UEBA and MLTK discussion in Topic 11.
+
+---
+
 ## Labs & exercises
 
 !!! danger "Trial licence required throughout"
@@ -434,6 +508,20 @@ what detection capability that costs.
 
 ---
 
+### Lab 8: Build an Add-on for an Unsupported Source
+
+Take a data source with no Splunkbase TA. Use the Add-on Builder to produce a working
+add-on: field extractions, CIM mapping to the correct data model, and eventfmt/packaging.
+
+Validate it the way Lab 2 validates any source — prove the CIM data model populates from
+your add-on, not merely that the app installs.
+
+**Deliverable:** the add-on, the CIM validation evidence, and the gap statement listing
+every CIM field you could not populate and what telemetry the vendor would have to emit for
+you to populate it.
+
+---
+
 ## Assessment
 
 ### Formative 1: Which Layer Is Empty?
@@ -504,9 +592,9 @@ gaps — the same discipline as [SPL-03](spl-03-cyber-defense-analyst.md) Topic 
 - **NOT verified — this series' reading, not Splunk's statement:** that Cybersecurity
   Defense Engineer is the intended successor to ES Certified Admin. Splunk's page names no
   replacement. Confirm before advising a learner.
-- **Not verified:** exam codes are not published and are deliberately not stated. Topic
-  coverage is the module author's reading of the product and has **not** been reconciled
-  against either published test blueprint. ES feature names and dashboard locations change
+- **Not verified:** exam codes are not published and are deliberately not stated. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only. ES feature names and dashboard locations change
   materially between ES versions — this module is **not pinned to an ES version**, which
   must be fixed at review.
 - **Requires a currently-practising reviewer** with production ES engineering experience.
@@ -537,7 +625,7 @@ gaps — the same discipline as [SPL-03](spl-03-cyber-defense-analyst.md) Topic 
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–6 (Apply / Analyse / Evaluate / Create) |
-| Notional Hours | ~70 |
+| Notional Hours | ~80 |
 | Zero-cost achievable | **No** — ES is a premium app; trial licence required throughout |
 | Credential note | ES Certified Admin is **Legacy**; target Cybersecurity Defense Engineer instead |
 | Facts verified | 2026-09-09 |

@@ -194,7 +194,48 @@ Custodian verification**.
 | D — Integration | 8 | 4 | 10 |
 | E — Case management | 9–10 | 5 | 10 |
 | F — Operating and defending | 11–13 | 6, 7 | 14 |
-| | | | **~68 hours** |
+| G — Analyst experience and integration | 14–15 | 8 | 14 |
+| | | | **~82 hours** |
+
+---
+
+## Blueprint alignment
+
+Verified against the published
+[SOAR Certified Automation Developer test blueprint](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-soar-automation-developer.pdf),
+retrieved 2026-09-09. Eighteen domains, almost all at 5% — a broad, shallow exam covering
+the whole product.
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 Deployment, installation, initial configuration (operating concepts, architecture, licences) | 5% | Topics 2, 3 |
+| 2.0 User management (authentication, users, roles) | 5% | Topic 3 |
+| 3.0 Apps, assets and playbooks (configure apps/assets/ingestion assets, **labels and SLAs**, manage playbooks) | 5% | Topics 2, 8 |
+| 4.0 **Analyst queue** (queue, search, filters, indicator view) | 5% | Topic 14 |
+| 5.0 **The investigation page** (work events, run actions manually, run playbooks manually, file tab) | 10% | Topic 14 |
+| 6.0 Case management and workbooks (**mark items as evidence**) | 5% | Topics 9, 10 |
+| 7.0 Customizations (severity, **CEF fields**, status values, workbooks, **global custom fields**) | 5% | Topics 2, 14 |
+| 8.0 System maintenance (reports, health displays, health logs) | 5% | Topic 11 |
+| 9.0 Introduction to playbooks (automation best practices, capabilities, app actions, **I2A2 design methodology**) | 5% | Topics 4, 5 |
+| 10.0 Visual playbook editor | 5% | Topic 5 |
+| 11.0 Logic, filters and user interaction (decision, filter, **join options**, prompts) | 5% | Topics 5, 7 |
+| 12.0 **Formatted output and data access** (format blocks, action-result structure, **datapaths**, utility block) | 5% | Topics 5, 6 |
+| 13.0 Modular playbook development (child playbooks, data exchange) | 5% | Topic 5 |
+| 14.0 **Custom lists and data routing** | 5% | Topic 15 |
+| 15.0 **Configuring external Splunk search** (externalise search, configure both sides, reindex, Phantom Reporting app) | 5% | Topic 15 |
+| 16.0 **Integrating SOAR into Splunk** (**Splunk App for SOAR Export**, **send ES notables to SOAR**, Splunk app in SOAR, Splunk search from playbooks) | **10%** | Topic 15 |
+| 17.0 Custom coding (**global block**, custom function blocks, writing and testing custom SOAR code) | 5% | Topics 5, 8 |
+| 18.0 Using REST (SOAR REST API, **Django queries**, REST from other systems) | 5% | Topic 15 |
+
+!!! note "15% of this exam is the Splunk↔SOAR integration"
+    Domains 15.0 and 16.0 together carry **15%** — externalising SOAR's search to Splunk,
+    and pushing ES notables into SOAR. That integration is the reason most organisations
+    own both products, and it is covered in Topic 15.
+
+**Beyond the blueprint** — Topics 1 (what SOAR is for), 4 (the decision boundary), 11
+(measuring automation honestly), 12 (defending the platform) and 13 (the operating model)
+are not examined. Topic 4 is the most important topic in the module regardless: the
+blueprint tests whether you *can* automate an action, not whether you *should*.
 
 ---
 
@@ -259,8 +300,14 @@ emergent property of someone's weekend playbook.
 
 ### Topic 5: Playbook Development — Structure and Control Flow
 
+**The I2A2 design methodology** — Inputs, Interactions, Actions, Outputs — which the
+blueprint names explicitly (domain 9.4) and which is genuinely useful: decide what the
+playbook receives, where a human is involved, what it does, and what it produces, *before*
+opening the editor.
+
 The visual editor and the underlying Python. Blocks: **action**, **filter**, **decision**,
-**format**, **prompt**, **utility**, **API** and **end**. Datapaths — how a playbook
+**format**, **prompt**, **utility**, **API**, **code/custom function** and **end**. The
+**global block** and when not to use it. Datapaths — how a playbook
 addresses artefact and action-result data — which is the single biggest source of playbook
 defects.
 
@@ -376,6 +423,47 @@ harder to see, because the pain that would have forced a fix has been absorbed b
 
 ---
 
+### Topic 14: The Analyst Experience — Queue, Investigation and Customisation
+
+What the people using your playbooks actually see, and 20% of the blueprint.
+
+**The analyst queue**: working the event list, search features, building filters, and the
+**indicator view** that surfaces observables shared across containers — the fastest route
+to "have we seen this before?".
+
+**The investigation page**: examining an event, **running actions manually** and reading
+action results, **running a playbook manually** against a container, and the file tab for
+storing related artefacts.
+
+**Customisation** (domain 7.0): severity levels, status values, **CEF field definitions**,
+workbook templates, and **global custom fields** on containers. These are the settings that
+make SOAR match your SOC's vocabulary rather than forcing the reverse — and getting the CEF
+field naming right is what lets playbooks find observables reliably.
+
+### Topic 15: Integration — SOAR and Splunk Together
+
+**15% of the blueprint**, and the reason most organisations own both products.
+
+**Configuring external Splunk search** (domain 15.0): externalising SOAR's search to a
+Splunk instance, why that is worth doing (SOAR's own search is not built for volume),
+configuring both sides, `reindex` to push existing content across, and the Phantom
+Reporting app.
+
+**Integrating SOAR into Splunk** (domain 16.0): the **Splunk App for SOAR Export**,
+**sending Enterprise Security notables to SOAR** — the handoff that connects
+[SPL-04](spl-04-enterprise-security.md) Topic 6's adaptive response to this module —
+installing the Splunk app inside SOAR, and calling Splunk search from within a playbook.
+
+**Custom lists and data routing** (domain 14.0): creating lists, reading them from
+playbooks, and using them as allow/deny or routing tables. The practical mechanism for
+"do not action anything on this list of critical servers".
+
+**The REST API** (domain 18.0): SOAR's REST capabilities, **Django-style queries** for
+searching SOAR data, and driving SOAR from other systems. This is how SOAR becomes a
+component of a larger automation estate rather than a silo.
+
+---
+
 ## Labs & exercises
 
 !!! danger "Platform access is a real constraint"
@@ -460,6 +548,21 @@ playbook, and an honest critique of the "hours saved" metric as presented.
 
 ---
 
+### Lab 8: Wire ES to SOAR — *platform required*
+
+Configure the ES→SOAR handoff end to end: install the Splunk App for SOAR Export, send a
+correlation search's notable to SOAR as a container, and have a playbook trigger on its
+label.
+
+Then close the loop the other way: call a Splunk search from inside the playbook to enrich
+the container, and write the outcome back so it is visible in ES.
+
+**Deliverable:** the working integration, evidence of a notable traversing both directions,
+and a note on what happens to the container when the ES notable is later closed by an
+analyst — the state-synchronisation problem nobody designs for up front.
+
+---
+
 ## Assessment
 
 ### Formative 1: Automate or Not?
@@ -537,9 +640,9 @@ quality problem rather than fixing it is marked as a failure of judgement.
   licence). Labs are written so the highest-value ones (1, 3, 5, 7) run as design exercises
   without a platform, but **platform availability must be confirmed before this module is
   scheduled**.
-- **Not verified:** the exam code is not published and is deliberately not stated. Topic
-  coverage is the module author's reading of SOAR practice and has **not** been reconciled
-  against the published test blueprint. Product terminology and the block set differ
+- **Not verified:** the exam code is not published and is deliberately not stated. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only. Product terminology and the block set differ
   between Phantom-era and current Splunk SOAR releases, and between on-premises and cloud
   editions — this module is **not pinned to a SOAR version**, which must be fixed at review.
 - **Uncertain credential.** Because the certification is Legacy with no named successor,
@@ -572,7 +675,7 @@ quality problem rather than fixing it is marked as a failure of judgement.
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–6 (Apply / Analyse / Evaluate / Create) |
-| Notional Hours | ~68 |
+| Notional Hours | ~82 |
 | Zero-cost achievable | **No** — licensed product; free-tier availability unverified |
 | Credential note | **Legacy Certification, no named successor.** Treat as skills content, not exam preparation. |
 | Facts verified | 2026-09-09 |

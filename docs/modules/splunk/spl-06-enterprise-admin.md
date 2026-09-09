@@ -162,7 +162,49 @@ On completion, a learner can:
 | D — Access control and licensing | 9–10 | 4 | 12 |
 | E — Platform services | 11–13 | 6 | 12 |
 | F — Operating, monitoring and troubleshooting | 14–16 | 5, 7 | 16 |
-| | | | **~88 hours** |
+| G — Distributed search | 17 | 8 | 8 |
+| | | | **~96 hours** |
+
+---
+
+## Blueprint alignment
+
+Verified against the published
+[Enterprise Certified Admin test blueprint](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-enterprise-admin.pdf),
+retrieved 2026-09-09. Seventeen domains, most weighted at 5%.
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 Splunk admin basics (components) | 5% | Topic 1 |
+| 2.0 License management (types, violations) | 5% | Topic 10 |
+| 3.0 Configuration files (directory structure, layering, precedence, `btool`) | 5% | Topic 3 |
+| 4.0 **Splunk indexes** (structure, bucket types, **data integrity check**, `indexes.conf`, **fishbucket**, retention) | **10%** | Topic 4 |
+| 5.0 User management (roles, custom role, add users) | 5% | Topic 9 |
+| 6.0 Authentication (LDAP, other options, **multifactor**) | 5% | Topic 9 |
+| 7.0 Getting data in (input basics, forwarder types, CLI input) | 5% | Topics 5, 7 |
+| 8.0 **Distributed search** (how it works, search head and peers, **search groups**, **search head scaling options**) | **10%** | Topic 17 |
+| 9.0 Getting data in — staging (three phases, input options) | 5% | Topics 2, 5 |
+| 10.0 Configuring forwarders | 5% | Topic 7 |
+| 11.0 **Forwarder management** (deployment server, deployment apps, clients, client groups, monitoring) | **10%** | Topic 8 |
+| 12.0 Monitor inputs (file/directory, optional settings, remote deploy) | 5% | Topic 5 |
+| 13.0 Network and scripted inputs | 5% | Topic 5 |
+| 14.0 Agentless inputs (**WMI**, HTTP Event Collector) | 5% | Topic 5 |
+| 15.0 Fine tuning inputs (input-phase defaults, sourcetype fine-tuning, charset) | 5% | Topic 6 |
+| 16.0 Parsing phase (defaults, line breaking, timestamps/time zones, **Data Preview**) | 5% | Topic 6 |
+| 17.0 Manipulating raw data (transformations, mask/delete, override sourcetype/host, route to index, drop events, `SEDCMD`) | 5% | Topic 11 |
+
+!!! note "Distributed search is examined here, not only at Architect level"
+    Domain 8.0 carries **10%** — how distributed search works, the search head and peer
+    roles, configuring a distributed search group, and search head scaling options. It is
+    covered in Topic 17 at admin depth; [SPL-07](spl-07-architect.md) Topic 5 takes it to
+    architect depth. An earlier draft deferred all of it to SPL-07, which would have left
+    a gap worth a tenth of this exam.
+
+**Beyond the blueprint** — Topics 2 (CLI/REST), 12 (KV Store), 13 (search head
+administration), 14 (Monitoring Console), 15 (backup and upgrades) and 16 (troubleshooting
+method) are not in this blueprint. They are included because they are unavoidable in
+production and because [SPL-07](spl-07-architect.md) and
+[SPL-08](spl-08-consultant.md) assume them.
 
 ---
 
@@ -222,6 +264,14 @@ which access control in Topic 9 becomes possible, because Splunk's RBAC is index
 estate with one big index cannot enforce least privilege, and that is an architecture
 mistake made at onboarding time.
 
+**Index data integrity control** (`enableDataIntegrityControl`) and hash validation for
+tamper-evidence — relevant wherever logs are evidence, and examined in domain 4.0.
+
+The **fishbucket**: how Splunk tracks how far it has read into a monitored file, where that
+state lives, and the consequences of deleting it (re-indexing everything) or of a file
+whose CRC collides with another (data silently not indexed). This is a favourite exam
+topic and a real-world incident cause.
+
 Metrics indexes and when to use them over event indexes.
 
 ### Topic 5: Getting Data In — Inputs
@@ -235,7 +285,8 @@ Input types and their trade-offs:
 - **Scripted** inputs and modular inputs.
 - **HTTP Event Collector (HEC):** tokens, acknowledgement, indexer acknowledgement, and
   the raw versus event endpoints. HEC is how most modern and cloud-native sources arrive.
-- **Windows-specific:** event logs, performance monitoring, registry and WMI inputs.
+- **Windows-specific:** event logs, performance monitoring, registry, and **WMI**
+  (agentless) inputs — WMI is examined explicitly in domain 14.0 alongside HEC.
 - **Files and directories versus agents:** when a forwarder is required.
 
 ### Topic 6: Parsing — `props.conf` and `transforms.conf`
@@ -253,7 +304,11 @@ onboarding that works forever and one that breaks when the data changes shape. T
 foundation of the base-configuration discipline in [SPL-08](spl-08-consultant.md).
 
 Sourcetype assignment, sourcetype renaming, and why renaming later does not fix data
-already indexed. The data preview interface as the pre-flight check.
+already indexed.
+
+**Data Preview** as the pre-flight check — validating event breaking, timestamps and
+sourcetype assignment against a sample *before* opening the tap. Examined in domain 16.0
+and the single cheapest defect-prevention step in Splunk administration.
 
 ### Topic 7: Forwarders and Deployment
 
@@ -283,7 +338,9 @@ pushed to every forwarder is an estate-wide incident. The same discipline as
 
 ### Topic 9: Users, Roles and Authentication
 
-Authentication methods: native, LDAP, SAML/SSO, and multi-factor considerations.
+Authentication methods: native, **LDAP** (examined explicitly — strategies, group-to-role
+mapping, and bind-account failure modes), SAML/SSO, and the steps to enable
+**multifactor authentication**, which domain 6.0 calls out directly.
 `authentication.conf` and `authorize.conf`.
 
 The role model: capabilities, index access (`srchIndexesAllowed`/`srchIndexesDefault`),
@@ -381,6 +438,32 @@ late, searches slow, searches returning wrong results, and the instance that wil
 
 ---
 
+### Topic 17: Distributed Search at Admin Level
+
+**Examined at 10%** — the largest single domain in this blueprint alongside indexes and
+forwarder management.
+
+How distributed search works: the search head decomposes a search, distributes the
+streaming portion to search peers, and reduces the results centrally. What this implies
+about where work happens and why an under-provisioned search head bottlenecks an otherwise
+healthy indexing tier.
+
+The roles of **search head** and **search peers**, and the fact that an indexer is a search
+peer — the same machine wearing a second hat.
+
+Configuring a **distributed search group** in `distsearch.conf`, adding search peers, and
+the certificate and authentication requirements between them.
+
+**Search head scaling options** and their thresholds: a single search head, independent
+search heads, and search head clustering. When each is appropriate — and the honest
+observation that a search head cluster is often bought before it is needed. Developed at
+architect depth in [SPL-07](spl-07-architect.md) Topics 4–5.
+
+The knowledge bundle: what the search head ships to the peers, and why an oversized bundle
+degrades every search on the deployment.
+
+---
+
 ## Labs & exercises
 
 !!! warning "Licensing"
@@ -460,6 +543,20 @@ Marked on method, not speed.
 
 ---
 
+### Lab 8: Stand Up Distributed Search
+
+Configure a search head with two search peers. Verify the peers are reachable and that a
+search executes distributed rather than locally — prove it from the job inspector, not
+from the absence of errors.
+
+Then break it two ways: stop a peer mid-search, and add a large automatic lookup to inflate
+the knowledge bundle. Observe and record what each does to results and to search time.
+
+**Deliverable:** the working configuration, the job-inspector evidence of distribution, and
+the two failure observations with an explanation of what the bundle size cost you.
+
+---
+
 ## Assessment
 
 ### Formative 1: Which Layer Won?
@@ -530,9 +627,9 @@ governance problem in [SC03](../../../core/units/SC03-governance-policy-complian
   authentication, users, roles, alerting, distributed search or ingest actions; bulk load
   above the cap permitted twice per 30 days; search disabled after repeated violations).
 - **Not verified:** the exam code is not published and is deliberately not stated.
-  Recommended-course lists exist but are not authoritative for registration. Topic
-  coverage is the module author's reading of the platform and has **not** been reconciled
-  against Splunk's published test blueprint.
+  Recommended-course lists exist but are not authoritative for registration. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only.
 - Framework mappings and KSAT IDs are provisional per the
   [series verification status](index.md#verification-status).
 
@@ -559,7 +656,7 @@ governance problem in [SC03](../../../core/units/SC03-governance-policy-complian
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–6 (Apply / Analyse / Evaluate / Create) |
-| Notional Hours | ~88 |
+| Notional Hours | ~96 |
 | Zero-cost achievable | Partly — Lab 4 (authentication/RBAC) requires a trial licence |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

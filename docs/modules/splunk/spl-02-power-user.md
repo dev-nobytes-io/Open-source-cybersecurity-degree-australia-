@@ -164,10 +164,70 @@ On completion, a learner can:
 | A — The knowledge layer | 1–6 | 1 | 20 |
 | B — The command and function set | 7–11 | 6, 7 | 24 |
 | C — Normalisation and CIM | 12–13 | 2, 4 | 14 |
-| D — Performance and acceleration | 14 | 3 | 12 |
+| D — Performance and acceleration | 14, 20 | 3 | 16 |
 | E — Advanced constructs and analytics | 15–17 | 7 | 12 |
 | F — Governance of the knowledge layer | 18–19 | 5 | 8 |
-| | | | **~90 hours** |
+| **G — Dashboards and Simple XML (33% of the APU exam)** | **21–25** | **8** | **30** |
+| | | | **~124 hours** |
+
+---
+
+## Blueprint alignment
+
+Verified against the published test blueprints
+([Power User](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-power-user.pdf),
+[Advanced Power User](https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-advanced-power-user.pdf)),
+both retrieved 2026-09-09.
+
+**Power User** — 10 domains. Note how heavily it weights knowledge objects and event
+correlation, and that it contains **no acceleration or `tstats` content at all**.
+
+| Domain | Weight | Covered by |
+|---|---|---|
+| 1.0 Transforming commands for visualizations (`chart`, `timechart`) | 5% | Topic 7 (and [SPL-01](spl-01-core-user.md) Topic 11) |
+| 2.0 Filtering and formatting (`eval`, `search`/`where`, `fillnull`) | 10% | Topic 7 |
+| 3.0 **Correlating events (transactions, grouping, `transaction` vs `stats`)** | **15%** | Topic 11 |
+| 4.0 Creating and managing fields (Field Extractor: regex, delimiter) | 10% | Topic 3 |
+| 5.0 Field aliases and calculated fields | 10% | Topic 1 |
+| 6.0 Tags and event types | 10% | Topic 6 |
+| 7.0 Macros (arguments, variables) | 10% | Topic 6 |
+| 8.0 **Workflow actions (GET, POST, Search)** | **10%** | Topic 6 |
+| 9.0 Data models and pivot | 10% | Topic 13 |
+| 10.0 CIM add-on | 10% | Topic 12 |
+
+**Advanced Power User** — 22 domains. The distribution is the surprise:
+
+| Domain group | Weight | Covered by |
+|---|---|---|
+| 1.0–2.0 Statistical commands and `eval` functions | 8% | Topics 7–8 |
+| 3.0 Lookups (advanced options, KV Store, external, geospatial) | 4% | Topic 5 |
+| 4.0 Alerts (log events, lookups in alerts, webhooks) | 4% | Topic 6 + [SPL-01](spl-01-core-user.md) Topic 12 |
+| 5.0 Advanced field creation (`erex`, `rex`, regex performance) | 4% | Topic 3 |
+| 6.0 Self-describing data (`spath`, `multikv`) | 3% | Topic 4 |
+| 7.0 Advanced search macros (nesting, previewing) | 3% | Topic 6 |
+| 8.0–9.0 Acceleration (reports, summary indexing, data models, `tsidx`, `tstats`) | 8% | Topic 14 |
+| 10.0–11.0 Using search efficiently; search tuning (Lispy, `TERM`) | 7% | Topics 15, 20 |
+| 12.0–13.0 Manipulating data (`bin`, `xyseries`, `untable`, `foreach`); multivalue | 13% | Topics 9, 15 |
+| 14.0 Advanced transactions | 5% | Topic 11 |
+| 15.0 Working with time | 2% | [SPL-01](spl-01-core-user.md) Topic 4 |
+| 16.0 Subsearches (caveats, when not to, troubleshooting, `append`) | 6% | Topic 10 |
+| **17.0–22.0 Dashboards: Simple XML, forms and tokens, performance, customisation, drilldowns, advanced behaviours** | **33%** | **Topics 21–25** |
+
+!!! warning "A third of the Advanced Power User exam is dashboard development"
+    Domains 17.0–22.0 total **33%** — Simple XML views, form inputs and tokens, base and
+    post-process searches, event annotations, drilldowns and event handlers. That is more
+    than acceleration, subsearches, multivalue and transactions combined.
+
+    This is counter-intuitive: the credential reads as a search-mastery certification and
+    is in substantial part a dashboard-development certification. Candidates who prepare
+    only on SPL routinely fail it, and an earlier draft of this module would have led them
+    to do exactly that.
+
+**Beyond the blueprint** — Topics 2 (precedence and `btool`), 16 (statistical/predictive
+commands), 17 (SPL2), 18 (permissions) and 19 (knowledge debt) are practitioner content,
+not examined at this level. Topic 2 is examined in
+[SPL-06](spl-06-enterprise-admin.md); the rest are included because they matter in
+production.
 
 ---
 
@@ -449,6 +509,83 @@ using `| rest` to inventory what exists.
 This is the topic vendor courseware skips and practitioners care about most. A five-year-old
 Splunk deployment is usually 30% useful knowledge objects and 70% archaeology.
 
+### Topic 20: Search Tuning Internals — Lispy, TERM and Pre-Filtering
+
+The blueprint's *More Search Tuning* domain, and the part of Splunk performance that most
+practitioners never learn.
+
+Pre-filtering search data. **Lispy** — the internal representation Splunk derives from
+your search to decide which index buckets and terms to read — and how to see it in the job
+inspector. How boolean operators and wildcards change the lispy expression, and why a
+leading wildcard produces a lispy that matches everything.
+
+The **`TERM()` directive**: forcing Splunk to treat a string as a single indexed term,
+which is dramatically faster for values containing minor segmenters (IP addresses, GUIDs,
+paths). Knowing when `TERM()` helps and when it silently returns nothing is a genuine
+practitioner skill.
+
+### Topic 21: Simple XML and Dashboard Prototyping
+
+**The Advanced Power User blueprint devotes roughly a third of the exam to dashboard
+development.** This is not a peripheral topic.
+
+Simple XML syntax for views: the document structure, rows, panels, and the search element.
+Building a view from scratch rather than from the UI, and reading the XML behind a
+UI-built dashboard.
+
+Best practices for creating views, and **troubleshooting views** — the malformed XML, the
+search that works in the search bar and not in the panel, and the panel that renders empty.
+
+### Topic 22: Forms, Tokens and Inputs
+
+**How tokens work** — the substitution model that makes a dashboard interactive, and the
+single concept that unlocks everything in Topics 23–25.
+
+Form inputs: text, dropdown, radio, checkbox, multiselect, and time. Setting and consuming
+tokens. Default and initial values, and the difference between them.
+
+**Cascading inputs** — where one input's selection populates another's choices, which is
+where token dependency ordering starts to matter.
+
+**Token filters** (`$token$`, `$token|s$`, `$token|n$`) and why the unfiltered form is an
+injection risk in a dashboard that accepts user input.
+
+### Topic 23: Drilldowns
+
+Types of drilldown: none, row, cell, chart-area, and custom. **Predefined tokens**
+(`$click.value$`, `$click.name$`, `$row.<field>$`, `$earliest$`, `$latest$`) and which are
+available in which context — a common source of "my drilldown does nothing".
+
+Dynamic drilldowns: passing tokens to another dashboard, to a search, or to an external
+URL. Contextual drilldowns that change behaviour based on what was clicked.
+
+### Topic 24: Dashboard Performance
+
+**Base and post-process searches** — the single most important dashboard performance
+technique. One base search feeding several post-process panels instead of six panels each
+running their own search.
+
+The constraints candidates get wrong: post-process searches inherit the base search's
+results, the base search has a result limit that silently truncates, and a transforming
+command in the base changes what the post-process can do.
+
+Using `tstats` in dashboard panels. Panel refresh and delay times, and scheduling a
+dashboard's searches rather than running them on load.
+
+### Topic 25: Advanced Dashboard Behaviours
+
+Customising chart and panel properties in XML rather than the UI. Disabling search-access
+features (export, open-in-search) for dashboards shown to non-analyst audiences.
+
+**Event annotations** — overlaying discrete events (deployments, incidents, change windows)
+onto a time chart, which is how a dashboard stops showing *what* happened and starts
+showing *why*.
+
+Event handlers and event actions. Simple XML extensions, and the boundary at which a
+requirement stops being a dashboard and becomes an app — a judgement worth making
+explicitly, because Simple XML extended far enough becomes unmaintainable.
+
+
 ---
 
 ## Labs & exercises
@@ -532,6 +669,22 @@ would cost in explainability.
 
 ---
 
+### Lab 8: Build a Real Dashboard in Simple XML
+
+Build a dashboard **in Simple XML**, not by clicking. It must include: at least three
+form inputs with one **cascading** pair, a **base search with two post-process panels**, a
+**dynamic drilldown** passing tokens to a second view, and an **event annotation** overlay
+on a time chart.
+
+Then measure it: compare load time against a naive version where every panel runs its own
+search.
+
+**Deliverable:** the XML, the performance comparison, and a note on which token filter you
+used on any input whose value reaches a search, and why. A dashboard that interpolates a
+raw `$token$` into a search is marked down as an injection defect.
+
+---
+
 ## Assessment
 
 ### Formative 1: Which Object?
@@ -584,9 +737,9 @@ Full marks require an explicit statement of **what you chose not to accelerate a
   pages; the Advanced Power User 14-course substitution (Consultant track only).
 - **Not verified:** exam codes are not published and are deliberately not stated. Splunk
   publishes **no mandatory prerequisite coursework** for either rung — recommended-course
-  lists exist but are not authoritative for registration. Topic coverage is the module
-  author's reading of the platform and has **not** been reconciled against the published
-  test blueprints.
+  lists exist but are not authoritative for registration. Topic coverage **has now been reconciled against the published test blueprint** — see
+  [Blueprint alignment](#blueprint-alignment). Sub-objective wording is not reproduced;
+  the mapping uses domain titles and weightings only.
 - The claim that "Splunk Core Certified" in
   [`docs/structure.md`](../../structure.md) and
   [`docs/compliance/workforce-frameworks.md`](../../compliance/workforce-frameworks.md)
@@ -617,7 +770,7 @@ Full marks require an explicit statement of **what you chose not to accelerate a
 | Series | [EXT-SPL](index.md) |
 | Status | Draft |
 | Bloom's Level | 3–5 (Apply / Analyse / Evaluate) |
-| Notional Hours | ~90 |
+| Notional Hours | ~124 |
 | Zero-cost achievable | Yes (excluding exam fees) |
 | Facts verified | 2026-09-09 |
 | Licence | CC BY 4.0 |

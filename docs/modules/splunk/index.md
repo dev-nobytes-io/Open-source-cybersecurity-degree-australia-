@@ -269,19 +269,19 @@ prerequisites for everything else.**
 | Module | Topics | Covers | Ladder rung | Zero-cost? |
 |---|---|---|---|---|
 | **Foundation** | | | | |
-| [SPL-01 — Search Fundamentals](spl-01-core-user.md) | 14 | The execution model, time, the command set, field extraction, reporting, the job inspector | Core Certified User | **Yes** |
-| [SPL-02 — SPL Mastery & Knowledge Objects](spl-02-power-user.md) | 19 | Every knowledge-object type, the full `eval` function library, the `stats` family, multivalue, subsearches and the `join` rewrite, CIM, data models, acceleration and `tstats` | Power User → Advanced Power User | **Yes** |
+| [SPL-01 — Search Fundamentals](spl-01-core-user.md) | 15 | The execution model, time, the command set, field extraction, reporting, the job inspector | Core Certified User | **Yes** |
+| [SPL-02 — SPL Mastery & Knowledge Objects](spl-02-power-user.md) | 25 | Every knowledge-object type, the full `eval` function library, the `stats` family, multivalue, subsearches and the `join` rewrite, CIM, data models, acceleration and `tstats`, **Simple XML dashboards, tokens and drilldowns (33% of the APU exam)** | Power User → Advanced Power User | **Yes** |
 | **Security track** | | | | |
-| [SPL-03 — SOC Analysis & Threat Detection](spl-03-cyber-defense-analyst.md) | 16 | Analysis methods (Diamond, ACH, Pyramid of Pain, bias), triage, investigation by data source, analytical technique, PEAK hunting, reporting | Cybersecurity Defense Analyst | **Partly** — ES needs a trial |
-| [SPL-04 — Enterprise Security Engineering](spl-04-enterprise-security.md) | 13 | Deploying ES, the dependency stack, Asset & Identity, correlation searches, adaptive response, the risk framework, threat intel, content lifecycle, ES capacity | ES Certified Admin **(Legacy)** → Cybersecurity Defense Engineer | **No** — premium app |
-| [SPL-05 — SOAR & Security Automation](spl-05-soar.md) | 13 | Playbooks, the automation decision boundary, apps and custom actions, case management, measuring automation, defending the platform | SOAR Certified Automation Developer **(Legacy)** | **No** — licensed product |
+| [SPL-03 — SOC Analysis & Threat Detection](spl-03-cyber-defense-analyst.md) | 17 | Analysis methods (Diamond, ACH, Pyramid of Pain, bias), triage, investigation by data source, analytical technique, PEAK hunting, reporting | Cybersecurity Defense Analyst | **Partly** — ES needs a trial |
+| [SPL-04 — Enterprise Security Engineering](spl-04-enterprise-security.md) | 14 | Deploying ES, the dependency stack, Asset & Identity, correlation searches, adaptive response, the risk framework, threat intel, content lifecycle, ES capacity | ES Certified Admin **(Legacy)** → Cybersecurity Defense Engineer | **No** — premium app |
+| [SPL-05 — SOAR & Security Automation](spl-05-soar.md) | 15 | Playbooks, the automation decision boundary, apps and custom actions, case management, measuring automation, defending the platform | SOAR Certified Automation Developer **(Legacy)** | **No** — licensed product |
 | **Platform track** | | | | |
-| [SPL-06 — Platform Administration](spl-06-enterprise-admin.md) | 16 | CLI and REST, `.conf` files and precedence, indexes and retention, all input types, parsing, forwarders, deployment server, RBAC, licensing, filtering, KV Store, monitoring | Enterprise Certified Admin | **Partly** — Free licence has no auth |
+| [SPL-06 — Platform Administration](spl-06-enterprise-admin.md) | 17 | CLI and REST, `.conf` files and precedence, indexes and retention, all input types, parsing, forwarders, deployment server, RBAC, licensing, filtering, KV Store, monitoring | Enterprise Certified Admin | **Partly** — Free licence has no auth |
 | [SPL-07 — Architecture & Deployment](spl-07-architect.md) | 17 | Tiers, SVAs, index and search head clustering, distributed search, capacity and sizing, SmartStore, tuning, troubleshooting, multi-site and DR, residency and cloud, ingest architecture, platform security, cost | Enterprise Certified Architect (+ Cybersecurity Defense Architect) | **No** — mandatory coursework |
 | **Apex** | | | | |
-| [SPL-08 — Implementation & Consulting Practice](spl-08-consultant.md) | 13 | Discovery, base configurations, implementation and cluster method, migration, health assessment, use-case value, unwelcome communication, handover, operating model, professional practice | Core Certified Consultant | **No** — gated coursework |
+| [SPL-08 — Implementation & Consulting Practice](spl-08-consultant.md) | 22 | Discovery, base configurations, implementation and cluster method, migration, health assessment, use-case value, unwelcome communication, handover, operating model, professional practice | Core Certified Consultant | **No** — gated coursework |
 
-**Notional total: ~674 hours** across the series, excluding exam preparation and vendor
+**Notional total: ~821 hours** (142 topics, 61 labs) across the series, excluding exam preparation and vendor
 coursework. This is a series, not a unit; hours are indicative only and have not been
 through the AQF mapping process in
 [`docs/compliance/aqf-teqsa.md`](../../compliance/aqf-teqsa.md).
@@ -397,6 +397,9 @@ verified from what has not.
 - The Advanced Power User 14-course substitution for the Consultant track.
 - Cybersecurity Defense Analyst has **no** formal prerequisite certification.
 - Splunk Free licence limits and disabled features.
+- **All eleven published test blueprints retrieved and reconciled** (2026-09-09). Each
+  module now carries a *Blueprint alignment* section mapping its topics to the examined
+  domains and weightings, and stating what it covers beyond the blueprint.
 - **ES Certified Admin** (Professional, 60 min, 48 Q) and **SOAR Certified Automation
   Developer** (Professional, 60 min, 45 Q) are both marked **Legacy Certification**, both
   publish no prerequisites, and **neither names a replacement**.
@@ -404,6 +407,37 @@ verified from what has not.
   but are not refreshed with product releases.
 - Recertification through coursework completion ends **1 March 2026**; certifications run a
   **three-year lifecycle** from the date the highest-level certification was achieved.
+
+
+### What the blueprints changed
+
+Reconciling against the published blueprints corrected three things that a reading of the
+marketing pages alone got wrong. Recorded here because the same trap will catch the next
+person.
+
+1. **[SPL-08](spl-08-consultant.md) was mis-framed.** The Core Certified Consultant
+   blueprint contains **no consulting-practice content**: it is ~90% technical mastery
+   (Indexer Clustering 18%, Data Collection 15%, Indexing 14%, Search 14%, SHC 10%).
+   The module now teaches the examined technical domains *and* the practice the job
+   requires, clearly separated.
+2. **A third of the Advanced Power User exam is dashboard development.** Domains
+   17.0–22.0 — Simple XML, forms and tokens, drilldowns, base/post-process searches, event
+   annotations, event handlers — total **33%**, more than acceleration, subsearches,
+   multivalue and transactions combined. [SPL-02](spl-02-power-user.md) had almost none of
+   it.
+3. **Two topics sat in the wrong module.** Lookups are examined in the *Core User*
+   blueprint (6%), not just Power User; and distributed search is examined in the
+   *Enterprise Admin* blueprint (10%), not only at Architect level. Both moved down.
+
+Weightings also reset the emphasis inside modules — troubleshooting is **30%** of the
+Architect exam, and detection engineering **40%** of the Cybersecurity Defense Engineer
+exam.
+
+!!! note "On reproducing blueprint content (R6)"
+    The alignment tables use **domain titles and percentage weightings only**, with a link
+    to each source PDF. Sub-objective text is not reproduced. Weightings are facts
+    necessary for curriculum alignment, not creative content, and every table cites its
+    source.
 
 ### Not verified — Phase 4 items
 
@@ -418,7 +452,7 @@ verified from what has not.
 | Instructor-led course pricing, and AUD pricing | Varies by region and delivery partner; deliberately not quoted. |
 | `Core Consultant Labs` / `Services: Core Implementation` eligibility | Partner/employee restriction is reported by practitioners, not stated on the exam page. **Must be confirmed before any learner is advised to pursue the Consultant track.** |
 | BOTS dataset and `attack_range` licence terms | Must be confirmed before lab content is made assessable. |
-| Test blueprint contents | Each certification has a published test blueprint PDF. Topic lists in SPL-01…SPL-08 are the module author's reading of the platform, **not** a transcription of any blueprint, and have not been reconciled against them. |
+| ITSI (IT Service Intelligence) | The Architect blueprint examines ITSI sizing and topology (domain 4.5). ITSI is **out of scope** for this series and is a known gap. The ITSI Certified Admin credential is also **Legacy**. |
 | Framework mappings (NICE/DCWF, SFIA 9, ASD, ATT&CK v19) and project-local KSAT IDs | Provisional pending Framework Custodian review, as everywhere else in the repository. |
 
 !!! danger "Re-verification is mandatory, not optional"
@@ -450,7 +484,7 @@ verified from what has not.
 | Status | Draft |
 | Type | Extension module series (non-credit, vendor-specific) |
 | Modules | SPL-01 … SPL-08 (two tracks + apex) |
-| Notional Hours | ~674 (indicative, not AQF-mapped) |
+| Notional Hours | ~821 (indicative, not AQF-mapped) |
 | Vendor-neutrality | **Exempt by design** — see [Why a vendor-specific series exists](#why-a-vendor-specific-series-exists). Not valid as core-unit content under R3. |
 | Facts verified | 2026-09-09 |
 | Re-verification due | 2027-03-09 |
