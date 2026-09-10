@@ -128,7 +128,11 @@ def dga_beacon(rng, org, start, asset, hours=6.0, interval=300.0, jitter=0.08):
     end = start + hours * 3600.0
     dummy = type("I", (), {"user": "-", "activity": 1.0, "category": "system"})()
     while ts < end:
-        dom = network.dga_domain(rng)
+        # A mixture, not a single family. The uniform labels keep SPL-03 Lab 7
+        # tractable as an introduction; the wordlist labels are the ones an
+        # entropy threshold will never see, which is SPL-09 Lab 5's subject.
+        style = "wordlist" if rng.random() < 0.3 else "uniform"
+        dom = network.dga_domain(rng, style=style)
         resolved = rng.random() < 0.12
         out.append(_label(network.dns_event(rng, ts, asset, dom,
                                             answer=None if resolved else False),

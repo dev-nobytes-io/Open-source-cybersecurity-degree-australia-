@@ -128,8 +128,10 @@ def cmd_data(_args):
            if not e["query"].endswith(DGA_TLDS)][:4000]
     de, be = statistics.mean(map(_entropy, dga)), statistics.mean(map(_entropy, ben))
     check("DGA is separable from benign", de - be > 0.4,
-          f"mean entropy {de:.2f} vs {be:.2f} (separable, but not cleanly — "
-          f"an n-gram model does better)")
+          f"mean entropy {de:.2f} vs {be:.2f} (separable in the mean, but not "
+          f"cleanly per domain — the corpus carries high-entropy benign names "
+          f"and a low-entropy wordlist DGA family, so SPL-09 Lab 5 has real "
+          f"errors in both directions to diagnose)")
 
     # Contaminated baseline: the insider is active across the whole window.
     ins = s["injected"]["insider_collection"]["user"]

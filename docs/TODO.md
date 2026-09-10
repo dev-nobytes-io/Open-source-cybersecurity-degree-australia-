@@ -121,6 +121,11 @@ items are time-sensitive.
 
 **Lab environment (`labs/`) — open items:**
 
+- [ ] **A materiality floor is now part of the taught egress method**, after CI caught
+      that ranking by modified z-score alone puts a user whose normal day is 2 kB and who
+      once sent 100 kB (z = 8.5) *above* the person exfiltrating 2.5 GB (z = 3.2). The
+      floor is drawn from the estate's own p99 rather than a round number. Consider
+      whether the same argument applies anywhere else a scale-free statistic is taught.
 - [ ] **Objective answer keys exist for five labs only** (`spl03.lab2`, `spl03.lab5`,
       `spl03.lab7`, `spl09.lab3`, `spl09.lab5`). The remaining 64 are rubric-marked.
       Decide whether more hash-checkable answers are wanted, and for which labs — the
@@ -132,20 +137,28 @@ items are time-sensitive.
       [`labs/README.md`](../labs/README.md); confirm the Domain Expert accepts the
       teaching compromise, since [SPL-09](modules/splunk/spl-09-detection-analytics.md)
       Part B teaches the real arithmetic against a dataset that does not exhibit it.
-- [ ] **The generator's DGA is uniform-random**, which is the case character entropy is
-      optimal for. [SPL-09 Lab 5](../labs/guides/spl-09.md) now teaches this as a
-      measurement artefact to diagnose rather than hiding it, but a more realistic DGA
-      (dictionary-based, and hashed-but-benign CDN hostnames on the negative side) would
-      make the lab better. Also absent: base32 tokens, UUID subdomains, DKIM selectors.
+- [x] ~~**The generator's DGA is uniform-random**, which is the case character entropy
+      is optimal for.~~ **Done.** `dga_domain()` now emits two families — uniform-random
+      and dictionary-word concatenations — and benign traffic carries CDN object hashes,
+      DKIM selectors, UUID subdomains and base32 tokens at ~1.5% of domain draws. Entropy
+      now has real false positives *and* real false negatives, and
+      [SPL-09 Lab 5](../labs/guides/spl-09.md) is rebuilt around the result: per-domain
+      scoring manages ~44% precision at a fixed budget, while the same weak signal
+      aggregated **per host** separates 54 from 4. The transferable lesson is that the
+      unit of detection matters more than the scorer.
 - [ ] **Sysmon carries EventCode 1 only.** This is deliberate — it is what makes
       [SPL-03 Lab 4](../labs/guides/spl-03.md)'s telemetry-gap classification real — but
       it caps what any endpoint-detection lab can do. Decide whether to add 3, 7, 11 and
       22 behind a generator flag so the gap can be opened and closed.
 - [ ] **Docker environments are untested end to end in this repository.** The compose
       files are YAML-valid and the app configuration is written, but no CI job starts
-      Splunk. Everything that could be verified without a running instance has been
-      (dataset properties, answer keys, every embedded Python block); the container
-      startup path has not.
+      Splunk. Everything that *can* be verified without a running instance now is, on
+      every change, by [`.github/workflows/labs.yml`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/.github/workflows/labs.yml) —
+      dataset properties, assessment integrity, every embedded Python block, the five
+      objective answers by their taught method, link resolution, generator determinism
+      and the quiz payload. The container startup path remains unverified; doing it
+      would need a CI job that pulls the Splunk image, accepts its licence and waits
+      for the instance, which is a licence question before it is a technical one.
 - [ ] Confirm the Splunk container image licence terms are acceptable for the way the
       compose files use them (`SPLUNK_START_ARGS: --accept-license`), and that
       redistributing the compose files is within those terms.

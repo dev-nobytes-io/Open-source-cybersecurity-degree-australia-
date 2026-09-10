@@ -40,9 +40,26 @@ would be hollow without them.
 | Weekly seasonality | weekday/weekend ≈ 3.6× | as above |
 | Counts overdispersed | var > mean (negative binomial) | SPL-09 Topic 9 — Poisson thresholds over-alert |
 | Beacon regularity | CV ≈ 0.05 **on the isolated channel** | SPL-03 Lab 7, SPL-09 Topic 9 |
-| DGA separability | entropy 3.5 vs 2.4 | SPL-09 Lab 5 |
+| DGA separability | entropy 3.4 vs 2.4 **in the mean only** | SPL-09 Lab 5 |
 | Contaminated baseline | insider active across the full window | SPL-09 Topic 8 — why robust estimators win |
 | Per-user activity | log-normal multiplier | SPL-02 Lab 7 — global thresholds are wrong |
+
+!!! important "The DGA corpus has two families, and the benign corpus fights back"
+    `dga_domain()` emits **uniform-random** labels (~70%) and **dictionary-word
+    concatenations** (~30%). The second family has *low* character entropy and is
+    invisible to an entropy threshold at any cut-point.
+
+    Benign traffic carries genuinely high-entropy names too — CDN object hashes,
+    DKIM selectors, UUID subdomains, base32 tokens — at about 1.5% of benign
+    domain draws. Some have *higher* entropy than the DGA, because they are
+    longer and drawn from a larger alphabet.
+
+    Both are deliberate. Without them, entropy scores near-perfectly and SPL-09
+    Lab 5 teaches an artefact of the test set rather than anything about
+    detection. With them, per-domain entropy manages about 44% precision at a
+    fixed budget, and the lab's real lesson — that aggregating the same weak
+    signal **per host** is decisive where per-domain scoring is not — becomes
+    visible.
 
 !!! important "Beaconing is only regular once you isolate the channel"
     The beacon host also browses normally. Measured across all its DNS traffic
