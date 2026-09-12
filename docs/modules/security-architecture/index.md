@@ -125,7 +125,7 @@ flowchart TD
 | [SA-03](sa-03-modern-defensible-architecture-and-csf.md) | Modern Defensible Architecture and NIST CSF 2.0 | ASD *Investing in modern defensible architecture*; NIST CSWP 29 (CSF 2.0) | ~24 |
 | [SA-04](sa-04-network-gateway-and-access-architecture.md) | Network, Gateway and Access Architecture under the ISM | ISM *Guidelines for networking*, *Guidelines for gateways*, *Guidelines for system access*; NIST SP 800-63-4 (assurance levels only) | ~26 |
 | [SA-05](sa-05-logging-and-monitoring-architecture.md) | Logging, Monitoring and Detection Architecture | NIST SP 800-92; ASD *Priority logs for SIEM ingestion*, *Best practices for event logging and threat detection*, *Windows event logging and forwarding*, *Implementing SIEM and SOAR platforms*; CREST *Cyber Security Monitoring Guide*; one vendor reference-architecture example | ~24 |
-| SA-06 *(planned — arrives in a later PR)* | Assurance, Capability Maturity and System Authorisation | ISM *Guidelines for security assurance*; SOC-CMM white papers; CTI-CMM; Threat Hunting Maturity Model | ~24 |
+| [SA-06](sa-06-assurance-maturity-and-authorisation.md) | Assurance, Capability Maturity and System Authorisation | ISM *Guidelines for security assurance*; SOC-CMM white papers; CTI-CMM; Threat Hunting Maturity Model | ~24 |
 | Quiz *(planned — arrives in a later PR)* | Self-assessment | all modules | ~4 |
 | | | | **~150 hours** (146 across the six modules, plus the quiz) |
 
