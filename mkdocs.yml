@@ -141,6 +141,7 @@ nav:
         - Series index: docs/modules/security-architecture/index.md
         - SA-01 — Business-Driven Security Architecture in Practice: docs/modules/security-architecture/sa-01-business-driven-architecture-in-practice.md
         - SA-02 — Integrating Security into Enterprise Architecture — SABSA and the TOGAF ADM: docs/modules/security-architecture/sa-02-integrating-security-into-enterprise-architecture.md
+        - SA-03 — Modern Defensible Architecture and NIST CSF 2.0 as Architecture Inputs: docs/modules/security-architecture/sa-03-modern-defensible-architecture-and-csf.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
