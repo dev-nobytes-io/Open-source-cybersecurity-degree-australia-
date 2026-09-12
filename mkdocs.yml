@@ -137,6 +137,8 @@ nav:
           - SPL-07 labs: labs/guides/spl-07.md
           - SPL-08 labs: labs/guides/spl-08.md
           - SPL-09 labs: labs/guides/spl-09.md
+      - EXT-SA — The Security Architecture Series:
+        - Series index: docs/modules/security-architecture/index.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md

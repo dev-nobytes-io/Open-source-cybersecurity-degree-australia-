@@ -175,6 +175,44 @@ items are time-sensitive.
       series carries a **6-month** staleness window (due 2027-03-09), shorter than the
       annual cycle.
 
+
+### modules/security-architecture/ — EXT-SA Security Architecture Series Verification
+
+The series is written against the source documents listed in each module's Overview and
+Further Reading, read in full on **2026-09-12**. It is an extension series (0 CP) and is
+delivered in chunks: PR 1 (index + SA-01), PR 2 (SA-02, SA-03), PR 3 (SA-04, SA-05),
+PR 4 (SA-06 + quiz). Until all four land, the series index links only the modules present.
+
+**Blocking — must be resolved before any module advances beyond Draft:**
+
+- [ ] **Assign a Domain Expert and a Practitioner Reviewer** (practising security or
+      enterprise architect; for SA-06 someone with current Australian Government system
+      authorisation or IRAP experience). All six modules carry `_Unassigned_`.
+- [ ] **Confirm ISM chapter currency.** SA-04 and SA-06 cite the ISM *Guidelines for
+      networking*, *gateways*, *system access* and *security assurance* as retrieved
+      September 2026. The ISM is updated quarterly — re-verify every cited control
+      identifier against the live ISM on cyber.gov.au before delivery.
+- [ ] **Confirm ASD *Modern Defensible Architecture* publication status and date**
+      (SA-03). The stage names and foundations are taken from the ASD document as read;
+      confirm they match the current published version.
+- [ ] **Confirm SABSA W100 and W117 edition/publication years** (SA-01, SA-02) and that
+      the summarised content stays within fair-dealing limits — both papers are copyright
+      The SABSA Institute / The Open Group.
+- [ ] **Confirm SOC-CMM, CTI-CMM (v1.3) and Threat Hunting Maturity Model version and
+      licence terms** before SA-06 labs reference their assessment structures.
+- [ ] Framework Custodian to map the provisional project-local KSAT IDs (`SA-0n-K01` …)
+      and confirm every NICE DCWF T-code and SFIA 9 code cited.
+
+**Content reconciliation:**
+
+- [ ] Cross-check each module's *Where this module fits* table against SC02, SE01, SE02,
+      SE06, GR01, GR03, GR05, SE03, SE04, OC02 and DE02 to confirm nothing is re-taught
+      rather than extended (rule in the series index, *What this series is not*).
+- [ ] Add EXT-SA to [`quality/annual-review-schedule.md`](quality/annual-review-schedule.md)
+      with a **6-month** staleness window (ISM quarterly updates), due 2027-03-12.
+- [ ] Decide whether the series warrants a `labs/` environment as EXT-SPL has; the
+      current labs are paper-based or use free tooling only.
+
 ### accreditation.md — Expand Phase 5 Content
 
 - [ ] Document the preliminary TEQSA pathway assessment (what is needed to apply for registration)
