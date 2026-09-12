@@ -213,11 +213,12 @@ no module lists an exam as an outcome.
 | Version | Work Role | Code | Covered by |
 |---|---|---|---|
 | 2023 | Security Architect | SP-ARC-002 | SA-01 … SA-06 (primary role for the series) |
-| 2023 | Enterprise Architect | SP-ARC-001 | SA-02, SA-03 |
+| 2023 | Enterprise Architect | SP-ARC-001 | SA-01, SA-02, SA-03 |
 | 2023 | Systems Requirements Planner | SP-SRP-001 | SA-01, SA-03 |
 | 2023 | Cyber Defense Infrastructure Support | PR-INF-001 | SA-05 |
 | 2023 | Security Control Assessor | SP-RSK-002 | SA-06 |
 | 2023 | Authorizing Official / Designating Representative | SP-RSK-001 | SA-06 |
+| 2023 | Information Systems Security Manager | OV-MGT-001 | SA-01, SA-06 |
 
 ### SFIA 9
 
@@ -250,6 +251,7 @@ Codes and level ranges verified against the SFIA 9 skill pages at sfia-online.or
 | Security Architecture | Network and Gateway Design | Advanced | SA-04 |
 | Defensive Operations | Monitoring Infrastructure | Advanced | SA-05 |
 | Governance, Risk and Compliance | System Assurance and Authorisation | Advanced | SA-06 |
+| Cyber Governance | Governance Design | Practitioner–Advanced | SA-01, SA-02 |
 
 ---
 
