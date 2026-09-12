@@ -140,6 +140,7 @@ nav:
       - EXT-SA — The Security Architecture Series:
         - Series index: docs/modules/security-architecture/index.md
         - SA-01 — Business-Driven Security Architecture in Practice: docs/modules/security-architecture/sa-01-business-driven-architecture-in-practice.md
+        - SA-02 — Integrating Security into Enterprise Architecture — SABSA and the TOGAF ADM: docs/modules/security-architecture/sa-02-integrating-security-into-enterprise-architecture.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
