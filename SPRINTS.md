@@ -583,6 +583,40 @@ answer keys. What is **not** verified: no CI job starts a Splunk container, so
 the container startup path is untested — recorded in `docs/TODO.md` along with
 five other lab-environment open items.
 
+
+### Sprint 26 — EXT-SA Security Architecture series 🔄 In progress (2026-09-12)
+
+A six-module, non-credit extension series on security architecture *practice* —
+the half of the architect's job the degree's SC02/SE01/SE02/SE06 sequence
+deliberately leaves out. Each module is grounded in a small set of primary
+documents read in full, and every module passes a three-lens review (standards
+compliance; accuracy and attribution against the sources; privacy, vendor
+neutrality and non-duplication of existing units) before it is committed.
+
+- [x] **Series index** (`docs/modules/security-architecture/index.md`) — scope
+      contract against eleven existing units, six-module plan with primary
+      sources, R3/R4 positions, provisional series-level mappings, verification
+      table; nav and `docs/TODO.md` registration. PR 1.
+- [ ] **SA-01** Business-Driven Security Architecture in Practice — SABSA W100.
+- [ ] **SA-02** Integrating Security into Enterprise Architecture — SABSA and the
+      TOGAF ADM (W117).
+- [ ] **SA-03** Modern Defensible Architecture and NIST CSF 2.0 as architecture
+      inputs — ASD MDA; NIST CSWP 29.
+- [ ] **SA-04** Network, Gateway and Access Architecture under the ISM — ISM
+      guidelines for networking, gateways and system access; NIST SP 800-63-4
+      assurance levels as inputs.
+- [ ] **SA-05** Logging, Monitoring and Detection Architecture — NIST SP 800-92;
+      ASD priority logs, event-logging best practice, Windows event forwarding,
+      SIEM/SOAR guidance; CREST monitoring guide.
+- [ ] **SA-06** Assurance, Capability Maturity and System Authorisation — ISM
+      guidelines for security assurance; SOC-CMM; CTI-CMM; Threat Hunting
+      Maturity Model.
+- [ ] Self-assessment quiz.
+
+Delivered one module per PR, stacked, so each is reviewable on its own. Domain
+Expert and Practitioner Reviewer remain unassigned; blocking verification items
+are in `docs/TODO.md`.
+
 ---
 
 ## Resource Inputs from Practitioners
@@ -604,5 +638,6 @@ rather than reinvented.
 | Capability maturity (all units) | Integrate **all** operational + program maturity models (SOC-CMM, CTI-CMM, SIM3, HMM/PEAK, DML/M3TID, C2M2, O-ISM3) across operations **and** strategy; tie service→capability→NIST CSF→NICE/DCWF role→KSATs; wire operational maturity into governance/program/risk to avoid development mismatch | ✅ Sprint 11 — `docs/maturity-models.md` ("DF-C2M2" name pending confirmation) |
 
 | Splunk certification pathway (EXT-SPL) | Splunk certification-track prerequisite chains, supplied as the official Architect and Consultant exam-detail pages. Verified against Splunk's live certification pages and track flowcharts and built out as the **EXT-SPL** extension series (`docs/modules/splunk/`) — deliberately vendor-specific, non-credit, and explicit about cost and access gating. Sprint 25 added the `labs/` environment, guides for all 69 labs, conf-file practice and a 52-question quiz | ✅ Drafted — Domain Expert and currently-certified Practitioner Reviewers still required; blocking verification items in `docs/TODO.md` |
+| Security architecture practice (EXT-SA) | Method-and-practice extension series grounded in SABSA W100/W117, the TOGAF ADM, ASD Modern Defensible Architecture, NIST CSF 2.0, the ISM guideline chapters on networking/gateways/system access/security assurance, NIST SP 800-92 with ASD logging guidance, and SOC-CMM/CTI-CMM — built as **EXT-SA** (`docs/modules/security-architecture/`), non-credit, one module per PR | 🔄 Sprint 26 — index merged-ready; modules in review |
 
 *(Add rows as resources are supplied.)*

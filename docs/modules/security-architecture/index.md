@@ -32,9 +32,9 @@
     [What this series is not](#what-this-series-is-not).
 
 !!! note "Delivered in chunks"
-    This series is being added in four pull requests: the index and SA-01; SA-02 and
-    SA-03; SA-04 and SA-05; SA-06 and the quiz. Until all four land, the module table
-    below links only the modules present in the repository and marks the rest as planned.
+    This series is being added one module per pull request, in order, on top of this
+    index. Until all six land, the module table below links only the modules present in
+    the repository and marks the rest as planned.
 
 ---
 
