@@ -180,8 +180,8 @@ items are time-sensitive.
 
 The series is written against the source documents listed in each module's Overview and
 Further Reading, read in full on **2026-09-12**. It is an extension series (0 CP) and is
-delivered in chunks: PR 1 (index + SA-01), PR 2 (SA-02, SA-03), PR 3 (SA-04, SA-05),
-PR 4 (SA-06 + quiz). Until all four land, the series index links only the modules present.
+delivered one module per pull request (index first, then SA-01 … SA-06, then the quiz).
+Until all land, the series index links only the modules present.
 
 **Blocking — must be resolved before any module advances beyond Draft:**
 
