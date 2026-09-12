@@ -121,7 +121,7 @@ flowchart TD
 | Module | Title | Primary sources | Notional hours |
 |---|---|---|---|
 | [SA-01](sa-01-business-driven-architecture-in-practice.md) | Business-Driven Security Architecture in Practice | SABSA white paper W100 | 24 |
-| SA-02 *(planned — arrives in a later PR)* | Integrating Security into Enterprise Architecture — SABSA and the TOGAF ADM | SABSA white paper W117; the TOGAF ADM cycle | ~24 |
+| [SA-02](sa-02-integrating-security-into-enterprise-architecture.md) | Integrating Security into Enterprise Architecture — SABSA and the TOGAF ADM | SABSA white paper W117; the TOGAF ADM cycle | ~24 |
 | SA-03 *(planned — arrives in a later PR)* | Modern Defensible Architecture and NIST CSF 2.0 | ASD *Investing in modern defensible architecture*; NIST CSWP 29 (CSF 2.0) | ~24 |
 | SA-04 *(planned — arrives in a later PR)* | Network, Gateway and Access Architecture under the ISM | ISM *Guidelines for networking*, *Guidelines for gateways*, *Guidelines for system access*; NIST SP 800-63-4 (assurance levels only) | ~26 |
 | SA-05 *(planned — arrives in a later PR)* | Logging, Monitoring and Detection Architecture | NIST SP 800-92; ASD *Priority logs for SIEM ingestion*, *Best practices for event logging and threat detection*, *Windows event logging and forwarding*, *Implementing SIEM and SOAR platforms*; CREST *Cyber Security Monitoring Guide*; one vendor reference-architecture example | ~24 |
