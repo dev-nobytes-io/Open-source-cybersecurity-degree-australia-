@@ -109,7 +109,7 @@ flowchart TD
 | [ELK-03](elk-03-lifecycle-sizing-cluster-architecture.md) | Lifecycle, Sizing and Cluster Architecture | ILM phases and actions, data tiers and node roles, shards and replicas, what is paid (frozen, CCR); reading Elastic's sizing guidance the way SA-05 Topic 12 reads a validated architecture | ~22 |
 | [ELK-04](elk-04-detection-rules-eql-security-app.md) | Detection Rules, EQL and the Security App | The seven rule types, EQL sequences, exceptions, alerts as `event.kind: signal`, cases, MITRE tagging; Sigma to Elastic | ~22 |
 | [ELK-05](elk-05-opensearch-alternative-and-migration.md) | OpenSearch: the Open Alternative, and Migration | Security Analytics (detectors, Sigma rules, findings, correlation), ISM, data streams; moving templates, pipelines and rules between the two; when to choose which | ~20 |
-| Quiz *(planned — arrives in a later PR)* | Self-assessment | 50 questions across the five modules | ~3 |
+| [Quiz](quiz.md) | Self-assessment | 50 questions across the five modules | ~3 |
 | | | | **~107 hours** |
 
 **Suggested order.** In sequence. ELK-01 and ELK-02 are the foundation everything else
