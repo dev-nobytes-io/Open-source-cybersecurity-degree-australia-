@@ -617,6 +617,21 @@ Delivered one module per PR, stacked, so each is reviewable on its own. Domain
 Expert and Practitioner Reviewer remain unassigned; blocking verification items
 are in `docs/TODO.md`.
 
+
+### Sprint 28 — EXT-IRP Playbook Engineering ✅ Drafted (2026-09-13)
+
+A single extension module on vendor-neutral incident-response playbook
+engineering: the CACAO v2.0 model (types, workflow steps, agents, targets,
+commands, markings, signatures), deriving the playbook set from the incident
+response plan and threat model (SP 800-61r3's CSF 2.0 framing), playbook
+anatomy with explicit decision points and defaults, the automation boundary
+applied per step (extending EXT-ANS Topic 6), tabletop/drill/execution
+testing, metrics, versioning and sharing, and Australian notification clocks
+as playbook steps. Three labs over the lab dataset's beacon scenario.
+
+- [x] `docs/modules/playbook-engineering.md`; nav; TODO section.
+- [ ] Domain Expert and Practitioner Reviewer; ASD guidance titles to confirm.
+
 ---
 
 ## Resource Inputs from Practitioners
@@ -639,5 +654,6 @@ rather than reinvented.
 
 | Splunk certification pathway (EXT-SPL) | Splunk certification-track prerequisite chains, supplied as the official Architect and Consultant exam-detail pages. Verified against Splunk's live certification pages and track flowcharts and built out as the **EXT-SPL** extension series (`docs/modules/splunk/`) — deliberately vendor-specific, non-credit, and explicit about cost and access gating. Sprint 25 added the `labs/` environment, guides for all 69 labs, conf-file practice and a 52-question quiz | ✅ Drafted — Domain Expert and currently-certified Practitioner Reviewers still required; blocking verification items in `docs/TODO.md` |
 | Security architecture practice (EXT-SA) | Method-and-practice extension series grounded in SABSA W100/W117, the TOGAF ADM, ASD Modern Defensible Architecture, NIST CSF 2.0, the ISM guideline chapters on networking/gateways/system access/security assurance, NIST SP 800-92 with ASD logging guidance, and SOC-CMM/CTI-CMM — built as **EXT-SA** (`docs/modules/security-architecture/`), non-credit, one module per PR | ✅ Sprint 26 — index, SA-01 … SA-06 and quiz drafted (PRs #40–#48); Domain Expert and Practitioner Reviewer still required; blocking verification items in `docs/TODO.md` |
+| Playbook engineering (EXT-IRP) | Vendor-neutral incident-response playbooks as engineered artefacts on the OASIS CACAO v2.0 standard, derived from the IR plan and threat model, with the automation boundary applied per step — built as **EXT-IRP** (`docs/modules/playbook-engineering.md`), non-credit | ✅ Sprint 28 — drafted; reviewers required |
 
 *(Add rows as resources are supplied.)*

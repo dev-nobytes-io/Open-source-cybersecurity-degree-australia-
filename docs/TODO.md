@@ -213,6 +213,22 @@ Until all land, the series index links only the modules present.
 - [ ] Decide whether the series warrants a `labs/` environment as EXT-SPL has; the
       current labs are paper-based or use free tooling only.
 
+
+### modules/playbook-engineering.md — EXT-IRP Verification
+
+Single-module extension (0 CP) on vendor-neutral playbook engineering, grounded in the
+OASIS CACAO Security Playbooks v2.0 specification and the NIST SP 800-61r3 publication
+page as read on **2026-09-13**.
+
+- [ ] **Assign a Domain Expert and a Practitioner Reviewer** who run playbooks in a live SOC.
+- [ ] **Confirm the ASD incident-response guidance titles and URLs** (plan, readiness
+      checklist, reporting channel) — cyber.gov.au did not respond on the authoring date,
+      so Topic 8 and Further Reading cite the landing page only.
+- [ ] Read SP 800-61r3 in full before Topic 3 is taught in depth; the module cites only its
+      framing. Check for a CACAO release later than CS01.
+- [ ] Framework Custodian to map provisional KSAT IDs (`EXT-IRP-K01` …) and confirm
+      the NICE T-codes (paraphrased, incl. T0510) and ASD CSF sub-domain names.
+
 ### accreditation.md — Expand Phase 5 Content
 
 - [ ] Document the preliminary TEQSA pathway assessment (what is needed to apply for registration)
