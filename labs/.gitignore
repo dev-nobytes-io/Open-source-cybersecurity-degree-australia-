@@ -5,3 +5,4 @@ data/truth/
 data/summary.json
 data/lookups/
 splunk-apps/oscd_lab/lookups/*.csv
+docker/rsyslog/certs/
