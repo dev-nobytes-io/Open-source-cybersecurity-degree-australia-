@@ -105,7 +105,7 @@ flowchart TD
 | Module | Title | Focus | Notional hours |
 |---|---|---|---|
 | [ELK-01](elk-01-collection-agent-fleet.md) | Collection: Elastic Agent, Fleet and Beats | Agent, Fleet Server, policies and integrations; managed vs standalone; the data-stream naming contract; onboarding the lab dataset | ~18 |
-| ELK-02 *(planned — arrives in a later PR)* | Ingest Pipelines, ECS and Data Streams | Processors, simulate and failure handling; the Elastic Common Schema and its categorisation fields; CIM ↔ ECS; templates, rollover and `@timestamp` | ~22 |
+| [ELK-02](elk-02-ingest-pipelines-ecs-data-streams.md) | Ingest Pipelines, ECS and Data Streams | Processors, simulate and failure handling; the Elastic Common Schema and its categorisation fields; CIM ↔ ECS; templates, rollover and `@timestamp` | ~22 |
 | ELK-03 *(planned — arrives in a later PR)* | Lifecycle, Sizing and Cluster Architecture | ILM phases and actions, data tiers and node roles, shards and replicas, what is paid (frozen, CCR); reading Elastic's sizing guidance the way SA-05 Topic 12 reads a validated architecture | ~22 |
 | ELK-04 *(planned — arrives in a later PR)* | Detection Rules, EQL and the Security App | The seven rule types, EQL sequences, exceptions, alerts as `event.kind: signal`, cases, MITRE tagging; Sigma to Elastic | ~22 |
 | ELK-05 *(planned — arrives in a later PR)* | OpenSearch: the Open Alternative, and Migration | Security Analytics (detectors, Sigma rules, findings, correlation), ISM, data streams; moving templates, pipelines and rules between the two; when to choose which | ~20 |

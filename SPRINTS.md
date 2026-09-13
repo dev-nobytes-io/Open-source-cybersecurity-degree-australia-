@@ -630,7 +630,7 @@ as read on 2026-09-13; the free/paid boundary is stated per module.
 - [x] **ELK-01** Collection: Elastic Agent, Fleet and Beats — with
       `labs/docker/compose.elastic.yml` (single-node Basic + Kibana + standalone
       Filebeat into `logs-oscd.<source>-lab` data streams; syntax-validated only).
-- [ ] **ELK-02** Ingest pipelines, ECS and data streams.
+- [x] **ELK-02** Ingest pipelines, ECS and data streams.
 - [ ] **ELK-03** Lifecycle, sizing and cluster architecture.
 - [ ] **ELK-04** Detection rules, EQL and the Security app.
 - [ ] **ELK-05** OpenSearch: the open alternative, and migration.
