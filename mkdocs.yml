@@ -149,6 +149,7 @@ nav:
       - EXT-ELK — The Elastic and OpenSearch Series:
         - Series index: docs/modules/elastic/index.md
         - ELK-01 — Collection with Elastic Agent, Fleet and Beats: docs/modules/elastic/elk-01-collection-agent-fleet.md
+        - ELK-02 — Ingest Pipelines, ECS and Data Streams: docs/modules/elastic/elk-02-ingest-pipelines-ecs-data-streams.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
