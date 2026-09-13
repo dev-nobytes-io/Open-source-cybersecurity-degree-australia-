@@ -1,0 +1,60 @@
+# Three-node buffered syslog path for SA-05 Labs 3 and 4:
+#
+#   src-01  --TLS-->  relay-01 (disk-assisted queue, filter)  --TLS-->  central-01 (per-host files)
+#
+# Runs on its own; no Splunk instance is required. If you also want the
+# central files in Splunk, compose.forwarders.yml can monitor the
+# `central-logs` volume — see the guide.
+#
+#   sh rsyslog/mkcerts.sh                       # lab CA + three certificates
+#   docker compose -f compose.syslog-relay.yml up -d
+#
+# Images are plain Alpine with rsyslog installed at start, so nothing here
+# depends on a third-party rsyslog image tag staying where it is.
+services:
+  central-01:
+    image: alpine:3.20
+    hostname: central-01
+    command: >
+      sh -c "apk add -q rsyslog rsyslog-tls
+             && mkdir -p /var/spool/rsyslog /var/log/central
+             && rsyslogd -N1 -f /etc/rsyslog.conf
+             && exec rsyslogd -n -f /etc/rsyslog.conf"
+    volumes:
+      - ./rsyslog/central.conf:/etc/rsyslog.conf:ro
+      - ./rsyslog/certs:/certs:ro
+      - central-logs:/var/log/central
+
+  relay-01:
+    image: alpine:3.20
+    hostname: relay-01
+    command: >
+      sh -c "apk add -q rsyslog rsyslog-tls
+             && mkdir -p /var/spool/rsyslog
+             && rsyslogd -N1 -f /etc/rsyslog.conf
+             && exec rsyslogd -n -f /etc/rsyslog.conf"
+    volumes:
+      - ./rsyslog/relay.conf:/etc/rsyslog.conf:ro
+      - ./rsyslog/certs:/certs:ro
+      - relay-queue:/var/spool/rsyslog
+    depends_on: [central-01]
+
+  src-01:
+    image: alpine:3.20
+    hostname: src-01
+    command: >
+      sh -c "apk add -q rsyslog rsyslog-tls python3
+             && mkdir -p /var/spool/rsyslog /var/log/audit /var/log/lab
+             && (python3 /lab/auditd_stream.py --out /var/log/audit/audit.log
+                   --noise /var/log/lab/debug.log --rate ${LAB_RATE:-20} &)
+             && rsyslogd -N1 -f /etc/rsyslog.conf
+             && exec rsyslogd -n -f /etc/rsyslog.conf"
+    volumes:
+      - ./rsyslog/source.conf:/etc/rsyslog.conf:ro
+      - ./rsyslog/certs:/certs:ro
+      - ../generator/auditd_stream.py:/lab/auditd_stream.py:ro
+    depends_on: [relay-01]
+
+volumes:
+  central-logs:
+  relay-queue:
