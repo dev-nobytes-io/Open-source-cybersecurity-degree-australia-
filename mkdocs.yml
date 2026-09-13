@@ -150,6 +150,7 @@ nav:
         - Series index: docs/modules/constrained-operations/index.md
         - DSO-01 — Monitoring Architecture for Isolated and Intermittently Connected Sites: docs/modules/constrained-operations/dso-01-monitoring-isolated-and-intermittent-sites.md
         - DSO-02 — Autonomous Detection Content and the Offline Content Lifecycle: docs/modules/constrained-operations/dso-02-autonomous-detection-content-offline-lifecycle.md
+        - DSO-03 — Rapid Deployment, Teardown and Sanitisation: docs/modules/constrained-operations/dso-03-rapid-deployment-teardown-and-sanitisation.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
