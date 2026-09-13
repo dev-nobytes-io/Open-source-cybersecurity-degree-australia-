@@ -213,6 +213,56 @@ Until all land, the series index links only the modules present.
 - [ ] Decide whether the series warrants a `labs/` environment as EXT-SPL has; the
       current labs are paper-based or use free tooling only.
 
+### modules/constrained-operations/ — EXT-DSO Constrained and Disconnected Environments Verification
+
+Four-module extension series (0 CP) on security operations for sites that are isolated by
+link, by policy, physically, or by operational-technology zoning, delivered one module per
+pull request (index and DSO-01, then DSO-02 … DSO-04, then the quiz). Sources were read
+on **2026-09-13**: the ISM (September 2026) chapters on gateways, networking, media,
+information technology equipment, data transfers and physical security; NIST SP 800-88
+Rev. 2 (September 2025) and SP 800-84 (September 2006) from their publication PDFs; the
+Sigma rules and correlation specifications v2.1.0; the OASIS STIX 2.1 and TAXII 2.1
+standard pages; the pySigma pipelines documentation; and the chaos-engineering principles.
+
+**Blocking — must be resolved before any module advances beyond Draft:**
+
+- [ ] **Assign a Domain Expert and a Practitioner Reviewer** with current Australian
+      Government assurance experience — someone who has designed or operated monitoring
+      across a cross domain solution or an isolated network. All four modules carry
+      `_Unassigned_`.
+- [ ] **Confirm the DSO-01 Topic 4 decision rule** ("monitor at the highest classification
+      the data carries; release downward only what the transfer policy allows") against
+      current ASD direction. It is stated as architectural inference from ISM-0635,
+      ISM-1521 and ISM-1522, not as an ISM position.
+- [ ] **Read ASD's *Introduction to Cross Domain Solutions* and *Fundamentals of Cross
+      Domain Solutions*** (named by the ISM; not read) and revise DSO-01 Topic 4 if they
+      state a position on where monitoring sits.
+- [ ] **Re-verify every cited ISM control identifier** against the live ISM before
+      delivery. DSO-03 alone cites about ninety controls from the media, IT equipment,
+      data-transfer and physical-security chapters; the ISM is updated quarterly.
+- [ ] **Verify the OT statements taken from author knowledge** in DSO-01 Topic 6 —
+      zones and conduits and security levels as concepts of IEC 62443-3-2/3-3, and the
+      Purdue model levels — against the standard texts or SP 800-82 Rev. 3.
+- [ ] **Confirm the ASD incident-response exercise guidance** title and URL for DSO-04
+      (cyber.gov.au did not respond on the authoring date) and add it to Further reading.
+- [ ] Framework Custodian to map the provisional project-local KSAT IDs (`DSO-0n-K01` …)
+      and confirm every NICE DCWF T-code (T0264's wording is a paraphrase), SFIA 9 level
+      and ASD CSF sub-domain cited.
+
+**Content reconciliation:**
+
+- [ ] Cross-check each module's *Where this module fits* table against SA-04, SA-05,
+      SA-06, DE01, DE03, DE04, DE05, CE04, OC02, OC04 and EXT-ANS to confirm nothing is
+      re-taught rather than extended.
+- [ ] Confirm the STIX 2.1 Indicator validity and revocation field names referenced
+      generically in DSO-02 Topic 5, and check for a Sigma specification release later
+      than v2.1.0.
+- [ ] The labs assume the SA-05 Lab 3 relay estate from `labs/` (PR #49). Once it lands,
+      add `labs/guides/dso-*.md` walkthroughs and register them in the nav; DSO-03 Lab 2's
+      sanitisation steps must keep their "procedural model only" wording.
+- [ ] Add EXT-DSO to [`quality/annual-review-schedule.md`](quality/annual-review-schedule.md)
+      with a **6-month** staleness window (ISM quarterly updates), due 2027-03-13.
+
 ### accreditation.md — Expand Phase 5 Content
 
 - [ ] Document the preliminary TEQSA pathway assessment (what is needed to apply for registration)
