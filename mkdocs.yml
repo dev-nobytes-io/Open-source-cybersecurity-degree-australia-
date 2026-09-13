@@ -153,6 +153,7 @@ nav:
         - ELK-03 — Lifecycle, Sizing and Cluster Architecture: docs/modules/elastic/elk-03-lifecycle-sizing-cluster-architecture.md
         - ELK-04 — Detection Rules, EQL and the Security App: docs/modules/elastic/elk-04-detection-rules-eql-security-app.md
         - ELK-05 — OpenSearch, the Open Alternative, and Migration: docs/modules/elastic/elk-05-opensearch-alternative-and-migration.md
+        - Self-assessment quiz: docs/modules/elastic/quiz.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
