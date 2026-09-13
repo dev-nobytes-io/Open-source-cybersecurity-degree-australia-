@@ -52,7 +52,7 @@ replication* documentation, and the subscriptions comparison.
 | [SE04 — Detection & Response Engineering](../../../degrees/strategic/security-engineering/SE04-detection-response-engineering.md) | Platform architecture in the abstract. |
 | [SE01 — Secure System Design](../../../degrees/strategic/security-engineering/SE01-secure-system-design.md) | Availability and failure-mode reasoning behind Topic 5. |
 | [SA-06 — Assurance, Capability Maturity and System Authorisation](../security-architecture/sa-06-assurance-maturity-and-authorisation.md) | The platform is itself a system to be authorised; Topic 8's controls are its evidence. |
-| [ELK-04](elk-04-detection-rules-eql-security-app.md); ELK-05 *(later in this series)* | Rules over the streams sized here; the OpenSearch counterpart (ISM) of Topic 3. |
+| [ELK-04](elk-04-detection-rules-eql-security-app.md); [ELK-05](elk-05-opensearch-alternative-and-migration.md) | Rules over the streams sized here; the OpenSearch counterpart (ISM) of Topic 3. |
 
 ---
 
