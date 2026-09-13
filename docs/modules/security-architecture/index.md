@@ -126,7 +126,7 @@ flowchart TD
 | [SA-04](sa-04-network-gateway-and-access-architecture.md) | Network, Gateway and Access Architecture under the ISM | ISM *Guidelines for networking*, *Guidelines for gateways*, *Guidelines for system access*; NIST SP 800-63-4 (assurance levels only) | ~26 |
 | [SA-05](sa-05-logging-and-monitoring-architecture.md) | Logging, Monitoring and Detection Architecture | NIST SP 800-92; ASD *Priority logs for SIEM ingestion*, *Best practices for event logging and threat detection*, *Windows event logging and forwarding*, *Implementing SIEM and SOAR platforms*; CREST *Cyber Security Monitoring Guide*; one vendor reference-architecture example | ~24 |
 | [SA-06](sa-06-assurance-maturity-and-authorisation.md) | Assurance, Capability Maturity and System Authorisation | ISM *Guidelines for security assurance*; SOC-CMM white papers; CTI-CMM; Threat Hunting Maturity Model | ~24 |
-| Quiz *(planned — arrives in a later PR)* | Self-assessment | all modules | ~4 |
+| [Quiz](quiz.md) | Self-assessment | all modules | ~4 |
 | | | | **~150 hours** (146 across the six modules, plus the quiz) |
 
 Hours for SA-01 are taken from the module. Hours for the planned modules are the values
@@ -310,7 +310,7 @@ before this series moves beyond Draft. Each module carries its own, more detaile
 | Series Code | EXT-SA |
 | Series Title | The Security Architecture Series — Method, Structure & Assurance |
 | Module Type | Extension module series (elective; **not** credit-bearing) |
-| Modules | SA-01 … SA-06 + self-assessment quiz (SA-01 present; remainder planned) |
+| Modules | SA-01 … SA-06 + self-assessment quiz (all present) |
 | Version | v0.1 |
 | Status | Draft |
 | Credit Points | 0 CP — outside the 168 CP degree structure |

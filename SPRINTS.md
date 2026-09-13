@@ -597,21 +597,21 @@ neutrality and non-duplication of existing units) before it is committed.
       contract against eleven existing units, six-module plan with primary
       sources, R3/R4 positions, provisional series-level mappings, verification
       table; nav and `docs/TODO.md` registration. PR 1.
-- [ ] **SA-01** Business-Driven Security Architecture in Practice — SABSA W100.
-- [ ] **SA-02** Integrating Security into Enterprise Architecture — SABSA and the
+- [x] **SA-01** Business-Driven Security Architecture in Practice — SABSA W100.
+- [x] **SA-02** Integrating Security into Enterprise Architecture — SABSA and the
       TOGAF ADM (W117).
-- [ ] **SA-03** Modern Defensible Architecture and NIST CSF 2.0 as architecture
+- [x] **SA-03** Modern Defensible Architecture and NIST CSF 2.0 as architecture
       inputs — ASD MDA; NIST CSWP 29.
-- [ ] **SA-04** Network, Gateway and Access Architecture under the ISM — ISM
+- [x] **SA-04** Network, Gateway and Access Architecture under the ISM — ISM
       guidelines for networking, gateways and system access; NIST SP 800-63-4
       assurance levels as inputs.
-- [ ] **SA-05** Logging, Monitoring and Detection Architecture — NIST SP 800-92;
+- [x] **SA-05** Logging, Monitoring and Detection Architecture — NIST SP 800-92;
       ASD priority logs, event-logging best practice, Windows event forwarding,
       SIEM/SOAR guidance; CREST monitoring guide.
-- [ ] **SA-06** Assurance, Capability Maturity and System Authorisation — ISM
+- [x] **SA-06** Assurance, Capability Maturity and System Authorisation — ISM
       guidelines for security assurance; SOC-CMM; CTI-CMM; Threat Hunting
       Maturity Model.
-- [ ] Self-assessment quiz.
+- [x] Self-assessment quiz.
 
 Delivered one module per PR, stacked, so each is reviewable on its own. Domain
 Expert and Practitioner Reviewer remain unassigned; blocking verification items
