@@ -56,7 +56,7 @@ the `elastic/detection-rules` repository.
 | [DE04 — Adversary Simulation & Detection](../../../degrees/operational/detection-engineering/DE04-adversary-simulation-detection.md) | Verifying that rules fire — Lab 3 measures precision with ground truth instead. |
 | [OC04 — Incident Response Lifecycle](../../../core/units/OC04-incident-response-lifecycle.md) | Where a case goes after Topic 8. |
 | [EXT-SPL SPL-03](../splunk/spl-03-cyber-defense-analyst.md), [SPL-09](../splunk/spl-09-detection-analytics.md) | The same scenarios detected on the other platform; compare precision. |
-| ELK-05 *(later in this series)* | The OpenSearch counterpart: Sigma-based detectors and findings. |
+| [ELK-05](elk-05-opensearch-alternative-and-migration.md) | The OpenSearch counterpart: Sigma-based detectors and findings. |
 
 ---
 

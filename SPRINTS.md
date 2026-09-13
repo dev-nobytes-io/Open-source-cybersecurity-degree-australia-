@@ -633,7 +633,7 @@ as read on 2026-09-13; the free/paid boundary is stated per module.
 - [x] **ELK-02** Ingest pipelines, ECS and data streams.
 - [x] **ELK-03** Lifecycle, sizing and cluster architecture.
 - [x] **ELK-04** Detection rules, EQL and the Security app.
-- [ ] **ELK-05** OpenSearch: the open alternative, and migration.
+- [x] **ELK-05** OpenSearch: the open alternative, and migration.
 - [ ] Self-assessment quiz; lab guides `labs/guides/elk-*.md`.
 
 One module per PR. Domain Expert and Practitioner Reviewer unassigned; blocking
