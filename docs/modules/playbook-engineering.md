@@ -394,7 +394,7 @@ full playbook — the DGA beacon — as valid CACAO v2.0 JSON with every Topic 4
 
 **Expected output:** The derivation table; the playbook set list; the beacon playbook
 JSON; the decision-point defaults. Marked on structure and completeness, not on the
-specific tactical choices.
+specific operational choices.
 
 **Reflection questions:**
 1. Which scenario had no trigger, and what does that say about the detection programme?
