@@ -150,6 +150,7 @@ nav:
         - Series index: docs/modules/elastic/index.md
         - ELK-01 — Collection with Elastic Agent, Fleet and Beats: docs/modules/elastic/elk-01-collection-agent-fleet.md
         - ELK-02 — Ingest Pipelines, ECS and Data Streams: docs/modules/elastic/elk-02-ingest-pipelines-ecs-data-streams.md
+        - ELK-03 — Lifecycle, Sizing and Cluster Architecture: docs/modules/elastic/elk-03-lifecycle-sizing-cluster-architecture.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
