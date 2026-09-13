@@ -99,6 +99,8 @@ flowchart TD
 
 **Suggested order.** DSO-01 first; DSO-02 and DSO-03 in either order; DSO-04 last.
 
+**Self-assessment.** A [40-question quiz](quiz.md), ten per module, runs in the browser and records nothing; each explanation names the module and topic the answer comes from.
+
 ---
 
 ## Rule positions
