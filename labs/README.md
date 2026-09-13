@@ -34,7 +34,7 @@ parsing and macros. Data is monitored from `../data` read-only.
 
 | Component | What it is |
 |---|---|
-| `generator/` | Pure-stdlib Python that builds a labelled 14-day estate: ~101k events, 227 identities, 260 assets, 8 attack scenarios |
+| `generator/` | Pure-stdlib Python that builds a labelled 14-day estate: ~130k events across eight indexes (including derived firewall sessions and IDS alerts), 227 identities, 260 assets, 8 attack scenarios |
 | `harness/verify.py` | Checks the dataset is sound, that no answers leaked, and self-checks objective lab answers |
 | `docker/` | `compose.single.yml` (Free licence) and `compose.distributed.yml` (search head + 2 indexers, **trial licence required**) |
 | `splunk-apps/oscd_lab/` | Indexes, inputs, explicit parsing, macros, lookup definitions |

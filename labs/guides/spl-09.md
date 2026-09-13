@@ -11,7 +11,7 @@ one day. Where the analysis is the point, Python is the shorter road and no
 instance is required.
 
 ```bash
-python3 generator/generate.py --days 14      # ~101k events, 8 labelled scenarios
+python3 generator/generate.py --days 14      # ~130k events, 8 labelled scenarios
 ls data/events/                              # cloud dns proxy risk sysmon wineventlog
 ```
 
