@@ -147,6 +147,9 @@ nav:
         - SA-06 — Assurance, Capability Maturity and System Authorisation: docs/modules/security-architecture/sa-06-assurance-maturity-and-authorisation.md
         - Self-assessment quiz: docs/modules/security-architecture/quiz.md
         - Lab guide — SA-05: labs/guides/sa-05.md
+      - EXT-ELK — The Elastic and OpenSearch Series:
+        - Series index: docs/modules/elastic/index.md
+        - ELK-01 — Collection with Elastic Agent, Fleet and Beats: docs/modules/elastic/elk-01-collection-agent-fleet.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
