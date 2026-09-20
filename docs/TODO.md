@@ -214,6 +214,38 @@ Until all land, the series index links only the modules present.
       current labs are paper-based or use free tooling only.
 
 
+### modules/elastic/ — EXT-ELK Elastic and OpenSearch Series Verification
+
+Vendor-specific series (0 CP). Product behaviour is cited to Elastic's and OpenSearch's
+documentation as read on **2026-09-13**; both platforms release often, so these items
+are time-sensitive. Delivered one module per PR (index + ELK-01 first).
+
+**Blocking — must be resolved before any module advances beyond Draft:**
+
+- [ ] **Assign a Domain Expert and a Practitioner Reviewer** who run Elastic Security or
+      OpenSearch Security Analytics in production.
+- [ ] **Confirm the subscription tier of the Elastic Security detection engine and
+      prebuilt rules.** The subscriptions comparison as read places prebuilt rules under
+      Platinum; the Security docs defer to that page. ELK-04's labs use custom rules on
+      Basic regardless, but the index and ELK-04 must state the tier correctly.
+- [ ] **Pin the stack versions** the compose files use (`ELASTIC_VERSION`; an OpenSearch
+      version for ELK-05) and record the ECS version (docs stated 9.5.0 as read).
+- [ ] **Run the Elastic compose path** (`labs/docker/compose.elastic.yml`) on a machine
+      with Docker: the file was syntax-validated only. In particular confirm the
+      Filebeat-to-data-stream write with a custom `index` name and the `oscd-epoch`
+      pipeline behave as ELK-01 Lab 2 describes.
+- [ ] Confirm Elastic Cloud Australian regions and residency statements before ELK-03's
+      Australian context is taught.
+- [ ] Framework Custodian to map provisional KSAT IDs (`ELK-0n-K01` …) and confirm
+      NICE T-codes (paraphrased) and ASD CSF sub-domain names.
+
+**Content:**
+
+- [ ] Add EXT-ELK to [`quality/annual-review-schedule.md`](quality/annual-review-schedule.md)
+      with a **6-month** window (vendor release cadence).
+- [ ] Lab guides `labs/guides/elk-*.md` following the EXT-SPL pattern, including the
+      optional Fleet Server enrolment path for ELK-01 Lab 3.
+
 ### modules/playbook-engineering.md — EXT-IRP Verification
 
 Single-module extension (0 CP) on vendor-neutral playbook engineering, grounded in the
