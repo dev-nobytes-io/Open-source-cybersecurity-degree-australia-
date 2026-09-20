@@ -59,7 +59,7 @@ def _cv(gaps):
 
 def cmd_integrity(_args):
     leaked = 0
-    for index in ("proxy", "dns", "wineventlog", "sysmon", "cloud", "risk"):
+    for index in ("proxy", "dns", "wineventlog", "sysmon", "cloud", "fw", "ids", "risk"):
         for e in _load(index):
             if any(k.startswith("_truth") for k in e):
                 leaked += 1
@@ -140,6 +140,26 @@ def cmd_data(_args):
     check("baseline is contaminated", len(big) >= 5,
           f"insider has {len(big)} uploads >5MB inside the baseline window "
           f"(this is why robust estimators win)")
+
+    # Firewall sessions mirror web egress, so the two logs reconcile.
+    fw, ids = _load("fw"), _load("ids")
+    allowed = [e for e in fw if e.get("action") == "allowed" and e.get("direction") == "outbound"]
+    ratio = len(allowed) / max(1, len(proxy))
+    check("firewall log reconciles with web log", 0.97 <= ratio <= 1.03,
+          f"{len(allowed):,} outbound allowed sessions vs {len(proxy):,} web events "
+          f"({ratio:.3f}x — onboard the firewall with the wrong timestamp and this breaks)")
+
+    # Denies are spread across the estate, not concentrated on the scenario host.
+    blocked = collections.Counter(e["src_host"] for e in fw if e.get("action") == "blocked")
+    share = blocked.get(bh, 0) / max(1, sum(blocked.values()))
+    check("blocked sessions are not an answer key", len(blocked) >= 20 and share < 0.05,
+          f"denies on {len(blocked)} hosts; beacon host holds {share:.1%} of them")
+
+    # IDS: mostly noise, with the beacon channel inside it at high severity.
+    hosts = {e["src_host"] for e in ids}
+    hi = [e for e in ids if e.get("src_host") == bh and e.get("severity") == 1]
+    check("IDS alerts are noisy but not blind", len(hosts) >= 15 and len(hi) >= 1,
+          f"{len(ids)} alerts across {len(hosts)} hosts; {len(hi)} severity-1 on the beacon host")
 
     print()
     passed = sum(1 for r in results if r)

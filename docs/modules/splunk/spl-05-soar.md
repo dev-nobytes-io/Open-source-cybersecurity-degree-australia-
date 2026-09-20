@@ -470,7 +470,7 @@ component of a larger automation estate rather than a silo.
     **[SPL-05 lab guide](../../../labs/guides/spl-05.md)** gives the setup, the commands and the
     verification for every lab below — against the
     **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
-    ~101k labelled events with ground truth, so you can measure a real positive
+    ~130k labelled events with ground truth, so you can measure a real positive
     predictive value rather than estimate one.
 
     The split of responsibility: **this page says why each lab exists and what to

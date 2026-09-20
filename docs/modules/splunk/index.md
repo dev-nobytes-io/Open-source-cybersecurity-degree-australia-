@@ -366,7 +366,7 @@ The table above says what a licence gets you. It is not the whole picture, and r
 alone it makes the series look far more gated than it is.
 
 **[`labs/`](../../../labs/README.md)** provides a reproducible synthetic estate — about
-101,000 labelled events across authentication, endpoint, web, DNS, cloud and risk, with
+130,000 labelled events across authentication, endpoint, web, DNS, cloud, firewall, IDS and risk, with
 227 identities and 260 assets — plus a verification harness and Docker environments. It
 exists because ground truth is the thing BOTS cannot give you: with labels you can
 compute a real positive predictive value, which is what

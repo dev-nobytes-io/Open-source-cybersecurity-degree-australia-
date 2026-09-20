@@ -4,7 +4,9 @@
 
 Every generated event gets a stable `event_id`. Events belonging to an attack
 scenario are additionally labelled with the scenario, ATT&CK technique and a
-short note.
+short note. Derived firewall and IDS events inherit the label of the traffic
+they were derived from, so a scenario is labelled consistently across all of
+its views.
 
 **By default those labels are stripped before the events are written for
 ingestion**, and go to `data/truth/` instead:
