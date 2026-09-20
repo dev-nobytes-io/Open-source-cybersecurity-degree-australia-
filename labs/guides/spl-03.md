@@ -284,7 +284,7 @@ defended mistake scores above an undisclosed correction.
 ## Lab 4 📄 — Coverage Assessment
 
 No Splunk instance needed; this is analysis. Your detection estate is the ten
-detections in `index=risk`, and your telemetry is the six indexes.
+detections in `index=risk`, and your telemetry is the eight indexes.
 
 Pick one ATT&CK tactic — **Lateral Movement (TA0008)** and **Credential Access
 (TA0006)** both have real substance in this dataset. For each technique, classify:

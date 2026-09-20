@@ -421,6 +421,9 @@ flowchart LR
 
 All labs use free or open-source tooling, or none. No lab requires a paid platform, a cloud account or a trial licence.
 
+!!! note "Runnable guide"
+    [`labs/guides/sa-05.md`](../../../labs/guides/sa-05.md) is the how-to for these four labs: measured inputs for Labs 1 and 2 from the lab dataset, and a three-node rsyslog/TLS relay estate (`labs/docker/compose.syslog-relay.yml`) for Labs 3 and 4, plus the onboarding of the sources Topics 4–7 name.
+
 ### Lab 1: Map an Estate onto the Tiers and the Two Stages
 
 **Objective:** Take a described estate and produce its logging placement model: which tier each component occupies, which store each source feeds, where the filter sits, and which hosts cannot participate.

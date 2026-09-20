@@ -39,7 +39,7 @@ import tempfile
 import textwrap
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-GUIDES = sorted((ROOT / "guides").glob("spl-*.md"))
+GUIDES = sorted((ROOT / "guides").glob("spl-*.md")) + sorted((ROOT / "guides").glob("sa-*.md"))
 PAPER = sorted((ROOT / "paper").glob("*.md"))
 DATA = ROOT / "data"
 
