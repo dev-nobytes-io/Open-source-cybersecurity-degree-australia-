@@ -1,0 +1,66 @@
+# Standalone Filebeat for ELK-01 Lab 2: the eight lab sources into
+# logs-oscd.<source>-lab data streams, through the oscd-epoch ingest pipeline.
+#
+# Each source is its own input so `fields.dataset` names the stream. The
+# events are NDJSON with an epoch `_time`; the pipeline turns that into
+# `@timestamp`, which a data stream requires. Templates and ILM setup are off
+# because the built-in logs-*-* template already creates the data streams.
+filebeat.inputs:
+  - type: filestream
+    id: oscd-wineventlog
+    paths: [/data/events/wineventlog.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: wineventlog }
+  - type: filestream
+    id: oscd-sysmon
+    paths: [/data/events/sysmon.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: sysmon }
+  - type: filestream
+    id: oscd-proxy
+    paths: [/data/events/proxy.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: proxy }
+  - type: filestream
+    id: oscd-dns
+    paths: [/data/events/dns.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: dns }
+  - type: filestream
+    id: oscd-cloud
+    paths: [/data/events/cloud.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: cloud }
+  - type: filestream
+    id: oscd-fw
+    paths: [/data/events/fw.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: fw }
+  - type: filestream
+    id: oscd-ids
+    paths: [/data/events/ids.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: ids }
+  - type: filestream
+    id: oscd-risk
+    paths: [/data/events/risk.json]
+    parsers:
+      - ndjson: { target: "", add_error_key: true }
+    fields: { dataset: risk }
+
+setup.template.enabled: false
+setup.ilm.enabled: false
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  username: elastic
+  password: "${ELASTIC_PASSWORD}"
+  index: "logs-oscd.%{[fields.dataset]}-lab"
+  pipeline: oscd-epoch
