@@ -34,11 +34,11 @@ parsing and macros. Data is monitored from `../data` read-only.
 
 | Component | What it is |
 |---|---|
-| `generator/` | Pure-stdlib Python that builds a labelled 14-day estate: ~101k events, 227 identities, 260 assets, 8 attack scenarios |
+| `generator/` | Pure-stdlib Python that builds a labelled 14-day estate: ~130k events across eight indexes (including derived firewall sessions and IDS alerts), 227 identities, 260 assets, 8 attack scenarios |
 | `harness/verify.py` | Checks the dataset is sound, that no answers leaked, and self-checks objective lab answers |
-| `docker/` | `compose.single.yml` (Free licence) and `compose.distributed.yml` (search head + 2 indexers, **trial licence required**) |
+| `docker/` | `compose.single.yml` (Free licence), `compose.distributed.yml` (search head + 2 indexers, **trial licence required**), and `compose.syslog-relay.yml` (three-node rsyslog/TLS relay path for the SA-05 labs — no Splunk needed) |
 | `splunk-apps/oscd_lab/` | Indexes, inputs, explicit parsing, macros, lookup definitions |
-| `guides/` | One guide per module, covering all 69 labs with setup, commands and verification |
+| `guides/` | One guide per module, covering all 69 Splunk-series labs plus the 4 SA-05 labs, with setup, commands and verification |
 | `docs/` | [Environment](docs/environment.md), [data model](docs/data-model.md), [ground truth](docs/ground-truth.md) |
 
 ---
