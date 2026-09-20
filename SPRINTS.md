@@ -617,6 +617,28 @@ Delivered one module per PR, stacked, so each is reviewable on its own. Domain
 Expert and Practitioner Reviewer remain unassigned; blocking verification items
 are in `docs/TODO.md`.
 
+
+### Sprint 27 — EXT-ELK Elastic and OpenSearch series 🔄 In progress (2026-09-13)
+
+The vendor-specific counterpart to EXT-SPL, built so the same lab dataset can be
+worked in both platforms. Grounded in Elastic's and OpenSearch's own documentation
+as read on 2026-09-13; the free/paid boundary is stated per module.
+
+- [x] **Series index** (`docs/modules/elastic/index.md`) — R3 position, cost and
+      access reality, five-module plan, mapping onto the degree, lab substrate,
+      verification table.
+- [x] **ELK-01** Collection: Elastic Agent, Fleet and Beats — with
+      `labs/docker/compose.elastic.yml` (single-node Basic + Kibana + standalone
+      Filebeat into `logs-oscd.<source>-lab` data streams; syntax-validated only).
+- [ ] **ELK-02** Ingest pipelines, ECS and data streams.
+- [ ] **ELK-03** Lifecycle, sizing and cluster architecture.
+- [ ] **ELK-04** Detection rules, EQL and the Security app.
+- [ ] **ELK-05** OpenSearch: the open alternative, and migration.
+- [ ] Self-assessment quiz; lab guides `labs/guides/elk-*.md`.
+
+One module per PR. Domain Expert and Practitioner Reviewer unassigned; blocking
+verification items in `docs/TODO.md`.
+
 ---
 
 ### Sprint 29 — EXT-DSO Constrained and Disconnected Environments ✅ Drafted (2026-09-13)
@@ -671,6 +693,7 @@ rather than reinvented.
 
 | Splunk certification pathway (EXT-SPL) | Splunk certification-track prerequisite chains, supplied as the official Architect and Consultant exam-detail pages. Verified against Splunk's live certification pages and track flowcharts and built out as the **EXT-SPL** extension series (`docs/modules/splunk/`) — deliberately vendor-specific, non-credit, and explicit about cost and access gating. Sprint 25 added the `labs/` environment, guides for all 69 labs, conf-file practice and a 52-question quiz | ✅ Drafted — Domain Expert and currently-certified Practitioner Reviewers still required; blocking verification items in `docs/TODO.md` |
 | Security architecture practice (EXT-SA) | Method-and-practice extension series grounded in SABSA W100/W117, the TOGAF ADM, ASD Modern Defensible Architecture, NIST CSF 2.0, the ISM guideline chapters on networking/gateways/system access/security assurance, NIST SP 800-92 with ASD logging guidance, and SOC-CMM/CTI-CMM — built as **EXT-SA** (`docs/modules/security-architecture/`), non-credit, one module per PR | ✅ Sprint 26 — index, SA-01 … SA-06 and quiz drafted (PRs #40–#48); Domain Expert and Practitioner Reviewer still required; blocking verification items in `docs/TODO.md` |
+| Elastic and OpenSearch platform (EXT-ELK) | Vendor-specific series mirroring EXT-SPL: Elastic Agent/Fleet, ingest pipelines and ECS, ILM and cluster architecture, detection rules and EQL, OpenSearch Security Analytics and migration — built as **EXT-ELK** (`docs/modules/elastic/`), non-credit, free Basic tier and Apache-2.0 OpenSearch, one module per PR | 🔄 Sprint 27 — index and ELK-01 drafted |
 | Constrained and disconnected operations (EXT-DSO) | Site designs for isolated, policy-isolated, physically disconnected and OT-zoned sites: monitoring across a cross domain solution, the offline detection-content lifecycle, rapid deployment with teardown and sanitisation, and validation under failure — grounded in the ISM gateway/networking/media/IT equipment/data-transfer chapters, NIST SP 800-88r2, SP 800-84, SP 800-82r3, IEC 62443, the Sigma and STIX/TAXII specifications — built as **EXT-DSO** (`docs/modules/constrained-operations/`), non-credit, one module per PR | ✅ Sprint 29 — index, DSO-01 … DSO-04 and quiz drafted (PRs #57–#61); reviewers required; blocking verification items in `docs/TODO.md` |
 
 *(Add rows as resources are supplied.)*

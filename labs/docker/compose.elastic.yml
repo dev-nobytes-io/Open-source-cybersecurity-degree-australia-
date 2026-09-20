@@ -1,0 +1,86 @@
+# Single-node Elasticsearch + Kibana on the free Basic licence, plus a standalone
+# Filebeat that reads the lab dataset into data streams named
+# logs-oscd.<source>-lab (EXT-ELK ELK-01 Lab 2).
+#
+#   python3 generator/generate.py --days 14
+#   docker compose -f docker/compose.elastic.yml up -d
+#   # Kibana: http://localhost:5601   user elastic / ${ELASTIC_PASSWORD:-oscd-lab-changeme}
+#   # then create the `oscd-epoch` ingest pipeline from the module's Lab 2, and
+#   # `docker compose -f docker/compose.elastic.yml restart filebeat`
+#
+# Pin ELASTIC_VERSION to the stack release you are teaching against. Security is
+# on (Basic includes RBAC and TLS); HTTP TLS is off here to keep the lab to one
+# certificate step fewer — do not copy that into anything that leaves a laptop.
+#
+# Validated for compose syntax when written; not executed on the author's
+# machine (no Docker engine). The first `up -d` is the integration test — if
+# Kibana cannot connect, `docker logs oscd-es-setup` shows the password step.
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION:-9.0.0}
+    container_name: oscd-es
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      - xpack.license.self_generated.type=basic
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD:-oscd-lab-changeme}
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s -u elastic:${ELASTIC_PASSWORD:-oscd-lab-changeme} http://localhost:9200/_cluster/health | grep -q '\"status\":\"\\(green\\|yellow\\)\"'"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  # Kibana may not connect as the `elastic` superuser; set the built-in
+  # kibana_system password once, then Kibana uses it.
+  es-setup:
+    image: curlimages/curl:8.10.1
+    container_name: oscd-es-setup
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    command: >
+      sh -c "curl -s -u elastic:${ELASTIC_PASSWORD:-oscd-lab-changeme}
+             -X POST http://elasticsearch:9200/_security/user/kibana_system/_password
+             -H 'Content-Type: application/json'
+             -d '{\"password\":\"${KIBANA_PASSWORD:-oscd-kibana-changeme}\"}'
+             && echo 'kibana_system password set'"
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${ELASTIC_VERSION:-9.0.0}
+    container_name: oscd-kibana
+    depends_on:
+      es-setup:
+        condition: service_completed_successfully
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_USERNAME=kibana_system
+      - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD:-oscd-kibana-changeme}
+    ports:
+      - "127.0.0.1:5601:5601"
+
+  # Standalone collector: one filestream input per lab source, written to
+  # logs-oscd.<source>-lab through the oscd-epoch pipeline (module Lab 2 step 2).
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:${ELASTIC_VERSION:-9.0.0}
+    container_name: oscd-filebeat
+    user: root
+    command: ["filebeat", "-e", "--strict.perms=false"]
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    environment:
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD:-oscd-lab-changeme}
+    volumes:
+      - ./elastic/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ../data/events:/data/events:ro
+      - fbdata:/usr/share/filebeat/data
+
+volumes:
+  esdata:
+  fbdata:
