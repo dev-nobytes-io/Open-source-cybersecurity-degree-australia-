@@ -1,6 +1,8 @@
 # Lab guides
 
-One guide per module, covering all **69 labs** in the series.
+One guide per module: all **69 labs** in the Splunk series, plus the **4 labs** of
+[SA-05](../../docs/modules/security-architecture/sa-05-logging-and-monitoring-architecture.md)
+from the security-architecture series, which run on a Splunk-free relay estate.
 
 **The split of responsibility:** the module says *why* the lab exists and *what
 to deliver*; the guide says *how to run it*. Marking criteria stay in the module.
@@ -16,9 +18,10 @@ to deliver*; the guide says *how to run it*. Marking criteria stay in the module
 | [spl-07](spl-07.md) | [Architecture & Deployment](../../docs/modules/splunk/spl-07-architect.md) | 7 | 0 | 4 | 3 | 0 |
 | [spl-08](spl-08.md) | [Implementation & Consulting](../../docs/modules/splunk/spl-08-consultant.md) | 7 | 1 | 4 | 2 | 0 |
 | [spl-09](spl-09.md) | [Detection Analytics & Risk Scoring](../../docs/modules/splunk/spl-09-detection-analytics.md) | 8 | 4 | 3 | 1 | 0 |
-| **Total** | | **69** | **31** | **21** | **12** | **5** |
+| [sa-05](sa-05.md) | [Logging, Monitoring & Detection Architecture](../../docs/modules/security-architecture/sa-05-logging-and-monitoring-architecture.md) | 4 | 2 | 2 | 0 | 0 |
+| **Total** | | **73** | **33** | **23** | **12** | **5** |
 
-**52 of 69 (75%) need no paid licence**, and **every one of the 69 has a written
+**56 of 73 (77%) need no paid licence**, and **every one of the 69 has a written
 deliverable that can be produced without a running Splunk instance.**
 
 ## Status legend
@@ -43,7 +46,8 @@ This is the normal case, not the fallback. What you produce instead:
 | **Configuration files**, written and defended | [Conf-file practice](../paper/conf-practice.md); SPL-06 Labs 1, 2, 6; SPL-08 Lab 2 |
 | **Capacity and cost models** with traceable assumptions | SPL-07 Labs 1, 6; SPL-04 Lab 7 |
 | **Risk and detection arithmetic** | SPL-09 Labs 2, 3, 4 — standard-library Python over the dataset files |
-| **Architecture and operating-model design** | SPL-07 Labs 5, 7; SPL-08 Labs 1, 4, 5, 7 |
+| **Architecture and operating-model design** | SPL-07 Labs 5, 7; SPL-08 Labs 1, 4, 5, 7; SA-05 Labs 1, 2 |
+| **A syslog relay path you can break** | SA-05 Labs 3, 4 — `docker/compose.syslog-relay.yml`, no Splunk needed |
 | **Structured analysis** — ACH, coverage maps, diagnosis logs | SPL-03 Labs 4, 7; SPL-06 Lab 7; SPL-07 Lab 3 |
 | **Self-assessment** | [52-question quiz](../../docs/modules/splunk/quiz.md) |
 

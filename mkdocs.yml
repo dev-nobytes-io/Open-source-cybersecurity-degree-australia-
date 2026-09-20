@@ -146,6 +146,7 @@ nav:
         - SA-05 — Logging, Monitoring and Detection Architecture: docs/modules/security-architecture/sa-05-logging-and-monitoring-architecture.md
         - SA-06 — Assurance, Capability Maturity and System Authorisation: docs/modules/security-architecture/sa-06-assurance-maturity-and-authorisation.md
         - Self-assessment quiz: docs/modules/security-architecture/quiz.md
+        - Lab guide — SA-05: labs/guides/sa-05.md
       - EXT-DSO — Security Operations in Constrained and Disconnected Environments:
         - Series index: docs/modules/constrained-operations/index.md
         - DSO-01 — Monitoring Architecture for Isolated and Intermittently Connected Sites: docs/modules/constrained-operations/dso-01-monitoring-isolated-and-intermittent-sites.md

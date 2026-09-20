@@ -1,6 +1,6 @@
 # Data model
 
-Six indexes, CIM-aligned field names, JSON with `INDEXED_EXTRACTIONS`.
+Eight indexes, CIM-aligned field names, JSON with `INDEXED_EXTRACTIONS`.
 
 ## Indexes and sourcetypes
 
@@ -11,11 +11,32 @@ Six indexes, CIM-aligned field names, JSON with `INDEXED_EXTRACTIONS`.
 | `proxy` | `oscd:proxy` | Web | `user`, `src`, `dest`, `url`, `http_method`, `status`, `category`, `bytes_out`, `bytes_in` |
 | `dns` | `oscd:dns` | Network Resolution | `src`, `query`, `query_type`, `answer`, `reply_code` |
 | `cloud` | `oscd:cloud` | Authentication | `user`, `action`, `src_country`, `src_city`, `src_lat`, `src_long`, `authentication_method`, `mfa_result` |
+| `fw` | `oscd:fw` | Network Traffic | `dvc`, `src`, `src_host`, `src_port`, `dest_ip`, `dest_port`, `transport`, `app`, `action` (allowed/blocked), `rule`, `direction` (outbound/internal), `bytes_out`, `bytes_in` |
+| `ids` | `oscd:ids` | Intrusion Detection | `dvc`, `src`, `src_host`, `dest_ip`, `dest_port`, `signature_id`, `signature`, `category`, `severity` (1 high – 3 low), `action` |
 | `risk` | `oscd:risk` | — (ES risk index) | `entity`, `entity_type`, `risk_score`, `risk_message`, `search_name` |
 
 The `risk` index uses **ES 8 field names** (`entity`, `entity_type`). Pre-ES 8
 deployments use `risk_object` / `risk_object_type` — see the terminology table in
 [SPL-09](../../docs/modules/splunk/spl-09-detection-analytics.md).
+
+## Derived network telemetry (`fw`, `ids`)
+
+The firewall and IDS streams are **derived from the traffic above**, not drawn
+independently, because that is how the devices see the world and because the
+SA-05 integration labs teach cross-source reconciliation rather than single-log
+search. Properties the labs rely on, asserted by `harness/verify.py data`:
+
+| Property | Why |
+|---|---|
+| Every web egress has exactly one `action=allowed direction=outbound` firewall session, 20 ms later, same host and bytes | The two logs reconcile to within 3% — onboard the firewall with the wrong timestamp format and they stop reconciling, which is the defect SA-05 Lab 2 has you find |
+| `dest_ip` is the DNS answer where the lookup was seen, otherwise a stable hash of the domain | Consistent across `dns`, `proxy` and `fw` for the same site |
+| Policy denies (`action=blocked`) are spread across ~220 workstations | `action=blocked` alone identifies nothing; the beacon host holds well under 5% of denies |
+| IDS alerts are mostly informational (severity 3) across 60+ hosts, with the true positives inside the noise | DGA lookups (severity 2), the beacon channel (severity 1), exfil chunks and the `certutil` download alert at a realistic precision, so triage is analysis, not lookup |
+| Lateral movement appears as east-west 445/135 sessions on `direction=internal` | The segmentation-firewall view of the same hops the authentication log records |
+| **DNS is not on the edge firewall** | Lookups go to the internal resolver, so there is no 53/udp session per query; the IDS sees the resolver's upstream DGA-pattern queries instead |
+
+Signature names are in the ET Open *style*; the IDs (`2100001`–`2100007`,
+`2900001`–`2900004`) are a private range and correspond to no real rule.
 
 ## Lookups
 

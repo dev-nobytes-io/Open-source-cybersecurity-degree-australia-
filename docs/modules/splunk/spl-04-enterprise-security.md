@@ -460,7 +460,7 @@ relative to the UEBA and MLTK discussion in Topic 11.
     **[SPL-04 lab guide](../../../labs/guides/spl-04.md)** gives the setup, the commands and the
     verification for every lab below — against the
     **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
-    ~101k labelled events with ground truth, so you can measure a real positive
+    ~130k labelled events with ground truth, so you can measure a real positive
     predictive value rather than estimate one.
 
     The split of responsibility: **this page says why each lab exists and what to
