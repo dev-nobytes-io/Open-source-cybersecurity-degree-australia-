@@ -56,7 +56,7 @@ Schema* reference and guidelines, *Data streams* and *Index templates* documenta
 | [EXT-SPL SPL-02](../splunk/spl-02-power-user.md) | CIM and data models — the Splunk side of the crosswalk in Topic 5. |
 | [SA-05 — Logging, Monitoring and Detection Architecture](../security-architecture/sa-05-logging-and-monitoring-architecture.md) | Topic 7's record baseline is what the ECS categorisation fields implement; Lab 2's register decides what gets pipelined. |
 | [DE05 — Detection Operations Management](../../../degrees/operational/detection-engineering/DE05-detection-operations-management.md) | Detection-as-code operations; pipelines belong under the same change control (Topic 7). |
-| [ELK-03](elk-03-lifecycle-sizing-cluster-architecture.md); ELK-04 *(later in this series)* | Successors: lifecycle on the streams built here; rules over the fields mapped here. |
+| [ELK-03](elk-03-lifecycle-sizing-cluster-architecture.md); [ELK-04](elk-04-detection-rules-eql-security-app.md) | Successors: lifecycle on the streams built here; rules over the fields mapped here. |
 
 ---
 
