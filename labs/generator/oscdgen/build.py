@@ -9,7 +9,7 @@ from collections import Counter, defaultdict
 
 from . import rng as R
 from .profile import build_org, asset_rows, identity_rows
-from .sources import auth, process, network, cloud
+from .sources import auth, process, network, cloud, netsec
 from . import scenarios as S
 
 TRUTH_KEYS = ("_truth_scenario", "_truth_technique", "_truth_note")
@@ -157,6 +157,13 @@ def generate(seed=1337, days=14, n_users=220, n_servers=40, start_ts=None):
     events += S.insider_slow_collection(rng, org, start_ts, end_ts, insider, org.assets)
     injected["insider_collection"] = {"user": insider.user}
 
+    events.sort(key=lambda e: e["_time"])
+
+    # ---- derived network security telemetry ---------------------------
+    # Firewall sessions and IDS alerts are implied by the traffic above and
+    # carry its labels, so the three views of one connection agree. A
+    # separate RNG keeps the base dataset byte-identical to earlier seeds.
+    events += netsec.derive(random.Random(seed + 2), org, events)
     events.sort(key=lambda e: e["_time"])
     return {"org": org, "events": events, "injected": injected,
             "start": start_ts, "end": end_ts, "seed": seed, "days": days}

@@ -407,7 +407,7 @@ developed in [SPL-02](spl-02-power-user.md) Topic 5.
     **[SPL-01 lab guide](../../../labs/guides/spl-01.md)** gives the setup, the commands and the
     verification for every lab below — against the
     **[lab environment](../../../labs/README.md)**, a reproducible synthetic estate of
-    ~101k labelled events with ground truth, so you can measure a real positive
+    ~130k labelled events with ground truth, so you can measure a real positive
     predictive value rather than estimate one.
 
     The split of responsibility: **this page says why each lab exists and what to
