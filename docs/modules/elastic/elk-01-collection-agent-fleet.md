@@ -52,7 +52,7 @@ documentation and the subscriptions comparison; the lab dataset from `labs/`.
 | [DE02 — Data Sources & Log Engineering](../../../degrees/operational/detection-engineering/DE02-data-sources-log-engineering.md) | Logging configuration and constraints (Topic 5); the generation precondition an agent cannot fix. |
 | [EXT-ANS — Ansible for Security Operations](../ansible-security-automation.md) | Topic 1 (the control plane as a security system) and Topic 8 (deploying and verifying telemetry) — the same argument ELK-01 Topic 5 makes about Fleet. |
 | [EXT-SPL SPL-06](../splunk/spl-06-enterprise-admin.md) | Forwarders and the deployment server: the Splunk counterpart of agent and Fleet, worked on the same dataset. |
-| ELK-02 *(later in this series)* | Successor: what happens to the documents the agent ships. |
+| [ELK-02](elk-02-ingest-pipelines-ecs-data-streams.md) | Successor: what happens to the documents the agent ships. |
 
 ---
 
