@@ -76,7 +76,7 @@ State this to learners before they start.
 |---|---|---|
 | Elastic Stack, **Basic** ("Free and open") self-managed | **Free** | Kibana, Fleet and Elastic Agent, ingest pipelines, ILM, RBAC and encryption in transit are in the free tier per the subscriptions page. Distributed under the Elastic License, with selected components under SSPL or Apache 2.0. |
 | Elastic **Platinum / Enterprise** features | **Paid** | Per the subscriptions page as read: searchable snapshots (frozen tier), cross-cluster replication, machine-learning anomaly detection rules, Elastic Defend endpoint protection, SAML/OIDC SSO, audit logging, and most Kibana alerting connectors. The series names each paid dependency where a topic touches it. |
-| Elastic Security **detection engine and prebuilt rules** | **Verify** | The subscriptions comparison as read on 2026-09-13 places the SIEM detection engine's prebuilt rules under Platinum; the Security documentation defers to that page. ELK-04 is written so its labs run with **custom** rules on Basic and treats prebuilt-rule access as something to confirm against the live page before scheduling. |
+| Elastic Security **detection engine and prebuilt rules** | **Verify** | Two readings on 2026-09-13: the subscriptions comparison as summarised places prebuilt rules under Platinum; the prebuilt-rules documentation states that installing, enabling and adding exceptions are "available across all subscription levels", with direct editing and update-conflict resolution at Enterprise. ELK-04 follows the more specific page, uses **custom** rules in every lab, and carries the item in its verification table. |
 | Elastic Cloud (hosted) | **Paid**, with a free trial | Not required by any module. Australian regions exist; residency is discussed in ELK-03's Australian context. |
 | OpenSearch and OpenSearch Dashboards, incl. Security Analytics and ISM | **Free** (Apache 2.0) | No paid tier. The series' fully open path. |
 | Elastic certifications (Certified Engineer, Certified Analyst, Certified Observability Engineer, Certified SIEM Analyst) | **Paid** | Names as listed on Elastic's certification page on 2026-09-13; format, duration, prerequisites and cost are on the individual pages and are **not** reproduced here. |
@@ -105,11 +105,11 @@ flowchart TD
 | Module | Title | Focus | Notional hours |
 |---|---|---|---|
 | [ELK-01](elk-01-collection-agent-fleet.md) | Collection: Elastic Agent, Fleet and Beats | Agent, Fleet Server, policies and integrations; managed vs standalone; the data-stream naming contract; onboarding the lab dataset | ~18 |
-| ELK-02 *(planned — arrives in a later PR)* | Ingest Pipelines, ECS and Data Streams | Processors, simulate and failure handling; the Elastic Common Schema and its categorisation fields; CIM ↔ ECS; templates, rollover and `@timestamp` | ~22 |
-| ELK-03 *(planned — arrives in a later PR)* | Lifecycle, Sizing and Cluster Architecture | ILM phases and actions, data tiers and node roles, shards and replicas, what is paid (frozen, CCR); reading Elastic's sizing guidance the way SA-05 Topic 12 reads a validated architecture | ~22 |
-| ELK-04 *(planned — arrives in a later PR)* | Detection Rules, EQL and the Security App | The seven rule types, EQL sequences, exceptions, alerts as `event.kind: signal`, cases, MITRE tagging; Sigma to Elastic | ~22 |
-| ELK-05 *(planned — arrives in a later PR)* | OpenSearch: the Open Alternative, and Migration | Security Analytics (detectors, Sigma rules, findings, correlation), ISM, data streams; moving templates, pipelines and rules between the two; when to choose which | ~20 |
-| Quiz *(planned — arrives in a later PR)* | Self-assessment | 50 questions across the five modules | ~3 |
+| [ELK-02](elk-02-ingest-pipelines-ecs-data-streams.md) | Ingest Pipelines, ECS and Data Streams | Processors, simulate and failure handling; the Elastic Common Schema and its categorisation fields; CIM ↔ ECS; templates, rollover and `@timestamp` | ~22 |
+| [ELK-03](elk-03-lifecycle-sizing-cluster-architecture.md) | Lifecycle, Sizing and Cluster Architecture | ILM phases and actions, data tiers and node roles, shards and replicas, what is paid (frozen, CCR); reading Elastic's sizing guidance the way SA-05 Topic 12 reads a validated architecture | ~22 |
+| [ELK-04](elk-04-detection-rules-eql-security-app.md) | Detection Rules, EQL and the Security App | The seven rule types, EQL sequences, exceptions, alerts as `event.kind: signal`, cases, MITRE tagging; Sigma to Elastic | ~22 |
+| [ELK-05](elk-05-opensearch-alternative-and-migration.md) | OpenSearch: the Open Alternative, and Migration | Security Analytics (detectors, Sigma rules, findings, correlation), ISM, data streams; moving templates, pipelines and rules between the two; when to choose which | ~20 |
+| [Quiz](quiz.md) | Self-assessment | 50 questions across the five modules | ~3 |
 | | | | **~107 hours** |
 
 **Suggested order.** In sequence. ELK-01 and ELK-02 are the foundation everything else
