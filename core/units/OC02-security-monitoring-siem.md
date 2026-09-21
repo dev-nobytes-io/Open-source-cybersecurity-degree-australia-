@@ -222,28 +222,65 @@ and validate them against simulated adversary activity.
 
 **Environment:**
 - Operating System: Ubuntu 22.04 LTS VM
-- Tools: a free SIEM/log platform (OpenSearch or Splunk Free), Sigma + a Sigma
-  converter (sigma-cli), sample telemetry (Sysmon-style + auth logs) — all free
+- Tools: this repository's own lab estate in [`labs/`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/labs/README.md)
+  — a pure-stdlib generator (no `pip install`) and Splunk Free via
+  `labs/docker/compose.single.yml`; Sigma + a Sigma converter (sigma-cli). All free/OSS.
 - Minimum hardware: 6 GB RAM / 2 vCPU / 30 GB disk (within the 8 GB / 4-core /
   50 GB spec; single-node; no GPU)
 
 **Instructions:**
 
-1. Ingest the provided endpoint (process-creation) and authentication telemetry
-   into the platform; confirm fields are parsed.
-2. Pick two ATT&CK techniques present in the data (e.g. T1059 Command and
-   Scripting Interpreter, T1053 Scheduled Task/Job).
-3. Write a Sigma rule for each, tagged with its ATT&CK technique ID.
-4. Convert the Sigma rules to the platform's query language and run them.
-5. Confirm each detection fires on the malicious activity and record the matching
-   events as evidence.
+1. Generate the labelled estate and confirm it is sound:
+
+   ```bash
+   cd labs
+   python3 generator/generate.py --days 14   # ~130k events, pure stdlib, ~15s
+   python3 harness/verify.py integrity       # asserts no truth labels leaked
+   python3 harness/verify.py data            # asserts the properties the labs rely on
+   ```
+
+   The generator writes events to `data/events/` with the ground-truth labels
+   **stripped** — they go to `data/truth/` instead. Without that split every
+   detection lab would be solvable with a single `_truth_scenario=*` search, so
+   do not read `data/truth/` before you have an answer.
+
+2. Start the platform and confirm ingestion:
+
+   ```bash
+   cd docker && docker compose -f compose.single.yml up -d
+   # http://localhost:8000  then:  | tstats count where index=* by index
+   ```
+
+3. Author a Sigma rule for **each** of these two scenarios, tagged with its
+   ATT&CK technique ID. Both are present in the generated estate and both are
+   documented in [`labs/docs/ground-truth.md`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/labs/docs/ground-truth.md):
+
+   | Scenario | Technique | What the detection must separate from normal activity |
+   |---|---|---|
+   | `password_spray` | **T1110.003** Password Spraying | many distinct accounts, few attempts each, from one source — against a noisy baseline of ordinary failed logons |
+   | `lolbin_download` | **T1105** Ingress Tool Transfer | a signed Microsoft binary (`certutil.exe`) retrieving a remote payload, then a child `rundll32.exe` |
+
+4. Convert each rule to the platform's query language with `sigma-cli` and run it.
+
+5. Record the matching events as evidence, then self-check your answers without
+   reading the truth files:
+
+   ```bash
+   python3 harness/verify.py answer oc02.lab1.spray_victim "<username>"
+   python3 harness/verify.py answer oc02.lab1.lolbin_host  "<hostname>"
+   ```
+
+   The harness compares against the generated ground truth and tells you only
+   *whether* you are right — a wrong answer returns a salted hash, not the answer.
+
 6. Commit the Sigma rules to a Git repo (detection-as-code).
 
 **Expected Output:**
 
-Two ATT&CK-tagged Sigma rules that fire correctly on the sample data, their
-converted queries, evidence of the matches, and a Git history. Learners can
-explain the behaviour each rule targets.
+Two ATT&CK-tagged Sigma rules that fire on the generated estate, their converted
+queries, evidence of the matches, both `harness/verify.py answer` checks passing,
+and a Git history. Learners can explain the behaviour each rule targets and why
+it is distinguishable from the baseline.
 
 **Reflection Questions:**
 
