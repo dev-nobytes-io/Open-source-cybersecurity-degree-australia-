@@ -156,6 +156,9 @@ nav:
         - ELK-04 — Detection Rules, EQL and the Security App: docs/modules/elastic/elk-04-detection-rules-eql-security-app.md
         - ELK-05 — OpenSearch, the Open Alternative, and Migration: docs/modules/elastic/elk-05-opensearch-alternative-and-migration.md
         - Self-assessment quiz: docs/modules/elastic/quiz.md
+      - EXT-DSO — Security Operations in Constrained and Disconnected Environments:
+        - Series index: docs/modules/constrained-operations/index.md
+        - DSO-01 — Monitoring Architecture for Isolated and Intermittently Connected Sites: docs/modules/constrained-operations/dso-01-monitoring-isolated-and-intermittent-sites.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
