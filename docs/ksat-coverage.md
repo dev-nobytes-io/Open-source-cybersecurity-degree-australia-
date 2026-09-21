@@ -5,9 +5,16 @@
 This page is the full text index of the same data.
 
 > **Generated** by `.github/scripts/ksat_coverage.py` from the units'
-> `### NICE/DCWF KSATs` tables. Do not edit by hand. KSAT IDs are
-> project-local (provisional) pending Framework Custodian mapping to official
-> NICE/DCWF identifiers. See [`docs/maturity-models.md`](maturity-models.md).
+> `### NICE/DCWF KSATs` tables. Do not edit by hand.
+>
+> **Nothing on this page is framework-verified.** The `<UNIT>-K/S/A` IDs are
+> project-local self-descriptions. The official-looking `T####` codes are
+> external DCWF identifiers, and their task statements were written per-unit
+> rather than transcribed from the DCWF — 29 codes currently carry divergent
+> statements across 252 of 262 rows. Both are provisional pending Framework
+> Custodian verification. See
+> [`docs/review/framework-verification.md`](review/framework-verification.md)
+> and [`docs/maturity-models.md`](maturity-models.md).
 
 **Totals:** 261 Knowledge · 132 Skills · 132 Abilities · 130 Tasks across 66/66 units with KSATs authored.
 
