@@ -7,7 +7,7 @@
 
 !!! warning "Not a credit-bearing unit"
     This quiz belongs to the [EXT-DSO series](index.md), an optional extension outside the
-    168 CP degree structure. It carries **0 CP**, is not assessed, and does not appear in
+    160 CP degree structure. It carries **0 CP**, is not assessed, and does not appear in
     `docs/ksat-coverage.md`, which is generated from credit-bearing units only.
 
 **40 questions across the four modules, ten per module.** Single-answer questions

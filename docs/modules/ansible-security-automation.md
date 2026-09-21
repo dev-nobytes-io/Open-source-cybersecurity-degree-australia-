@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved_
 
 !!! warning "This is an extension module, not a credit-bearing unit"
-    The degree is **66 units / 168 CP** and that structure is fixed (see
+    The degree is **66 units / 160 CP** and that structure is fixed (see
     [`docs/structure.md`](../structure.md); structural changes require the
     process in [`CONTRIBUTING.md`](../../CONTRIBUTING.md)). EXT-ANS sits
     **outside** that structure as an optional deep dive that extends
@@ -1583,7 +1583,7 @@ off per [`docs/governance.md`](../governance.md).
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~70 |
 | Extends | F03 (Scripting & Automation); SE05 (Security in Cloud & DevSecOps) |
 | Related Units | F02, OC04, SC04, DE02, DF05, SE04, CE04, GR03, GR05 |

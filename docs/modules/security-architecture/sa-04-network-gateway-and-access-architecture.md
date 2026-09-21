@@ -9,7 +9,7 @@
 
 !!! warning "Not a credit-bearing unit"
     SA-04 belongs to the [EXT-SA series](index.md), an optional extension outside the fixed
-    66-unit / 168 CP degree structure. It carries 0 CP and does not appear in
+    66-unit / 160 CP degree structure. It carries 0 CP and does not appear in
     [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only.
 
 ---
@@ -783,7 +783,7 @@ This module has **not** had practitioner review (R2).
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 24 |
 | Extends | SC02 (Security Architecture); SE02 (Security Architecture, major) |
 | Related Units | F01, SE03, SE05, GR03, GR05, DE02; EXT-SA SA-01, SA-02, SA-03 |

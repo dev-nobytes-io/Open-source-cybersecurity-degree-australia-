@@ -562,7 +562,7 @@ stream moved between regions or between Elastic and OpenSearch (ELK-05) keeps it
 | Module Type | Extension module (vendor-specific elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~22 |
 | Extends | ELK-01; DE02 (Topic 4); F06 |
 | Related Units | SA-05, DE05, EXT-SPL SPL-02 |
