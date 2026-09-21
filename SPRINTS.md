@@ -656,6 +656,38 @@ as playbook steps. Three labs over the lab dataset's beacon scenario.
 
 ---
 
+### Sprint 29 — EXT-DSO Constrained and Disconnected Environments ✅ Drafted (2026-09-13)
+
+A four-module, non-credit extension series for sites the central SOC cannot
+reach: isolated by an intermittent link, by policy behind a cross domain
+solution, physically, or by operational-technology zoning. It extends SA-04
+Topic 6 and SA-05 Topic 6 into complete site designs and closes the gap the
+degree's connected-estate assumption leaves open.
+
+- [x] **Series index** (`docs/modules/constrained-operations/index.md`) — purpose,
+      do-not-duplicate map, R3/R4 positions, safety note on cross domain
+      solutions, series verification table. PR #57 (with DSO-01).
+- [x] **DSO-01** Monitoring Architecture for Isolated and Intermittently
+      Connected Sites — ISM gateways/networking (CDS controls), NIST SP 800-92,
+      ASD logging guidance, NIST SP 800-82r3 and IEC 62443 for OT. PR #57.
+- [x] **DSO-02** Autonomous Detection Content and the Offline Content Lifecycle —
+      Sigma rules and correlation specifications v2.1.0, pySigma pipelines and
+      sigma-cli, OASIS STIX 2.1 and TAXII 2.1. PR #58.
+- [x] **DSO-03** Rapid Deployment, Teardown and Sanitisation — ISM media, IT
+      equipment, data-transfer and physical-security chapters (September 2026);
+      NIST SP 800-88 Rev. 2. PR #59.
+- [x] **DSO-04** Validation in Degraded Conditions — NIST SP 800-84; the
+      chaos-engineering principles; SA-05 Lab 4, DE04 and CE04 as the baseline.
+      PR #60.
+- [x] Self-assessment quiz (40 questions). PR #61.
+- [ ] Domain Expert and Practitioner Reviewer; ASD CDS publications to read;
+      ISM identifiers to re-verify — see `docs/TODO.md`.
+
+Delivered one module per PR, stacked. Every inferred or unverified item is
+listed in each module's Verification status table.
+
+---
+
 ## Resource Inputs from Practitioners
 
 This project is practitioner-led. Where a maintainer has a preferred real-world
@@ -677,6 +709,7 @@ rather than reinvented.
 | Splunk certification pathway (EXT-SPL) | Splunk certification-track prerequisite chains, supplied as the official Architect and Consultant exam-detail pages. Verified against Splunk's live certification pages and track flowcharts and built out as the **EXT-SPL** extension series (`docs/modules/splunk/`) — deliberately vendor-specific, non-credit, and explicit about cost and access gating. Sprint 25 added the `labs/` environment, guides for all 69 labs, conf-file practice and a 52-question quiz | ✅ Drafted — Domain Expert and currently-certified Practitioner Reviewers still required; blocking verification items in `docs/TODO.md` |
 | Security architecture practice (EXT-SA) | Method-and-practice extension series grounded in SABSA W100/W117, the TOGAF ADM, ASD Modern Defensible Architecture, NIST CSF 2.0, the ISM guideline chapters on networking/gateways/system access/security assurance, NIST SP 800-92 with ASD logging guidance, and SOC-CMM/CTI-CMM — built as **EXT-SA** (`docs/modules/security-architecture/`), non-credit, one module per PR | ✅ Sprint 26 — index, SA-01 … SA-06 and quiz drafted (PRs #40–#48); Domain Expert and Practitioner Reviewer still required; blocking verification items in `docs/TODO.md` |
 | Elastic and OpenSearch platform (EXT-ELK) | Vendor-specific series mirroring EXT-SPL: Elastic Agent/Fleet, ingest pipelines and ECS, ILM and cluster architecture, detection rules and EQL, OpenSearch Security Analytics and migration — built as **EXT-ELK** (`docs/modules/elastic/`), non-credit, free Basic tier and Apache-2.0 OpenSearch, one module per PR | 🔄 Sprint 27 — index and ELK-01 drafted |
+| Constrained and disconnected operations (EXT-DSO) | Site designs for isolated, policy-isolated, physically disconnected and OT-zoned sites: monitoring across a cross domain solution, the offline detection-content lifecycle, rapid deployment with teardown and sanitisation, and validation under failure — grounded in the ISM gateway/networking/media/IT equipment/data-transfer chapters, NIST SP 800-88r2, SP 800-84, SP 800-82r3, IEC 62443, the Sigma and STIX/TAXII specifications — built as **EXT-DSO** (`docs/modules/constrained-operations/`), non-credit, one module per PR | ✅ Sprint 29 — index, DSO-01 … DSO-04 and quiz drafted (PRs #57–#61); reviewers required; blocking verification items in `docs/TODO.md` |
 | Playbook engineering (EXT-IRP) | Vendor-neutral incident-response playbooks as engineered artefacts on the OASIS CACAO v2.0 standard, derived from the IR plan and threat model, with the automation boundary applied per step — built as **EXT-IRP** (`docs/modules/playbook-engineering.md`), non-credit | ✅ Sprint 28 — drafted; reviewers required |
 
 *(Add rows as resources are supplied.)*
