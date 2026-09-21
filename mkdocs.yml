@@ -162,6 +162,7 @@ nav:
         - DSO-02 — Autonomous Detection Content and the Offline Content Lifecycle: docs/modules/constrained-operations/dso-02-autonomous-detection-content-offline-lifecycle.md
         - DSO-03 — Rapid Deployment, Teardown and Sanitisation: docs/modules/constrained-operations/dso-03-rapid-deployment-teardown-and-sanitisation.md
         - DSO-04 — Validation in Degraded Conditions: docs/modules/constrained-operations/dso-04-validation-in-degraded-conditions.md
+        - Self-assessment quiz: docs/modules/constrained-operations/quiz.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
