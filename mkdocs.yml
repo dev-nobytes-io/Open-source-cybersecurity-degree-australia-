@@ -107,6 +107,7 @@ nav:
       - Framework Verification: docs/review/framework-verification.md
     - Extension Modules:
       - EXT-ANS — Ansible for Security Operations: docs/modules/ansible-security-automation.md
+      - EXT-IRP — Playbook Engineering: docs/modules/playbook-engineering.md
       - EXT-SPL — The Splunk Series:
         - Certification Pathway & Module Map: docs/modules/splunk/index.md
         - SPL-01 — Search Fundamentals: docs/modules/splunk/spl-01-core-user.md

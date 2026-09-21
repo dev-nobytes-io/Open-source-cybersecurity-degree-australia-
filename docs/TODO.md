@@ -294,6 +294,20 @@ standard pages; the pySigma pipelines documentation; and the chaos-engineering p
       sanitisation steps must keep their "procedural model only" wording.
 - [ ] Add EXT-DSO to [`quality/annual-review-schedule.md`](quality/annual-review-schedule.md)
       with a **6-month** staleness window (ISM quarterly updates), due 2027-03-13.
+### modules/playbook-engineering.md — EXT-IRP Verification
+
+Single-module extension (0 CP) on vendor-neutral playbook engineering, grounded in the
+OASIS CACAO Security Playbooks v2.0 specification and the NIST SP 800-61r3 publication
+page as read on **2026-09-13**.
+
+- [ ] **Assign a Domain Expert and a Practitioner Reviewer** who run playbooks in a live SOC.
+- [ ] **Confirm the ASD incident-response guidance titles and URLs** (plan, readiness
+      checklist, reporting channel) — cyber.gov.au did not respond on the authoring date,
+      so Topic 8 and Further Reading cite the landing page only.
+- [ ] Read SP 800-61r3 in full before Topic 3 is taught in depth; the module cites only its
+      framing. Check for a CACAO release later than CS01.
+- [ ] Framework Custodian to map provisional KSAT IDs (`EXT-IRP-K01` …) and confirm
+      the NICE T-codes (paraphrased, incl. T0510) and ASD CSF sub-domain names.
 
 ### accreditation.md — Expand Phase 5 Content
 

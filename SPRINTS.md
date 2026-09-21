@@ -640,6 +640,20 @@ as read on 2026-09-13; the free/paid boundary is stated per module.
 One module per PR. Domain Expert and Practitioner Reviewer unassigned; blocking
 verification items in `docs/TODO.md`.
 
+### Sprint 28 — EXT-IRP Playbook Engineering ✅ Drafted (2026-09-13)
+
+A single extension module on vendor-neutral incident-response playbook
+engineering: the CACAO v2.0 model (types, workflow steps, agents, targets,
+commands, markings, signatures), deriving the playbook set from the incident
+response plan and threat model (SP 800-61r3's CSF 2.0 framing), playbook
+anatomy with explicit decision points and defaults, the automation boundary
+applied per step (extending EXT-ANS Topic 6), tabletop/drill/execution
+testing, metrics, versioning and sharing, and Australian notification clocks
+as playbook steps. Three labs over the lab dataset's beacon scenario.
+
+- [x] `docs/modules/playbook-engineering.md`; nav; TODO section.
+- [ ] Domain Expert and Practitioner Reviewer; ASD guidance titles to confirm.
+
 ---
 
 ### Sprint 29 — EXT-DSO Constrained and Disconnected Environments ✅ Drafted (2026-09-13)
@@ -696,5 +710,6 @@ rather than reinvented.
 | Security architecture practice (EXT-SA) | Method-and-practice extension series grounded in SABSA W100/W117, the TOGAF ADM, ASD Modern Defensible Architecture, NIST CSF 2.0, the ISM guideline chapters on networking/gateways/system access/security assurance, NIST SP 800-92 with ASD logging guidance, and SOC-CMM/CTI-CMM — built as **EXT-SA** (`docs/modules/security-architecture/`), non-credit, one module per PR | ✅ Sprint 26 — index, SA-01 … SA-06 and quiz drafted (PRs #40–#48); Domain Expert and Practitioner Reviewer still required; blocking verification items in `docs/TODO.md` |
 | Elastic and OpenSearch platform (EXT-ELK) | Vendor-specific series mirroring EXT-SPL: Elastic Agent/Fleet, ingest pipelines and ECS, ILM and cluster architecture, detection rules and EQL, OpenSearch Security Analytics and migration — built as **EXT-ELK** (`docs/modules/elastic/`), non-credit, free Basic tier and Apache-2.0 OpenSearch, one module per PR | 🔄 Sprint 27 — index and ELK-01 drafted |
 | Constrained and disconnected operations (EXT-DSO) | Site designs for isolated, policy-isolated, physically disconnected and OT-zoned sites: monitoring across a cross domain solution, the offline detection-content lifecycle, rapid deployment with teardown and sanitisation, and validation under failure — grounded in the ISM gateway/networking/media/IT equipment/data-transfer chapters, NIST SP 800-88r2, SP 800-84, SP 800-82r3, IEC 62443, the Sigma and STIX/TAXII specifications — built as **EXT-DSO** (`docs/modules/constrained-operations/`), non-credit, one module per PR | ✅ Sprint 29 — index, DSO-01 … DSO-04 and quiz drafted (PRs #57–#61); reviewers required; blocking verification items in `docs/TODO.md` |
+| Playbook engineering (EXT-IRP) | Vendor-neutral incident-response playbooks as engineered artefacts on the OASIS CACAO v2.0 standard, derived from the IR plan and threat model, with the automation boundary applied per step — built as **EXT-IRP** (`docs/modules/playbook-engineering.md`), non-credit | ✅ Sprint 28 — drafted; reviewers required |
 
 *(Add rows as resources are supplied.)*
