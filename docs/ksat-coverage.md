@@ -9,13 +9,13 @@ This page is the full text index of the same data.
 > project-local (provisional) pending Framework Custodian mapping to official
 > NICE/DCWF identifiers. See [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 261 Knowledge · 132 Skills · 132 Abilities · 130 Tasks across 66/66 units with KSATs authored.
+**Totals:** 264 Knowledge · 134 Skills · 132 Abilities · 130 Tasks across 66/66 units with KSATs authored.
 
 ## Coverage by degree layer
 
 | Layer | Knowledge | Skills | Abilities | Tasks |
 |---|---|---|---|---|
-| Foundation | 21 | 12 | 12 | 12 |
+| Foundation | 24 | 14 | 12 | 12 |
 | Operational Core | 24 | 12 | 12 | 12 |
 | Strategic Core | 24 | 12 | 12 | 12 |
 | Major | 160 | 80 | 80 | 78 |
@@ -25,7 +25,7 @@ This page is the full text index of the same data.
 
 | Unit | Title | Layer | K | S | A | T |
 |---|---|---|---|---|---|---|
-| F01 | Networking Fundamentals | Foundation | 3 | 2 | 2 | 2 |
+| F01 | Networking Fundamentals | Foundation | 6 | 4 | 2 | 2 |
 | F02 | Operating Systems & Administration | Foundation | 3 | 2 | 2 | 2 |
 | F03 | Scripting & Automation | Foundation | 4 | 2 | 2 | 2 |
 | F04 | Security Concepts & Principles | Foundation | 4 | 2 | 2 | 2 |
@@ -127,7 +127,7 @@ This page is the full text index of the same data.
 
 ## KSAT index
 
-655 KSAT items authored. Each is identifiable for coverage
+660 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -373,12 +373,17 @@ metrics; statements are derived from unit content.
 | T0041 | Task | DF06 | Coordinate and perform full-lifecycle incident handling |
 | T0432 | Task | DF06 | Perform multi-source forensic analysis and reporting |
 | F01-A01 | Ability | F01 | Ability to distinguish normal from anomalous traffic on the wire |
-| F01-A02 | Ability | F01 | Ability to relate network segmentation/filtering to ASD Essential Eight controls |
+| F01-A03 | Ability | F01 | Ability to state the legal basis for a given packet capture under Australian interception law |
 | F01-K01 | Knowledge | F01 | Knowledge of the TCP/IP and OSI models and how each layer moves data |
 | F01-K02 | Knowledge | F01 | Knowledge of IP addressing, subnetting, and routing |
 | F01-K03 | Knowledge | F01 | Knowledge of common application protocols (DNS, HTTP/S, DHCP, SMTP) and their normal behaviour |
+| F01-K04 | Knowledge | F01 | Knowledge of the TCP connection state machine and how a scanner infers port state from a response |
+| F01-K05 | Knowledge | F01 | Knowledge of HTTP request/response structure, status classes, and cookie-based session state |
+| F01-K06 | Knowledge | F01 | Knowledge of unauthenticated local-segment resolution (ARP, LLMNR/NBT-NS) and of DNS as a data-carrying channel |
 | F01-S01 | Skill | F01 | Skill in capturing and analysing network traffic with free tools |
 | F01-S02 | Skill | F01 | Skill in enumerating hosts, services, and routes from the command line |
+| F01-S03 | Skill | F01 | Skill in justifying a scanner's port-state output from the captured packets |
+| F01-S04 | Skill | F01 | Skill in reading an HTTP conversation, including session-cookie issue and replay, from a capture |
 | T0023 | Task | F01 | Characterize and analyze network traffic to identify anomalous activity |
 | T0294 | Task | F01 | Conduct research, analysis, and correlation across a variety of data sets |
 | F02-A01 | Ability | F02 | Ability to apply baseline host hardening mapped to the Essential Eight |
