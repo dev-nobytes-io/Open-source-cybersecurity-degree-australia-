@@ -92,7 +92,7 @@ flowchart TD
 | Module | Title | Primary sources | Notional hours |
 |---|---|---|---|
 | [DSO-01](dso-01-monitoring-isolated-and-intermittent-sites.md) | Monitoring Architecture for Isolated and Intermittently Connected Sites | ISM *Guidelines for gateways* (cross domain solutions) and *for networking*; NIST SP 800-92; ASD event-logging and forwarding guidance; NIST SP 800-82r3 and ISA/IEC 62443 for OT | ~22 |
-| DSO-02 *(planned — arrives in a later PR)* | Autonomous Detection Content and the Offline Content Lifecycle | DE01/DE05 (repo); Sigma project documentation; EXT-ANS control-plane material | ~18 |
+| [DSO-02](dso-02-autonomous-detection-content-offline-lifecycle.md) | Autonomous Detection Content and the Offline Content Lifecycle | DE01/DE05 (repo); Sigma project documentation; EXT-ANS control-plane material | ~18 |
 | DSO-03 *(planned — arrives in a later PR)* | Rapid Deployment, Teardown and Sanitisation | NIST SP 800-88 Rev. 2; ISM guidelines for media and ICT equipment (to obtain) | ~18 |
 | DSO-04 *(planned — arrives in a later PR)* | Validation in Degraded Conditions | NIST SP 800-92 operational processes; DE04/CE04 (repo); the `labs/` relay estate | ~18 |
 | | | | **~76 hours** |

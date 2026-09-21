@@ -159,6 +159,7 @@ nav:
       - EXT-DSO — Security Operations in Constrained and Disconnected Environments:
         - Series index: docs/modules/constrained-operations/index.md
         - DSO-01 — Monitoring Architecture for Isolated and Intermittently Connected Sites: docs/modules/constrained-operations/dso-01-monitoring-isolated-and-intermittent-sites.md
+        - DSO-02 — Autonomous Detection Content and the Offline Content Lifecycle: docs/modules/constrained-operations/dso-02-autonomous-detection-content-offline-lifecycle.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
