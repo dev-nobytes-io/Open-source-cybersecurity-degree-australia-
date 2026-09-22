@@ -166,6 +166,7 @@ nav:
       - "EXT-CCI — Adversary Counter-Intelligence: The Cybercrime & State-Cyber Ecosystem":
         - Series index: docs/modules/adversary-counterintel/index.md
         - CCI-01 — The Cybercriminal Enterprise: docs/modules/adversary-counterintel/cci-01-the-cybercriminal-enterprise.md
+        - "CCI-02 — The Criminal Economy: Financing, Laundering & Cash-Out": docs/modules/adversary-counterintel/cci-02-the-criminal-economy.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
