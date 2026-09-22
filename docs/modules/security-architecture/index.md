@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must have taken a system through authorisation under the ISM)_
 
 !!! warning "This is an extension series, not credit-bearing units"
-    The degree is **66 units / 168 CP** and that structure is fixed (see
+    The degree is **66 units / 160 CP** and that structure is fixed (see
     [`docs/structure.md`](../../structure.md); structural changes require the process in
     [`CONTRIBUTING.md`](../../../CONTRIBUTING.md)). EXT-SA sits **outside** that
     structure. It carries no credit points and does not appear in
@@ -313,7 +313,7 @@ before this series moves beyond Draft. Each module carries its own, more detaile
 | Modules | SA-01 … SA-06 + self-assessment quiz (all present) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~150 (146 across six modules; ~4 quiz) — planned values for SA-02 … SA-06 |
 | Extends | SC02; SE01; SE02; SE06 |
 | Related Units | F01, F05, F06, OC02, SC01, SC03, SC04, SC05, SC06, SE03, SE04, SE05, DE02, GR01, GR02, GR03, GR04, GR05, LD02, LD03 |

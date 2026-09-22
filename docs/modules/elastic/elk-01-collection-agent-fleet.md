@@ -565,7 +565,7 @@ system that needs the same authorisation thinking SA-06 applies to the SIEM it f
 | Module Type | Extension module (vendor-specific elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~18 |
 | Extends | OC02; F06; SA-05 (Topics 5–6, Labs 1–2) |
 | Related Units | DE02, SE04, EXT-ANS, EXT-SPL SPL-06 |

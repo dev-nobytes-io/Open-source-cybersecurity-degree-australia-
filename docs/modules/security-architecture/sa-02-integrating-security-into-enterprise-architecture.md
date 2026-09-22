@@ -9,7 +9,7 @@
 
 !!! warning "Not a credit-bearing unit"
     SA-02 is an extension module in the [EXT-SA series](index.md). It carries
-    **0 CP**, sits outside the 168 CP degree structure, and does not appear in
+    **0 CP**, sits outside the 160 CP degree structure, and does not appear in
     [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from
     credit-bearing units only.
 
@@ -509,7 +509,7 @@ TOGAF, ArchiMate, COBIT, ITIL, M_o_R and SABSA are trademarks or registered trad
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 24 |
 | Extends | SC02 (Security Architecture); SE02 (Security Architecture, major) |
 | Related Units | SA-01, SC01, SE06, GR01, GR04, GR05, LD02, F05 |

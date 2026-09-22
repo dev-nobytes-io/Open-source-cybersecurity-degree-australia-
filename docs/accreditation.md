@@ -52,7 +52,7 @@ AQF specifies that a Bachelor Degree typically requires **3–4 years full-time*
 | AQF Guidance | This Degree |
 |---|---|
 | Minimum 3 years full-time equivalent | 3 years structured pathway |
-| 144–192 credit points (typical) | 168 credit points |
+| 144–192 credit points (typical) | 160 credit points |
 | Increasing complexity across levels | Year 1 → 2 → 3 progression |
 | Significant practical component | Lab-first design; capstone in every major |
 

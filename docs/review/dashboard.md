@@ -32,7 +32,7 @@ To move a unit forward, open a **Unit Review Request** issue (template in
 | F02 | Operating Systems & Administration | Draft | — | — | 2026-06-21 |
 | F03 | Scripting & Automation | Draft | — | — | 2026-06-21 |
 | F04 | Security Concepts & Principles | Draft | — | — | 2026-06-21 |
-| F05 | Legal, Ethics & Australian Compliance | Draft | — | — | 2026-06-21 |
+| F05 | Legal, Ethics & Australian Compliance | Draft | — | — | 2026-09-21 |
 | F06 | Data & Log Analysis | Draft | — | — | 2026-06-21 |
 
 ### Operational Core
