@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must have run failure drills against a live monitoring pipeline and written the after-action reports)_
 
 !!! warning "Not a credit-bearing unit"
-    DSO-04 is one module of the [EXT-DSO series](index.md). It carries **0 CP**, sits outside the 168 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
+    DSO-04 is one module of the [EXT-DSO series](index.md). It carries **0 CP**, sits outside the 160 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
 
 !!! danger "Failure injection on a live site needs authority"
     Every drill in this module breaks something on purpose. On a real site that is a change with an owner: the site decider for the monitoring stack, the engineering authority for anything in an operational-technology zone (DSO-01 Topic 6), and never during an open case without the decider's explicit approval. The labs run on the lab nodes only.
@@ -472,7 +472,7 @@ For a described site (the DSO-01 or DSO-03 summative site, or one provided), pro
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 18 |
 | Extends | SA-05 (Lab 4; Topic 11); DE04 (Topics 3–4); DSO-01 (Topics 2, 7, 8); DSO-02 (Topic 6); DSO-03 (Topic 3) |
 | Related Units | CE04, SA-04, SA-06, EXT-ANS, GR04 |

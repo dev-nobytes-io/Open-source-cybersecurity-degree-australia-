@@ -55,9 +55,13 @@ graph TB
 |---|---|---|---|
 | Foundation (shared) | 6 | 48 CP | Year 1 |
 | Degree Core (operational or strategic) | 6 | 48 CP | Year 2 |
-| Major | 6 | 48 CP | Year 3 |
-| Capstone | 1 | 24 CP | Year 3 |
-| **Total** | **19** | **168 CP** | **3 years** |
+| Major (5 taught units × 8 CP + 24 CP capstone) | 6 | 64 CP | Year 3 |
+| **Total** | **18** | **160 CP** | **3 years** |
+
+> The capstone is the sixth unit **of the major**, not a separate nineteenth unit —
+> e.g. `CE06`, `TH06`, `DF06`. Earlier revisions of this table listed it twice and
+> priced it at 8 CP inside the major's 48, which overstated a pathway as
+> 19 units / 168 CP. A pathway is 18 units / 160 CP.
 
 > Credit point structure follows AQF Level 7 Bachelor Degree conventions (typically 144–192 CP for a 3-year degree at Australian universities).
 

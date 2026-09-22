@@ -8,7 +8,7 @@ recognition without completing the full degree.
 
 ## 1. Purpose
 
-Not every learner will complete the full 168 CP degree. Some want to upskill in
+Not every learner will complete the full 160 CP degree. Some want to upskill in
 a specific area. Some want formal evidence of a subset of skills. Some employers
 want to develop staff in targeted competencies, not through a full degree.
 

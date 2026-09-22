@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must have designed or operated monitoring across a cross domain solution or an isolated network)_
 
 !!! warning "This is an extension series, not credit-bearing units"
-    The degree is **66 units / 168 CP** and that structure is fixed (see
+    The degree is **66 units / 160 CP** and that structure is fixed (see
     [`docs/structure.md`](../../structure.md); structural changes require the process in
     [`CONTRIBUTING.md`](../../../CONTRIBUTING.md)). EXT-DSO sits **outside** that
     structure. It carries no credit points and does not appear in
@@ -169,7 +169,7 @@ to a classified system without the authorisation process SA-06 describes.
 | Modules | DSO-01 … DSO-04 |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~76 |
 | Extends | SA-04; SA-05 (Topics 6, 9; Lab 4); EXT-ANS |
 | Related Units | F01, OC02, OC04, DE01, DE04, DE05, CE04, SE04, SA-06, EXT-SPL, EXT-ELK |
