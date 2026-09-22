@@ -16,7 +16,7 @@ This page is the full text index of the same data.
 > [`docs/review/framework-verification.md`](review/framework-verification.md)
 > and [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 275 Knowledge · 140 Skills · 136 Abilities · 133 Tasks across 67/67 units with KSATs authored.
+**Totals:** 276 Knowledge · 141 Skills · 137 Abilities · 133 Tasks across 67/67 units with KSATs authored.
 
 ## Coverage by degree layer
 
@@ -25,7 +25,7 @@ This page is the full text index of the same data.
 | Foundation | 35 | 20 | 16 | 15 |
 | Operational Core | 24 | 12 | 12 | 12 |
 | Strategic Core | 24 | 12 | 12 | 12 |
-| Major | 160 | 80 | 80 | 78 |
+| Major | 161 | 81 | 81 | 78 |
 | Capstone | 32 | 16 | 16 | 16 |
 
 ## Coverage by unit
@@ -58,7 +58,7 @@ This page is the full text index of the same data.
 | CE05 | Reporting & Debrief | Major | 4 | 2 | 2 | 2 |
 | CE06 | Capstone — Emulation Exercise | Capstone | 4 | 2 | 2 | 2 |
 | CT01 | Intelligence Tradecraft | Major | 4 | 2 | 2 | 2 |
-| CT02 | Threat Actor Research & Profiling | Major | 4 | 2 | 2 | 2 |
+| CT02 | Threat Actor Research & Profiling | Major | 5 | 3 | 3 | 2 |
 | CT03 | Technical Intelligence | Major | 4 | 2 | 2 | 2 |
 | CT04 | Strategic Intelligence | Major | 4 | 2 | 2 | 2 |
 | CT05 | CTI Platforms & Sharing | Major | 4 | 2 | 2 | 2 |
@@ -135,7 +135,7 @@ This page is the full text index of the same data.
 
 ## KSAT index
 
-684 KSAT items authored. Each is identifiable for coverage
+687 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -212,12 +212,15 @@ metrics; statements are derived from unit content.
 | T0707 | Task | CT01 | Develop and answer intelligence requirements through analysis |
 | CT02-A01 | Ability | CT02 | Ability to turn an actor profile into a defensive priority |
 | CT02-A02 | Ability | CT02 | Ability to reason about attribution confidence |
+| CT02-A03 | Ability | CT02 | Ability to evaluate how criminal-organisation profiling differs from nation-state profiling and to account for the affiliate confounder |
 | CT02-K01 | Knowledge | CT02 | Knowledge of the Diamond Model |
 | CT02-K02 | Knowledge | CT02 | Knowledge of ATT&CK actor profiling |
 | CT02-K03 | Knowledge | CT02 | Knowledge of campaign and group tracking |
 | CT02-K04 | Knowledge | CT02 | Knowledge of attribution methodology as method, not verdict |
+| CT02-K05 | Knowledge | CT02 | Knowledge of the RaaS operating model and the financially motivated criminal ecosystem as an intelligence target |
 | CT02-S01 | Skill | CT02 | Skill in building a Diamond Model of an intrusion |
 | CT02-S02 | Skill | CT02 | Skill in producing an ATT&CK actor profile |
+| CT02-S03 | Skill | CT02 | Skill in profiling a government-attributed RaaS operation from public, co-sealed advisories |
 | T0707 | Task | CT02 | Analyse adversary activity to produce actor/campaign intelligence |
 | T0751 | Task | CT02 | Synthesise multi-source reporting into finished actor profiles |
 | CT03-A01 | Ability | CT03 | Ability to produce actionable technical intelligence |
