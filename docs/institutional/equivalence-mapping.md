@@ -25,7 +25,7 @@ This degree is designed to be equivalent to an AQF Level 7 Bachelor Degree.
 | AQF Requirement | This Degree |
 |---|---|
 | Qualification type | Bachelor Degree (AQF Level 7) |
-| Minimum credit points | 144 CP (AQF requirement) | 168 CP |
+| Minimum credit points | 144 CP (AQF requirement) | 160 CP |
 | Volume of learning | 3 years full-time equivalent | 3 years (self-paced equivalent) |
 | Knowledge descriptor | Broad and coherent knowledge in cybersecurity | Covered — see `docs/compliance/aqf-teqsa.md` |
 | Skills descriptor | Cognitive and technical skills to analyse and evaluate | Covered — see `docs/compliance/aqf-teqsa.md` |
@@ -122,7 +122,7 @@ project Maintainers via GitHub.
 | Country/Framework | Approximate Equivalent | Notes |
 |---|---|---|
 | UK (RQF) | Level 6 (Bachelor's) | Approximate; FHEQ Level 6 = UK Bachelor |
-| US | Bachelor's degree | 4-year US equivalent; 168 CP maps reasonably to 120 US credits |
+| US | Bachelor's degree | 4-year US equivalent; 160 CP maps reasonably to 120 US credits |
 | NZ (NZQF) | Level 7 (Bachelor's) | NZQF Level 7 = AQF Level 7 for recognition purposes |
 | EU (EQF) | Level 6 | EQF Level 6 corresponds to bachelor-level programs |
 | Singapore (SSG) | WSQ Advanced Certificate + Specialist Diploma (partial) | No direct WSQ equivalent at this level |

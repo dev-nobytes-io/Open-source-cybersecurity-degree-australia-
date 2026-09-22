@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must run Elastic Security or OpenSearch Security Analytics in production)_
 
 !!! warning "This is an extension series, not credit-bearing units"
-    The degree is **66 units / 168 CP** and that structure is fixed (see
+    The degree is **66 units / 160 CP** and that structure is fixed (see
     [`docs/structure.md`](../../structure.md); structural changes require the process in
     [`CONTRIBUTING.md`](../../../CONTRIBUTING.md)). EXT-ELK sits **outside** that
     structure. It carries no credit points and does not appear in
@@ -203,7 +203,7 @@ Per **R5**, recorded as unverified or provisional until confirmed.
 | Modules | ELK-01 … ELK-05 + self-assessment quiz |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~107 |
 | Extends | F06; OC02; DE02; DE03; SE04; SA-05 |
 | Related Units | DE01, DE05, OC04, SE05, EXT-SPL, EXT-ANS |

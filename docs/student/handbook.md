@@ -17,7 +17,7 @@ practitioner-reviewed, and freely available. Think of it as the CS50 of Australi
 cybersecurity education — rigorous, practical, and respected by the industry.
 
 **What you get:**
-- 168 credit points of structured cybersecurity education across 3 years
+- 160 credit points of structured cybersecurity education across 3 years
 - A practitioner-verified competency profile mapped to NIST NICE DCWF work roles
 - A portfolio of labs and assessments you own and can show employers
 - A clear bridge to industry certifications (GIAC, CISSP, CISM, OSCP, and more)
@@ -46,7 +46,7 @@ Year 3 — Major + Capstone (6 units + capstone, 72 CP)
   Choose one of 8 majors
 ```
 
-**Total: 19 units × 8 CP + 1 capstone × 24 CP = 168 CP**
+**Total: 17 taught units × 8 CP + 1 capstone × 24 CP = 160 CP across 18 units**
 
 ### Foundation Year (All Students)
 

@@ -520,7 +520,7 @@ regions; that is a procurement fact to establish at the time.
 | Module Type | Extension module (vendor-specific elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~20 |
 | Extends | ELK-02, ELK-03, ELK-04; DE03 |
 | Related Units | SC04, SE05, SA-05, SA-06, EXT-SPL |

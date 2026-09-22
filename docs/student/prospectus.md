@@ -86,7 +86,7 @@ Layer 3 — Major + Capstone (72 CP)
   6 specialist units in your chosen major (48 CP)
   + Integrative capstone project (24 CP)
 
-Total: 168 Credit Points across approximately 3 years
+Total: 160 Credit Points across approximately 3 years
 ```
 
 ### Volume of Learning
