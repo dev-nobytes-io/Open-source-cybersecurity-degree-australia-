@@ -95,7 +95,7 @@ Each of the three intelligence levels must be explicitly covered:
 ## Australian Context
 
 - [ ] **CT01** — ASD Annual Cyber Threat Report as a primary source for Australian PIR development
-- [ ] **CT02** — ACSC-identified threat actors targeting Australian sectors; focus on APT groups active in APAC
+- [ ] **CT02** — ACSC-identified threat actors targeting Australian sectors; scope includes both APT groups active in APAC and financially motivated criminal organisations (e.g. government-attributed ransomware-as-a-service operations)
 - [ ] **CT04** — Australia's geopolitical context, QUAD security partnership, critical infrastructure sector risks
 - [ ] **CT05** — TISN (Trusted Information Sharing Network for critical infrastructure) context
 - [ ] All units — Use real (publicly attributed) Australian incident examples where possible (e.g., ACSC advisories)
@@ -126,6 +126,6 @@ Before any unit can be merged:
 - [ ] Practitioner Reviewer (different from Domain Expert) named in metadata
 - [ ] Diamond Model usage verified for accuracy in CT02
 - [ ] STIX 2.1 objects in CT05 labs verified for schema compliance
-- [ ] Attribution guidance reviewed — must teach methodology, not make specific actor attributions
+- [ ] Attribution guidance reviewed — must teach methodology, not make specific actor attributions; where actors are named they must be government-attributed (an ASD/ACSC or allied co-sealed advisory, or an Australian sanction) and framed as method, not verdict
 
 See `templates/review-checklist.md` for the full pre-merge checklist.
