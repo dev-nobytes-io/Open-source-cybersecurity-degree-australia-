@@ -576,7 +576,7 @@ metrics; statements are derived from unit content.
 | OC01-A01 | Ability | OC01 | Ability to prioritise defensive effort against the TTPs most relevant to an organisation |
 | OC01-A02 | Ability | OC01 | Ability to identify gaps between current visibility and adversary behaviour |
 | OC01-K01 | Knowledge | OC01 | Knowledge of MITRE ATT&CK as a common language for adversary tactics, techniques, and procedures |
-| OC01-K02 | Knowledge | OC01 | Knowledge of the intrusion lifecycle and how procedures realise techniques |
+| OC01-K02 | Knowledge | OC01 | Knowledge of representative adversary techniques across the intrusion lifecycle — their procedures, the telemetry/artefacts they leave, and how they vary between actors |
 | OC01-K03 | Knowledge | OC01 | Knowledge of the Pyramid of Pain and what makes a detection durable |
 | OC01-K04 | Knowledge | OC01 | Knowledge of threat-informed defense and CTID tooling (emulation library, sensor mappings, M3TID) |
 | OC01-S01 | Skill | OC01 | Skill in extracting TTPs from an intrusion narrative and mapping them to ATT&CK |
