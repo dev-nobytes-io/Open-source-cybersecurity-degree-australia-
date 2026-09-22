@@ -72,7 +72,7 @@ for the unit's layer. Using verbs from a lower level than required is not accept
 
 | Layer | Bloom's Levels | Example Verbs |
 |---|---|---|
-| **Foundation Year** (F01–F06) | 1–3: Remember, Understand, Apply | Define, explain, describe, identify, demonstrate, use, implement, perform |
+| **Foundation Year** (F01–F07) | 1–3: Remember, Understand, Apply | Define, explain, describe, identify, demonstrate, use, implement, perform |
 | **Operational/Strategic Core** (OC01–OC06, SC01–SC06) | 3–4: Apply, Analyse | Apply, execute, implement, analyse, compare, differentiate, examine, break down |
 | **Major Units** (TH/DF/CT/DE/CE/SE/LD/GR) | 4–5: Analyse, Evaluate | Analyse, evaluate, assess, critique, justify, prioritise, appraise, recommend |
 | **Capstone** (CAP01) | 5–6: Evaluate, Create | Evaluate, create, design, develop, produce, construct, synthesise, formulate |
@@ -213,7 +213,7 @@ Step-by-step numbered instructions. Each step must be actionable (not vague). Ex
 
 | Unit Layer | Tool Requirement |
 |---|---|
-| Foundation (F01–F06) | Free/open-source only. No paid tools. |
+| Foundation (F01–F07) | Free/open-source only. No paid tools. |
 | Core (OC/SC) | Free/open-source only. No paid tools. |
 | Major units | Free/OSS preferred. If a paid tool is referenced, a free alternative must be documented alongside it. |
 
