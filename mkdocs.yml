@@ -167,6 +167,7 @@ nav:
         - Series index: docs/modules/adversary-counterintel/index.md
         - CCI-01 — The Cybercriminal Enterprise: docs/modules/adversary-counterintel/cci-01-the-cybercriminal-enterprise.md
         - "CCI-02 — The Criminal Economy: Financing, Laundering & Cash-Out": docs/modules/adversary-counterintel/cci-02-the-criminal-economy.md
+        - CCI-03 — The Service Economy — Cybercrime-as-a-Service as an Industry: docs/modules/adversary-counterintel/cci-03-the-service-economy.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
