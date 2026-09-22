@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved_
 
 !!! warning "Not a credit-bearing unit"
-    SA-03 is part of the [EXT-SA series](index.md), an optional extension of the degree's architecture units. It carries **0 CP**, sits outside the 66-unit / 168 CP structure described in [`docs/structure.md`](../../structure.md), and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md) or the [Program Builder](../../program-builder/index.md), which are generated from credit-bearing units only. Recognition, if a delivery partner wants it, uses the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
+    SA-03 is part of the [EXT-SA series](index.md), an optional extension of the degree's architecture units. It carries **0 CP**, sits outside the 66-unit / 160 CP structure described in [`docs/structure.md`](../../structure.md), and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md) or the [Program Builder](../../program-builder/index.md), which are generated from credit-bearing units only. Recognition, if a delivery partner wants it, uses the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
 
 ---
 
@@ -564,7 +564,7 @@ This module has **not** had practitioner review (R2) and must not be presented t
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 24 |
 | Extends | SC02 (Security Architecture); SE02 (Security Architecture, major) |
 | Related Units | SE01, SE06, GR01, GR03, LD02, SC04, SA-01 |

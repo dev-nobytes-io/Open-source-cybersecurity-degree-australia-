@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must hold Enterprise Certified Architect or Core Certified Consultant)_
 
 !!! warning "This is an extension series, not credit-bearing units"
-    The degree is **66 units / 168 CP** and that structure is fixed (see
+    The degree is **66 units / 160 CP** and that structure is fixed (see
     [`docs/structure.md`](../../structure.md); structural changes require the process in
     [`CONTRIBUTING.md`](../../../CONTRIBUTING.md)). EXT-SPL sits **outside** that
     structure. It carries no credit points and does not appear in
