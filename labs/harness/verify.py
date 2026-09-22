@@ -175,6 +175,11 @@ ANSWERS = {
     "spl09.lab5.exfil_user": "exfil_volume:user",
     "spl03.lab2.spray_victim": "password_spray:victim",
     "spl03.lab5.travel_user": "impossible_travel:user",
+    # Core degree: OC02 Lab 1 (Building Detections in a SIEM). Same underlying
+    # ground truth as the EXT-SPL keys above, under the credit-bearing unit's
+    # own namespace so the lab text and the harness cannot drift apart.
+    "oc02.lab1.spray_victim": "password_spray:victim",
+    "oc02.lab1.lolbin_host": "lolbin_download:host",
 }
 
 
