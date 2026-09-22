@@ -530,7 +530,7 @@ not during it.
 | Module Type | Extension module (vendor-specific elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~22 |
 | Extends | ELK-02; DE03; DE05 |
 | Related Units | DE01, DE04, OC04, OC05, EXT-SPL SPL-03 and SPL-09 |

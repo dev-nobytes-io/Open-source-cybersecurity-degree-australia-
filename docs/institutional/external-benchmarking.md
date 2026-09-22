@@ -27,7 +27,7 @@ institution makes significant curriculum changes.
 | Dimension | UNSW | This Degree |
 |---|---|---|
 | Duration | 3 years full-time | Self-paced (~3 years) |
-| Credit points | 144 CP (AQF 7) | 168 CP (AQF 7 equivalent) |
+| Credit points | 144 CP (AQF 7) | 160 CP (AQF 7 equivalent) |
 | Delivery | On-campus + online | Online / self-paced |
 | Cost | ~$32,000–$40,000 AUD (domestic) | Free |
 | Framework mapping | Implicit | Explicit (NICE DCWF T-code level) |

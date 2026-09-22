@@ -160,9 +160,9 @@ from the outset to support a future formal registration pathway.
 |---|---|---|
 | Foundation Year (6 units × 8 CP) | 48 CP | 6 units establishing baseline knowledge and skills |
 | Operational/Strategic Core (6 units × 8 CP) | 48 CP | 6 units developing specialised knowledge in chosen pathway |
-| Major (6 units × 8 CP) | 48 CP | 6 units developing advanced specialisation |
-| Capstone | 24 CP | Integrative project demonstrating synthesis across all layers |
-| **Total** | **168 CP** | Within AQF Level 7 requirement of 144–192 CP |
+| Major (5 taught units × 8 CP) | 40 CP | Advanced specialisation |
+| Capstone (the major's sixth unit) | 24 CP | Integrative project demonstrating synthesis across all layers |
+| **Total** (18 units) | **160 CP** | Within AQF Level 7 requirement of 144–192 CP |
 
 **8 CP per unit — student effort calculation:**
 

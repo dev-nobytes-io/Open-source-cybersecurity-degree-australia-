@@ -9,13 +9,13 @@ This page is the full text index of the same data.
 > project-local (provisional) pending Framework Custodian mapping to official
 > NICE/DCWF identifiers. See [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 264 Knowledge · 134 Skills · 133 Abilities · 130 Tasks across 66/66 units with KSATs authored.
+**Totals:** 266 Knowledge · 135 Skills · 134 Abilities · 130 Tasks across 66/66 units with KSATs authored.
 
 ## Coverage by degree layer
 
 | Layer | Knowledge | Skills | Abilities | Tasks |
 |---|---|---|---|---|
-| Foundation | 24 | 14 | 13 | 12 |
+| Foundation | 26 | 15 | 14 | 12 |
 | Operational Core | 24 | 12 | 12 | 12 |
 | Strategic Core | 24 | 12 | 12 | 12 |
 | Major | 160 | 80 | 80 | 78 |
@@ -29,7 +29,7 @@ This page is the full text index of the same data.
 | F02 | Operating Systems & Administration | Foundation | 6 | 4 | 3 | 2 |
 | F03 | Scripting & Automation | Foundation | 4 | 2 | 2 | 2 |
 | F04 | Security Concepts & Principles | Foundation | 4 | 2 | 2 | 2 |
-| F05 | Legal, Ethics & Australian Compliance | Foundation | 4 | 2 | 2 | 2 |
+| F05 | Legal, Ethics & Australian Compliance | Foundation | 6 | 3 | 3 | 2 |
 | F06 | Data & Log Analysis | Foundation | 3 | 2 | 2 | 2 |
 | OC01 | Adversary Tradecraft & TTPs | Operational Core | 4 | 2 | 2 | 2 |
 | OC02 | Security Monitoring & SIEM | Operational Core | 4 | 2 | 2 | 2 |
@@ -127,7 +127,7 @@ This page is the full text index of the same data.
 
 ## KSAT index
 
-661 KSAT items authored. Each is identifiable for coverage
+665 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -418,12 +418,16 @@ metrics; statements are derived from unit content.
 | T0177 | Task | F04 | Perform security reviews and identify gaps in security architecture |
 | F05-A01 | Ability | F05 | Ability to determine when an activity requires explicit authorisation |
 | F05-A02 | Ability | F05 | Ability to apply professional ethics where the law is silent or ambiguous |
-| F05-K01 | Knowledge | F05 | Knowledge of Australian computer-crime law (Cybercrime Act 2001) and the authorisation concept |
+| F05-A03 | Ability | F05 | Ability to reason about concurrent Commonwealth and State/Territory liability for the same conduct |
+| F05-K01 | Knowledge | F05 | Knowledge of the Criminal Code (Cth) Part 10.7 computer offences and the entitlement-based concept of "unauthorised" |
 | F05-K02 | Knowledge | F05 | Knowledge of the Privacy Act 1988 and the Australian Privacy Principles |
-| F05-K03 | Knowledge | F05 | Knowledge of the Notifiable Data Breaches scheme and SOCI Act obligations |
+| F05-K03 | Knowledge | F05 | Knowledge of the Notifiable Data Breaches scheme, SOCI Act obligations, and the Cyber Security Act 2024 ransomware-payment report |
 | F05-K04 | Knowledge | F05 | Knowledge of Australian regulators (OAIC, ACSC/ASD, AFP, APRA) and their roles |
+| F05-K05 | Knowledge | F05 | Knowledge of the intent-based tooling offences (ss 478.3 and 478.4) and what makes holding and publishing tooling lawful |
+| F05-K06 | Knowledge | F05 | Knowledge of the TIA Act prohibition on interception and of surveillance-devices and workplace-surveillance law |
 | F05-S01 | Skill | F05 | Skill in constructing a rules-of-engagement / authorisation document |
 | F05-S02 | Skill | F05 | Skill in performing an NDB eligible-breach assessment and notification |
+| F05-S03 | Skill | F05 | Skill in stating the specific lawful basis for a capture or monitoring activity |
 | T0098 | Task | F05 | Develop and review policies/agreements ensuring legal and regulatory compliance |
 | T0863 | Task | F05 | Ensure organisational compliance with privacy and data-breach obligations |
 | F06-A01 | Ability | F06 | Ability to surface anomalies using least-frequency-of-occurrence analysis |

@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must have designed or operated monitoring across a cross domain solution or an isolated network)_
 
 !!! warning "Not a credit-bearing unit"
-    DSO-01 is one module of the [EXT-DSO series](index.md). It carries **0 CP**, sits outside the 168 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
+    DSO-01 is one module of the [EXT-DSO series](index.md). It carries **0 CP**, sits outside the 160 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
 
 !!! danger "Cross domain solutions are not a self-service design"
     Where a cross domain solution connects a SECRET or TOP SECRET domain to any other, the ISM requires ASD to be consulted and its directions followed (ISM-0597). This module teaches how to design the *monitoring that lives around* such a boundary. It does not teach how to build the boundary, and nothing in it substitutes for that consultation.
@@ -524,7 +524,7 @@ For a described Australian organisation with at least one site in each of three 
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 22 |
 | Extends | SA-04 (Topics 1, 2, 6); SA-05 (Topics 6, 9; Lab 3) |
 | Related Units | OC02, OC04, DE01, SE04, GR04, SA-06, EXT-ANS, EXT-IRP |

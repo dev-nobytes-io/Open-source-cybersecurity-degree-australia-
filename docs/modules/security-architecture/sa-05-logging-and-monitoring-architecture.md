@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved_
 
 !!! warning "Not a credit-bearing unit"
-    SA-05 is one module of the [EXT-SA series](index.md). It carries **0 CP**, sits outside the 168 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
+    SA-05 is one module of the [EXT-SA series](index.md). It carries **0 CP**, sits outside the 160 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
 
 ---
 
@@ -674,7 +674,7 @@ This module has **not** had practitioner review (R2).
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 24 |
 | Extends | SC02 (Security Architecture); SE04 (Detection & Response Engineering); OC02 (Security Monitoring & SIEM) |
 | Related Units | SA-01, SA-03, SA-04, SA-06, SE02, SE06, DE02, F06, SC04, GR03, GR04, GR05, EXT-SPL (SPL-07), EXT-ANS |
