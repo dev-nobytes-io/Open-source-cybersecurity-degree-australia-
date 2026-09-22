@@ -538,7 +538,7 @@ can be.
 | Module Type | Extension module (vendor-specific elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~22 |
 | Extends | ELK-02; SA-05 (Lab 2, Topic 12); SPL-07 (as counterpart) |
 | Related Units | SE01, SE04, SA-06 |

@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must have stood up and torn down a monitoring capability at a temporary or classified site, including media sanitisation under the ISM)_
 
 !!! warning "Not a credit-bearing unit"
-    DSO-03 is one module of the [EXT-DSO series](index.md). It carries **0 CP**, sits outside the 168 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
+    DSO-03 is one module of the [EXT-DSO series](index.md). It carries **0 CP**, sits outside the 160 CP degree structure, and does not appear in [`docs/ksat-coverage.md`](../../ksat-coverage.md), which is generated from credit-bearing units only. Recognition, if any, is via the Tier 1 badge mechanism in [`docs/curriculum/micro-credentials-framework.md`](../../curriculum/micro-credentials-framework.md).
 
 !!! danger "Sanitisation controls are restated by intent; the lab models them, it does not certify anything"
     The ISM's media, IT equipment and data-transfer controls are cited by identifier from the September 2026 edition and paraphrased. The ISM changes quarterly, several controls apply only at SECRET and TOP SECRET, and destruction equipment and outsourcing are governed by lists this module has not read. The labs sanitise loop files and container volumes to teach the procedure and its evidence. Nothing in them sanitises real media to any standard.
@@ -477,7 +477,7 @@ For a described temporary site of an Australian organisation — classification,
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | 18 |
 | Extends | EXT-ANS (Topics 4, 7, 8; Lab 7); DSO-01 (Topics 2, 3, 7, 8); DSO-02 (Topic 6) |
 | Related Units | OC04, SA-04, SA-06, GR04, DE02 |

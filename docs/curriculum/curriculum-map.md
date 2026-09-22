@@ -157,9 +157,9 @@ The prerequisite structure enforces this progression.
 |---|---|---|---|---|
 | Foundation Year | 6 | 8 | 48 | 720–840 |
 | Degree Core | 6 | 8 | 48 | 720–840 |
-| Major Units | 6 | 8 | 48 | 720–840 |
-| Capstone | 1 | 24 | 24 | 360–480 |
-| **Total** | **19** | | **168** | **2,520–3,000** |
+| Major — taught units | 5 | 8 | 40 | 600–700 |
+| Major — capstone (the major's 6th unit) | 1 | 24 | 24 | 360–480 |
+| **Total** | **18** | | **160** | **2,400–3,160** |
 
-168 CP at 15–20 hours per credit point = 2,520–3,360 total hours.
+160 CP at 15–20 hours per credit point = 2,400–3,200 total hours.
 This is consistent with a 3-year full-time equivalent degree at AQF Level 7.

@@ -58,9 +58,15 @@ graph TB
 | Major (5 taught units × 8 CP + 24 CP capstone) | 6 | 64 CP | Year 3 |
 | **Total** | **19** | **168 CP** | **3 years** |
 
-> The capstone is the sixth unit **of the major** (e.g. `CE06`), not a separate
-> nineteenth unit. Foundation gains a seventh unit, **F07 — Attack Mechanics &
-> Adversary Behaviour**, so a pathway is 7 + 6 + 6 = 19 units / 168 CP.
+> Two things are folded into this table. First, the capstone is the sixth unit
+> **of the major** (e.g. `CE06`, `TH06`, `DF06`), not a separate unit — an earlier
+> revision listed it twice and priced it at 8 CP inside the major's 48, overstating
+> the major. That correction (a taught major of 5 × 8 CP + a 24 CP capstone = 64 CP)
+> is retained. Second, this PR **adds a seventh Foundation unit**, `F07 — Attack
+> Mechanics & Adversary Behaviour`, which is the genuine reason the pathway is
+> 19 units / 168 CP: 7 (Foundation) + 6 (core) + 6 (major incl. capstone).
+> Without F07 the corrected pathway is 18 units / 160 CP; F07 is the +8 CP that
+> brings it to 168.
 
 > Credit point structure follows AQF Level 7 Bachelor Degree conventions (typically 144–192 CP for a 3-year degree at Australian universities).
 

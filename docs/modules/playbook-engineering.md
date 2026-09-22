@@ -8,7 +8,7 @@
 > **Practitioner Reviewer:** _Unassigned — required before Practitioner Approved (must have run playbooks in a live SOC)_
 
 !!! warning "This is an extension module, not a credit-bearing unit"
-    The degree is **66 units / 168 CP** and that structure is fixed (see
+    The degree is **66 units / 160 CP** and that structure is fixed (see
     [`docs/structure.md`](../structure.md); structural changes require the
     process in [`CONTRIBUTING.md`](../../CONTRIBUTING.md)). EXT-IRP sits
     **outside** that structure as an optional deep dive that extends
@@ -563,7 +563,7 @@ usable by the AFP, a regulator or a court.
 | Module Type | Extension module (elective; **not** credit-bearing) |
 | Version | v0.1 |
 | Status | Draft |
-| Credit Points | 0 CP — outside the 168 CP degree structure |
+| Credit Points | 0 CP — outside the 160 CP degree structure |
 | Notional Hours | ~22 |
 | Extends | OC04; DF05; EXT-ANS (Topic 6, Lab 5) |
 | Related Units | OC05, DE04, DE05, SA-06, EXT-SPL SPL-05, EXT-ELK ELK-04 |
