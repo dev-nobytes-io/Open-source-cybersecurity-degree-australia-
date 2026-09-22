@@ -16,13 +16,13 @@ This page is the full text index of the same data.
 > [`docs/review/framework-verification.md`](review/framework-verification.md)
 > and [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 266 Knowledge · 135 Skills · 134 Abilities · 130 Tasks across 66/66 units with KSATs authored.
+**Totals:** 267 Knowledge · 135 Skills · 134 Abilities · 130 Tasks across 66/66 units with KSATs authored.
 
 ## Coverage by degree layer
 
 | Layer | Knowledge | Skills | Abilities | Tasks |
 |---|---|---|---|---|
-| Foundation | 26 | 15 | 14 | 12 |
+| Foundation | 27 | 15 | 14 | 12 |
 | Operational Core | 24 | 12 | 12 | 12 |
 | Strategic Core | 24 | 12 | 12 | 12 |
 | Major | 160 | 80 | 80 | 78 |
@@ -35,7 +35,7 @@ This page is the full text index of the same data.
 | F01 | Networking Fundamentals | Foundation | 3 | 2 | 2 | 2 |
 | F02 | Operating Systems & Administration | Foundation | 6 | 4 | 3 | 2 |
 | F03 | Scripting & Automation | Foundation | 4 | 2 | 2 | 2 |
-| F04 | Security Concepts & Principles | Foundation | 4 | 2 | 2 | 2 |
+| F04 | Security Concepts & Principles | Foundation | 5 | 2 | 2 | 2 |
 | F05 | Legal, Ethics & Australian Compliance | Foundation | 6 | 3 | 3 | 2 |
 | F06 | Data & Log Analysis | Foundation | 3 | 2 | 2 | 2 |
 | OC01 | Adversary Tradecraft & TTPs | Operational Core | 4 | 2 | 2 | 2 |
@@ -134,7 +134,7 @@ This page is the full text index of the same data.
 
 ## KSAT index
 
-665 KSAT items authored. Each is identifiable for coverage
+666 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -414,13 +414,14 @@ metrics; statements are derived from unit content.
 | T0077 | Task | F03 | Develop secure code and scripts to automate and support cyber tasks |
 | T0431 | Task | F03 | Automate system administration tasks across platforms |
 | F04-A01 | Ability | F04 | Ability to reason about and prioritise security risks and trade-offs |
-| F04-A02 | Ability | F04 | Ability to recommend prioritised, principle-based controls |
+| F04-A03 | Ability | F04 | Ability to reason from adversary economics to defensive priorities and to the Australian obligations a payment decision triggers |
 | F04-K01 | Knowledge | F04 | Knowledge of security objectives (CIA, authenticity, non-repudiation, accountability) |
 | F04-K02 | Knowledge | F04 | Knowledge of threat, vulnerability, and risk and how they combine |
 | F04-K03 | Knowledge | F04 | Knowledge of defensive principles (defence in depth, least privilege, zero trust) |
-| F04-K04 | Knowledge | F04 | Knowledge of cryptography, authentication, and access-control fundamentals |
+| F04-K05 | Knowledge | F04 | Knowledge of the MITRE ATT&CK tactic/technique/sub-technique/procedure hierarchy and the purpose and limits of each level |
+| F04-K06 | Knowledge | F04 | Knowledge of the financially motivated cybercriminal division of labour (developer, affiliate, initial-access broker, infrastructure provider, extortion platform, launderer) |
 | F04-S01 | Skill | F04 | Skill in threat modelling a system with STRIDE |
-| F04-S02 | Skill | F04 | Skill in mapping controls to principles and the ASD Essential Eight |
+| F04-S03 | Skill | F04 | Skill in grounding a threat model in a published, attributed adversary behaviour set and distinguishing evidenced from unevidenced threats |
 | T0149 | Task | F04 | Recommend resource allocations to mitigate identified risks |
 | T0177 | Task | F04 | Perform security reviews and identify gaps in security architecture |
 | F05-A01 | Ability | F05 | Ability to determine when an activity requires explicit authorisation |
