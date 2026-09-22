@@ -36,6 +36,32 @@ MIN_TOPICS = 6
 MIN_LABS = 2
 MIN_REFERENCES = 5
 REQUIRED_METADATA = ["Unit Code", "Unit Title", "Status", "Degree Layer", "Bloom's Level"]
+
+# A unit that has learners RUN offensive technique must carry a safety contract in
+# the file itself. This repository is public and published to MkDocs, so "gated"
+# and "prerequisite" describe controls that do not exist -- the contract has to
+# travel with the content.
+#
+# The trigger is an EXPLICIT metadata declaration, not a text heuristic. A
+# heuristic cannot reliably separate "the learner runs this attack" from "the unit
+# explains this attack so it can be detected", and a safety gate that silently
+# fails to fire is worse than none: it reports protection it is not providing.
+# The heuristic below exists only to WARN that a declaration may be missing.
+OFFENSIVE_METADATA_FIELD = "Offensive Content"
+OFFENSIVE_SAFETY_SECTION = "Safety, Authorisation & Isolation"
+
+# Advisory only, and deliberately narrow. These are scanned ONLY in numbered
+# instruction lines inside "## Labs & Exercises" -- i.e. imperatives addressed to
+# the learner -- because the same words appear innocently in prose about adversary
+# behaviour. ("gain a foothold" describing how adversaries operate in OC06, or
+# "pivot to related artefacts" describing CTI infrastructure pivoting in CT03, are
+# not learners running attacks.) Scanning whole files produced mostly noise.
+OFFENSIVE_HINTS = [
+    r"\bexploit the\b", r"\bescalate (?:to|your) privileg",
+    r"\bdump (?:the )?(?:credential|hash|lsass)",
+    r"\bcrack the (?:hash|password)", r"\brun the exploit\b",
+    r"\bpayload against\b", r"\bgain a foothold on\b",
+]
 PLACEHOLDER_TOKENS = [
     "YYYY-MM-DD", "[Unit Code]", "[Unit Title]", "[Bloom's verb]",
     "[complete outcome statement]", "[Lab Title]", "[Title]", "[Name / GitHub handle",
@@ -130,6 +156,34 @@ def lint_file(path: Path) -> tuple[list[str], list[str]]:
     if not re.search(r">\s*\*\*Status:\*\*", text):
         errors.append("missing '> **Status:**' header block")
     present = set(re.findall(r"^##\s+(.+?)\s*$", text, re.MULTILINE))
+    # --- Offensive content safety contract ---
+    # ERROR when a unit DECLARES offensive content but omits the safety section.
+    # The declaration is authoritative; the heuristic only raises a warning so a
+    # missing declaration gets human triage instead of silently passing.
+    offensive = metadata_value(text, OFFENSIVE_METADATA_FIELD)
+    declares_offensive = bool(offensive) and offensive.strip().lower().startswith("yes")
+    has_safety = re.search(
+        r"^##\s+" + re.escape(OFFENSIVE_SAFETY_SECTION) + r"\s*$", text, re.MULTILINE
+    )
+    if declares_offensive and not has_safety:
+        errors.append(
+            f"declares '{OFFENSIVE_METADATA_FIELD}: Yes' but has no "
+            f"'## {OFFENSIVE_SAFETY_SECTION}' section"
+        )
+    if not declares_offensive:
+        labs_body = section_body(text, "Labs & Exercises")
+        instructions = "\n".join(
+            ln for ln in labs_body.splitlines() if re.match(r"^\s*\d+\.\s", ln)
+        )
+        hits = [h for h in OFFENSIVE_HINTS if re.search(h, instructions, re.IGNORECASE)]
+        if hits:
+            warnings.append(
+                f"contains language suggesting learners run offensive technique "
+                f"({len(hits)} indicator(s)) but does not declare "
+                f"'{OFFENSIVE_METADATA_FIELD}: Yes' — confirm whether the safety "
+                f"contract is required"
+            )
+
     for section in REQUIRED_SECTIONS:
         if section not in present:
             errors.append(f"missing required section: ## {section}")
