@@ -45,7 +45,7 @@ graph LR
 
 | Framework | References |
 |---|---|
-| MITRE ATT&CK | All 14 tactics; technique-level hunting |
+| MITRE ATT&CK | All 15 tactics; technique-level hunting |
 | NIST NICE | SP-TEC-001, AN-TWT-001 |
 | DCWF | 511 (Cyber Defense Analyst) |
 | ASD Cyber Skills Framework | Cyber Defence domain |

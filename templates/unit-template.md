@@ -344,6 +344,7 @@ This unit incorporates the following Australian context:
 | Credit Points | 8 CP |
 | Degree Layer | [Foundation / Operational Core / Strategic Core / Major / Capstone] |
 | Major / Pathway | [e.g., Threat Hunting / All] |
+| Offensive Content | [Yes / No — "Yes" if a lab has the learner RUN offensive technique. "Yes" requires a `## Safety, Authorisation & Isolation` section; the linter enforces this] |
 | Prerequisites | [List unit codes, or "None"] |
 | Domain Expert | [Name — required before Practitioner Approved] |
 | Practitioner Reviewer | [Name — required before Practitioner Approved] |

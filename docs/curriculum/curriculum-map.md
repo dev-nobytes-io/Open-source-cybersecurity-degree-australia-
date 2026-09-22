@@ -93,10 +93,10 @@ who need to understand the degree at a glance.
 
 | Major | NICE DCWF Primary | ATT&CK Coverage | SFIA Level | Bloom's | Capstone Output |
 |---|---|---|---|---|---|
-| Threat Hunting | PR-CDA-001, AN-TWA-001 | All 14 tactics | 3–5 | 4–6 | Hunt report + hypothesis library |
+| Threat Hunting | PR-CDA-001, AN-TWA-001 | All 15 tactics | 3–5 | 4–6 | Hunt report + hypothesis library |
 | DFIR | PR-CIR-001, IN-FOR-001 | Execution, Persistence, Exfiltration focus | 3–5 | 4–6 | Forensic investigation report |
 | CTI | AN-TWA-001, AN-ASA-001 | All tactics (analytical) | 3–5 | 4–6 | Finished intelligence product |
-| Detection Engineering | PR-CDA-001 | All 14 tactics (detection focus) | 3–5 | 4–6 | Detection library + coverage report |
+| Detection Engineering | PR-CDA-001 | All 15 tactics (detection focus) | 3–5 | 4–6 | Detection library + coverage report |
 | CTE | OP-OPL-001, PR-VAM-001 | Red team technique coverage | 3–5 | 4–6 | Emulation plan + assessment report |
 
 ### Strategic Majors
