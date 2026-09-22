@@ -328,3 +328,39 @@ Units must display one of the following status labels in their metadata:
 | `Archived` | Retired; no longer current |
 
 See `docs/governance.md` for the full content lifecycle and transition requirements.
+
+## Offensive content and the safety contract
+
+A unit whose labs have the learner **run** offensive technique declares it in
+Unit Metadata:
+
+```markdown
+| Offensive Content | Yes |
+```
+
+Declaring it makes `## Safety, Authorisation & Isolation` a **required section**.
+`.github/scripts/lint_units.py` raises an ERROR if the declaration is present and
+the section is not, so the build fails. Copy the section from
+[`templates/safety-authorisation-isolation.md`](https://github.com/dev-nobytes-io/Open-source-cybersecurity-degree-australia-/blob/main/templates/safety-authorisation-isolation.md).
+
+**The declaration is authoritative; the linter does not guess.** A text heuristic
+cannot separate "the learner runs this attack" from "the unit explains this attack
+so it can be detected" — `OC06` describing how adversaries gain a foothold and
+`CT03` describing CTI infrastructure pivoting are not learners running attacks. A
+safety gate that silently fails to fire is worse than none, because it reports
+protection it is not providing.
+
+The linter additionally scans **numbered instruction lines inside
+`## Labs & Exercises`** for imperatives that suggest offensive execution, and
+raises a WARNING where it finds them without a declaration. That is advisory: it
+prompts human triage for a missing declaration and never blocks a build.
+
+### Scope, stated honestly
+
+This is an authoring standard, not containment. The repository is public and
+published to MkDocs, so merging is worldwide publication and no "prerequisite" or
+"gate" in the content is a technical control. What the contract does is guarantee
+that the boundary travels in the same file as the technique. What actually bounds
+exposure is editorial: pre-merge Practitioner Reviewer sign-off for offensive
+units, and the decision about what is written down at all.
+
