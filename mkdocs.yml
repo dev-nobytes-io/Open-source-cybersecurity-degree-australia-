@@ -169,6 +169,7 @@ nav:
         - "CCI-02 — The Criminal Economy: Financing, Laundering & Cash-Out": docs/modules/adversary-counterintel/cci-02-the-criminal-economy.md
         - CCI-03 — The Service Economy — Cybercrime-as-a-Service as an Industry: docs/modules/adversary-counterintel/cci-03-the-service-economy.md
         - CCI-04 — State-Sponsored Operations & the State–Crime Nexus: docs/modules/adversary-counterintel/cci-04-state-sponsored-operations.md
+        - CCI-05 — Case Studies in the Adversary Economy: docs/modules/adversary-counterintel/cci-05-case-studies.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
