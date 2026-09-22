@@ -11,14 +11,14 @@ To move a unit forward, open a **Unit Review Request** issue (template in
 
 | Status | Units |
 |---|---|
-| Draft | 66 |
+| Draft | 67 |
 | Under Review | 0 |
 | Practitioner Approved | 0 |
 | Framework Verified | 0 |
 | Published | 0 |
-| **Total** | **66** |
+| **Total** | **67** |
 
-**Reviewer assignment:** Domain Expert assigned on 0/66 · Practitioner Reviewer assigned on 0/66.
+**Reviewer assignment:** Domain Expert assigned on 0/67 · Practitioner Reviewer assigned on 0/67.
 
 > All units are **Draft** — Phase 4 (practitioner review) has not yet begun. This dashboard will track progress as reviewers sign off.
 
@@ -34,6 +34,7 @@ To move a unit forward, open a **Unit Review Request** issue (template in
 | F04 | Security Concepts & Principles | Draft | — | — | 2026-06-21 |
 | F05 | Legal, Ethics & Australian Compliance | Draft | — | — | 2026-06-21 |
 | F06 | Data & Log Analysis | Draft | — | — | 2026-06-21 |
+| F07 | Attack Mechanics | Draft | — | — | 2026-09-21 |
 
 ### Operational Core
 

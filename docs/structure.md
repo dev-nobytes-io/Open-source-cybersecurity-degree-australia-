@@ -53,11 +53,14 @@ graph TB
 
 | Layer | Units | Credit Points | Year |
 |---|---|---|---|
-| Foundation (shared) | 6 | 48 CP | Year 1 |
+| Foundation (shared) | 7 | 56 CP | Year 1 |
 | Degree Core (operational or strategic) | 6 | 48 CP | Year 2 |
-| Major | 6 | 48 CP | Year 3 |
-| Capstone | 1 | 24 CP | Year 3 |
+| Major (5 taught units × 8 CP + 24 CP capstone) | 6 | 64 CP | Year 3 |
 | **Total** | **19** | **168 CP** | **3 years** |
+
+> The capstone is the sixth unit **of the major** (e.g. `CE06`), not a separate
+> nineteenth unit. Foundation gains a seventh unit, **F07 — Attack Mechanics &
+> Adversary Behaviour**, so a pathway is 7 + 6 + 6 = 19 units / 168 CP.
 
 > Credit point structure follows AQF Level 7 Bachelor Degree conventions (typically 144–192 CP for a 3-year degree at Australian universities).
 
@@ -374,7 +377,7 @@ flowchart LR
 
 ```mermaid
 graph TD
-    ANY["Any learner"] --> F["Foundation Year<br/>F01–F06"]
+    ANY["Any learner"] --> F["Foundation Year<br/>F01–F07"]
     F --> OC["Operational Core<br/>OC01–OC06"]
     F --> SC["Strategic Core<br/>SC01–SC06"]
     OC --> TH["Threat Hunting Major"]

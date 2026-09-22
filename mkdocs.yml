@@ -218,6 +218,7 @@ nav:
       - F04 — Security Concepts & Principles: core/units/F04-security-concepts.md
       - F05 — Legal, Ethics & Australian Compliance: core/units/F05-legal-ethics-compliance.md
       - F06 — Data & Log Analysis: core/units/F06-data-log-analysis.md
+      - F07 — Attack Mechanics & Adversary Behaviour: core/units/F07-attack-mechanics.md
 
     - Operational Core:
       - OC01 — Adversary Tradecraft & TTPs: core/units/OC01-adversary-tradecraft.md
