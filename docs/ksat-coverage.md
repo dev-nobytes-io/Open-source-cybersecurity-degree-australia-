@@ -16,13 +16,13 @@ This page is the full text index of the same data.
 > [`docs/review/framework-verification.md`](review/framework-verification.md)
 > and [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 271 Knowledge · 138 Skills · 135 Abilities · 130 Tasks across 66/66 units with KSATs authored.
+**Totals:** 276 Knowledge · 141 Skills · 137 Abilities · 133 Tasks across 67/67 units with KSATs authored.
 
 ## Coverage by degree layer
 
 | Layer | Knowledge | Skills | Abilities | Tasks |
 |---|---|---|---|---|
-| Foundation | 30 | 17 | 14 | 12 |
+| Foundation | 35 | 20 | 16 | 15 |
 | Operational Core | 24 | 12 | 12 | 12 |
 | Strategic Core | 24 | 12 | 12 | 12 |
 | Major | 161 | 81 | 81 | 78 |
@@ -38,6 +38,7 @@ This page is the full text index of the same data.
 | F04 | Security Concepts & Principles | Foundation | 5 | 2 | 2 | 2 |
 | F05 | Legal, Ethics & Australian Compliance | Foundation | 6 | 3 | 3 | 2 |
 | F06 | Data & Log Analysis | Foundation | 3 | 2 | 2 | 2 |
+| F07 | Attack Mechanics | Foundation | 5 | 3 | 2 | 3 |
 | OC01 | Adversary Tradecraft & TTPs | Operational Core | 4 | 2 | 2 | 2 |
 | OC02 | Security Monitoring & SIEM | Operational Core | 4 | 2 | 2 | 2 |
 | OC03 | Malware Analysis Fundamentals | Operational Core | 4 | 2 | 2 | 2 |
@@ -105,7 +106,7 @@ This page is the full text index of the same data.
 |---|---|
 | AN-ASA-001 — All-Source Analyst | OC05 |
 | AN-ASA-001 — All-Source Analyst (611) | CT01, CT02, CT03, CT04, CT05, CT06 |
-| AN-EXP-001 — Exploitation Analyst | OC06 |
+| AN-EXP-001 — Exploitation Analyst | F07, OC06 |
 | AN-EXP-001 — Exploitation Analyst (711) | CE02, CE03, CE04, CE06 |
 | AN-TWA-001 — Threat/Warning Analyst | OC01, OC05, TH01, TH02 |
 | AN-TWA-001 — Threat/Warning Analyst (621) | CT01, CT02, CT03, CT04, CT05, CT06 |
@@ -120,10 +121,10 @@ This page is the full text index of the same data.
 | OV-SPP-001 — Cyber Policy & Strategy Planner | CE01, CE05, SC03, SC04, SC05, SC06 |
 | OV-SPP-001 — Cyber Policy & Strategy Planner (752) | GR01, GR03, LD02 |
 | OV-SPP-002 — Cyber Workforce Developer/Manager | LD04 |
-| PR-CDA-001 — Cyber Defense Analyst | F01, F02, F06, OC01, OC02, OC03 |
+| PR-CDA-001 — Cyber Defense Analyst | F01, F02, F06, F07, OC01, OC02, OC03 |
 | PR-CDA-001 — Cyber Defense Analyst (511) | CE02, CE03, CE04, CE05, CE06, DE01, DE02, DE03, DE04, DE05, DE06, DF04, SE04, TH01, TH02, TH03, TH04, TH05, TH06 |
 | PR-CIR-001 — Cyber Defense Incident Responder | DF05, DF06, OC04, SC06 |
-| PR-VAM-001 — Vulnerability Assessment Analyst | CE01, OC06 |
+| PR-VAM-001 — Vulnerability Assessment Analyst | CE01, F07, OC06 |
 | SP-ARC-001 — Enterprise Architect | SC02, SE02, SE06 |
 | SP-ARC-002 — Security Architect | SC02 |
 | SP-ARC-002 — Security Architect (652) | SE01, SE02, SE03, SE04, SE05, SE06 |
@@ -134,7 +135,7 @@ This page is the full text index of the same data.
 
 ## KSAT index
 
-674 KSAT items authored. Each is identifiable for coverage
+687 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -455,6 +456,19 @@ metrics; statements are derived from unit content.
 | F06-S02 | Skill | F06 | Skill in reconstructing an event timeline across multiple sources |
 | T0166 | Task | F06 | Perform event correlation using information from multiple sources |
 | T0259 | Task | F06 | Identify and analyse anomalous activity in log and event data |
+| F07-A01 | Ability | F07 | Ability to pair each technique with the defensive artefact it leaves |
+| F07-A02 | Ability | F07 | Ability to keep offensive activity within an authorised, isolated boundary |
+| F07-K01 | Knowledge | F07 | Knowledge of the intrusion lifecycle as a chained ATT&CK tactic sequence |
+| F07-K02 | Knowledge | F07 | Knowledge of reconnaissance and initial-access mechanics built on port-state, HTTP, and the initial-access economy |
+| F07-K03 | Knowledge | F07 | Knowledge of execution and host-persistence locations on Linux and Windows |
+| F07-K04 | Knowledge | F07 | Knowledge of Linux privilege-escalation paths and the identity-based attack paths on the Windows substrate |
+| F07-K05 | Knowledge | F07 | Knowledge of SQL injection and cross-site scripting as consequences of HTTP/trust-boundary handling |
+| F07-S01 | Skill | F07 | Skill in performing a bounded reconnaissance-to-foothold chain against an isolated target |
+| F07-S02 | Skill | F07 | Skill in performing a Linux SUID/sudo privilege escalation on a learner-owned VM |
+| F07-S03 | Skill | F07 | Skill in performing SQL injection and cross-site scripting against a self-hosted vulnerable app |
+| T0028 | Task | F07 | Conduct and support authorised assessment of hosts and applications |
+| T0266 | Task | F07 | Conduct authorised penetration testing to identify exploitable conditions |
+| T0294 | Task | F07 | Correlate activity to recognise the artefacts a technique produces |
 | GR01-A01 | Ability | GR01 | Ability to design fit-for-purpose governance |
 | GR01-A02 | Ability | GR01 | Ability to assign clear accountability for security |
 | GR01-K01 | Knowledge | GR01 | Knowledge of what security governance is |
