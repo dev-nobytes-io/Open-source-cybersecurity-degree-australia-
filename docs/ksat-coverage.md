@@ -16,13 +16,13 @@ This page is the full text index of the same data.
 > [`docs/review/framework-verification.md`](review/framework-verification.md)
 > and [`docs/maturity-models.md`](maturity-models.md).
 
-**Totals:** 263 Knowledge · 133 Skills · 133 Abilities · 130 Tasks across 66/66 units with KSATs authored.
+**Totals:** 266 Knowledge · 135 Skills · 134 Abilities · 130 Tasks across 66/66 units with KSATs authored.
 
 ## Coverage by degree layer
 
 | Layer | Knowledge | Skills | Abilities | Tasks |
 |---|---|---|---|---|
-| Foundation | 23 | 13 | 13 | 12 |
+| Foundation | 26 | 15 | 14 | 12 |
 | Operational Core | 24 | 12 | 12 | 12 |
 | Strategic Core | 24 | 12 | 12 | 12 |
 | Major | 160 | 80 | 80 | 78 |
@@ -33,7 +33,7 @@ This page is the full text index of the same data.
 | Unit | Title | Layer | K | S | A | T |
 |---|---|---|---|---|---|---|
 | F01 | Networking Fundamentals | Foundation | 3 | 2 | 2 | 2 |
-| F02 | Operating Systems & Administration | Foundation | 3 | 2 | 2 | 2 |
+| F02 | Operating Systems & Administration | Foundation | 6 | 4 | 3 | 2 |
 | F03 | Scripting & Automation | Foundation | 4 | 2 | 2 | 2 |
 | F04 | Security Concepts & Principles | Foundation | 4 | 2 | 2 | 2 |
 | F05 | Legal, Ethics & Australian Compliance | Foundation | 6 | 3 | 3 | 2 |
@@ -134,7 +134,7 @@ This page is the full text index of the same data.
 
 ## KSAT index
 
-659 KSAT items authored. Each is identifiable for coverage
+665 KSAT items authored. Each is identifiable for coverage
 metrics; statements are derived from unit content.
 
 | ID | Type | Unit | Statement |
@@ -390,11 +390,17 @@ metrics; statements are derived from unit content.
 | T0294 | Task | F01 | Conduct research, analysis, and correlation across a variety of data sets |
 | F02-A01 | Ability | F02 | Ability to apply baseline host hardening mapped to the Essential Eight |
 | F02-A02 | Ability | F02 | Ability to distinguish benign from suspicious host state |
+| F02-A03 | Ability | F02 | Ability to explain an attack as the consequence of a named protocol or OS design property rather than as a tool invocation |
 | F02-K01 | Knowledge | F02 | Knowledge of operating-system architecture (kernel, processes, memory, file systems) |
 | F02-K02 | Knowledge | F02 | Knowledge of Linux and Windows administration and the user/group/privilege models |
 | F02-K03 | Knowledge | F02 | Knowledge of host logging/auditing subsystems and persistence locations |
+| F02-K04 | Knowledge | F02 | Knowledge of the Windows authentication substrate — LSASS-held authenticators, NTLM challenge-response, and the Kerberos AS/TGS exchanges — and the design properties that make credential and ticket abuse possible |
+| F02-K05 | Knowledge | F02 | Knowledge of the process/thread/handle model, execution provenance, executable loading (PE and ELF), and signed-binary (LOLBin) abuse |
+| F02-K06 | Knowledge | F02 | Knowledge of the authentication and directory records that evidence logon, Kerberos ticket issuance and object access (Windows 4624/4625/4768/4769/4662; Linux auditd syscall records) |
 | F02-S01 | Skill | F02 | Skill in performing administrative tasks across Linux and Windows |
 | F02-S02 | Skill | F02 | Skill in inspecting a host for compromise indicators |
+| F02-S03 | Skill | F02 | Skill in reading a Kerberos exchange from the wire, the client ticket cache, and the resulting audit records |
+| F02-S04 | Skill | F02 | Skill in tracing a privilege transition — the Linux effective-UID change, the Windows service/token path — back to the configuration that enabled it |
 | T0163 | Task | F02 | Perform cyber defense trend analysis and reporting using host data |
 | T0431 | Task | F02 | Perform system administration on specialized cyber defense systems |
 | F03-A01 | Ability | F03 | Ability to select an appropriate language/tool for an automation task |
