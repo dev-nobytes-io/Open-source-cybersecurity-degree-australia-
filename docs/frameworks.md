@@ -92,7 +92,7 @@ ATT&CK is structured as Tactics → Techniques → Sub-techniques. Each major en
 mindmap
   root((MITRE ATT&CK))
     Threat Hunting
-      All 14 tactics
+      All 15 tactics
       Hunting by technique
       Navigator proficiency
     DFIR
@@ -109,11 +109,20 @@ mindmap
       Sigma rule authoring
     Cyber Threat Emulation
       Emulation plan execution
-      All 14 tactics
+      All 15 tactics
       Sub-technique precision
 ```
 
 ### ATT&CK Tactic Coverage by Major
+
+> **v19 tactic changes.** Enterprise ATT&CK v19 carries **15** tactics, not 14.
+> `TA0005` was renamed *Defense Evasion* → **Stealth**, and **`TA0112` Defense
+> Impairment** was added. Verified against
+> [attack.mitre.org/tactics/enterprise](https://attack.mitre.org/tactics/enterprise/)
+> (content version v19.2) on 2026-09-21. Coverage for the new tactic has **not**
+> been assessed for any major — that is part of the v19 mapping audit this page
+> already records as outstanding.
+
 
 | Tactic | TH | DFIR | CTI | DE | CTE |
 |---|---|---|---|---|---|
@@ -123,7 +132,8 @@ mindmap
 | Execution | Full | Full | Full | Full | Full |
 | Persistence | Full | Full | Full | Full | Full |
 | Privilege Escalation | Full | Full | Partial | Full | Full |
-| Defense Evasion | Full | Full | Full | Full | Full |
+| Stealth *(TA0005 — renamed from Defense Evasion in v19)* | Full | Full | Full | Full | Full |
+| Defense Impairment *(TA0112 — new in v19)* | **Not yet assessed** | **Not yet assessed** | **Not yet assessed** | **Not yet assessed** | **Not yet assessed** |
 | Credential Access | Full | Full | Partial | Full | Full |
 | Discovery | Full | Full | Partial | Full | Full |
 | Lateral Movement | Full | Full | Full | Full | Full |
