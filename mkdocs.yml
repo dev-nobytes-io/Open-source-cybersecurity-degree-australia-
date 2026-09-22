@@ -165,6 +165,7 @@ nav:
         - Self-assessment quiz: docs/modules/constrained-operations/quiz.md
       - "EXT-CCI — Adversary Counter-Intelligence: The Cybercrime & State-Cyber Ecosystem":
         - Series index: docs/modules/adversary-counterintel/index.md
+        - CCI-01 — The Cybercriminal Enterprise: docs/modules/adversary-counterintel/cci-01-the-cybercriminal-enterprise.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
