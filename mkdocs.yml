@@ -163,6 +163,8 @@ nav:
         - DSO-03 — Rapid Deployment, Teardown and Sanitisation: docs/modules/constrained-operations/dso-03-rapid-deployment-teardown-and-sanitisation.md
         - DSO-04 — Validation in Degraded Conditions: docs/modules/constrained-operations/dso-04-validation-in-degraded-conditions.md
         - Self-assessment quiz: docs/modules/constrained-operations/quiz.md
+      - "EXT-CCI — Adversary Counter-Intelligence: The Cybercrime & State-Cyber Ecosystem":
+        - Series index: docs/modules/adversary-counterintel/index.md
     - Accreditation: docs/accreditation.md
     - Governance: docs/governance.md
     - Content Standards: docs/content-standards.md
